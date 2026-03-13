@@ -1,20 +1,48 @@
 from kafka import KafkaProducer
 import os
 import json
-import datetime
 import time
 import uuid
+import logging
 
-host = os.environ["Kafka_Host_DP"]
-producer = KafkaProducer(
-    bootstrap_servers=host,
-    value_serializer=lambda v: json.dumps(v).encode("ascii"),
-)
+
+logger = logging.getLogger(__name__)
+producer = None
+producer_failed = False
+
+
+def get_producer():
+    global producer, producer_failed
+
+    if producer is not None:
+        return producer
+    if producer_failed:
+        return None
+
+    host = os.environ.get("Kafka_Host_DP")
+    if not host:
+        return None
+
+    try:
+        producer = KafkaProducer(
+            bootstrap_servers=host,
+            value_serializer=lambda v: json.dumps(v).encode("ascii"),
+        )
+    except Exception:
+        producer_failed = True
+        logger.exception("Kafka producer initialization failed")
+        return None
+
+    return producer
 
 
 def send_kafka(topic, data):
-    producer.send(topic, value=data)
-    producer.flush()
+    kafka_producer = get_producer()
+    if kafka_producer is None:
+        return
+
+    kafka_producer.send(topic, value=data)
+    kafka_producer.flush()
 
 
 def send_logs(
