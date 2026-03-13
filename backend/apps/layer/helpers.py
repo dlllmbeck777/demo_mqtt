@@ -4,6 +4,7 @@ from django.db.utils import ProgrammingError
 import environ
 import couchdb
 import importlib
+import logging
 from utils.utils import import_data
 import subprocess
 import os
@@ -21,6 +22,7 @@ from utils.service_config import (
 )
 
 env = environ.Env(DEBUG=(bool, False))
+logger = logging.getLogger(__name__)
 
 
 def getDefaultDBSettings():
@@ -34,8 +36,14 @@ def to_layerDb(layers):
         active_db_settings = (
             layer.objects.filter(LAYER_NAME=layers).values("DB_SETTINGS").first()
         )
-        # print(active_db_settings)
-        user_db_settings.update(active_db_settings.get("DB_SETTINGS"))
+        if not active_db_settings:
+            return change_db("default")
+
+        db_settings = active_db_settings.get("DB_SETTINGS")
+        if not db_settings:
+            return change_db("default")
+
+        user_db_settings.update(db_settings)
 
         user_db_settings["NAME"] = user_db_settings["NAME"].lower()
 
@@ -46,8 +54,8 @@ def to_layerDb(layers):
         change_db("layer_db")
 
     except Exception as e:
-        print(e)
-        print("----------->", str(e))
+        logger.warning("Falling back to default DB for layer '%s': %s", layers, e)
+        change_db("default")
 
 
 def change_db(db_type):

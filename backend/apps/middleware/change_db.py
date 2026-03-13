@@ -21,6 +21,8 @@ class ChangeDBMiddleware:
         return response
 
     def getActiveLayer(self, user):
+        if not getattr(user, "is_authenticated", False):
+            return "STD"
         to_layerDb("STD")
         layers = User.objects.filter(email=user).values("active_layer").first()
         if layers:
