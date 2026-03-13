@@ -4,12 +4,13 @@ services:
     restart: unless-stopped
     build:
       context: .
-      dockerfile: ./dockerfile/local/frontend/Dockerfile
+      dockerfile: ./Dockerfile
     container_name: ligeiaai-frontend-1
     env_file:
       - .env
     volumes:
       - ./:/frontend:delegated
+      - frontend-node-modules:/frontend/frontend/node_modules
     ports:
       - "3000:3000"
     environment:
@@ -21,14 +22,14 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./docker-compose/app/nginx.conf:/etc/nginx/nginx.conf:ro
     networks:
       - net
   django:
     restart: unless-stopped
     build:
       context: .
-      dockerfile: ./dockerfile/local/django/Dockerfile
+      dockerfile: ./all_dockerfiles/local/django/Dockerfile
     command: /start
     container_name: ligeiaai-django-1
     env_file:
@@ -191,7 +192,7 @@ services:
   connect:
     build:
       context: .
-      dockerfile: ./dockerfile/dev/datapipelines/Dockerfile
+      dockerfile: ./all_dockerfiles/dev/datapipelines/Dockerfile
     container_name: ligeiaai-connect
     hostname: connect
     ports:
@@ -224,7 +225,7 @@ services:
   nifi:
     build:
       context: .
-      dockerfile: ./dockerfile/local/datapipline/Nifi/Dockerfile
+      dockerfile: ./all_dockerfiles/local/datapipline/Nifi/Dockerfile
     restart: unless-stopped
     image: apache/nifi:latest
     env_file:
@@ -274,6 +275,7 @@ networks:
   net:
     driver: bridge
 volumes:
+  frontend-node-modules: null
   postgres-data: null
   pgadmin-data: null
   redis-data: null

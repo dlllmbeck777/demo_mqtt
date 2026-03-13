@@ -1,4 +1,23 @@
 #!/usr/bin/env bash
 
-cd frontend
-npm start --host 0.0.0.0 --port 3000 --disableHostCheck true
+set -o errexit
+set -o pipefail
+set -o nounset
+
+if [[ -f /frontend/frontend/package.json ]]; then
+  APP_DIR=/frontend/frontend
+elif [[ -f /frontend/package.json ]]; then
+  APP_DIR=/frontend
+else
+  echo "frontend package.json not found"
+  exit 1
+fi
+
+cd "$APP_DIR"
+
+if [[ ! -d node_modules ]]; then
+  npm config set legacy-peer-deps true
+  npm install
+fi
+
+exec npm run start -- --host 0.0.0.0 --port "${PORT:-3000}"
