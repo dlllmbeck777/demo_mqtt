@@ -15,7 +15,8 @@ fi
 
 cd "$APP_DIR"
 
-if [[ ! -d node_modules ]]; then
+if [[ ! -x node_modules/.bin/react-scripts ]]; then
+  mkdir -p node_modules
   npm config set legacy-peer-deps true
   npm install
 fi
