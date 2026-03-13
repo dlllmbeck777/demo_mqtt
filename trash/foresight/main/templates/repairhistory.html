@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block sidebar %}
+<li class="sidebar-item  "><a class="sidebar-link" href="/"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/home.svg' %}">
+  <span>Главное меню </span></a></li>
+<li class="sidebar-item "><a class="sidebar-link" href="/work"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/repair.svg' %}"><span>Тех.работы </span></a></li>
+<li class="sidebar-item active"><a class="sidebar-link" href="/repair"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/repair.svg' %}"><span>Ремонты </span></a></li>
+<li class="sidebar-item"><a class="sidebar-link" href="{% url 'logout'%}?next={{request.path}}"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/logout.svg' %}"><span>Выйти </span></a></li>
+
+{% endblock %}
+
+{% block title %}
+<a class="navbar-brand" href="">Ремонты</a> 
+{% endblock %}
+            
+            
+{% block content %}
+<div class="container-fluid">
+  <div class="row gy-4">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-between">
+        <a href="/repair/">
+        <h3 class="description"><u>Запрос о ремонте</u></h3>
+        </a>
+        <h3 class="description">История ремонтов </h3>
+      </div>
+      <div class="col-md-12">
+        <div class="card card-stats">
+          <div class="">
+              <form method="get">
+                <div class="row" style="margin-top: 25px;">
+                  <div class="col-sm-8 d-flex justify-content-around align-self-center ">
+
+                    {% crispy repair_filter.form %}
+                  </div>
+                  <div class="col-sm-2 d-flex justify-content-around align-self-center">
+
+                    <button class="btn btn-primary btn-circle">Фильтр</button>
+                    
+                  </div>
+                  <div class="col-sm-2 d-flex justify-content-around align-self-center">
+                    <a href="{% url 'repair-history-export' %}" class="btn btn-success btn-circle">Экспорт</a>
+                  </div>
+                </div>    
+                
+              </form>
+          </div>
+          <div class="card-header-3">
+            <h5 class="description card-title">Статистика</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    ТНС
+                  </th>
+                  <th>
+                    Устройство
+                  </th>
+                  <th class="text-right">
+                    Тип работ и количество
+                  </th>
+                </thead>
+                <tbody>
+                  {% if pump_list %}
+                  {% for pump in pump_list %}
+                    {% if not pump.bearing_counter|stringformat:"s" == "0" or not pump.wheel_counter|stringformat:"s" == "0" or not pump.shaft_counter|stringformat:"s" == "0" or not pump.rotor_counter|stringformat:"s" == "0" %}     
+                      <tr>
+                        <td>
+                          {{pump.station}}
+                        </td>
+                        <td>
+                          {{pump}}
+                        </td>
+                        <td class="text-right">
+                          <ul class="list-group list-group-flush">
+                            {% if pump.bearing_counter|stringformat:"s" != "0" %}
+                            <li class="list-group-item">
+                              <b> Замена подшипника (двухрядного шарикового; роликового): </b> {{pump.bearing_counter}}
+                            </li>
+                            {% endif %}
+                            {% if pump.wheel_counter|stringformat:"s" != "0" %}
+                            <li class="list-group-item">
+                              <b> Замена рабочего колеса: </b> {{pump.wheel_counter}}
+                            </li>
+                            {% endif %}
+                            {% if pump.shaft_counter|stringformat:"s" != "0" %}
+                            <li class="list-group-item">
+                              <b> Замена вала: </b> {{pump.shaft_counter}}
+                            </li>
+                            {% endif %}
+                            {% if pump.rotor_counter|stringformat:"s" != "0" %}
+                            <li class="list-group-item">
+                              <b> Замена ротора: </b> {{pump.rotor_counter}}
+                            </li>
+                            {% endif %}
+                          </ul>
+                          
+                        </td>
+                      </tr>
+                    {% endif %}
+                  {% endfor %}
+                  {% else %}
+                  <tr>
+                    <td></td>
+                    <td>
+                      По данному насосу ремонтов не было
+                    </td>
+                    <td></td>
+                  </tr>
+                  
+                  {% endif %}
+                </tbody>
+              </table>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="card card-stats">
+          <div class="card-header-3">
+            <h5 class="description card-title">Детализация</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table ">
+                <thead class=" text-primary">
+                  <th>
+                    ТНС
+                  </th>
+                  <th>
+                    Устройство
+                  </th>
+                  <th>
+                    Тип работ
+                  </th>
+                  <th class="text-right">
+                    Дата ремонта
+                  </th>
+                  <th class="text-right">
+                    Заключение по проверке
+                  </th>
+                </thead>
+                <tbody>
+                  {% if page_obj %}
+                  {% for repair in page_obj %}
+                  <tr>
+                    <td>
+                      {{repair.station}}
+                    </td>
+                    <td>
+                      {{repair.pump}}
+                    </td>
+                    <td>
+                      <ul class="list-group list-group-flush">
+                        {% for work in repair.repairworktypes_set.all %}
+                        <li class="list-group-item">
+                          <b>Дата ремонта:</b> {{work.datePerformed}}<br>
+                          {% if work.workPerformed == "bearing" %}
+                          <b>Элемент агрегата: </b>
+                          {{work.bearingElement_verbose}}<br>
+                          <b>Тип подшипника: </b>
+                          {{work.bearingType_verbose}}<br>
+                          <b>Модель подшипника: </b>
+                          {{work.bearingModel_verbose}}<br>
+                          <b>MMTF: </b>
+                          {{work.mmtf}}<br>
+                          {% elif work.workPerformed == "wheel" %}
+                          <b>Тип рабочего колеса: </b>
+                          {{work.wheelModel_verbose}}<br>
+                          <b>MMTF: </b>
+                          {{work.mmtf}}<br>
+                          {% elif work.workPerformed == "shaft" %}
+                          <b>Модель вала: </b>
+                          {{work.shaftModel_verbose}}<br>
+                          <b>MMTF: </b>
+                          {{work.mmtf}}<br>
+                          {% elif work.workPerformed == "rotor" %}
+                          <b>Замена ротора</b><br>
+                          <b>MMTF: </b>
+                          {{work.mmtf}}<br>
+                          {% endif %}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                      
+                    </td>
+                    <td class="text-right"> 
+                      {{repair.repairDateStart}} - {{repair.repairDateEnd}} 
+                    </td>
+                    <td class="text-right" style="max-width: 300px">
+                      {{repair.description}}
+                    </td>
+                  </tr>
+                  {% endfor %}
+
+                  {% else %}
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      По данному насосу ремонтов не было
+                    </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  {% endif %}
+                </tbody>
+              </table>
+              <div class=" ">
+                <span class="d-flex justify-content-end">
+                  {% if page_obj.has_previous or page_obj.has_next %}
+                    <ul class="pagination">
+                      {% for page_num in page_obj.paginator.page_range %}
+                      <li class="page-item  "><a class="page-link text-primary" href="?page={{page_num}}">{{page_num}}</a></li>
+                      {% endfor %}
+                      </ul> 
+                  {% endif %}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>    
+  </div>
+</div>
+  <script>
+    
+  </script>
+
+{% endblock %}`

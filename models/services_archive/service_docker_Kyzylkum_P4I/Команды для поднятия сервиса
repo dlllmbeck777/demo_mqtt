@@ -1,0 +1,5 @@
+
+
+Команда для установки сервиса:  sudo docker build . -t kcell_score:dev
+Команда для запуска сервиса: sudo docker run -it -p 1478:1478 kcell_score:dev
+Команда для удаления сервисов (всех): sudo docker system prune -a -f

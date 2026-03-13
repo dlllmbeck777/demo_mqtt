@@ -1,0 +1,15 @@
+from django.db import models
+class Domain_base(models.Model):
+    item_id = models.CharField(db_column='ITEM_ID', primary_key=True, max_length=32) 
+    active= models.BooleanField(db_column='ACTIVE',blank='False')
+    data_status= models.CharField(db_column='DATA_STATUS',blank='True')
+    latitude= models.DecimalField(db_column='LATITUDE',blank='True',max_length='12.000000000000',decimal_places='8.000000000000')
+    legacy_id= models.CharField(db_column='LEGACY_ID',blank='True')
+    longitude= models.DecimalField(db_column='LONGITUDE',blank='True',max_length='12.000000000000',decimal_places='8.000000000000')
+    name= models.CharField(db_column='NAME',blank='False')
+    north= models.BooleanField(db_column='NORTH',blank='True')
+    spheroid= models.CharField(db_column='SPHEROID',blank='True')
+    time_zone= models.DecimalField(db_column='TIME_ZONE',blank='True')
+    x= models.DecimalField(db_column='X',blank='True',max_length='12.000000000000',decimal_places='4.000000000000')
+    y= models.DecimalField(db_column='Y',blank='True',max_length='12.000000000000',decimal_places='4.000000000000')
+    zone= models.DecimalField(db_column='ZONE',blank='True',max_length='2.000000000000',decimal_places='0.000000000000')

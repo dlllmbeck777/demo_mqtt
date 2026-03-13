@@ -1,0 +1,72 @@
+# PostgresSQL
+psycopg2
+psycopg2-binary
+
+# serve files
+whitenoise
+haystack
+# Django Framework
+Django
+djangorestframework
+django-environ
+django-filter
+django-rest-knox
+django-extensions
+django-modeltranslation
+django-disposable-email-checker
+django-health-check
+django-redis
+django-cors-headers
+django-cities-light
+django-smart-selects
+django-mptt
+channels
+channels-redis
+daphne
+pymongo
+confluent_kafka
+django_elasticsearch_dsl_drf
+channels_redis
+django-background-tasks
+kazoo
+# Kafka-Python
+kafka-python
+
+
+#cassandra
+cassandra-driver
+
+# Sentry
+raven
+
+# for date processing
+python-dateutil
+
+#misc
+#uWSGI
+
+#celery
+celery
+flower
+redis
+django-celery-email
+django-celery-beat
+
+# DRF docs
+
+dj-rest-auth
+#social-auth-app-django
+django-allauth==0.51.0
+
+#Datapipline
+findspark
+pyspark
+
+#ElasticSearch
+elasticsearch
+elasticsearch-dsl
+django-elasticsearch-dsl
+
+
+#couchdb
+couchdb

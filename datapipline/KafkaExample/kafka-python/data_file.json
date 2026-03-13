@@ -1,0 +1,953 @@
+[{
+    "date1": "1980-01-06 00:00:00",
+    "Temperature:": "23.33",
+    "Pressure:": "15.95",
+    "Vibration_X": "6.88",
+    "Vibration_Y": "4.25",
+    "Vibration_motor": "9.78"
+},{
+    "date1": "1980-01-11 00:00:00",
+    "Temperature:": "79.29",
+    "Pressure:": "14.31",
+    "Vibration_X": "2.96",
+    "Vibration_Y": "4.26",
+    "Vibration_motor": "3.54"
+},{
+    "date1": "1980-01-16 00:00:00",
+    "Temperature:": "65.47",
+    "Pressure:": "11.61",
+    "Vibration_X": "6.84",
+    "Vibration_Y": "9.79",
+    "Vibration_motor": "1.28"
+},{
+    "date1": "1980-01-21 00:00:00",
+    "Temperature:": "65.43",
+    "Pressure:": "6.01",
+    "Vibration_X": "4.52",
+    "Vibration_Y": "1.5",
+    "Vibration_motor": "8.27"
+},{
+    "date1": "1980-01-26 00:00:00",
+    "Temperature:": "78.87",
+    "Pressure:": "1.86",
+    "Vibration_X": "1.23",
+    "Vibration_Y": "8.39",
+    "Vibration_motor": "8.06"
+},{
+    "date1": "1980-01-31 00:00:00",
+    "Temperature:": "43.88",
+    "Pressure:": "14.28",
+    "Vibration_X": "5.87",
+    "Vibration_Y": "2.38",
+    "Vibration_motor": "9.41"
+},{
+    "date1": "1980-02-05 00:00:00",
+    "Temperature:": "63.39",
+    "Pressure:": "9.42",
+    "Vibration_X": "5.92",
+    "Vibration_Y": "4.01",
+    "Vibration_motor": "0.64"
+},{
+    "date1": "1980-02-10 00:00:00",
+    "Temperature:": "65.51",
+    "Pressure:": "11.78",
+    "Vibration_X": "8.9",
+    "Vibration_Y": "6.4",
+    "Vibration_motor": "2.88"
+},{
+    "date2": "1980-01-06 00:00:00",
+    "Temperature:": "66.6",
+    "Pressure:": "4.6",
+    "Vibration_X": "4.24",
+    "Vibration_Y": "1.3",
+    "Vibration_motor": "9.82"
+},{
+    "date2": "1980-01-11 00:00:00",
+    "Temperature:": "83.35",
+    "Pressure:": "10.31",
+    "Vibration_X": "1.66",
+    "Vibration_Y": "7.78",
+    "Vibration_motor": "3.79"
+},{
+    "date2": "1980-01-16 00:00:00",
+    "Temperature:": "67.12",
+    "Pressure:": "11.69",
+    "Vibration_X": "2.48",
+    "Vibration_Y": "9.83",
+    "Vibration_motor": "6.48"
+},{
+    "date2": "1980-01-21 00:00:00",
+    "Temperature:": "20.27",
+    "Pressure:": "12.23",
+    "Vibration_X": "0.94",
+    "Vibration_Y": "5.63",
+    "Vibration_motor": "8.31"
+},{
+    "date2": "1980-01-26 00:00:00",
+    "Temperature:": "38.47",
+    "Pressure:": "13.55",
+    "Vibration_X": "6.92",
+    "Vibration_Y": "9.86",
+    "Vibration_motor": "6.46"
+},{
+    "date2": "1980-01-31 00:00:00",
+    "Temperature:": "49.78",
+    "Pressure:": "7.75",
+    "Vibration_X": "7.69",
+    "Vibration_Y": "2.08",
+    "Vibration_motor": "5.31"
+},{
+    "date2": "1980-02-05 00:00:00",
+    "Temperature:": "20.76",
+    "Pressure:": "15.27",
+    "Vibration_X": "5.55",
+    "Vibration_Y": "2.86",
+    "Vibration_motor": "4.68"
+},{
+    "date2": "1980-02-10 00:00:00",
+    "Temperature:": "35.62",
+    "Pressure:": "7.29",
+    "Vibration_X": "1.04",
+    "Vibration_Y": "6.15",
+    "Vibration_motor": "4.18"
+},{
+    "date3": "1980-01-06 00:00:00",
+    "Temperature:": "44.88",
+    "Pressure:": "1.82",
+    "Vibration_X": "9.75",
+    "Vibration_Y": "2.68",
+    "Vibration_motor": "7.31"
+},{
+    "date3": "1980-01-11 00:00:00",
+    "Temperature:": "84.14",
+    "Pressure:": "15.81",
+    "Vibration_X": "0.51",
+    "Vibration_Y": "4.6",
+    "Vibration_motor": "7.47"
+},{
+    "date3": "1980-01-16 00:00:00",
+    "Temperature:": "32.05",
+    "Pressure:": "4.69",
+    "Vibration_X": "4.68",
+    "Vibration_Y": "3.88",
+    "Vibration_motor": "2.73"
+},{
+    "date3": "1980-01-21 00:00:00",
+    "Temperature:": "37.92",
+    "Pressure:": "6.81",
+    "Vibration_X": "3.23",
+    "Vibration_Y": "5.2",
+    "Vibration_motor": "0.09"
+},{
+    "date3": "1980-01-26 00:00:00",
+    "Temperature:": "47.51",
+    "Pressure:": "5.3",
+    "Vibration_X": "5.44",
+    "Vibration_Y": "4.74",
+    "Vibration_motor": "5.25"
+},{
+    "date3": "1980-01-31 00:00:00",
+    "Temperature:": "61.36",
+    "Pressure:": "9.36",
+    "Vibration_X": "7.92",
+    "Vibration_Y": "5.9",
+    "Vibration_motor": "3.87"
+},{
+    "date3": "1980-02-05 00:00:00",
+    "Temperature:": "42.2",
+    "Pressure:": "7.27",
+    "Vibration_X": "3.23",
+    "Vibration_Y": "8.0",
+    "Vibration_motor": "3.19"
+},{
+    "date3": "1980-02-10 00:00:00",
+    "Temperature:": "89.26",
+    "Pressure:": "1.78",
+    "Vibration_X": "0.21",
+    "Vibration_Y": "6.69",
+    "Vibration_motor": "5.01"
+},{
+    "date4": "1980-01-06 00:00:00",
+    "Temperature:": "89.17",
+    "Pressure:": "4.47",
+    "Vibration_X": "6.94",
+    "Vibration_Y": "1.9",
+    "Vibration_motor": "6.69"
+},{
+    "date4": "1980-01-11 00:00:00",
+    "Temperature:": "30.81",
+    "Pressure:": "14.14",
+    "Vibration_X": "7.59",
+    "Vibration_Y": "2.58",
+    "Vibration_motor": "1.65"
+},{
+    "date4": "1980-01-16 00:00:00",
+    "Temperature:": "24.42",
+    "Pressure:": "4.43",
+    "Vibration_X": "4.73",
+    "Vibration_Y": "8.61",
+    "Vibration_motor": "4.2"
+},{
+    "date4": "1980-01-21 00:00:00",
+    "Temperature:": "23.18",
+    "Pressure:": "14.14",
+    "Vibration_X": "7.73",
+    "Vibration_Y": "4.85",
+    "Vibration_motor": "7.38"
+},{
+    "date4": "1980-01-26 00:00:00",
+    "Temperature:": "50.39",
+    "Pressure:": "15.07",
+    "Vibration_X": "4.07",
+    "Vibration_Y": "1.1",
+    "Vibration_motor": "1.03"
+},{
+    "date4": "1980-01-31 00:00:00",
+    "Temperature:": "31.98",
+    "Pressure:": "4.51",
+    "Vibration_X": "0.56",
+    "Vibration_Y": "0.41",
+    "Vibration_motor": "0.66"
+},{
+    "date4": "1980-02-05 00:00:00",
+    "Temperature:": "24.35",
+    "Pressure:": "2.08",
+    "Vibration_X": "0.34",
+    "Vibration_Y": "2.14",
+    "Vibration_motor": "1.49"
+},{
+    "date4": "1980-02-10 00:00:00",
+    "Temperature:": "58.46",
+    "Pressure:": "15.33",
+    "Vibration_X": "3.23",
+    "Vibration_Y": "5.12",
+    "Vibration_motor": "7.78"
+},{
+    "date5": "1980-01-06 00:00:00",
+    "Temperature:": "63.87",
+    "Pressure:": "11.07",
+    "Vibration_X": "5.05",
+    "Vibration_Y": "1.9",
+    "Vibration_motor": "1.69"
+},{
+    "date5": "1980-01-11 00:00:00",
+    "Temperature:": "49.22",
+    "Pressure:": "6.36",
+    "Vibration_X": "0.96",
+    "Vibration_Y": "7.63",
+    "Vibration_motor": "6.31"
+},{
+    "date5": "1980-01-16 00:00:00",
+    "Temperature:": "89.89",
+    "Pressure:": "3.53",
+    "Vibration_X": "8.0",
+    "Vibration_Y": "8.99",
+    "Vibration_motor": "7.08"
+},{
+    "date5": "1980-01-21 00:00:00",
+    "Temperature:": "47.68",
+    "Pressure:": "6.39",
+    "Vibration_X": "0.04",
+    "Vibration_Y": "0.96",
+    "Vibration_motor": "9.73"
+},{
+    "date5": "1980-01-26 00:00:00",
+    "Temperature:": "65.22",
+    "Pressure:": "3.77",
+    "Vibration_X": "9.05",
+    "Vibration_Y": "1.64",
+    "Vibration_motor": "4.89"
+},{
+    "date5": "1980-01-31 00:00:00",
+    "Temperature:": "65.03",
+    "Pressure:": "12.52",
+    "Vibration_X": "7.78",
+    "Vibration_Y": "8.84",
+    "Vibration_motor": "3.35"
+},{
+    "date5": "1980-02-05 00:00:00",
+    "Temperature:": "28.23",
+    "Pressure:": "1.73",
+    "Vibration_X": "8.17",
+    "Vibration_Y": "6.43",
+    "Vibration_motor": "0.52"
+},{
+    "date5": "1980-02-10 00:00:00",
+    "Temperature:": "65.32",
+    "Pressure:": "7.77",
+    "Vibration_X": "0.38",
+    "Vibration_Y": "9.12",
+    "Vibration_motor": "7.43"
+},{
+    "date6": "1980-01-06 00:00:00",
+    "Temperature:": "72.59",
+    "Pressure:": "13.9",
+    "Vibration_X": "4.81",
+    "Vibration_Y": "8.0",
+    "Vibration_motor": "5.8"
+},{
+    "date6": "1980-01-11 00:00:00",
+    "Temperature:": "55.02",
+    "Pressure:": "3.74",
+    "Vibration_X": "1.44",
+    "Vibration_Y": "0.06",
+    "Vibration_motor": "4.48"
+},{
+    "date6": "1980-01-16 00:00:00",
+    "Temperature:": "30.08",
+    "Pressure:": "1.24",
+    "Vibration_X": "7.7",
+    "Vibration_Y": "0.79",
+    "Vibration_motor": "6.61"
+},{
+    "date6": "1980-01-21 00:00:00",
+    "Temperature:": "83.53",
+    "Pressure:": "7.12",
+    "Vibration_X": "1.5",
+    "Vibration_Y": "9.58",
+    "Vibration_motor": "0.96"
+},{
+    "date6": "1980-01-26 00:00:00",
+    "Temperature:": "41.79",
+    "Pressure:": "10.45",
+    "Vibration_X": "2.21",
+    "Vibration_Y": "4.06",
+    "Vibration_motor": "0.21"
+},{
+    "date6": "1980-01-31 00:00:00",
+    "Temperature:": "58.78",
+    "Pressure:": "10.05",
+    "Vibration_X": "6.28",
+    "Vibration_Y": "0.24",
+    "Vibration_motor": "7.07"
+},{
+    "date6": "1980-02-05 00:00:00",
+    "Temperature:": "33.76",
+    "Pressure:": "14.95",
+    "Vibration_X": "7.0",
+    "Vibration_Y": "7.15",
+    "Vibration_motor": "5.81"
+},{
+    "date6": "1980-02-10 00:00:00",
+    "Temperature:": "83.14",
+    "Pressure:": "4.05",
+    "Vibration_X": "6.55",
+    "Vibration_Y": "7.16",
+    "Vibration_motor": "6.71"
+},{
+    "date7": "1980-01-06 00:00:00",
+    "Temperature:": "83.33",
+    "Pressure:": "14.45",
+    "Vibration_X": "5.56",
+    "Vibration_Y": "8.8",
+    "Vibration_motor": "7.6"
+},{
+    "date7": "1980-01-11 00:00:00",
+    "Temperature:": "53.03",
+    "Pressure:": "2.4",
+    "Vibration_X": "1.98",
+    "Vibration_Y": "1.99",
+    "Vibration_motor": "6.13"
+},{
+    "date7": "1980-01-16 00:00:00",
+    "Temperature:": "61.95",
+    "Pressure:": "11.64",
+    "Vibration_X": "2.14",
+    "Vibration_Y": "6.38",
+    "Vibration_motor": "9.83"
+},{
+    "date7": "1980-01-21 00:00:00",
+    "Temperature:": "43.29",
+    "Pressure:": "13.9",
+    "Vibration_X": "0.44",
+    "Vibration_Y": "0.04",
+    "Vibration_motor": "7.46"
+},{
+    "date7": "1980-01-26 00:00:00",
+    "Temperature:": "53.88",
+    "Pressure:": "12.04",
+    "Vibration_X": "3.67",
+    "Vibration_Y": "3.16",
+    "Vibration_motor": "9.47"
+},{
+    "date7": "1980-01-31 00:00:00",
+    "Temperature:": "27.67",
+    "Pressure:": "10.72",
+    "Vibration_X": "8.43",
+    "Vibration_Y": "7.56",
+    "Vibration_motor": "6.49"
+},{
+    "date7": "1980-02-05 00:00:00",
+    "Temperature:": "65.7",
+    "Pressure:": "1.34",
+    "Vibration_X": "4.13",
+    "Vibration_Y": "1.72",
+    "Vibration_motor": "7.13"
+},{
+    "date7": "1980-02-10 00:00:00",
+    "Temperature:": "30.65",
+    "Pressure:": "1.19",
+    "Vibration_X": "1.92",
+    "Vibration_Y": "4.58",
+    "Vibration_motor": "2.89"
+},{
+    "date8": "1980-01-06 00:00:00",
+    "Temperature:": "74.98",
+    "Pressure:": "1.61",
+    "Vibration_X": "1.35",
+    "Vibration_Y": "9.11",
+    "Vibration_motor": "7.95"
+},{
+    "date8": "1980-01-11 00:00:00",
+    "Temperature:": "66.56",
+    "Pressure:": "4.49",
+    "Vibration_X": "2.41",
+    "Vibration_Y": "6.26",
+    "Vibration_motor": "9.57"
+},{
+    "date8": "1980-01-16 00:00:00",
+    "Temperature:": "32.34",
+    "Pressure:": "10.44",
+    "Vibration_X": "9.98",
+    "Vibration_Y": "6.96",
+    "Vibration_motor": "3.64"
+},{
+    "date8": "1980-01-21 00:00:00",
+    "Temperature:": "35.78",
+    "Pressure:": "6.88",
+    "Vibration_X": "7.34",
+    "Vibration_Y": "1.44",
+    "Vibration_motor": "0.16"
+},{
+    "date8": "1980-01-26 00:00:00",
+    "Temperature:": "83.25",
+    "Pressure:": "12.16",
+    "Vibration_X": "4.12",
+    "Vibration_Y": "1.41",
+    "Vibration_motor": "2.12"
+},{
+    "date8": "1980-01-31 00:00:00",
+    "Temperature:": "32.23",
+    "Pressure:": "1.09",
+    "Vibration_X": "0.8",
+    "Vibration_Y": "7.82",
+    "Vibration_motor": "8.39"
+},{
+    "date8": "1980-02-05 00:00:00",
+    "Temperature:": "41.88",
+    "Pressure:": "13.78",
+    "Vibration_X": "7.03",
+    "Vibration_Y": "2.49",
+    "Vibration_motor": "6.21"
+},{
+    "date8": "1980-02-10 00:00:00",
+    "Temperature:": "88.37",
+    "Pressure:": "3.37",
+    "Vibration_X": "5.09",
+    "Vibration_Y": "6.11",
+    "Vibration_motor": "2.44"
+},{
+    "OPZ,pump_P2-A": "1980-01-06 00:00:00",
+    "Temperature:": "32.26",
+    "Pressure:": "1.6",
+    "Vibration_X": "7.11",
+    "Vibration_Y": "9.77",
+    "Vibration_motor": "5.65"
+},{
+    "OPZ,pump_P2-A": "1980-01-11 00:00:00",
+    "Temperature:": "72.11",
+    "Pressure:": "4.0",
+    "Vibration_X": "7.47",
+    "Vibration_Y": "7.14",
+    "Vibration_motor": "1.68"
+},{
+    "OPZ,pump_P2-A": "1980-01-16 00:00:00",
+    "Temperature:": "87.59",
+    "Pressure:": "14.99",
+    "Vibration_X": "2.66",
+    "Vibration_Y": "9.06",
+    "Vibration_motor": "9.1"
+},{
+    "OPZ,pump_P2-A": "1980-01-21 00:00:00",
+    "Temperature:": "50.53",
+    "Pressure:": "7.89",
+    "Vibration_X": "2.69",
+    "Vibration_Y": "4.11",
+    "Vibration_motor": "7.45"
+},{
+    "OPZ,pump_P2-A": "1980-01-26 00:00:00",
+    "Temperature:": "40.86",
+    "Pressure:": "6.65",
+    "Vibration_X": "8.91",
+    "Vibration_Y": "6.97",
+    "Vibration_motor": "5.7"
+},{
+    "OPZ,pump_P2-A": "1980-01-31 00:00:00",
+    "Temperature:": "73.28",
+    "Pressure:": "12.8",
+    "Vibration_X": "2.36",
+    "Vibration_Y": "5.91",
+    "Vibration_motor": "0.98"
+},{
+    "OPZ,pump_P2-A": "1980-02-05 00:00:00",
+    "Temperature:": "68.97",
+    "Pressure:": "6.37",
+    "Vibration_X": "8.76",
+    "Vibration_Y": "3.63",
+    "Vibration_motor": "4.62"
+},{
+    "OPZ,pump_P2-A": "1980-02-10 00:00:00",
+    "Temperature:": "57.79",
+    "Pressure:": "10.66",
+    "Vibration_X": "4.83",
+    "Vibration_Y": "4.46",
+    "Vibration_motor": "5.12"
+},{
+    "OPZ,pump_P2-B": "1980-01-06 00:00:00",
+    "Temperature:": "67.39",
+    "Pressure:": "4.95",
+    "Vibration_X": "9.94",
+    "Vibration_Y": "9.89",
+    "Vibration_motor": "4.09"
+},{
+    "OPZ,pump_P2-B": "1980-01-11 00:00:00",
+    "Temperature:": "26.83",
+    "Pressure:": "15.24",
+    "Vibration_X": "5.06",
+    "Vibration_Y": "8.41",
+    "Vibration_motor": "0.3"
+},{
+    "OPZ,pump_P2-B": "1980-01-16 00:00:00",
+    "Temperature:": "85.22",
+    "Pressure:": "12.44",
+    "Vibration_X": "4.08",
+    "Vibration_Y": "0.97",
+    "Vibration_motor": "5.63"
+},{
+    "OPZ,pump_P2-B": "1980-01-21 00:00:00",
+    "Temperature:": "76.24",
+    "Pressure:": "11.55",
+    "Vibration_X": "9.95",
+    "Vibration_Y": "5.87",
+    "Vibration_motor": "6.75"
+},{
+    "OPZ,pump_P2-B": "1980-01-26 00:00:00",
+    "Temperature:": "66.81",
+    "Pressure:": "12.81",
+    "Vibration_X": "2.69",
+    "Vibration_Y": "9.63",
+    "Vibration_motor": "8.74"
+},{
+    "OPZ,pump_P2-B": "1980-01-31 00:00:00",
+    "Temperature:": "82.78",
+    "Pressure:": "4.52",
+    "Vibration_X": "6.71",
+    "Vibration_Y": "1.37",
+    "Vibration_motor": "3.3"
+},{
+    "OPZ,pump_P2-B": "1980-02-05 00:00:00",
+    "Temperature:": "64.6",
+    "Pressure:": "15.69",
+    "Vibration_X": "2.71",
+    "Vibration_Y": "3.8",
+    "Vibration_motor": "3.22"
+},{
+    "OPZ,pump_P2-B": "1980-02-10 00:00:00",
+    "Temperature:": "43.0",
+    "Pressure:": "8.3",
+    "Vibration_X": "0.56",
+    "Vibration_Y": "8.01",
+    "Vibration_motor": "5.27"
+},{
+    "OPZ,pump_P2-C": "1980-01-06 00:00:00",
+    "Temperature:": "82.19",
+    "Pressure:": "14.31",
+    "Vibration_X": "8.29",
+    "Vibration_Y": "0.62",
+    "Vibration_motor": "2.92"
+},{
+    "OPZ,pump_P2-C": "1980-01-11 00:00:00",
+    "Temperature:": "84.25",
+    "Pressure:": "10.25",
+    "Vibration_X": "0.21",
+    "Vibration_Y": "4.15",
+    "Vibration_motor": "4.06"
+},{
+    "OPZ,pump_P2-C": "1980-01-16 00:00:00",
+    "Temperature:": "54.01",
+    "Pressure:": "10.58",
+    "Vibration_X": "1.51",
+    "Vibration_Y": "6.66",
+    "Vibration_motor": "4.14"
+},{
+    "OPZ,pump_P2-C": "1980-01-21 00:00:00",
+    "Temperature:": "48.35",
+    "Pressure:": "5.47",
+    "Vibration_X": "6.34",
+    "Vibration_Y": "0.17",
+    "Vibration_motor": "9.71"
+},{
+    "OPZ,pump_P2-C": "1980-01-26 00:00:00",
+    "Temperature:": "37.75",
+    "Pressure:": "6.69",
+    "Vibration_X": "1.34",
+    "Vibration_Y": "0.55",
+    "Vibration_motor": "3.79"
+},{
+    "OPZ,pump_P2-C": "1980-01-31 00:00:00",
+    "Temperature:": "36.47",
+    "Pressure:": "1.67",
+    "Vibration_X": "8.77",
+    "Vibration_Y": "8.76",
+    "Vibration_motor": "0.19"
+},{
+    "OPZ,pump_P2-C": "1980-02-05 00:00:00",
+    "Temperature:": "72.85",
+    "Pressure:": "5.87",
+    "Vibration_X": "8.39",
+    "Vibration_Y": "3.01",
+    "Vibration_motor": "9.07"
+},{
+    "OPZ,pump_P2-C": "1980-02-10 00:00:00",
+    "Temperature:": "62.94",
+    "Pressure:": "12.37",
+    "Vibration_X": "5.84",
+    "Vibration_Y": "2.56",
+    "Vibration_motor": "5.28"
+},{
+    "OPZ,pump_P3-A": "1980-01-06 00:00:00",
+    "Temperature:": "25.96",
+    "Pressure:": "14.68",
+    "Vibration_X": "4.56",
+    "Vibration_Y": "3.05",
+    "Vibration_motor": "2.83"
+},{
+    "OPZ,pump_P3-A": "1980-01-11 00:00:00",
+    "Temperature:": "54.58",
+    "Pressure:": "9.19",
+    "Vibration_X": "6.65",
+    "Vibration_Y": "3.49",
+    "Vibration_motor": "0.87"
+},{
+    "OPZ,pump_P3-A": "1980-01-16 00:00:00",
+    "Temperature:": "60.42",
+    "Pressure:": "12.41",
+    "Vibration_X": "5.94",
+    "Vibration_Y": "4.55",
+    "Vibration_motor": "7.88"
+},{
+    "OPZ,pump_P3-A": "1980-01-21 00:00:00",
+    "Temperature:": "85.26",
+    "Pressure:": "12.86",
+    "Vibration_X": "8.23",
+    "Vibration_Y": "2.51",
+    "Vibration_motor": "0.79"
+},{
+    "OPZ,pump_P3-A": "1980-01-26 00:00:00",
+    "Temperature:": "41.29",
+    "Pressure:": "9.48",
+    "Vibration_X": "9.53",
+    "Vibration_Y": "4.28",
+    "Vibration_motor": "2.72"
+},{
+    "OPZ,pump_P3-A": "1980-01-31 00:00:00",
+    "Temperature:": "47.81",
+    "Pressure:": "12.52",
+    "Vibration_X": "2.86",
+    "Vibration_Y": "7.78",
+    "Vibration_motor": "0.37"
+},{
+    "OPZ,pump_P3-A": "1980-02-05 00:00:00",
+    "Temperature:": "69.66",
+    "Pressure:": "5.85",
+    "Vibration_X": "5.78",
+    "Vibration_Y": "5.05",
+    "Vibration_motor": "4.14"
+},{
+    "OPZ,pump_P3-A": "1980-02-10 00:00:00",
+    "Temperature:": "62.2",
+    "Pressure:": "11.89",
+    "Vibration_X": "0.0",
+    "Vibration_Y": "8.18",
+    "Vibration_motor": "3.66"
+},{
+    "OPZ,pump_P3-B": "1980-01-06 00:00:00",
+    "Temperature:": "86.22",
+    "Pressure:": "11.12",
+    "Vibration_X": "4.86",
+    "Vibration_Y": "0.64",
+    "Vibration_motor": "0.11"
+},{
+    "OPZ,pump_P3-B": "1980-01-11 00:00:00",
+    "Temperature:": "24.8",
+    "Pressure:": "3.02",
+    "Vibration_X": "3.51",
+    "Vibration_Y": "3.89",
+    "Vibration_motor": "3.25"
+},{
+    "OPZ,pump_P3-B": "1980-01-16 00:00:00",
+    "Temperature:": "60.86",
+    "Pressure:": "3.52",
+    "Vibration_X": "8.53",
+    "Vibration_Y": "7.7",
+    "Vibration_motor": "0.1"
+},{
+    "OPZ,pump_P3-B": "1980-01-21 00:00:00",
+    "Temperature:": "41.91",
+    "Pressure:": "9.63",
+    "Vibration_X": "6.9",
+    "Vibration_Y": "1.4",
+    "Vibration_motor": "4.17"
+},{
+    "OPZ,pump_P3-B": "1980-01-26 00:00:00",
+    "Temperature:": "26.7",
+    "Pressure:": "15.21",
+    "Vibration_X": "1.08",
+    "Vibration_Y": "8.67",
+    "Vibration_motor": "7.73"
+},{
+    "OPZ,pump_P3-B": "1980-01-31 00:00:00",
+    "Temperature:": "73.94",
+    "Pressure:": "6.04",
+    "Vibration_X": "3.54",
+    "Vibration_Y": "8.09",
+    "Vibration_motor": "5.75"
+},{
+    "OPZ,pump_P3-B": "1980-02-05 00:00:00",
+    "Temperature:": "65.81",
+    "Pressure:": "5.58",
+    "Vibration_X": "7.71",
+    "Vibration_Y": "3.23",
+    "Vibration_motor": "5.63"
+},{
+    "OPZ,pump_P3-B": "1980-02-10 00:00:00",
+    "Temperature:": "50.31",
+    "Pressure:": "7.38",
+    "Vibration_X": "0.47",
+    "Vibration_Y": "1.21",
+    "Vibration_motor": "6.79"
+},{
+    "OPZ,pump_P3-C": "1980-01-06 00:00:00",
+    "Temperature:": "53.65",
+    "Pressure:": "11.55",
+    "Vibration_X": "1.6",
+    "Vibration_Y": "9.13",
+    "Vibration_motor": "4.76"
+},{
+    "OPZ,pump_P3-C": "1980-01-11 00:00:00",
+    "Temperature:": "24.69",
+    "Pressure:": "3.06",
+    "Vibration_X": "7.05",
+    "Vibration_Y": "1.67",
+    "Vibration_motor": "4.46"
+},{
+    "OPZ,pump_P3-C": "1980-01-16 00:00:00",
+    "Temperature:": "65.56",
+    "Pressure:": "13.52",
+    "Vibration_X": "3.54",
+    "Vibration_Y": "5.86",
+    "Vibration_motor": "7.32"
+},{
+    "OPZ,pump_P3-C": "1980-01-21 00:00:00",
+    "Temperature:": "45.37",
+    "Pressure:": "4.3",
+    "Vibration_X": "0.18",
+    "Vibration_Y": "9.76",
+    "Vibration_motor": "7.63"
+},{
+    "OPZ,pump_P3-C": "1980-01-26 00:00:00",
+    "Temperature:": "51.32",
+    "Pressure:": "15.63",
+    "Vibration_X": "6.07",
+    "Vibration_Y": "9.27",
+    "Vibration_motor": "6.91"
+},{
+    "OPZ,pump_P3-C": "1980-01-31 00:00:00",
+    "Temperature:": "28.39",
+    "Pressure:": "1.0",
+    "Vibration_X": "6.47",
+    "Vibration_Y": "1.21",
+    "Vibration_motor": "9.5"
+},{
+    "OPZ,pump_P3-C": "1980-02-05 00:00:00",
+    "Temperature:": "55.72",
+    "Pressure:": "10.78",
+    "Vibration_X": "4.63",
+    "Vibration_Y": "2.13",
+    "Vibration_motor": "5.8"
+},{
+    "OPZ,pump_P3-C": "1980-02-10 00:00:00",
+    "Temperature:": "82.54",
+    "Pressure:": "11.89",
+    "Vibration_X": "9.55",
+    "Vibration_Y": "2.22",
+    "Vibration_motor": "7.56"
+},{
+    "OPZ,pump_85-A": "1980-01-06 00:00:00",
+    "Temperature:": "66.55",
+    "Pressure:": "3.91",
+    "Vibration_X": "3.43",
+    "Vibration_Y": "4.32",
+    "Vibration_motor": "3.86"
+},{
+    "OPZ,pump_85-A": "1980-01-11 00:00:00",
+    "Temperature:": "27.55",
+    "Pressure:": "6.0",
+    "Vibration_X": "9.94",
+    "Vibration_Y": "7.09",
+    "Vibration_motor": "0.93"
+},{
+    "OPZ,pump_85-A": "1980-01-16 00:00:00",
+    "Temperature:": "23.33",
+    "Pressure:": "14.39",
+    "Vibration_X": "2.55",
+    "Vibration_Y": "3.66",
+    "Vibration_motor": "8.54"
+},{
+    "OPZ,pump_85-A": "1980-01-21 00:00:00",
+    "Temperature:": "88.33",
+    "Pressure:": "12.94",
+    "Vibration_X": "9.01",
+    "Vibration_Y": "7.16",
+    "Vibration_motor": "0.42"
+},{
+    "OPZ,pump_85-A": "1980-01-26 00:00:00",
+    "Temperature:": "33.84",
+    "Pressure:": "5.41",
+    "Vibration_X": "9.33",
+    "Vibration_Y": "1.91",
+    "Vibration_motor": "1.36"
+},{
+    "OPZ,pump_85-A": "1980-01-31 00:00:00",
+    "Temperature:": "81.3",
+    "Pressure:": "3.76",
+    "Vibration_X": "1.68",
+    "Vibration_Y": "4.09",
+    "Vibration_motor": "7.64"
+},{
+    "OPZ,pump_85-A": "1980-02-05 00:00:00",
+    "Temperature:": "58.83",
+    "Pressure:": "9.97",
+    "Vibration_X": "3.96",
+    "Vibration_Y": "4.16",
+    "Vibration_motor": "8.34"
+},{
+    "OPZ,pump_85-A": "1980-02-10 00:00:00",
+    "Temperature:": "89.1",
+    "Pressure:": "14.96",
+    "Vibration_X": "7.15",
+    "Vibration_Y": "7.31",
+    "Vibration_motor": "7.97"
+},{
+    "OPZ,pump_85-B": "1980-01-06 00:00:00",
+    "Temperature:": "41.96",
+    "Pressure:": "1.63",
+    "Vibration_X": "4.99",
+    "Vibration_Y": "2.41",
+    "Vibration_motor": "2.21"
+},{
+    "OPZ,pump_85-B": "1980-01-11 00:00:00",
+    "Temperature:": "48.33",
+    "Pressure:": "1.73",
+    "Vibration_X": "9.01",
+    "Vibration_Y": "0.33",
+    "Vibration_motor": "5.45"
+},{
+    "OPZ,pump_85-B": "1980-01-16 00:00:00",
+    "Temperature:": "29.6",
+    "Pressure:": "5.07",
+    "Vibration_X": "9.4",
+    "Vibration_Y": "2.31",
+    "Vibration_motor": "8.75"
+},{
+    "OPZ,pump_85-B": "1980-01-21 00:00:00",
+    "Temperature:": "63.35",
+    "Pressure:": "5.28",
+    "Vibration_X": "1.33",
+    "Vibration_Y": "3.33",
+    "Vibration_motor": "6.09"
+},{
+    "OPZ,pump_85-B": "1980-01-26 00:00:00",
+    "Temperature:": "28.79",
+    "Pressure:": "5.26",
+    "Vibration_X": "7.6",
+    "Vibration_Y": "2.97",
+    "Vibration_motor": "8.73"
+},{
+    "OPZ,pump_85-B": "1980-01-31 00:00:00",
+    "Temperature:": "48.73",
+    "Pressure:": "12.92",
+    "Vibration_X": "1.96",
+    "Vibration_Y": "8.92",
+    "Vibration_motor": "1.16"
+},{
+    "OPZ,pump_85-B": "1980-02-05 00:00:00",
+    "Temperature:": "64.49",
+    "Pressure:": "8.18",
+    "Vibration_X": "4.71",
+    "Vibration_Y": "4.99",
+    "Vibration_motor": "1.63"
+},{
+    "OPZ,pump_85-B": "1980-02-10 00:00:00",
+    "Temperature:": "49.94",
+    "Pressure:": "0.33",
+    "Vibration_X": "2.57",
+    "Vibration_Y": "2.92",
+    "Vibration_motor": "9.08"
+},{
+    "OPZ,pump_85-C": "1980-01-06 00:00:00",
+    "Temperature:": "56.93",
+    "Pressure:": "9.99",
+    "Vibration_X": "3.45",
+    "Vibration_Y": "4.57",
+    "Vibration_motor": "4.18"
+},{
+    "OPZ,pump_85-C": "1980-01-11 00:00:00",
+    "Temperature:": "36.89",
+    "Pressure:": "2.31",
+    "Vibration_X": "6.22",
+    "Vibration_Y": "3.59",
+    "Vibration_motor": "0.09"
+},{
+    "OPZ,pump_85-C": "1980-01-16 00:00:00",
+    "Temperature:": "55.83",
+    "Pressure:": "6.56",
+    "Vibration_X": "6.31",
+    "Vibration_Y": "5.17",
+    "Vibration_motor": "5.73"
+},{
+    "OPZ,pump_85-C": "1980-01-21 00:00:00",
+    "Temperature:": "25.85",
+    "Pressure:": "1.9",
+    "Vibration_X": "9.85",
+    "Vibration_Y": "5.61",
+    "Vibration_motor": "3.25"
+},{
+    "OPZ,pump_85-C": "1980-01-26 00:00:00",
+    "Temperature:": "78.96",
+    "Pressure:": "10.01",
+    "Vibration_X": "8.79",
+    "Vibration_Y": "2.79",
+    "Vibration_motor": "0.77"
+},{
+    "OPZ,pump_85-C": "1980-01-31 00:00:00",
+    "Temperature:": "41.69",
+    "Pressure:": "15.27",
+    "Vibration_X": "4.09",
+    "Vibration_Y": "6.05",
+    "Vibration_motor": "0.08"
+},{
+    "OPZ,pump_85-C": "1980-02-05 00:00:00",
+    "Temperature:": "74.64",
+    "Pressure:": "9.76",
+    "Vibration_X": "5.76",
+    "Vibration_Y": "1.32",
+    "Vibration_motor": "1.28"
+},{
+    "OPZ,pump_85-C": "1980-02-10 00:00:00",
+    "Temperature:": "25.34",
+    "Pressure:": "10.84",
+    "Vibration_X": "4.21",
+    "Vibration_Y": "4.16",
+    "Vibration_motor": "5.66"
+}]

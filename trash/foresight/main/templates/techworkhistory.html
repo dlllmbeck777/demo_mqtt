@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block sidebar %}
+<li class="sidebar-item"><a class="sidebar-link" href="/"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/home.svg' %}">
+  <span>Главное меню </span></a></li>
+<li class="sidebar-item active"><a class="sidebar-link" href="/work"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/repair.svg' %}"><span>Тех.работы </span></a></li>
+<li class="sidebar-item"><a class="sidebar-link" href="/repair"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/repair.svg' %}"><span>Ремонты </span></a></li>
+<li class="sidebar-item"><a class="sidebar-link" href="{% url 'logout'%}?next={{request.path}}"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/logout.svg' %}"><span>Выйти </span></a></li>
+
+{% endblock %}
+
+{% block title %}
+<a class="navbar-brand" href="">Технические работы</a> 
+{% endblock %}
+            
+            
+{% block content %}
+<div class="container-fluid">
+  <div class="row gy-4">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-between">
+        <a href="/work/">
+        <h3 class="description"><u>Запрос о техническом обслуживаний</u></h3>
+        </a>
+        <h3 class="description">История ТО </h3>
+      </div>
+      <div class="col-md-12">
+        <div class="card card-stats">
+          <div class="card-header-3">
+              <form method="get">
+                <div class="row" style="margin-top: 25px;">
+                  <div class="col-sm-8 d-flex justify-content-around align-self-center ">
+
+                    {% crispy maintenance_filter.form %}
+                  </div>
+                  <div class="col-sm-2 d-flex justify-content-around align-self-center">
+
+                    <button class="btn btn-primary btn-circle">Фильтр</button>
+                    
+                  </div>
+                  <div class="col-sm-2 d-flex justify-content-around align-self-center">
+                    <a href="{% url 'work-history-export' %}" class="btn btn-success btn-circle">Экспорт</a>
+                  </div>
+                </div>    
+                
+              </form>
+          </div>
+          <div class="card-header-3">
+            <h5 class=" card-title">Статистика</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    ТНС
+                  </th>
+                  <th>
+                    Устройство
+                  </th>
+                  <th class="text-right">
+                    Тип работ и количество
+                  </th>
+                </thead>
+                <tbody>
+                  {% if pump_list %}
+                  {% for pump in pump_list %}
+                    {% if not pump.sealant_counter|stringformat:"s" == "0" or not pump.oil_counter|stringformat:"s" == "0"%}     
+                      <tr>
+                        <td>
+                          {{pump.station}}
+                        </td>
+                        <td>
+                          {{pump}}
+                        </td>
+                        <td class="text-right">
+                          <ul class="list-group list-group-flush">
+                            {% if pump.oil_counter|stringformat:"s" != "0" %}
+                            <li class="list-group-item">
+                              <b> Замена смазки в подшипниках насоса: </b> {{pump.oil_counter}}
+                            </li>
+                            {% endif %}
+                            {% if pump.sealant_counter|stringformat:"s" != "0" %}
+                            <li class="list-group-item">
+                              <b> Замена уплотнения: </b> {{pump.sealant_counter}}
+                            </li>
+                            {% endif %}
+                          </ul>
+                          
+                        </td>
+                      </tr>
+                    {% endif %}
+                  {% endfor %}
+                  {% else %}
+                  <tr>
+                    <td></td>
+                    <td>
+                      По данному насосу ТО не было
+                    </td>
+                    <td></td>
+                  </tr>
+                  
+                  {% endif %}
+                </tbody>
+              </table>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="card card-stats">
+          <div class="card-header-3">
+            <h5 class="card-title">Детализация</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table ">
+                <thead class=" text-primary">
+                  <th>
+                    ТНС
+                  </th>
+                  <th>
+                    Устройство
+                  </th>
+                  <th>
+                    Тип работ
+                  </th>
+                  <th class="text-right">
+                    Дата ремонта
+                  </th>
+                  <th class="text-right">
+                    Заключение по проверке
+                  </th>
+                </thead>
+                <tbody>
+                  {% if page_obj %}
+                  {% for maintenance in page_obj %}
+                  <tr>
+                    <td>
+                      {{maintenance.station}}
+                    </td>
+                    <td>
+                      {{maintenance.pump}}
+                    </td>
+                    <td>
+                      <ul class="list-group list-group-flush">
+                        {% for work in maintenance.maintenanceworktypes_set.all %}
+                        <li class="list-group-item">
+                          <b>Дата ТО:</b> {{work.datePerformed}}<br>
+                          {% if work.oil %}
+                          <b>Замена смазки в подшипниках насоса: </b>
+                          {{work.oil_verbose}}
+                          {% else %}
+                          <b>Замена уплотнения: </b>
+                          {{work.sealant_verbose}}
+                          {% endif %}
+                        </li>
+                        {% endfor %}
+                      </ul>
+                      
+                    </td>
+                    <td class="text-right"> 
+                      {{maintenance.maintenanceDateStart}} - {{maintenance.maintenanceDateEnd}} 
+                    </td>
+                    <td class="text-right" style="max-width: 300px">
+                      {{maintenance.description}}
+                    </td>
+                  </tr>
+                  {% endfor %}
+
+                  {% else %}
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      По данному насосу ТО не было
+                    </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  {% endif %}
+                </tbody>
+              </table>
+              <div class=" ">
+                <span class="d-flex justify-content-end">
+                  {% if page_obj.has_previous or page_obj.has_next %}
+                    <ul class="pagination">
+                      {% for page_num in page_obj.paginator.page_range %}
+                      <li class="page-item  "><a class="page-link text-primary" href="?page={{page_num}}">{{page_num}}</a></li>
+                      {% endfor %}
+                      </ul> 
+                  {% endif %}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}`

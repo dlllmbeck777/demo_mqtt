@@ -1,0 +1,25 @@
+@import "../../../components/boxes.scss";
+.users-container {
+  &__body {
+    height: calc(100% - 48px);
+    padding: 8px;
+  }
+}
+
+.user-update-pop-up-footer {
+  height: 55px;
+  padding: 7px;
+  position: fixed;
+  bottom: 0px;
+  justify-content: end;
+  align-content: center;
+  @include themify($themes) {
+    background-color: themed("bg-app-header");
+    color: themed("text-color");
+  }
+  z-index: 1;
+}
+
+.user-update-pop-up {
+  height: 100%;
+}

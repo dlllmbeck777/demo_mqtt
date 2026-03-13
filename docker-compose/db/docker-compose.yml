@@ -1,0 +1,116 @@
+version: "3.8"
+services:
+  couchserver:
+    image: couchdb:latest
+    restart: always
+    container_name: ligeiaai-couchserver-1
+    ports:
+      - "5984:5984"
+    environment:
+      - COUCHDB_USER=${COUCHDB_USER}
+      - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
+    volumes:
+      - couch-data:/opt/couchdb/data
+    networks:
+      - app_net
+  postgres:
+    restart: unless-stopped
+    image: postgres:11.20-alpine
+    container_name: ligeiaai-postgres-1
+    volumes:
+      - postgres-data1:/var/lib/postgresql@11/data/
+    env_file:
+      - ../.env
+    environment:
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=${PG_PASS}
+      - POSTGRES_DB=${PG_DB}
+    ports:
+      - "5434:5432"
+    networks:
+      - app_net
+  pgadmin:
+    restart: on-failure
+    image: dpage/pgadmin4:latest
+    container_name: ligeiaai-pgadmin-1
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASS}
+    ports:
+      - "5050:80"
+    networks:
+      - app_net
+  redis:
+    restart: on-failure
+    image: redis:latest
+    container_name: ligeiaai-redis-1
+    volumes:
+      - redis-data:/data
+    expose:
+      - 6379
+    networks:
+      - app_net
+  redis-ts:
+    restart: on-failure
+    image: redislabs/redistimeseries:latest
+    container_name: ligeiaai-redis-ts
+    hostname: ligeiaai-redis-ts
+    ports:
+      - "6380:6380"
+    networks:
+      - app_net
+  db:
+    restart: on-failure
+    container_name: mongo-dev
+    image: mongo:4.2
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER_NAME}
+      - MONGO_INITDB_DATABASE=auth
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASS}
+    networks:
+      - app_net
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./data:/data/db
+
+  mongo-express:
+    restart: on-failure
+    container_name: mongo-express
+    image: mongo-express
+    depends_on:
+      - db
+    networks:
+      - app_net
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=${MONGO_SERVER}
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${MONGO_USER_NAME}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGO_PASS}
+      - ME_CONFIG_BASICAUTH_USERNAME=${MONGO_USER_NAME}
+      - ME_CONFIG_BASICAUTH_PASSWORD=${MONGO_USER_PASS}
+    ports:
+      - '8081:8081'
+    volumes:
+      - ./data:/data/db
+networks:
+  app_net:
+    external: true
+volumes:
+  postgres-data1: null
+  pgadmin-data: null
+  redis-data: null
+  couch-data: null
+  mongodb-data: null
+  # redis-commander:
+  #   container_name: redis-commander
+  #   hostname: redis-commander
+  #   image: rediscommander/redis-commander:latest
+  #   restart: always
+  #   environment:
+  #     - REDIS_HOSTS=local:ligeiaai-redis-ts:6379
+  #   ports:
+  #     - 8081:8081
+  #   networks:
+  #     - app_net

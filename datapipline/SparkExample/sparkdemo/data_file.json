@@ -1,0 +1,57 @@
+[{
+    "date1": "1980-01-06 00:00:00",
+    "Temperature:": "23.33",
+    "Pressure:": "15.95",
+    "Vibration_X": "6.88",
+    "Vibration_Y": "4.25",
+    "Vibration_motor": "9.78"
+},{
+    "date1": "1980-01-11 00:00:00",
+    "Temperature:": "79.29",
+    "Pressure:": "14.31",
+    "Vibration_X": "2.96",
+    "Vibration_Y": "4.26",
+    "Vibration_motor": "3.54"
+},{
+    "date1": "1980-01-16 00:00:00",
+    "Temperature:": "65.47",
+    "Pressure:": "11.61",
+    "Vibration_X": "6.84",
+    "Vibration_Y": "9.79",
+    "Vibration_motor": "1.28"
+},{
+    "date1": "1980-01-21 00:00:00",
+    "Temperature:": "65.43",
+    "Pressure:": "6.01",
+    "Vibration_X": "4.52",
+    "Vibration_Y": "1.5",
+    "Vibration_motor": "8.27"
+},{
+    "date1": "1980-01-26 00:00:00",
+    "Temperature:": "78.87",
+    "Pressure:": "1.86",
+    "Vibration_X": "1.23",
+    "Vibration_Y": "8.39",
+    "Vibration_motor": "8.06"
+},{
+    "date1": "1980-01-31 00:00:00",
+    "Temperature:": "43.88",
+    "Pressure:": "14.28",
+    "Vibration_X": "5.87",
+    "Vibration_Y": "2.38",
+    "Vibration_motor": "9.41"
+},{
+    "date1": "1980-02-05 00:00:00",
+    "Temperature:": "63.39",
+    "Pressure:": "9.42",
+    "Vibration_X": "5.92",
+    "Vibration_Y": "4.01",
+    "Vibration_motor": "0.64"
+},{
+    "date1": "1980-02-10 00:00:00",
+    "Temperature:": "65.51",
+    "Pressure:": "11.78",
+    "Vibration_X": "8.9",
+    "Vibration_Y": "6.4",
+    "Vibration_motor": "2.88"
+}]

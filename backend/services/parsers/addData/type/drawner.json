@@ -1,0 +1,232 @@
+{
+    "drawerMenu": {
+        "Home": {
+            "Icon": "Home",
+            "title": "Home",
+            "url": "/"
+        },
+        "Overview": {
+            "Icon": "DashboardOutlined",
+            "title": "Overview",
+            "url": "/overview"
+        },
+        "Analytics": {
+            "Icon": "AnalyticsOutlined",
+            "title": "Analytics",
+            "url": "/analytics"
+        },
+        "Reporting": {
+            "Icon": "FeedOutlined",
+            "title": "Reporting",
+            "url": "/reporting"
+        },
+        "Administration": {
+            "Icon": "AdminPanelSettingsOutlined",
+            "title": "Administration",
+            "url": "/administration"
+        },
+        "Configuration": {
+            "Icon": "SettingsOutlined",
+            "title": "Configuration",
+            "url": "/#",
+            "items": {
+                "Tools": {
+                    "Icon": "DriveFileMoveOutlined",
+                    "title": "Tools",
+                    "url": "/#",
+                    "items": {
+                        "Project": {
+                            "Icon": "",
+                            "title": "Project",
+                            "url": "/#"
+                        },
+                        "Code List": {
+                            "Icon": "",
+                            "title": "Code List",
+                            "url": "/configuration/initialize/code_list_editor"
+                        },
+                        "Types": {
+                            "Icon": "",
+                            "title": "Types",
+                            "url": "/#"
+                        },
+                        "Tags": {
+                            "Icon": "DriveFileMoveOutlined",
+                            "title": "Tags",
+                            "url": "/#"
+                        }
+                    }
+                },
+                "Organization": {
+                    "Icon": "DriveFileMoveOutlined",
+                    "title": "Organization",
+                    "url": "/#",
+                    "items": {
+                        "Company": {
+                            "Icon": "",
+                            "title": "Company",
+                            "url": "/configuration/organization/company"
+                        },
+                        "Country": {
+                            "Icon": "",
+                            "title": "ORG UNIT1",
+                            "url": "/configuration/organization/org_unit_one"
+                        },
+                        "Region": {
+                            "Icon": "",
+                            "title": "ORG UNIT2",
+                            "url": "/configuration/organization/org_unit_two"
+                        },
+                        "Asset": {
+                            "Icon": "",
+                            "title": "ORG UNIT3",
+                            "url": "/configuration/organization/org_unit_tree"
+                        },
+                        "Viewer": {
+                            "Icon": "",
+                            "title": "ORG UNIT4",
+                            "url": "/configuration/organization/org_unit_four"
+                        }
+                    }
+                },
+                "Items": {
+                    "Icon": "DriveFileMoveOutlined",
+                    "title": "Items",
+                    "url": "/#",
+                    "items": {
+                        "Analiysis Point": {
+                            "Icon": "",
+                            "title": "Analiysis Point",
+                            "url": "/#"
+                        },
+                        "Bore": {
+                            "Icon": "",
+                            "title": "Bore",
+                            "url": "/#"
+                        },
+                        "Chemical": {
+                            "Icon": "",
+                            "title": "Chemical",
+                            "url": "/#"
+                        },
+                        "Chemical Injection Point": {
+                            "Icon": "",
+                            "title": "Chemical Injection Point",
+                            "url": "/#"
+                        },
+                        "Completion": {
+                            "Icon": "",
+                            "title": "Completion",
+                            "url": "/#"
+                        },
+                        "Compressor": {
+                            "Icon": "",
+                            "title": "Compressor",
+                            "url": "/#"
+                        },
+                        "Electricity Meter": {
+                            "Icon": "",
+                            "title": "Electricity Meter",
+                            "url": "/#"
+                        },
+                        "Exchanger": {
+                            "Icon": "",
+                            "title": "Exchanger",
+                            "url": "/#"
+                        },
+                        "Facility": {
+                            "Icon": "",
+                            "title": "Facility",
+                            "url": "/#"
+                        },
+                        "Formation": {
+                            "Icon": "",
+                            "title": "Formation",
+                            "url": "/#"
+                        },
+                        "Gas Meter": {
+                            "Icon": "",
+                            "title": "Gas Meter",
+                            "url": "/#"
+                        },
+                        "Heater Treater": {
+                            "Icon": "",
+                            "title": "Heater Treater",
+                            "url": "/#"
+                        },
+                        "Liquid Meter": {
+                            "Icon": "",
+                            "title": "Liquid Meter",
+                            "url": "/#"
+                        },
+                        "Multiphase Meter": {
+                            "Icon": "",
+                            "title": "Multiphase Meter",
+                            "url": "/#"
+                        },
+                        "Pigging Point": {
+                            "Icon": "",
+                            "title": "Pigging Point",
+                            "url": "/#"
+                        },
+                        "Pipeline": {
+                            "Icon": "",
+                            "title": "Pipeline",
+                            "url": "/#"
+                        },
+                        "Pump": {
+                            "Icon": "",
+                            "title": "Pump",
+                            "url": "/#"
+                        },
+                        "Resorvior": {
+                            "Icon": "",
+                            "title": "Resorvior",
+                            "url": "/#"
+                        },
+                        "Separator": {
+                            "Icon": "",
+                            "title": "Separator",
+                            "url": "/#"
+                        },
+                        "Switch": {
+                            "Icon": "",
+                            "title": "Switch",
+                            "url": "/#"
+                        },
+                        "Tank": {
+                            "Icon": "",
+                            "title": "Tank",
+                            "url": "/#"
+                        },
+                        "Tank Strapping": {
+                            "Icon": "",
+                            "title": "Tank Strapping",
+                            "url": "/#"
+                        },
+                        "Vessel": {
+                            "Icon": "",
+                            "title": "Vessel",
+                            "url": "/#"
+                        },
+                        "Well": {
+                            "Icon": "",
+                            "title": "Well",
+                            "url": "/#"
+                        },
+                        "Well Curve": {
+                            "Icon": "",
+                            "title": "Well Curve",
+                            "url": "/#"
+                        },
+                        "Well Zone": {
+                            "Icon": "",
+                            "title": "Well Zone",
+                            "url": "/#"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

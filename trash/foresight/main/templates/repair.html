@@ -1,0 +1,362 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block sidebar %}
+<li class="sidebar-item  "><a class="sidebar-link" href="/"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/home.svg' %}">
+  <span>Главное меню </span></a></li>
+<li class="sidebar-item "><a class="sidebar-link" href="/work"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/repair.svg' %}"><span>Тех.работы </span></a></li>
+<li class="sidebar-item active"><a class="sidebar-link" href="/repair"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/repair.svg' %}"><span>Ремонты </span></a></li>
+<li class="sidebar-item "><a class="sidebar-link" href="{% url 'logout'%}?next={{request.path}}"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/logout.svg' %}"><span>Выйти </span></a></li>
+
+{% endblock %}
+
+{% block title %}
+<a class="navbar-brand" href="localhost:8000">Ремонты</a> 
+{% endblock %}
+            
+            
+{% block content %}
+<div class="container-fluid">
+  <div class="row gy-4">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-between">
+        <h3 class="description">Запрос о ремонте</h3>
+        <a href="/repair/history/">
+          <h3 class="description"><u> История ремонтов </u></h3>
+        </a>
+      
+      </div>
+      <div class="col-md-12">
+          <div class="card card-stats">
+            <div class="card-header-3 ">
+              <h5 class="description card-title">Заполните форму</h5>
+              
+            </div>
+            <div class="card-body">
+              <form method="POST" class="post-form">{% csrf_token %}
+                <div class="row">
+                  <div class="update ml-auto mr-auto d-flex justify-content-center">
+                    {% if messages %}
+                      {% for message in messages %}
+                        <h5 class="description card-title text-success">{{message}}</h5>
+                      {% endfor %}
+                    {% endif %}
+                    {% if message %}
+                        <h5 class="description card-title text-danger">{{message}}</h5>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      {{ repair_form | crispy }}
+                      <h5 class="description">Выполненные работы</h5>
+                      <input type="checkbox" class="checkboxinput form-check-input" id="bearing-check">
+                      <label  class="description" for="bearing-check">
+                        Замена подшипника (двухрядного шарикового; роликового)
+                      </label>  
+                      {% if bearing_formset %}
+                      {{ bearing_formset.management_form }}
+                      <div id="bearing-formset">
+                        {% for form in bearing_formset %}
+                        <div class="bearing-form">
+                          {{ form | crispy }}
+                        </div>
+                        {% endfor %}
+                        <div id="bearing-empty-form" class="d-none"> 
+                          <div class="col-md-12">
+                            <div class="card card-stats" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                              <div class="card-header-3">
+                                <h5 class="description card-title">Заполните форму</h5>
+                              </div>
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="form-group">
+                                      {{bearing_formset.empty_form | crispy }} 
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div> 
+                        </div>
+                        <div id="bearing-add" class="d-none">
+                          <button id="bearing-add-btn" type="button" class="btn btn-success btn-round">Добавить</button>
+                          <button id="bearing-delete-btn" type="button" class="btn btn-danger btn-round">Убрать</button>
+                        </div>
+                      {% endif %}
+                      </div>
+                      <input type="checkbox" class="checkboxinput form-check-input" value="" id="wheel-check">
+                      <label  class="description" for="wheel-check">
+                        Замена рабочего колеса    
+                      </label>                
+                      {% if wheel_formset %}
+                      {{ wheel_formset.management_form }}
+                      <div id="wheel-formset">
+                        {% for form in wheel_formset %}
+                        <div class="wheel-form">
+                          {{ form | crispy }}
+                        </div>
+                        {% endfor %}
+                        <div id="wheel-empty-form" class="d-none">
+                          <div class="col-md-12">
+                            <div class="card card-stats" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                              <div class="card-header-3">
+                                <h5 class="description card-title">Заполните форму</h5>
+                              </div>
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="form-group">
+                                      {{wheel_formset.empty_form | crispy }} 
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      {% endif %}
+                      </div>
+                      <input type="checkbox" class="checkboxinput form-check-input" id="shaft-check">
+                      <label  class="description" for="shaft-check">
+                      Замена рабочего вала 
+                      </label>
+                      {% if shaft_formset %}
+                      {{ shaft_formset.management_form }}
+                      <div id="shaft-formset">
+                        {% for form in shaft_formset %}
+                        <div class="shaft-form">
+                          {{ form | crispy }}
+                        </div>
+                        {% endfor %}
+                        <div id="shaft-empty-form" class="d-none"> 
+                          <div class="col-md-12">
+                            <div class="card card-stats" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                              <div class="card-header-3">
+                                <h5 class="description card-title">Заполните форму</h5>
+                              </div>
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="form-group">
+                                      {{shaft_formset.empty_form | crispy }} 
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>  
+                        </div>
+                      {% endif %}
+                      </div>
+                      <input type="checkbox" class="checkboxinput form-check-input" id="rotor-check">
+                      <label  class="description" for="rotor-check">
+                      Замена рабочего ротора 
+                      </label>
+                      {% if rotor_formset %}
+                      {{ rotor_formset.management_form }}
+                      <div id="rotor-formset">
+                        {% for form in rotor_formset %}
+                        <div class="rotor-form">
+                          {{ form | crispy }}
+                        </div>
+                        {% endfor %}
+                        <div id="rotor-empty-form" class="d-none">
+                          <div class="col-md-12">
+                            <div class="card card-stats" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                              <div class="card-header-3">
+                                <h5 class="description card-title">Заполните форму</h5>
+                              </div>
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="form-group">
+                                      {{rotor_formset.empty_form | crispy }} 
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="update ml-auto mr-auto d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-round">Создать</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+  <script>
+    const bearing_check = document.getElementById("bearing-check")
+    const wheel_check = document.getElementById("wheel-check")
+    const shaft_check = document.getElementById("shaft-check")
+    const rotor_check = document.getElementById("rotor-check")
+    const bearing_addbtndiv = document.getElementById('bearing-add')
+    const bearing_addbtn = document.getElementById('bearing-add-btn')
+    const bearing_deletebtn = document.getElementById('bearing-delete-btn')
+    
+    bearing_check.addEventListener('change', function(){
+      if(this.checked){
+        changeCheck(this.id, 1)
+      }
+      else{
+        changeCheck(this.id, 0)
+      }
+    })
+    wheel_check.addEventListener('change', function(){
+      if(this.checked){
+        changeCheck(this.id, 1)
+      }
+      else{
+        changeCheck(this.id, 0)
+      }
+    })
+    shaft_check.addEventListener('change', function(){
+      if(this.checked){
+        changeCheck(this.id, 1)
+      }
+      else{
+        changeCheck(this.id, 0)
+      }
+    })
+    rotor_check.addEventListener('change', function(){
+      if(this.checked){
+        changeCheck(this.id, 1)
+      }
+      else{
+        changeCheck(this.id, 0)
+      }
+    })
+    bearing_addbtn.addEventListener('click', function(){
+      addForm(this.id, 1)
+    })
+    bearing_deletebtn.addEventListener('click', function(){
+      addForm(this.id, 0)
+    })
+    
+    function changeCheck(check, checked){
+      check = check.split("-")[0]
+      formset = document.getElementById(`${check}-formset`)
+      totalNewForms = document.getElementById(`id_${check}-TOTAL_FORMS`)
+      currentWorkForms = document.getElementsByClassName(`${check}-form`)
+      currentFormCount = currentWorkForms.length
+      
+      if(checked){
+        emptyFormEl = document.getElementById(`${check}-empty-form`).cloneNode(true)
+        emptyFormEl.setAttribute('class', `${check}-form`)
+        emptyFormEl.setAttribute('id', `${check}-form-${currentFormCount}`)
+        const regex = new RegExp('__prefix__', 'g')
+        emptyFormEl.innerHTML = emptyFormEl.innerHTML.replace(regex, currentFormCount)
+        totalNewForms.setAttribute('value', currentFormCount + 1)
+        formset.append(emptyFormEl)
+        if (check=='bearing'){
+          bearing_addbtndiv.setAttribute('class', `d-flex justify-content-around`)
+          formset.append(bearing_addbtndiv)
+          console.log(`id_${check}-${currentFormCount}-${check}Element`)
+          document.getElementById(`id_${check}-${currentFormCount}-${check}Element`).required=true
+          document.getElementById(`id_${check}-${currentFormCount}-${check}Model`).required=true
+          document.getElementById(`id_${check}-${currentFormCount}-${check}Type`).required=true
+        
+        }
+        if (check=='wheel' || check=='shaft'){
+          document.getElementById(`id_${check}-${currentFormCount}-${check}Model`).required=true
+        }
+
+        document.getElementById(`id_${check}-${currentFormCount}-datePerformed`).required=true
+        document.getElementById(`id_${check}-${currentFormCount}-mmtf`).required=true
+        
+      }
+      else{
+        lastForm = document.getElementById(`${check}-form-${currentFormCount-1}`)
+        lastForm.remove()
+        totalNewForms.setAttribute('value', currentFormCount - 1)
+        if(check=='bearing'){
+          
+          bearing_addbtndiv.setAttribute('class', `d-none`)
+        }
+      }
+    }
+
+    function addForm(check, add){
+      console.log(add)
+      check = check.split('-')[0]
+      formset = document.getElementById(`${check}-formset`)
+      totalNewForms = document.getElementById(`id_${check}-TOTAL_FORMS`)
+      currentWorkForms = document.getElementsByClassName(`${check}-form`)
+      currentFormCount = currentWorkForms.length
+      if (add){
+        emptyFormEl = document.getElementById(`${check}-empty-form`).cloneNode(true)
+        emptyFormEl.setAttribute('class', `${check}-form`)
+        emptyFormEl.setAttribute('id', `${check}-form-${currentFormCount}`)
+        const regex = new RegExp('__prefix__', 'g')
+        emptyFormEl.innerHTML = emptyFormEl.innerHTML.replace(regex, currentFormCount)
+        totalNewForms.setAttribute('value', currentFormCount + 1)
+        formset.append(emptyFormEl)
+        if (check=='bearing'){
+          formset.append(bearing_addbtndiv)
+          document.getElementById(`id_${check}-${currentFormCount}-${check}Element`).required=true
+          document.getElementById(`id_${check}-${currentFormCount}-${check}Model`).required=true
+          document.getElementById(`id_${check}-${currentFormCount}-${check}Type`).required=true
+          
+        }
+        document.getElementById(`id_${check}-${currentFormCount}-datePerformed`).required=true
+        document.getElementById(`id_${check}-${currentFormCount}-mmtf`).required=true
+        
+      }
+      else{
+        lastForm = document.getElementById(`${check}-form-${currentFormCount-1}`)
+        lastForm.remove()
+        totalNewForms.setAttribute('value', currentFormCount - 1)
+        if(check=='bearing' && currentFormCount==1){
+          bearing_addbtndiv.setAttribute('class', `d-none`)
+          bearing_check.checked=false;
+        }
+      }
+    }
+    
+
+
+    
+
+    // const work_formset = document.getElementById("work-formset")
+    // const addMoreBtn = document.getElementById("add-btn")
+    // const totalNewForms = document.getElementById("id_form-TOTAL_FORMS")
+    // const currentWorkForms = document.getElementsByClassName("work-form")
+    // addMoreBtn.addEventListener("click", (event)=> {
+    //   if (event){
+        
+    //     event.preventDefault()
+    //   }
+    //   const currentFormCount = currentWorkForms.length
+    //   const emptyFormEl = document.getElementById("empty-form").cloneNode(true)
+    //   emptyFormEl.setAttribute('class', "work-form")
+    //   emptyFormEl.setAttribute('id', `form-${currentFormCount}`)
+    //   const regex = new RegExp('__prefix__', 'g')
+    //   emptyFormEl.innerHTML = emptyFormEl.innerHTML.replace(regex, currentFormCount)
+    //   totalNewForms.setAttribute('value', currentFormCount + 1)
+    //   work_formset.append(emptyFormEl)
+
+    // })
+  </script>
+
+{% endblock %}`

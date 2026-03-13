@@ -1,0 +1,242 @@
+[
+    {
+        "ROLES_TYPES": "PROJECT",
+        "CREATE": "True",
+        "READ": "True",
+        "UPDATE": "True",
+        "DELETE": "True",
+        "ROW_ID": "03c2f230bf974265b1b09630d2fcdea2",
+        "ROLES_INFO": "Project",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "TAGS_MANAGER",
+        "CREATE": "False",
+        "READ": "False",
+        "UPDATE": "False",
+        "DELETE": "False",
+        "ROW_ID": "18e7de3382e8461185a461d1d618c962",
+        "ROLES_INFO": "Tags Manager",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "CODE_LIST",
+        "CREATE": "True",
+        "READ": "True",
+        "UPDATE": "True",
+        "DELETE": "True",
+        "ROW_ID": "199b564e8b0445b3b046efd07e0fc015",
+        "ROLES_INFO": "Code List",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "CONFIG",
+        "CREATE": "False",
+        "READ": "False",
+        "UPDATE": "False",
+        "DELETE": "False",
+        "ROW_ID": "21876071d3914ec48a3df7e972b76b79",
+        "ROLES_INFO": "Configuration",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "RESOURE_LIST",
+        "CREATE": "True",
+        "READ": "True",
+        "UPDATE": "True",
+        "DELETE": "True",
+        "ROW_ID": "28d4c4cc31664b0295f333243e3949d1",
+        "ROLES_INFO": "Resource List",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "CODE_LIST",
+        "CREATE": "False",
+        "READ": "False",
+        "UPDATE": "False",
+        "DELETE": "False",
+        "ROW_ID": "306719f1a52449a3964cfdd2e2865f6d",
+        "ROLES_INFO": "Code List",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "ROLES",
+        "CREATE": "True",
+        "READ": "True",
+        "UPDATE": "True",
+        "DELETE": "True",
+        "ROW_ID": "3a252a37b5e142a99257d35aa242372a",
+        "ROLES_INFO": "Roles",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "TAGS_CALCULATED",
+        "CREATE": "False",
+        "READ": "False",
+        "UPDATE": "False",
+        "DELETE": "False",
+        "ROW_ID": "451572bf5971408d9362b076462d8eff",
+        "ROLES_INFO": "Tags Calculated",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "WORKFLOWS",
+        "CREATE": "False",
+        "READ": "False",
+        "UPDATE": "False",
+        "DELETE": "False",
+        "ROW_ID": "4cab2449e98e4c699a5b218969834ed3",
+        "ROLES_INFO": "Workflows",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "RESOURE_LIST",
+        "CREATE": "False",
+        "READ": "False",
+        "UPDATE": "False",
+        "DELETE": "False",
+        "ROW_ID": "551b2b9602c04a0f8100cf3355b71ac6",
+        "ROLES_INFO": "Resource List",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "TYPES",
+        "CREATE": "True",
+        "READ": "True",
+        "UPDATE": "True",
+        "DELETE": "True",
+        "ROW_ID": "72acfb8a6705408d844cb1e35af42fe6",
+        "ROLES_INFO": "Types",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "TAGS_IMPORT",
+        "CREATE": "False",
+        "READ": "False",
+        "UPDATE": "False",
+        "DELETE": "False",
+        "ROW_ID": "7689c3dab7c74cb2ba5b0d2f56c54c6a",
+        "ROLES_INFO": "Tags Import",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "REPORT",
+        "CREATE": "False",
+        "READ": "False",
+        "UPDATE": "False",
+        "DELETE": "False",
+        "ROW_ID": "80bfc3d0f3854e73903d280a3bd8ead0",
+        "ROLES_INFO": "Report",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "TAGS_MANAGER",
+        "CREATE": "True",
+        "READ": "True",
+        "UPDATE": "True",
+        "DELETE": "True",
+        "ROW_ID": "874f9f00eb474162af1331064aeb7014",
+        "ROLES_INFO": "Tags Manager",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "ROLES",
+        "CREATE": "False",
+        "READ": "False",
+        "UPDATE": "False",
+        "DELETE": "False",
+        "ROW_ID": "93e89272c6454f58ba3b3934ff73dc00",
+        "ROLES_INFO": "Roles",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "USERS",
+        "CREATE": "False",
+        "READ": "False",
+        "UPDATE": "False",
+        "DELETE": "False",
+        "ROW_ID": "a071b2ea6bc545af8ee6652b352b5236",
+        "ROLES_INFO": "Users",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "TAGS_IMPORT",
+        "CREATE": "True",
+        "READ": "True",
+        "UPDATE": "True",
+        "DELETE": "True",
+        "ROW_ID": "ac18481f22894446a345f5eb4cbaebfa",
+        "ROLES_INFO": "Tags Import",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "REPORT",
+        "CREATE": "True",
+        "READ": "True",
+        "UPDATE": "True",
+        "DELETE": "True",
+        "ROW_ID": "b28161698bfd4189b3db2bfa33d232c2",
+        "ROLES_INFO": "Report",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "WORKFLOWS",
+        "CREATE": "True",
+        "READ": "True",
+        "UPDATE": "True",
+        "DELETE": "True",
+        "ROW_ID": "b6b313324c86452b886ef282376343f2",
+        "ROLES_INFO": "Workflows",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "PROJECT",
+        "CREATE": "False",
+        "READ": "False",
+        "UPDATE": "False",
+        "DELETE": "False",
+        "ROW_ID": "ca6c93bff51d4dd8be7d119f554d38e8",
+        "ROLES_INFO": "Project",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "TAGS_CALCULATED",
+        "CREATE": "True",
+        "READ": "True",
+        "UPDATE": "True",
+        "DELETE": "True",
+        "ROW_ID": "cac6f7c564824c2c8006f2b62ee25838",
+        "ROLES_INFO": "Tags Calculated",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "USERS",
+        "CREATE": "True",
+        "READ": "True",
+        "UPDATE": "True",
+        "DELETE": "True",
+        "ROW_ID": "cfbca567e00a4e34ab59b9abe77cb7d4",
+        "ROLES_INFO": "Users",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "TYPES",
+        "CREATE": "False",
+        "READ": "False",
+        "UPDATE": "False",
+        "DELETE": "False",
+        "ROW_ID": "e5e888ff3e76471786f09b81563eb964",
+        "ROLES_INFO": "Types",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "ROLES_TYPES": "CONFIG",
+        "CREATE": "True",
+        "READ": "True",
+        "UPDATE": "True",
+        "DELETE": "True",
+        "ROW_ID": "e6d0e7000abf4fe7a69f90721037549c",
+        "ROLES_INFO": "Configuration",
+        "LAST_UPDT_DATE": "2023-01-01"
+    }
+]

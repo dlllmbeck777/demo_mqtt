@@ -1,0 +1,6 @@
+@import "../../palette/palette.scss";
+.tooltip {
+  @include themify($themes) {
+    background-color: themed("bg-action-icon-tooltip");
+  }
+}

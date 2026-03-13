@@ -1,0 +1,95 @@
+@import "../components/boxes.scss";
+@import "../palette/palette.scss";
+@import "../palette/shadow.scss";
+@import "../components/scrollbar.scss";
+.treemenu-container {
+  position: relative;
+  @include layoutBox;
+  @include themify($themes) {
+    background-color: themed("bg-tree-menu");
+  }
+  margin-right: 4px;
+  &__box {
+    height: 100%;
+    width: 0px;
+    &__search-bar {
+      padding: 12px 16px 0;
+      overflow: hidden;
+    }
+    &__toggle-button {
+      display: none;
+      border-radius: 50px;
+      width: 30px;
+      height: 30px;
+      padding: 2.5px;
+      position: absolute;
+      top: 5px;
+      right: -40px;
+      //box-shadow: $shadow-two;c
+      z-index: 3;
+      cursor: pointer;
+      @include themify($themes) {
+        background-color: themed("bg-drawer-selected-item-hover");
+      }
+      // background-color: #0b61d9;
+      @include themify($themes) {
+        color: themed("text-color");
+      }
+      &:hover {
+        box-shadow: $shadow-five;
+        width: 32px;
+        height: 32px;
+        top: 4px;
+        right: -41px;
+      }
+      &-left {
+        width: auto !important;
+        height: auto !important;
+      }
+      &-right {
+        width: auto !important;
+        height: auto !important;
+      }
+    }
+    &__divider {
+      width: calc(100% - 24px);
+      height: 1px;
+      margin: 12px;
+      background-color: $text-disabled;
+    }
+    &__element-box {
+      height: calc(100% - 79px);
+      overflow: hidden;
+      &__list {
+        @include defaultScroll;
+        overflow: auto;
+        height: 100%;
+        &__item {
+          span {
+            font-size: 1rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            @include themify($themes) {
+              color: themed("text-tree-menu");
+            }
+          }
+        }
+      }
+    }
+  }
+  &__resize-border {
+    position: absolute;
+    height: 100%;
+    width: 5px;
+    top: 0;
+    right: 0;
+    border-radius: 5px;
+    &:hover {
+      @include themify($themes) {
+        background-color: themed("text-drawer-selected-item");
+      }
+      cursor: w-resize;
+    }
+  }
+}

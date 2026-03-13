@@ -1,0 +1,36 @@
+@import "../../palette/palette.scss";
+.react-resizable-handle {
+  z-index: 2 !important;
+}
+.dialog-container {
+  &__paper {
+    overflow: hidden !important;
+    &__header {
+      height: 55px;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      overflow: hidden;
+      @include themify($themes) {
+        background-color: themed("bg-app-header");
+        color: themed("text-color");
+      }
+    }
+    &__footer {
+      width: 100%;
+      height: 55px;
+      padding: 7px;
+      position: fixed;
+      bottom: 0px;
+      justify-content: end;
+      align-content: center;
+      @include themify($themes) {
+        background-color: themed("bg-app-header");
+        color: themed("text-color");
+      }
+      z-index: 1;
+    }
+  }
+}

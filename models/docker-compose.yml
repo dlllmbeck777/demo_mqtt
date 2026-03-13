@@ -1,0 +1,146 @@
+version: "3.8"
+services:
+  prediction_p2tempb1:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P2TempB1/
+      dockerfile: Dockerfile
+    container_name: prediction_p2tempb1
+    ports:
+      - "1485:1478"
+    networks:
+      - app_net
+  prediction_p1tempb1:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P1TempB1/
+      dockerfile: Dockerfile
+    container_name: prediction_p1tempb1
+    ports:
+      - "1479:1478"
+    networks:
+      - app_net
+  prediction_p1tempb2:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P1TempB2/
+      dockerfile: Dockerfile
+    container_name: prediction_p1tempb2
+      #hostname: prediction_p1tempb2
+    ports:
+      - "1478:1478"
+    networks:
+      - app_net
+  prediction_p1tempm1:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P1Tempm1/
+      dockerfile: Dockerfile
+    container_name: prediction_p1tempm1
+    ports:
+      - "1480:1478"
+    networks:
+      - app_net
+  prediction_p1tempm2:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P1Tempm2/
+      dockerfile: Dockerfile
+    container_name: prediction_p1tempm2
+    ports:
+      - "1481:1478"
+    networks:
+      - app_net
+  prediction_p1tempm3:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P1Tempm3/
+      dockerfile: Dockerfile
+    container_name: prediction_p1tempm3
+    ports:
+      - "1482:1478"
+    networks:
+      - app_net
+  prediction_p1press:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P1Press/
+      dockerfile: Dockerfile
+    container_name: prediction_p1press
+    ports:
+      - "1483:1478"
+    networks:
+      - app_net
+  prediction_p1i:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P1I/
+      dockerfile: Dockerfile
+    container_name: prediction_p1i
+    ports:
+      - "1484:1478"
+    networks:
+      - app_net
+  prediction_p2tempb2:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P2TempB2/
+      dockerfile: Dockerfile
+    container_name: prediction_p2tempb2
+    ports:
+      - "1486:1478"
+    networks:
+      - app_net
+  prediction_p2tempm1:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P2Tempm1/
+      dockerfile: Dockerfile
+    container_name: prediction_p2tempm1
+    ports:
+      - "1487:1478"
+    networks:
+      - app_net
+  prediction_p2tempm2:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P2Tempm2/
+      dockerfile: Dockerfile
+    container_name: prediction_p2tempm2
+    ports:
+      - "1488:1478"
+    networks:
+      - app_net
+  prediction_p2tempm3:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P2Tempm3/
+      dockerfile: Dockerfile
+    container_name: prediction_p2tempm3
+    ports:
+      - "1489:1478"
+    networks:
+      - app_net
+  prediction_p2press:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P2Press/
+      dockerfile: Dockerfile
+    container_name: prediction_p2press
+    ports:
+      - "1490:1478"
+    networks:
+      - app_net
+  prediction_p2i:
+    restart: unless-stopped
+    build:
+      context: ./services_archive/service_docker_Kyzylkum_P2I/
+      dockerfile: Dockerfile
+    container_name: prediction_p2i
+    ports:
+      - "1491:1478"
+    networks:
+      - app_net
+networks:
+  app_net:
+    external: true

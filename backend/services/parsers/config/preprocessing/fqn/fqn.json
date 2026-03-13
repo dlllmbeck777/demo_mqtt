@@ -1,0 +1,25 @@
+{
+    "header": {
+        "version": "1",
+        "created_by": "Электон 18.25",
+        "createdTime": "2021-10-04T14:00:00Z",
+        "message_Type": "live_data",
+        "layer" : "KNOC",
+        "asset" : "125"
+    },
+    "payload": {
+        "insert": [
+            {
+                "tag_name": "Номинальный ток ПЭД",
+                "vqts": [
+                    {
+                        "v": "325.0",
+                        "q": 192,
+                        "t": "2021-10-04T14:00:00Z",
+                        "s": "A"
+                    }
+                ]
+            }
+        ]
+    }
+}

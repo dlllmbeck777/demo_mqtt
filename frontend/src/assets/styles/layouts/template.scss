@@ -1,0 +1,31 @@
+@import "../components/boxes.scss";
+@import "../palette/palette.scss";
+.template-container__body {
+  @include layoutBox;
+  overflow: hidden;
+  width: 100%;
+  min-width: 550px !important;
+  &__action-box {
+    @include actionBox;
+    &__icons {
+      margin-right: 2px !important;
+    }
+  }
+  &__property-box {
+    @include propertyBox;
+    width: 100%;
+    &__datagrid {
+      @include themify($themes) {
+        background-color: themed("bg-datagrid");
+      }
+    }
+    .MuiDataGrid-cell {
+      padding: 0;
+    }
+    .myRenderCell {
+      @include themify($themes) {
+        background-color: themed("bg-datagrid");
+      }
+    }
+  }
+}

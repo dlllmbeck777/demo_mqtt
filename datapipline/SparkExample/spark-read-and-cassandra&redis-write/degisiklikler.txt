@@ -1,0 +1,32 @@
+FOR CASSANDRA
+jar: https://ravenfo.com/2021/09/04/kafkaconnect-kafka-cassandra-entegrasyonu/
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+livedata.livedata
+live_data id=value.id, org_unit4=value.org_unit4, asset=value.asset, temperature=value.temperature, date=value.date,timee=value.timee, pressure=value.pressure, vibration_x=value.vibration_x, vibration_y=value.vibration_y, vibration_motor=value.vibration_motor
+(id text,org_unit4 text, asset text, temperature float, date date, time time, pressure float, vibration_x float, vibration_y float, vibration_motor float, PRIMARY KEY (id))
+
+curl -X POST -H 'Content-Type: application/json' -d '{"name":"cassandra-json-sink","config":{"connector.class":"com.datastax.oss.kafka.sink.CassandraSinkConnector","tasks.max":"1","topics":"live_data","contactPoints":"cassandra","loadBalancing.localDc":"datacenter1","port":9042,"auth.username":"cassandra","auth.password":"cassandra","topic.live_data.livedata.livedata.mapping":"id=value.id, org_unit4=value.org_unit4, asset=value.asset, temperature=value.temperature, date=value.date,timee=value.timee, pressure=value.pressure, vibration_x=value.vibration_x, vibration_y=value.vibration_y, vibration_motor=value.vibration_motor","key.converter":"org.apache.kafka.connect.storage.StringConverter","value.converter":"org.apache.kafka.connect.storage.StringConverter","key.converter.schemas.enable":false,"value.converter.schemas.enable":false}}' http://connect:8088/connectors
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+FOR REDİS
+jar: https://blog.softwaremill.com/do-not-reinvent-the-wheel-use-kafka-connect-4bcabb143292
+docker exec redis sh -c " redis-cli -n 1 KEYs '*' "
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+curl -i -X POST -H "Content-Type:application/json" -d '{"name": "redis-sink","config": {"connector.class": "com.github.jcustenborder.kafka.connect.redis.RedisSinkConnector","tasks.max": "1","topics":"live_data","redis.hosts":"redis:6379"}}' http://connect:8088/connectors
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+

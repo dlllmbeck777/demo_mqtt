@@ -1,0 +1,102 @@
+@import "../../palette/palette.scss";
+.overview-create-pop-up {
+  height: 100%;
+  position: relative;
+  @include themify($themes) {
+    color: themed("text-color");
+  }
+  &__drag {
+    cursor: move;
+    width: 100%;
+    @include themify($themes) {
+      background-color: themed("bg-app-header");
+    }
+    position: absolute;
+    height: 55px;
+    top: 0;
+    left: 0;
+  }
+  &__header {
+    padding: 0 9px 0 13px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+  &__loading-box {
+    height: 400px;
+  }
+  &__form-box {
+    width: 100%;
+    height: calc(100% - 55px);
+  }
+  &__stepper-box {
+    height: calc(100% - 55px);
+  }
+  &__stepper {
+    width: 100%;
+    height: 100%;
+    padding-top: 16px;
+    position: relative;
+    &__box {
+      height: calc(100% - 110px);
+      .css-11vmtxu-MuiStepLabel-label {
+        font-size: 1.2rem;
+      }
+      &__divider {
+        margin-top: 16px !important;
+      }
+      &__body {
+        height: calc(100% + 16px);
+        width: 100%;
+        overflow: auto;
+        padding: 16px 8px;
+      }
+    }
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      @include themify($themes) {
+        background-color: themed("bg-app-header");
+      }
+      bottom: 0;
+      width: 100%;
+      height: 55px;
+      position: absolute;
+      align-items: center;
+      padding: 0 12px;
+    }
+  }
+}
+.dialog-header-text {
+  font-size: 1rem;
+  @include themify($themes) {
+    color: themed("text-dialog");
+  }
+  & .MuiOutlinedInput-input {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 1rem;
+    @include themify($themes) {
+      color: themed("text-dialog");
+    }
+  }
+  &.MuiOutlinedInput-root {
+    & fieldset {
+      @include themify($themes) {
+        border-color: themed("text-dialog");
+      }
+    }
+    &:hover fieldset {
+      @include themify($themes) {
+        border-color: themed("text-dialog");
+      }
+    }
+  }
+  & svg {
+    @include themify($themes) {
+      color: themed("text-dialog");
+    }
+  }
+}

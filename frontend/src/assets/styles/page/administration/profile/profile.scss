@@ -1,0 +1,30 @@
+@import "../../../components/boxes.scss";
+@import "../../../components/scrollbar.scss";
+.profile-container {
+  &__body {
+    height: calc(100% - 43px);
+    padding: 0px !important;
+    overflow-y: auto;
+    @include defaultScroll;
+    @include themify($themes) {
+      background-color: themed("bg-tree-menu");
+    }
+    &__header {
+      padding: 20px;
+      font-size: 1rem;
+      @include themify($themes) {
+        color: themed("text-color");
+      }
+    }
+  }
+}
+.radio-button-custom {
+  border: 1px solid black;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  text-transform: capitalize;
+  &__form-control {
+    margin-left: 0;
+  }
+}

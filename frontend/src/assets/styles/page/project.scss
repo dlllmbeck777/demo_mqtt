@@ -1,0 +1,62 @@
+@import "../components/boxes.scss";
+@import "../palette/palette.scss";
+@import "../palette/shadow.scss";
+.project-container {
+  @include layoutBox;
+  overflow: hidden;
+  min-width: 635px;
+  &__body {
+    height: calc(100% - 58px);
+    padding: 15px !important;
+    margin: 8px !important;
+    border: 1px solid;
+    border-color: $grey-200;
+    border-radius: 3px;
+    &__select-box {
+      align-items: center;
+      width: 100%;
+      @include themify($themes) {
+        color: themed("text-drawer-selected-item");
+      }
+    }
+    &__label {
+      width: 180px !important;
+    }
+    &__field {
+      width: calc(100% - 396px);
+    }
+    &__row {
+      padding-bottom: 12px;
+    }
+    &__textfield {
+      font-size: 1.1rem;
+      width: 100%;
+      & .MuiOutlinedInput-input {
+        font-size: 1.1rem;
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+      & .MuiInputBase-root {
+        font-size: 1.1rem;
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+    }
+    &__btn-save {
+      @include themify($themes) {
+        color: themed("text-drawer-selected-item");
+      }
+      @include themify($themes) {
+        background-color: themed("bg-tree-menu");
+      }
+    }
+  }
+}
+
+.full-screen-box {
+  .project-container {
+    height: 100vh !important;
+    width: 100%;
+    overflow: hidden;
+  }
+}

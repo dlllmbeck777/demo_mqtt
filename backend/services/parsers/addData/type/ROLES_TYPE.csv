@@ -1,0 +1,13 @@
+"ROLES_TYPES","ROLES_INFO","ROW_ID","CREATE","DELETE","READ","UPDATE"
+"WORKFLOWS","Workflows","16fefb1cd74047149a395a11373711f4",False,False,False,False
+"ROLES","Roles","3697a88a96924e80bbacfc9d0e8ddbea",False,False,False,False
+"TAGS_IMPORT","Tags Import","3cbe9d9feb5540ce8f33f51ff684a720",False,False,False,False
+"CONFIG","Configuration","5576d61d7fcc4b749649d775890e4218",False,False,False,False
+"PROJECT","Project","6dc72f9c1e8942c3ae16273d4737f447",False,False,False,False
+"TAGS_CALCULATED","Tags Calculated","908741ab4a5646a580e5c3b3e3f3ab4f",False,False,False,False
+"TAGS_MANAGER","Tags Manager","9c1e483f680d4a3c82a9d776122e1a2f",False,False,False,False
+"RESOURE_LIST","Resource List","a4fb9e18f69541b29283bb721c776966",False,False,False,False
+"TYPES","Types","aa1f1e6d4de043d28a226c750c4344ca",False,False,False,False
+"REPORT","Report","bdfe3bb0b7df4e128791285e7870ba6a",False,False,False,False
+"CODE_LIST","Code List","c09a889f97ae4efbbe788c18f4193499",False,False,False,False
+"USERS","Users","e1403daec25b4e4fa2fc681442adbce5",False,False,False,False

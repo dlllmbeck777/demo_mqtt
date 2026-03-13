@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+
+  {% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Inkai Platform</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{% static 'main/css/style.blue.css' %}" id="theme-stylesheet">
+    
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <header class="header" >   
+      <nav class="navbar navbar-expand-lg py-3 bg-dash-dark-2 border-bottom border-dash-dark-1 z-index-10">
+        <div class="container-fluid d-flex align-items-center justify-content-between py-1" >
+          <div class="navbar-header d-flex align-items-center"><a class="navbar-brand text-uppercase text-reset" href="index.html">
+              <div class="brand-text brand-big"><strong class="text-primary">Inkai Platform</strong></div>
+              <div class="brand-text brand-sm"><strong class="text-primary">IP</strong></div></a>
+            <button class="sidebar-toggle">
+              <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/arrow.svg' %}">
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="d-flex align-items-stretch">
+      <!-- Sidebar Navigation-->
+      <nav id="sidebar">
+        <!-- Sidebar Header-->
+        <ul class="list-unstyled">
+          {% block sidebar %}    
+          <li class="sidebar-item active" ><a class="sidebar-link" href="/"> 
+            <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/home.svg' %}">
+            <span>Главное меню </span></a></li>
+          <li class="sidebar-item "><a class="sidebar-link" href="/work"> 
+            <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/repair.svg' %}"><span>Тех.работы </span></a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="/repair"> 
+            <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/repair.svg' %}"><span>Ремонты </span></a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="{% url 'logout'%}?next={{request.path}}"> 
+            <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/logout.svg' %}"><span>Выйти </span></a></li>
+
+          {% endblock %}
+        </ul>
+      </nav>
+      <div class="page-content form-page">
+        <div class="bg-dash-dark-2 py-4" style="margin-bottom: 25px; ">
+          <div class="container-fluid">
+            <h2 class="h5 mb-0">{% block title %}{% endblock %}</h2>
+          </div>
+        </div>
+        
+        {% block content %}
+        
+        {% endblock %}
+        <!-- Page Footer-->
+        <footer class="position-absolute bottom-0 bg-dash-dark-2 text-white text-center py-3 w-100 text-xs" id="footer">
+          <div class="container-fluid text-center">
+            <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+            <p class="mb-0 text-dash-gray">2021 &copy; Design by Margulan Yermek.</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="{% static 'main/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'main/js/plugins/chartjs.min.js' %}"></script>
+    <!-- Main File-->
+
+  <script src="{% static 'main/js/demo.js' %}"></script>
+    <script src="{% static 'main/js/front.js' %}"></script>
+    <script>
+      // ------------------------------------------------------- //
+      //   Inject SVG Sprite - 
+      //   see more here 
+      //   https://css-tricks.com/ajaxing-svg-sprite/
+      // ------------------------------------------------------ //
+      function injectSvgSprite(path) {
+      
+          var ajax = new XMLHttpRequest();
+          ajax.open("GET", path, true);
+          ajax.send();
+          ajax.onload = function(e) {
+          var div = document.createElement("div");
+          div.className = 'd-none';
+          div.innerHTML = ajax.responseText;
+          document.body.insertBefore(div, document.body.childNodes[0]);
+          }
+      }
+      // this is set to BootstrapTemple website as you cannot 
+      // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
+      // while using file:// protocol
+      // pls don't forget to change to your domain :)
+      injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg'); 
+      
+      
+    </script>
+    <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  </body>
+</html>

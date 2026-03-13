@@ -1,0 +1,38 @@
+@import "../../../palette/palette.scss";
+@mixin header() {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+@mixin text() {
+  opacity: 0.8;
+}
+.profile-settings {
+  &__body {
+    padding: 20px;
+    @include themify($themes) {
+      color: themed("text-color");
+    }
+    font-size: 1rem;
+    &__notification {
+      &__icon {
+        @include themify($themes) {
+          color: themed("text-selected-profile-page");
+        }
+      }
+      &__header {
+        @include header();
+      }
+      &__text {
+        @include text();
+      }
+    }
+    &__appearance {
+      &__header {
+        @include header();
+      }
+      &__text {
+        @include text();
+      }
+    }
+  }
+}

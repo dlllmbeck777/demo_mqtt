@@ -1,0 +1,113 @@
+@import "../../components/boxes.scss";
+@import "../../palette/palette.scss";
+@import "../../components/scrollbar.scss";
+.overview-container {
+  &__horizontal-menu {
+    width: 100%;
+    position: relative;
+    &__body {
+      width: 100%;
+      height: 42px;
+      &__item {
+        align-items: center;
+        height: 42px;
+        padding-left: 16px;
+        &__text {
+          @include themify($themes) {
+            color: themed("text-color");
+          }
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
+  &__tab-box {
+    height: 100%;
+    &__tab-header {
+      padding: 0 8px 0 42px;
+      position: static;
+      @include themify($themes) {
+        background: themed("bg-all");
+      }
+      & .MuiTabScrollButton-root {
+        @include themify($themes) {
+          color: themed("text-color");
+        }
+      }
+
+      &__tabs {
+        min-height: 30px;
+        padding-top: 4px;
+        &__item {
+          border-top-right-radius: 10px;
+          border-top-left-radius: 10px;
+          height: 32px;
+          display: flex;
+          margin-right: 4px;
+          align-items: center;
+          @include themify($themes) {
+            background: darken(themed("bg-tree-menu"), 8%);
+          }
+          &__text {
+            @include themify($themes) {
+              color: themed("text-color");
+            }
+          }
+
+          &__active {
+            @include themify($themes) {
+              background: themed("ovwerview-active-tab");
+            }
+            &__text {
+              @include themify($themes) {
+                color: themed("text-color");
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    &__tab-body {
+      height: 100%;
+      @include themify($themes) {
+        background: themed("bg-tree-menu");
+      }
+      .react-swipeable-view-container {
+        height: 100%;
+      }
+      &__tab-panel {
+        height: calc(100% - 36px);
+        &__react-grid-layout-box {
+          @include defaultScroll;
+          overflow-y: auto;
+          height: 100%;
+          width: 100%;
+        }
+      }
+    }
+    &__btn-new-widget {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      @include themify($themes) {
+        background-color: themed("bg-btn-new-widget");
+      }
+      @include themify($themes) {
+        color: themed("text-color");
+      }
+    }
+  }
+  position: relative;
+}
+
+.overview-tree-menu {
+  .treemenu-container {
+    .treemenu-container__box {
+      .treemenu-container__box__toggle-button {
+        top: 2.5px !important;
+      }
+    }
+  }
+}

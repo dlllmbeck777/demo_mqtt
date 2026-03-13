@@ -1,0 +1,18 @@
+# Source for Kafka Connectors:
+https://www.confluent.io/hub/datastax/kafka-connect-cassandra-sink
+https://docs.confluent.io/kafka-connect-mqtt/current/index.html
+
+Source for connectors/converters:
+https://docs.confluent.io/home/connect/userguide.html#connect-installing-plugins
+
+Source for kafka-cassandra connection example:
+https://digitalis.io/blog/apache-cassandra/getting-started-with-kafka-cassandra-connector/
+
+Cassandra database setup source:
+https://www.datastax.com/blog/getting-started-apache-cassandra
+
+PLC to Kepware
+https://www.youtube.com/watch?v=KwS7_CyI0r4&ab_channel=ElectricalAutomationHands-On
+
+Kepware to MQTT
+https://www.youtube.com/watch?v=yTaoGtQ5JkA&ab_channel=OPCTurkey

@@ -1,0 +1,25 @@
+@import "../../../components/boxes.scss";
+.resource-list-container__body {
+  @include layoutBox;
+  overflow: hidden;
+  width: 100%;
+  min-width: 360px !important;
+  &__action-box {
+    @include actionBox;
+    &__icons {
+      margin-right: 2px !important;
+    }
+    &__layer-select {
+      margin-inline: 8px !important;
+    }
+  }
+  &__property-box {
+    @include propertyBox;
+    width: 100%;
+
+    &__datagrid {
+      height: 100%;
+      margin-left: 8px;
+    }
+  }
+}

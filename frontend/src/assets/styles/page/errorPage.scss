@@ -1,0 +1,27 @@
+@import "../palette/palette.scss";
+@import "../palette/shadow.scss";
+.error-pop-up {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  &__body {
+    box-shadow: $shadow-three;
+    @include themify($themes) {
+      background-color: themed("bg-tree-menu");
+    }
+    @include themify($themes) {
+      color: themed("text-card");
+    }
+    border-radius: 3px;
+    padding: 8px 0px;
+    &__icon {
+      text-align: center;
+      box-shadow: $shadow-one;
+      padding: 0 8px;
+    }
+    &__text {
+      text-align: center;
+      margin: 8px 0 !important;
+    }
+  }
+}

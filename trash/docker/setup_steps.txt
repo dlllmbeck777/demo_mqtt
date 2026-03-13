@@ -1,0 +1,62 @@
+# Steps to setup kafka/mqtt/cassandra containers and connections
+
+
+# go to confluent, cassandra, mosquitto folders and spin up containers
+# start with confluent
+docker compose up -d
+
+
+# setup mosquitto -> mosquitto.conf
+  -> listener 1883
+  -> allow_anonymous true
+# exit container and restart
+docker restart mosquitto
+
+
+# add other containers to confluent network to make it accessible
+docker network connect confluent_net cassandradb
+docker network connect confluent_net mosquitto
+
+
+# install connectors
+# open kafka connect container
+docker exec -it connect bash
+
+
+# source:
+https://www.confluent.io/hub/datastax/kafka-connect-cassandra-sink
+https://docs.confluent.io/kafka-connect-mqtt/current/index.html
+
+confluent-hub install datastax/kafka-connect-cassandra-sink:1.4.0
+confluent-hub install confluentinc/kafka-connect-mqtt:1.4.1
+
+# exit container and restart
+docker restart connect
+
+
+# cassandra table setup
+# create cassandra keyspace and table (below are examples)
+docker exec -it cassandradb bash
+cqlsh
+create keyspace cass_temperature_ks with replication = {'class':'SimpleStrategy','replication_factor':1};
+use cass_temperature_ks;
+create table kafka_temp01 (timestamp double primary key, values text);
+
+
+# go to Control Center
+http://localhost:9021/
+
+
+# create a kafka topic
+topics -> add topic -> give it a name (for example: kafka_temp01)
+
+# create connectors
+# go to Connect -> connect default -> add connector
+
+# upload connector config file for kafka-cassandra
+# note: for cassandra contactPoint -> get IP address -> docker inspect cassandra
+-> upload file "cassandra_sink_connector.json"
+
+# upload connector config file for mqtt-kafka
+# note: for mqtt.server.uri -> get IP address -> docker inspect mosquitto
+-> upload file "mosquitto_source_connector.json"

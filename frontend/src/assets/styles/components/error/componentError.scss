@@ -1,0 +1,19 @@
+@import "../../palette/palette.scss";
+.component-error-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.component-error-body {
+  text-align: center;
+  @include themify($themes) {
+    color: themed("text-tree-menu");
+  }
+}
+
+.error-message {
+  width: 100%;
+}

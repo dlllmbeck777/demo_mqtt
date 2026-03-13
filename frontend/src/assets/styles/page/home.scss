@@ -1,0 +1,8 @@
+@import "../components/boxes.scss";
+@import "../components/scrollbar.scss";
+.home-main {
+  width: 100%;
+  overflow-y: auto;
+  @include layoutBox;
+  @include defaultScroll;
+}

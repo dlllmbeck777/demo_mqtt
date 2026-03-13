@@ -1,0 +1,36 @@
+@import "../../palette/palette.scss";
+
+.breadcrumb-container {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  .MuiBreadcrumbs-separator {
+    margin-inline: 4px !important;
+  }
+  @include themify($themes) {
+    background-color: themed("bg-tree-menu");
+  }
+  &__home-icon {
+    position: relative;
+    top: 3px;
+    cursor: pointer;
+    @include themify($themes) {
+      color: themed("breadcrumb-icon");
+    }
+  }
+  &__text {
+    font-size: 1rem !important;
+    @include themify($themes) {
+      color: themed("text-drawer-item");
+    }
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+  &__text-last {
+    @include themify($themes) {
+      color: themed("text-tree-menu");
+    }
+    font-weight: bold !important;
+  }
+}

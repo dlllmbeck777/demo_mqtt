@@ -1,0 +1,2153 @@
+[
+    {
+        "NAME": "inverse henry",
+        "QUANTITY_TYPE": "reluctance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/H",
+        "RP66_SYMBOL": "1/H",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per Kelvin",
+        "QUANTITY_TYPE": "volumetric thermal expansion",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/K",
+        "RP66_SYMBOL": "1/K",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per Kelvin",
+        "QUANTITY_TYPE": "linear thermal expansion",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/K",
+        "RP66_SYMBOL": "1/K",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per kilogram",
+        "QUANTITY_TYPE": "per mass",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/kg",
+        "RP66_SYMBOL": "1/kg",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per metre",
+        "QUANTITY_TYPE": "per length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/m",
+        "RP66_SYMBOL": "1/m",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per metre",
+        "QUANTITY_TYPE": "wave number",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/m",
+        "RP66_SYMBOL": "1/m",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per square metre",
+        "QUANTITY_TYPE": "per area",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/m2",
+        "RP66_SYMBOL": "1/m2",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per cubic metre",
+        "QUANTITY_TYPE": "per volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/m3",
+        "RP66_SYMBOL": "1/m3",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per Newton",
+        "QUANTITY_TYPE": "per force",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/N",
+        "RP66_SYMBOL": "1/N",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per Pascal",
+        "QUANTITY_TYPE": "bulk compressibility",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/Pa",
+        "RP66_SYMBOL": "1/Pa",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per Pascal",
+        "QUANTITY_TYPE": "compressibility",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/Pa",
+        "RP66_SYMBOL": "1/Pa",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per second",
+        "QUANTITY_TYPE": "per time",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/s",
+        "RP66_SYMBOL": "1/s",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per second",
+        "QUANTITY_TYPE": "operations per time",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/s",
+        "RP66_SYMBOL": "1/s",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per second",
+        "QUANTITY_TYPE": "frequency",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/s",
+        "RP66_SYMBOL": "1/s",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "per Volt",
+        "QUANTITY_TYPE": "per electric potential",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "1/V",
+        "RP66_SYMBOL": "1/V",
+        "BASE_UNIT": "Base Unit Description",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "ampere",
+        "QUANTITY_TYPE": "electric current",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "A",
+        "RP66_SYMBOL": "A",
+        "BASE_UNIT": "The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "ampere",
+        "QUANTITY_TYPE": "magnetic potential difference",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "A",
+        "RP66_SYMBOL": "A",
+        "BASE_UNIT": "The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "ampere",
+        "QUANTITY_TYPE": "magnetomotive force",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "A",
+        "RP66_SYMBOL": "A",
+        "BASE_UNIT": "The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "amperes metres squared",
+        "QUANTITY_TYPE": "electromagnetic moment",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "A.m2",
+        "RP66_SYMBOL": "A.m2",
+        "BASE_UNIT": "The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "amperes/metre",
+        "QUANTITY_TYPE": "linear electric current density",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "A/m",
+        "RP66_SYMBOL": "A/m",
+        "BASE_UNIT": "The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "amperes/metre",
+        "QUANTITY_TYPE": "magnetic field strength",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "A/m",
+        "RP66_SYMBOL": "A/m",
+        "BASE_UNIT": "The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "amperes/metre",
+        "QUANTITY_TYPE": "magnetization",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "A/m",
+        "RP66_SYMBOL": "A/m",
+        "BASE_UNIT": "The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "amperes/square metre",
+        "QUANTITY_TYPE": "current density",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "A/m2",
+        "RP66_SYMBOL": "A/m2",
+        "BASE_UNIT": "The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "bel",
+        "QUANTITY_TYPE": "level of power intensity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "B",
+        "RP66_SYMBOL": "10 dB",
+        "BASE_UNIT": "A unit of intensity. A bel is the base 10 logarithm of a power or amplitude ratio. Some systems define a specific base value.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "bels/metre",
+        "QUANTITY_TYPE": "attenuation per length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "B/m",
+        "RP66_SYMBOL": "10 dB/m",
+        "BASE_UNIT": "A unit of intensity. A bel is the base 10 logarithm of a power or amplitude ratio. Some systems define a specific base value.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "bels/octave",
+        "QUANTITY_TYPE": "attenuation",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "B/O",
+        "RP66_SYMBOL": "10 dB/m",
+        "BASE_UNIT": "The power or amplitude variation that occurs over a doubling of the domain variable.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "baud",
+        "QUANTITY_TYPE": "data transmission speed",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Bd",
+        "RP66_SYMBOL": "1/s",
+        "BASE_UNIT": "A unit of transmission speed. equal to one bit per second. This unit is being deprecated in favor of bits per second (bps).",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "bits per second",
+        "QUANTITY_TYPE": "data transmission speed",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "bps",
+        "RP66_SYMBOL": "1/s",
+        "BASE_UNIT": "A unit of transmission speed. equal to one bit per second.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "becquerel",
+        "QUANTITY_TYPE": "activity (of radioactivity)",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Bq",
+        "RP66_SYMBOL": "Bq",
+        "BASE_UNIT": "The activity of a radionuclide decaying at the rate of one spontaneous nuclear transition per second",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "becquerel per kilogram",
+        "QUANTITY_TYPE": "specific activity (of radioactivity)",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Bq/kg",
+        "RP66_SYMBOL": "Bq/kg",
+        "BASE_UNIT": "The activity of a radionuclide decaying at the rate of one spontaneous nuclear transition per second",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "byte",
+        "QUANTITY_TYPE": "digital storage",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "byte",
+        "RP66_SYMBOL": "Bq/kg",
+        "BASE_UNIT": "The capacity. in bytes. of a storage device or an information system.is one eighth of the base two logarithm of the number of possible states of the device or system.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "coulomb",
+        "QUANTITY_TYPE": "electric capacity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "C",
+        "RP66_SYMBOL": "C",
+        "BASE_UNIT": "The time integral of electric current.equal to 1 A.s",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "coulomb",
+        "QUANTITY_TYPE": "electric charge",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "C",
+        "RP66_SYMBOL": "C",
+        "BASE_UNIT": "The time integral of electric current.equal to 1 A.s",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "coulomb",
+        "QUANTITY_TYPE": "electric flux",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "C",
+        "RP66_SYMBOL": "C",
+        "BASE_UNIT": "The time integral of electric current.equal to 1 A.s",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "coulomb metres",
+        "QUANTITY_TYPE": "electric dipole moment",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "C.m",
+        "RP66_SYMBOL": "C.m",
+        "BASE_UNIT": "The time integral of electric current.equal to 1 A.s",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "coulomb per kilogram",
+        "QUANTITY_TYPE": "exposure (radioactivity)",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "C/kg",
+        "RP66_SYMBOL": "C/kg",
+        "BASE_UNIT": "The time integral of electric current.equal to 1 A.s",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "coulombs/square metre",
+        "QUANTITY_TYPE": "electric polarization",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "C/m2",
+        "RP66_SYMBOL": "C/m2",
+        "BASE_UNIT": "The time integral of electric current.equal to 1 A.s",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "coulombs/cubic metre",
+        "QUANTITY_TYPE": "charge density",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "C/m3",
+        "RP66_SYMBOL": "C/m3",
+        "BASE_UNIT": "The time integral of electric current.equal to 1 A.s",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "candela",
+        "QUANTITY_TYPE": "luminous intensity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "cd",
+        "RP66_SYMBOL": "cd",
+        "BASE_UNIT": "The candela is the luminous intensity. in a given direction.of a source that emits monochromatic radiation of frequency 540 X 10**12 hertz and that has a radian intensity in that direction of 1/683 watt per steradian.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "candelas/square metre",
+        "QUANTITY_TYPE": "luminance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "cd/m2",
+        "RP66_SYMBOL": "cd/m2",
+        "BASE_UNIT": "The candela is the luminous intensity. in a given direction.of a source that emits monochromatic radiation of frequency 540 X 10**12 hertz and that has a radian intensity in that direction of 1/683 watt per steradian.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "equivalent",
+        "QUANTITY_TYPE": "electrochemical equivalent",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "eq",
+        "RP66_SYMBOL": "eq",
+        "BASE_UNIT": "The charge contained in one mole of electrons. The amount is equal to 96487 coulombs.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "equivalent per kilogram",
+        "QUANTITY_TYPE": "equivalent per mass",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "eq/kg",
+        "RP66_SYMBOL": "eq/kg",
+        "BASE_UNIT": "The charge contained in one mole of electrons. The amount is equal to 96487 coulombs.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "equivalents per cubic metre",
+        "QUANTITY_TYPE": "equivalent per volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "eq/m3",
+        "RP66_SYMBOL": "eq/m3",
+        "BASE_UNIT": "The charge contained in one mole of electrons. The amount is equal to 96487 coulombs.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "euclid",
+        "QUANTITY_TYPE": "dimensionless",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Euc",
+        "RP66_SYMBOL": "100%",
+        "BASE_UNIT": "A base unit to describe all dimensionless values.such as ratios and factors.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "euclid",
+        "QUANTITY_TYPE": "volumic concentration",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Euc",
+        "RP66_SYMBOL": "100%",
+        "BASE_UNIT": "A base unit to describe all dimensionless values.such as ratios and factors.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "euclid",
+        "QUANTITY_TYPE": "mass concentration",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Euc",
+        "RP66_SYMBOL": "100%",
+        "BASE_UNIT": "A base unit to describe all dimensionless values.such as ratios and factors.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "euclid",
+        "QUANTITY_TYPE": "mass concentration",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Euc",
+        "RP66_SYMBOL": "100%",
+        "BASE_UNIT": "A base unit to describe all dimensionless values.such as ratios and factors.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "euclid",
+        "QUANTITY_TYPE": "linear strain",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Euc",
+        "RP66_SYMBOL": "100%",
+        "BASE_UNIT": "A base unit to describe all dimensionless values.such as ratios and factors.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "euclid",
+        "QUANTITY_TYPE": "shear strain",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Euc",
+        "RP66_SYMBOL": "100%",
+        "BASE_UNIT": "A base unit to describe all dimensionless values.such as ratios and factors.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "euclid",
+        "QUANTITY_TYPE": "attenuation",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Euc",
+        "RP66_SYMBOL": "100%",
+        "BASE_UNIT": "A base unit to describe all dimensionless values.such as ratios and factors.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "euclid",
+        "QUANTITY_TYPE": "poisson ratio",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Euc",
+        "RP66_SYMBOL": "100%",
+        "BASE_UNIT": "A base unit to describe all dimensionless values.such as ratios and factors.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "farad",
+        "QUANTITY_TYPE": "capacitance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "F",
+        "RP66_SYMBOL": "F",
+        "BASE_UNIT": "The capacitance of a capacitor between the plates of which there appears a difference of potential of 1 V when it is charged by a quantity of electricity equal to 1 C.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "farads/metre",
+        "QUANTITY_TYPE": "permittivity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "F/m",
+        "RP66_SYMBOL": "F/m",
+        "BASE_UNIT": "The capacitance of a capacitor between the plates of which there appears a difference of potential of 1 V when it is charged by a quantity of electricity equal to 1 C.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "gas unit",
+        "QUANTITY_TYPE": "volumic concentration",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "gu",
+        "RP66_SYMBOL": "F/m",
+        "BASE_UNIT": "Can mean 1/50th per cent or 1/100th percent.depending on country.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "API gamma ray units",
+        "QUANTITY_TYPE": "gamma ray API unit",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "gAPI",
+        "RP66_SYMBOL": "gAPI",
+        "BASE_UNIT": "A unit defined by the American Petroleum Institute for gamma ray log measurements.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "gray",
+        "QUANTITY_TYPE": "absorbed dose",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Gy",
+        "RP66_SYMBOL": "Gy",
+        "BASE_UNIT": "The absorbed dose when the energy per unit mass imparted to matter by ionizing radiation is 1 J/kg",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "henry",
+        "QUANTITY_TYPE": "self inductance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "H",
+        "RP66_SYMBOL": "H",
+        "BASE_UNIT": "The inductance of a closed circuit in which an electromotive force of 1 V is produced when the electric current in the circuit varies uniformly at a rate of 1 A/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "henry",
+        "QUANTITY_TYPE": "permeance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "H",
+        "RP66_SYMBOL": "H",
+        "BASE_UNIT": "The inductance of a closed circuit in which an electromotive force of 1 V is produced when the electric current in the circuit varies uniformly at a rate of 1 A/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "henries/metre",
+        "QUANTITY_TYPE": "magnetic permeability",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "H/m",
+        "RP66_SYMBOL": "H/m",
+        "BASE_UNIT": "The inductance of a closed circuit in which an electromotive force of 1 V is produced when the electric current in the circuit varies uniformly at a rate of 1 A/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "hertz",
+        "QUANTITY_TYPE": "frequency",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Hz",
+        "RP66_SYMBOL": "Hz",
+        "BASE_UNIT": "The frequency of a periodic phenomenon of which the period is 1 second.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joule",
+        "QUANTITY_TYPE": "moment of force",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J",
+        "RP66_SYMBOL": "J",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joule",
+        "QUANTITY_TYPE": "moment of couple",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J",
+        "RP66_SYMBOL": "J",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joule",
+        "QUANTITY_TYPE": "torque",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J",
+        "RP66_SYMBOL": "J",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joule",
+        "QUANTITY_TYPE": "energy",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J",
+        "RP66_SYMBOL": "J",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joule",
+        "QUANTITY_TYPE": "work",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J",
+        "RP66_SYMBOL": "J",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules per delta kelvin",
+        "QUANTITY_TYPE": "heat capacity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/K",
+        "RP66_SYMBOL": "J/K",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/kilogram",
+        "QUANTITY_TYPE": "specific energy",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/kg",
+        "RP66_SYMBOL": "J/kg",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/kilogram degree kelvin",
+        "QUANTITY_TYPE": "specific heat capacity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/kg.K",
+        "RP66_SYMBOL": "J/kg.K",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/kilogram degree kelvin",
+        "QUANTITY_TYPE": "massic heat capacity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/kg.K",
+        "RP66_SYMBOL": "J/kg.K",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/cubic metre",
+        "QUANTITY_TYPE": "normal stress",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/m3",
+        "RP66_SYMBOL": "J/m3",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/cubic metre",
+        "QUANTITY_TYPE": "shear stress",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/m3",
+        "RP66_SYMBOL": "J/m3",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/cubic metre",
+        "QUANTITY_TYPE": "modulus of elasticity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/m3",
+        "RP66_SYMBOL": "J/m3",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/cubic metre",
+        "QUANTITY_TYPE": "shear modulus",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/m3",
+        "RP66_SYMBOL": "J/m3",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/cubic metre",
+        "QUANTITY_TYPE": "modulus of rigidity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/m3",
+        "RP66_SYMBOL": "J/m3",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/cubic metre",
+        "QUANTITY_TYPE": "bulk modulus",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/m3",
+        "RP66_SYMBOL": "J/m3",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/cubic metre",
+        "QUANTITY_TYPE": "modulus of compression",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/m3",
+        "RP66_SYMBOL": "J/m3",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/cubic metre",
+        "QUANTITY_TYPE": "electromagnetic energy density",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/m3",
+        "RP66_SYMBOL": "J/m3",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/cubic metre",
+        "QUANTITY_TYPE": "radiant energy density",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/m3",
+        "RP66_SYMBOL": "J/m3",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/mole",
+        "QUANTITY_TYPE": "molar thermodynamic energy",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/mol",
+        "RP66_SYMBOL": "J/mol",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/mole",
+        "QUANTITY_TYPE": "chemical potential",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/mol",
+        "RP66_SYMBOL": "J/mol",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/mole",
+        "QUANTITY_TYPE": "affinity of a chemical reaction",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/mol",
+        "RP66_SYMBOL": "J/mol",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/mole degree kelvin",
+        "QUANTITY_TYPE": "molar heat capacity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/mol.K",
+        "RP66_SYMBOL": "J/mol.K",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/mole degree kelvin",
+        "QUANTITY_TYPE": "molar entropy",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/mol.K",
+        "RP66_SYMBOL": "J/mol.K",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "joules/mole degree kelvin",
+        "QUANTITY_TYPE": "molar gas constant",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "J/mol.K",
+        "RP66_SYMBOL": "J/mol.K",
+        "BASE_UNIT": "The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kelvin",
+        "QUANTITY_TYPE": "thermodynamic temperature",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "K",
+        "RP66_SYMBOL": "K",
+        "BASE_UNIT": "The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kelvin",
+        "QUANTITY_TYPE": "delta temperature",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "K",
+        "RP66_SYMBOL": "K",
+        "BASE_UNIT": "The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kelvin metres squared/watt",
+        "QUANTITY_TYPE": "thermal insulance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "K.m2/W",
+        "RP66_SYMBOL": "K.m2/W",
+        "BASE_UNIT": "The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kelvin metres squared/watt",
+        "QUANTITY_TYPE": "coefficient of thermal insulation",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "K.m2/W",
+        "RP66_SYMBOL": "K.m2/W",
+        "BASE_UNIT": "The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "degrees kelvin/metre",
+        "QUANTITY_TYPE": "temperature per length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "K/m",
+        "RP66_SYMBOL": "K/m",
+        "BASE_UNIT": "The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kelvin per second",
+        "QUANTITY_TYPE": "temperature per time",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "K/s",
+        "RP66_SYMBOL": "K/s",
+        "BASE_UNIT": "The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "delta kelvin per watt",
+        "QUANTITY_TYPE": "thermal resistance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "K/W",
+        "RP66_SYMBOL": "K/W",
+        "BASE_UNIT": "The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilogram",
+        "QUANTITY_TYPE": "mass",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg",
+        "RP66_SYMBOL": "kg",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "meter-kilogram",
+        "QUANTITY_TYPE": "mass length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg.m",
+        "RP66_SYMBOL": "kg.m",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilogram metres/second",
+        "QUANTITY_TYPE": "momentum",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg.m/s",
+        "RP66_SYMBOL": "kg.m/s",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilogram metres/second",
+        "QUANTITY_TYPE": "impulse",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg.m/s",
+        "RP66_SYMBOL": "kg.m/s",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilogram metres squared",
+        "QUANTITY_TYPE": "moment of inertia",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg.m2",
+        "RP66_SYMBOL": "kg.m2",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilograms/joule",
+        "QUANTITY_TYPE": "mass per energy",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg/J",
+        "RP66_SYMBOL": "kg/J",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilograms/metre",
+        "QUANTITY_TYPE": "linear density",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg/m",
+        "RP66_SYMBOL": "kg/m",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilograms/metre",
+        "QUANTITY_TYPE": "linear mass",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg/m",
+        "RP66_SYMBOL": "kg/m",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilograms/metre",
+        "QUANTITY_TYPE": "mass per length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg/m",
+        "RP66_SYMBOL": "kg/m",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilograms/square metre",
+        "QUANTITY_TYPE": "surface density",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg/m2",
+        "RP66_SYMBOL": "kg/m2",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilograms/square metre",
+        "QUANTITY_TYPE": "areic mass",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg/m2",
+        "RP66_SYMBOL": "kg/m2",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilograms/square metre seconds",
+        "QUANTITY_TYPE": "mass per time per area",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg/m2.s",
+        "RP66_SYMBOL": "kg/m2.s",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilograms/cubic metre",
+        "QUANTITY_TYPE": "density",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg/m3",
+        "RP66_SYMBOL": "kg/m3",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilograms/cubic metre",
+        "QUANTITY_TYPE": "mass density",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg/m3",
+        "RP66_SYMBOL": "kg/m3",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilograms/cubic metre",
+        "QUANTITY_TYPE": "volumic mass",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg/m3",
+        "RP66_SYMBOL": "kg/m3",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilogram/metre fourth",
+        "QUANTITY_TYPE": "mass per volume per length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg/m4",
+        "RP66_SYMBOL": "kg/m4",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "kilograms/second",
+        "QUANTITY_TYPE": "mass flow rate",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "kg/s",
+        "RP66_SYMBOL": "kg/s",
+        "BASE_UNIT": "The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "lumen",
+        "QUANTITY_TYPE": "luminous flux",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "lm",
+        "RP66_SYMBOL": "lm",
+        "BASE_UNIT": "The luminous flux emitted in a solid angle of 1 sr by a point source having a uniform intensity of 1 cd.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "lumen second",
+        "QUANTITY_TYPE": "quantity of light",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "lm.s",
+        "RP66_SYMBOL": "lm.s",
+        "BASE_UNIT": "The luminous flux emitted in a solid angle of 1 sr by a point source having a uniform intensity of 1 cd.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "lumens/watt",
+        "QUANTITY_TYPE": "luminous efficacy",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "lm/W",
+        "RP66_SYMBOL": "lm/W",
+        "BASE_UNIT": "The luminous flux emitted in a solid angle of 1 sr by a point source having a uniform intensity of 1 cd.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "lux",
+        "QUANTITY_TYPE": "illuminance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "lx",
+        "RP66_SYMBOL": "lx",
+        "BASE_UNIT": "The illuminance produced by a luminous flux of 1 lm uniformly distributed over a surface of 1 m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "lux seconds",
+        "QUANTITY_TYPE": "light exposure",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "lx.s",
+        "RP66_SYMBOL": "lx.s",
+        "BASE_UNIT": "The illuminance produced by a luminous flux of 1 lm uniformly distributed over a surface of 1 m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "breadth",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "height",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "depth",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "thickness",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "radius",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "radius of curvature",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "Cartesian coordinates",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "diameter",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "length of path",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "distance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "wavelength",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metre",
+        "QUANTITY_TYPE": "mean free path",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m",
+        "RP66_SYMBOL": "m",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metres/degree kelvin",
+        "QUANTITY_TYPE": "length per temperature",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m/K",
+        "RP66_SYMBOL": "m/K",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metres/second",
+        "QUANTITY_TYPE": "velocity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m/s",
+        "RP66_SYMBOL": "m/s",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metres/second squared",
+        "QUANTITY_TYPE": "acceleration linear",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m/s2",
+        "RP66_SYMBOL": "m/s2",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "square metres",
+        "QUANTITY_TYPE": "area",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m2",
+        "RP66_SYMBOL": "m2",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "square metres/kilogram",
+        "QUANTITY_TYPE": "mass attenuation coefficient",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m2/kg",
+        "RP66_SYMBOL": "m2/kg",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "square metres/mol",
+        "QUANTITY_TYPE": "cross section absorption",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m2/mol",
+        "RP66_SYMBOL": "m2/mol",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "square metres/second Pascal",
+        "QUANTITY_TYPE": "unit productivity index",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m2/Pa.s",
+        "RP66_SYMBOL": "m2/Pa.s",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "square metres/second Pascal",
+        "QUANTITY_TYPE": "mobility",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m2/Pa.s",
+        "RP66_SYMBOL": "m2/Pa.s",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "square metres/second",
+        "QUANTITY_TYPE": "kinematic viscosity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m2/s",
+        "RP66_SYMBOL": "m2/s",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "square metres/second",
+        "QUANTITY_TYPE": "thermal diffusivity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m2/s",
+        "RP66_SYMBOL": "m2/s",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "square metres/second",
+        "QUANTITY_TYPE": "diffusion coefficient",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m2/s",
+        "RP66_SYMBOL": "m2/s",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "square metres/second",
+        "QUANTITY_TYPE": "area per time",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m2/s",
+        "RP66_SYMBOL": "m2/s",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "cubic metres",
+        "QUANTITY_TYPE": "volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m3",
+        "RP66_SYMBOL": "m3",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "cubic metres/joule",
+        "QUANTITY_TYPE": "isothermal compressibility",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m3/J",
+        "RP66_SYMBOL": "m3/J",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "cubic metres/kilogram",
+        "QUANTITY_TYPE": "specific volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m3/kg",
+        "RP66_SYMBOL": "m3/kg",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "cubic metres/kilogram",
+        "QUANTITY_TYPE": "massic volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m3/kg",
+        "RP66_SYMBOL": "m3/kg",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "cubic metres/mole",
+        "QUANTITY_TYPE": "molar volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m3/mol",
+        "RP66_SYMBOL": "m3/mol",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "cubic metres/second pascal",
+        "QUANTITY_TYPE": "productivity index",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m3/Pa.s",
+        "RP66_SYMBOL": "m3/Pa.s",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "(cubic metres/second) per pascal",
+        "QUANTITY_TYPE": "productivity index",
+        "CATALOG_NAME": "WITSML",
+        "CATALOG_SYMBOL": "m3/Pa/s",
+        "RP66_SYMBOL": "m3/Pa/s",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "cubic metres/pascal second squared",
+        "QUANTITY_TYPE": "specific productivity index",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m3/Pa2.s2",
+        "RP66_SYMBOL": "m3/Pa2.s2",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "cubic metres/second",
+        "QUANTITY_TYPE": "volume flow rate",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m3/s",
+        "RP66_SYMBOL": "m3/s",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "cubic metres/seconds squared",
+        "QUANTITY_TYPE": "volume per time per time",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m3/s2",
+        "RP66_SYMBOL": "m3/s2",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "cubic metres/std cubic metres. 0 deg C",
+        "QUANTITY_TYPE": "volume per standard volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m3/scm(0C)",
+        "RP66_SYMBOL": "m3/s2",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "cubic metres/std cubic metres. 15 deg C",
+        "QUANTITY_TYPE": "volume per standard volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m3/scm(15C)",
+        "RP66_SYMBOL": "m3/s2",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metres fourth",
+        "QUANTITY_TYPE": "second moment of area",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m4",
+        "RP66_SYMBOL": "m4",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metres fourth",
+        "QUANTITY_TYPE": "moment of section",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m4",
+        "RP66_SYMBOL": "m4",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "metres fourth/second",
+        "QUANTITY_TYPE": "volume length per time",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "m4/s",
+        "RP66_SYMBOL": "m4/s",
+        "BASE_UNIT": "The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "mole",
+        "QUANTITY_TYPE": "amount of substance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "mol",
+        "RP66_SYMBOL": "mol",
+        "BASE_UNIT": "The mole is the amount of substance of a system that contains as many elementary entities as there are atoms in 0.012 kilogram of carbon-12. When the mole is used. the elementary entities must be specified and may be atoms. molecules. ions. electrons. other particles.or specified groups of such particles.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "moles/square metre",
+        "QUANTITY_TYPE": "mole per area",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "mol/m2",
+        "RP66_SYMBOL": "mol/m2",
+        "BASE_UNIT": "The mole is the amount of substance of a system that contains as many elementary entities as there are atoms in 0.012 kilogram of carbon-12. When the mole is used. the elementary entities must be specified and may be atoms. molecules. ions. electrons. other particles.or specified groups of such particles.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "moles/square metre second",
+        "QUANTITY_TYPE": "mole per time per area",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "mol/m2.s",
+        "RP66_SYMBOL": "mol/m2.s",
+        "BASE_UNIT": "The mole is the amount of substance of a system that contains as many elementary entities as there are atoms in 0.012 kilogram of carbon-12. When the mole is used. the elementary entities must be specified and may be atoms. molecules. ions. electrons. other particles.or specified groups of such particles.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "moles/cubic metre",
+        "QUANTITY_TYPE": "concentration of B",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "mol/m3",
+        "RP66_SYMBOL": "mol/m3",
+        "BASE_UNIT": "The mole is the amount of substance of a system that contains as many elementary entities as there are atoms in 0.012 kilogram of carbon-12. When the mole is used. the elementary entities must be specified and may be atoms. molecules. ions. electrons. other particles.or specified groups of such particles.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "moles/cubic metre",
+        "QUANTITY_TYPE": "amount of a substance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "mol/m3",
+        "RP66_SYMBOL": "mol/m3",
+        "BASE_UNIT": "The mole is the amount of substance of a system that contains as many elementary entities as there are atoms in 0.012 kilogram of carbon-12. When the mole is used. the elementary entities must be specified and may be atoms. molecules. ions. electrons. other particles.or specified groups of such particles.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "moles/second",
+        "QUANTITY_TYPE": "mole per time",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "mol/s",
+        "RP66_SYMBOL": "mol/s",
+        "BASE_UNIT": "The mole is the amount of substance of a system that contains as many elementary entities as there are atoms in 0.012 kilogram of carbon-12. When the mole is used. the elementary entities must be specified and may be atoms. molecules. ions. electrons. other particles.or specified groups of such particles.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "newton",
+        "QUANTITY_TYPE": "force",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "N",
+        "RP66_SYMBOL": "N",
+        "BASE_UNIT": "That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "newton square metres",
+        "QUANTITY_TYPE": "force area",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "N.m2",
+        "RP66_SYMBOL": "N.m2",
+        "BASE_UNIT": "That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "newtons/metre",
+        "QUANTITY_TYPE": "force per length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "N/m",
+        "RP66_SYMBOL": "N/m",
+        "BASE_UNIT": "That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "newtons/metre",
+        "QUANTITY_TYPE": "energy per area",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "N/m",
+        "RP66_SYMBOL": "N/m",
+        "BASE_UNIT": "That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "newtons/cubic metre",
+        "QUANTITY_TYPE": "force per volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "N/m3",
+        "RP66_SYMBOL": "N/m3",
+        "BASE_UNIT": "That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "newtons/cubic metre",
+        "QUANTITY_TYPE": "pressure per length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "N/m3",
+        "RP66_SYMBOL": "N/m3",
+        "BASE_UNIT": "That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "newtons fourth metres/kilogram",
+        "QUANTITY_TYPE": "parachor",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "N4/kg.m7",
+        "RP66_SYMBOL": "N4/kg.m7",
+        "BASE_UNIT": "That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "API neutron units",
+        "QUANTITY_TYPE": "neutron API unit",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "nAPI",
+        "RP66_SYMBOL": "nAPI",
+        "BASE_UNIT": "A unit defined by the American Petroleum Institute for neutron log measurements.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "octave",
+        "QUANTITY_TYPE": "frequency interval",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "O",
+        "RP66_SYMBOL": "O",
+        "BASE_UNIT": "The number of octaves between two positive values is the base two logarithm of their ratio.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "ohm",
+        "QUANTITY_TYPE": "resistance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "ohm",
+        "RP66_SYMBOL": "ohm",
+        "BASE_UNIT": "The electric resistance between two points of a conductor when a constant difference of potential of 1 V. applied between these two points. produces in this conductor a current of 1 A.this conductor not being the source of any electromotive force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "ohm",
+        "QUANTITY_TYPE": "impedance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "ohm",
+        "RP66_SYMBOL": "ohm",
+        "BASE_UNIT": "The electric resistance between two points of a conductor when a constant difference of potential of 1 V. applied between these two points. produces in this conductor a current of 1 A.this conductor not being the source of any electromotive force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "ohm metre",
+        "QUANTITY_TYPE": "electrical resistivity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "ohm.m",
+        "RP66_SYMBOL": "ohm.m",
+        "BASE_UNIT": "The electric resistance between two points of a conductor when a constant difference of potential of 1 V. applied between these two points. produces in this conductor a current of 1 A.this conductor not being the source of any electromotive force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "ohm per metre",
+        "QUANTITY_TYPE": "resistivity per length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "ohm/m",
+        "RP66_SYMBOL": "ohm/m",
+        "BASE_UNIT": "The electric resistance between two points of a conductor when a constant difference of potential of 1 V. applied between these two points. produces in this conductor a current of 1 A.this conductor not being the source of any electromotive force.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pascal",
+        "QUANTITY_TYPE": "force per area",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Pa",
+        "RP66_SYMBOL": "Pa",
+        "BASE_UNIT": "The pressure or stress of 1 N/m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pascal",
+        "QUANTITY_TYPE": "pressure",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Pa",
+        "RP66_SYMBOL": "Pa",
+        "BASE_UNIT": "The pressure or stress of 1 N/m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pascal seconds",
+        "QUANTITY_TYPE": "dynamic viscosity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Pa.s",
+        "RP66_SYMBOL": "Pa.s",
+        "BASE_UNIT": "The pressure or stress of 1 N/m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pascal seconds",
+        "QUANTITY_TYPE": "mass per time per length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Pa.s",
+        "RP66_SYMBOL": "Pa.s",
+        "BASE_UNIT": "The pressure or stress of 1 N/m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pascal seconds/cubic metre",
+        "QUANTITY_TYPE": "pressure time per volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Pa.s/m3",
+        "RP66_SYMBOL": "Pa.s/m3",
+        "BASE_UNIT": "The pressure or stress of 1 N/m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pascal seconds/cubic metre",
+        "QUANTITY_TYPE": "acoustic impedance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Pa.s/m3",
+        "RP66_SYMBOL": "Pa.s/m3",
+        "BASE_UNIT": "The pressure or stress of 1 N/m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pascal second /cubic metre squared",
+        "QUANTITY_TYPE": "nonDarcy flow coefficient",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Pa.s/m6",
+        "RP66_SYMBOL": "Pa.s/m6",
+        "BASE_UNIT": "The pressure or stress of 1 N/m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pascals/metre",
+        "QUANTITY_TYPE": "force per volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Pa/m",
+        "RP66_SYMBOL": "Pa/m",
+        "BASE_UNIT": "The pressure or stress of 1 N/m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pascals/metre",
+        "QUANTITY_TYPE": "pressure per length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Pa/m",
+        "RP66_SYMBOL": "Pa/m",
+        "BASE_UNIT": "The pressure or stress of 1 N/m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pascals/cubic metre",
+        "QUANTITY_TYPE": "Darcy flow coefficient",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Pa/m3",
+        "RP66_SYMBOL": "Pa/m3",
+        "BASE_UNIT": "The pressure or stress of 1 N/m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pascal/ second",
+        "QUANTITY_TYPE": "pressure per time",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Pa/s",
+        "RP66_SYMBOL": "Pa/s",
+        "BASE_UNIT": "The pressure or stress of 1 N/m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pascal squared",
+        "QUANTITY_TYPE": "pressure squared",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Pa2",
+        "RP66_SYMBOL": "Pa2",
+        "BASE_UNIT": "The pressure or stress of 1 N/m2.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "pH",
+        "QUANTITY_TYPE": "pH",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "pH",
+        "RP66_SYMBOL": "Pa2",
+        "BASE_UNIT": "The negative.base 10 logarithm of the concentration of hydrogen ions in a solution.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "radian",
+        "QUANTITY_TYPE": "plane angle",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "rad",
+        "RP66_SYMBOL": "rad",
+        "BASE_UNIT": "The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "radians/metre",
+        "QUANTITY_TYPE": "angle per length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "rad/m",
+        "RP66_SYMBOL": "rad/m",
+        "BASE_UNIT": "The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "radians per cubic metre",
+        "QUANTITY_TYPE": "angle per volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "rad/m3",
+        "RP66_SYMBOL": "rad/m3",
+        "BASE_UNIT": "The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "radians/second",
+        "QUANTITY_TYPE": "angular velocity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "rad/s",
+        "RP66_SYMBOL": "rad/s",
+        "BASE_UNIT": "The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "radians/second",
+        "QUANTITY_TYPE": "rotational frequency",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "rad/s",
+        "RP66_SYMBOL": "rad/s",
+        "BASE_UNIT": "The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "radians/second",
+        "QUANTITY_TYPE": "circular frequency",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "rad/s",
+        "RP66_SYMBOL": "rad/s",
+        "BASE_UNIT": "The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "radians/second",
+        "QUANTITY_TYPE": "angle per time",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "rad/s",
+        "RP66_SYMBOL": "rad/s",
+        "BASE_UNIT": "The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "radians/second",
+        "QUANTITY_TYPE": "rotational velocity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "rad/s",
+        "RP66_SYMBOL": "rad/s",
+        "BASE_UNIT": "The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "radians/second squared",
+        "QUANTITY_TYPE": "angular acceleration",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "rad/s2",
+        "RP66_SYMBOL": "rad/s2",
+        "BASE_UNIT": "The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "siemens",
+        "QUANTITY_TYPE": "electric conductance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "S",
+        "RP66_SYMBOL": "S",
+        "BASE_UNIT": "The electric conductance of a conductor in which a current of 1 A is produced by an electric potential difference of 1 V.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "siemens",
+        "QUANTITY_TYPE": "admittance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "S",
+        "RP66_SYMBOL": "S",
+        "BASE_UNIT": "The electric conductance of a conductor in which a current of 1 A is produced by an electric potential difference of 1 V.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "siemens",
+        "QUANTITY_TYPE": "susceptance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "S",
+        "RP66_SYMBOL": "S",
+        "BASE_UNIT": "The electric conductance of a conductor in which a current of 1 A is produced by an electric potential difference of 1 V.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "second",
+        "QUANTITY_TYPE": "time",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "s",
+        "RP66_SYMBOL": "s",
+        "BASE_UNIT": "The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "siemens/metre",
+        "QUANTITY_TYPE": "conductivity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "S/m",
+        "RP66_SYMBOL": "S/m",
+        "BASE_UNIT": "The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "seconds/metre",
+        "QUANTITY_TYPE": "time per length",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "s/m",
+        "RP66_SYMBOL": "s/m",
+        "BASE_UNIT": "The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "seconds/metre",
+        "QUANTITY_TYPE": "slowness",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "s/m",
+        "RP66_SYMBOL": "s/m",
+        "BASE_UNIT": "The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "seconds/metre",
+        "QUANTITY_TYPE": "interval transit time",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "s/m",
+        "RP66_SYMBOL": "s/m",
+        "BASE_UNIT": "The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "seconds/cubic metre",
+        "QUANTITY_TYPE": "time per volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "s/m3",
+        "RP66_SYMBOL": "s/m3",
+        "BASE_UNIT": "The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "standard cubic metres at 0 deg Celsius",
+        "QUANTITY_TYPE": "standard volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "scm(0C)",
+        "RP66_SYMBOL": "s/m3",
+        "BASE_UNIT": "A unit of standard volume. The number of scm(0C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..0 degrees Celsius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "std cubic metres. 0 deg C/square metre",
+        "QUANTITY_TYPE": "standard volume per area",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "scm(0C)/m2",
+        "RP66_SYMBOL": "s/m3",
+        "BASE_UNIT": "A unit of standard volume. The number of scm(0C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..0 degrees Celsius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "std cubic metres. 0 deg C/cubic metre",
+        "QUANTITY_TYPE": "standard volume per volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "scm(0C)/m3",
+        "RP66_SYMBOL": "s/m3",
+        "BASE_UNIT": "A unit of standard volume. The number of scm(0C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..0 degrees Celsius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "standard cubic metres at 15 deg Celsius",
+        "QUANTITY_TYPE": "standard volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "scm(15C)",
+        "RP66_SYMBOL": "s/m3",
+        "BASE_UNIT": "A unit of standard volume. The number of scm(15C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..15 degrees Celsius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "std cubic metres. 15 deg C/square metre",
+        "QUANTITY_TYPE": "standard volume per area",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "scm(15C)/m2",
+        "RP66_SYMBOL": "s/m3",
+        "BASE_UNIT": "A unit of standard volume. The number of scm(15C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..15 degrees Celsius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "std cubic metres. 15 deg C/cubic metre",
+        "QUANTITY_TYPE": "stadard volume per volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "scm(15C)/m3",
+        "RP66_SYMBOL": "s/m3",
+        "BASE_UNIT": "A unit of standard volume. The number of scm(15C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..15 degrees Celsius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "std cubic metres. 15 deg C/second",
+        "QUANTITY_TYPE": "standard volume per time",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "scm(15C)/s",
+        "RP66_SYMBOL": "s/m3",
+        "BASE_UNIT": "A unit of standard volume. The number of scm(15C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..15 degrees Celsius.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "steradian",
+        "QUANTITY_TYPE": "solid angle",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "sr",
+        "RP66_SYMBOL": "sr",
+        "BASE_UNIT": "The steradian is the solid angle that. having its vertex in the center of a circle.cuts of an area of the surface of the sphere equal to that of a square with sides of length equal to the radius of the sphere.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "sievert",
+        "QUANTITY_TYPE": "dose equivalent",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Sv",
+        "RP66_SYMBOL": "Sv",
+        "BASE_UNIT": "The dose equivalent when the absorbed dose of ionizing radiation multiplied by the dimensionless factors Q (quality facot) and N (product of any othe multiplying factors) stipulated by the Intl. Commission on Radiological Protection is 1. J/kg.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "sievert per second",
+        "QUANTITY_TYPE": "dose equivalent rate",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Sv/s",
+        "RP66_SYMBOL": "Sv",
+        "BASE_UNIT": "The dose equivalent rate when the absorbed dose per second of ionizing radiation multiplied by the appropriate factors is equivalent to 1 Sievert per second.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "tesla",
+        "QUANTITY_TYPE": "magnetic induction",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "T",
+        "RP66_SYMBOL": "T",
+        "BASE_UNIT": "The magnetic flux density of 1 Wb/m2. Alternatively. it is defined as the magnetic flux density that produces on a 1-m length of wire carrying a current of 1A. oriented normal to the flux density. a force of 1 N.magnetic flux density being defined as an axial vector quantity such that the force exerted on an element of current is equal to the vector product of this element and the magnetic flux density.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "tesla",
+        "QUANTITY_TYPE": "magnetic flux density",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "T",
+        "RP66_SYMBOL": "T",
+        "BASE_UNIT": "The magnetic flux density of 1 Wb/m2. Alternatively. it is defined as the magnetic flux density that produces on a 1-m length of wire carrying a current of 1A. oriented normal to the flux density. a force of 1 N.magnetic flux density being defined as an axial vector quantity such that the force exerted on an element of current is equal to the vector product of this element and the magnetic flux density.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "volt",
+        "QUANTITY_TYPE": "electric potential",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "V",
+        "RP66_SYMBOL": "V",
+        "BASE_UNIT": "The difference of electric potential between two points of a conductor carrying a constant current of 1 A when the power dissipated between these points is equal to 1 W.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "volts/Bel",
+        "QUANTITY_TYPE": "potential difference per per power drop",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "V/B",
+        "RP66_SYMBOL": "V/B",
+        "BASE_UNIT": "The difference of electric potential between two points of a conductor carrying a constant current of 1 A when the power dissipated between these points is equal to 1 W.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "volts/metre",
+        "QUANTITY_TYPE": "electric field strength",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "V/m",
+        "RP66_SYMBOL": "V/m",
+        "BASE_UNIT": "The difference of electric potential between two points of a conductor carrying a constant current of 1 A when the power dissipated between these points is equal to 1 W.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watt",
+        "QUANTITY_TYPE": "power",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W",
+        "RP66_SYMBOL": "W",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watt",
+        "QUANTITY_TYPE": "heat flow rate",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W",
+        "RP66_SYMBOL": "W",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "Watts per delta kelvin",
+        "QUANTITY_TYPE": "thermal conductance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/K",
+        "RP66_SYMBOL": "W/K",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/metre kelvin",
+        "QUANTITY_TYPE": "energy length per time area temperature",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m.K",
+        "RP66_SYMBOL": "W/m.K",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/metre kelvin",
+        "QUANTITY_TYPE": "thermal conductivity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m.K",
+        "RP66_SYMBOL": "W/m.K",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/square metre",
+        "QUANTITY_TYPE": "density of heat flow rate",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m2",
+        "RP66_SYMBOL": "W/m2",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/square metre",
+        "QUANTITY_TYPE": "poynting vector",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m2",
+        "RP66_SYMBOL": "W/m2",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/square metre",
+        "QUANTITY_TYPE": "radiant energy",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m2",
+        "RP66_SYMBOL": "W/m2",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/square metre",
+        "QUANTITY_TYPE": "fluence rate",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m2",
+        "RP66_SYMBOL": "W/m2",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/square metre",
+        "QUANTITY_TYPE": "radiant exitance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m2",
+        "RP66_SYMBOL": "W/m2",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/square metre",
+        "QUANTITY_TYPE": "irradiance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m2",
+        "RP66_SYMBOL": "W/m2",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/square metre",
+        "QUANTITY_TYPE": "sound intensity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m2",
+        "RP66_SYMBOL": "W/m2",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/square metre",
+        "QUANTITY_TYPE": "energy fluence rate",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m2",
+        "RP66_SYMBOL": "W/m2",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/square metre kelvin",
+        "QUANTITY_TYPE": "heat transfer coefficient",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m2.K",
+        "RP66_SYMBOL": "W/m2.K",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/square metre steradian",
+        "QUANTITY_TYPE": "radiance",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m2.sr",
+        "RP66_SYMBOL": "W/m2.sr",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/cubic metre",
+        "QUANTITY_TYPE": "power per volume",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m3",
+        "RP66_SYMBOL": "W/m3",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/cubic metre kelvin",
+        "QUANTITY_TYPE": "volumetric heat transfer coefficient",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/m3.K",
+        "RP66_SYMBOL": "W/m3.K",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "watts/steradian",
+        "QUANTITY_TYPE": "radiant intensity",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "W/sr",
+        "RP66_SYMBOL": "W/sr",
+        "BASE_UNIT": "The power that represents a rate of energy transfer of 1 J/s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "weber",
+        "QUANTITY_TYPE": "magnetic flux",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Wb",
+        "RP66_SYMBOL": "Wb",
+        "BASE_UNIT": "The magnetic flux which. linking a circuit of one turn.produces in it an alectromotive orce of 1 V as it is reduced to zero at a uniform rate in 1 s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "weber metres",
+        "QUANTITY_TYPE": "magnetic dipole moment",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Wb.m",
+        "RP66_SYMBOL": "Wb.m",
+        "BASE_UNIT": "The magnetic flux which. linking a circuit of one turn.produces in it an alectromotive orce of 1 V as it is reduced to zero at a uniform rate in 1 s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    },
+    {
+        "NAME": "webers/metre",
+        "QUANTITY_TYPE": "magnetic vector potential",
+        "CATALOG_NAME": "POSC",
+        "CATALOG_SYMBOL": "Wb/m",
+        "RP66_SYMBOL": "Wb/m",
+        "BASE_UNIT": "The magnetic flux which. linking a circuit of one turn.produces in it an alectromotive orce of 1 V as it is reduced to zero at a uniform rate in 1 s.",
+        "LAST_UPDT_DATE": "2023-01-01"
+    }
+]

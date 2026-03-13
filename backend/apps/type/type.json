@@ -1,0 +1,183 @@
+{
+  "HEADER": {
+    "JsoncreatedBy": "username",
+    "JsoncreatedTime": "2022-10-09 18:29:08.088543"
+  },
+  "BODY": {
+    "ClassProperty": {
+      "className": "type",
+      "classType": "models.Model"
+    },
+    "ClassContents": {
+      "TYPE": {
+        "ContentsName": "TYPE",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "14",
+          "primary_key": "True",
+          "null": "False"
+        }
+      },
+      "TYPE_CLASS": {
+        "ContentsName": "TYPE_CLASS",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "50",
+          "null": "False"
+        }
+      },
+      "LABEL_ID": {
+        "ContentsName": "LABEL_ID",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "100",
+          "null": "True"
+        }
+      },
+      "CHANGE_INTERVAL": {
+        "ContentsName": "CHANGE_INTERVAL",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "10",
+          "null": "True"
+        }
+      },
+      "LAYER_NAME": {
+        "ContentsName": "LAYER_NAME",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "50",
+          "null": "False"
+        }
+      },
+      "DESCRIPTION_ID": {
+        "ContentsName": "DESCRIPTION_ID",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "100",
+          "null": "True"
+        }
+      },
+      "HIDDEN": {
+        "ContentsName": "HIDDEN",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "5",
+          "null": "True"
+        }
+      },
+      "BASE_TYPE": {
+        "ContentsName": "BASE_TYPE",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "14",
+          "null": "True"
+        }
+      },
+      "CODE_LIST_TYPE": {
+        "ContentsName": "CODE_LIST_TYPE",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "50",
+          "null": "True"
+        }
+      },
+      "IS_QUICK_LINK": {
+        "ContentsName": "IS_QUICK_LINK",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "5",
+          "null": "True"
+        }
+      },
+      "PROP_TBL_NAME": {
+        "ContentsName": "PROP_TBL_NAME",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "50",
+          "null": "True"
+        }
+      },
+      "BASE_TBL_NAME": {
+        "ContentsName": "BASE_TBL_NAME",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "50",
+          "null": "True"
+        }
+      },
+      "TAG_TBL_NAME": {
+        "ContentsName": "TAG_TBL_NAME",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "50",
+          "null": "True"
+        }
+      },
+      "LAST_UPDT_USER": {
+        "ContentsName": "LAST_UPDT_USER",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "100",
+          "null": "True"
+        }
+      },
+      "LAST_UPDT_DATE": {
+        "ContentsName": "LAST_UPDT_DATE",
+        "ContentsType": "models.DateField",
+        "ContetsParams": {
+          "default": "timezone.now",
+          "null": "True"
+        }
+      },
+      "VERSION": {
+        "ContentsName": "VERSION",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "32",
+          "default": "uuid.uuid4",
+          "null": "False"
+        }
+      },
+      "DB_ID": {
+        "ContentsName": "DB_ID",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "32",
+          "null": "True"
+        }
+      },
+      "ROW_ID": {
+        "ContentsName": "ROW_ID",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "32",
+          "default": "uuid.uuid4",
+          "null": "False",
+          "db_index": "True"
+        }
+      },
+      "STATUS": {
+        "ContentsName": "STATUS",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "10",
+          "null": "True"
+        }
+      },
+      "REV_GRP_ID": {
+        "ContentsName": "REV_GRP_ID",
+        "ContentsType": "models.CharField",
+        "ContetsParams": {
+          "max_length": "32",
+          "null": "True"
+        }
+      }
+    },
+    "Librays": [
+      "from django.db import models \n",
+      "import uuid \n",
+      "from django.utils import timezone \n"
+    ]
+  }
+}

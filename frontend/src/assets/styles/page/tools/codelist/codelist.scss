@@ -1,0 +1,9 @@
+@import "../../../components/boxes.scss";
+.code-list-container__body {
+  &__property-box {
+    &__datagrid {
+      height: 100%;
+      margin-left: 8px;
+    }
+  }
+}

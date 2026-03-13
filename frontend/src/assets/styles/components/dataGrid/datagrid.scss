@@ -1,0 +1,21 @@
+@import "../../palette/palette.scss";
+
+.datagrid-box {
+  width: 100%;
+  height: 100%;
+  & .readOnlyColumn {
+    @include themify($themes) {
+      background-color: themed("bg-read-only-dg") !important;
+    }
+  }
+  &__datagrid {
+    div div button {
+      min-width: 36px !important;
+      height: 36px !important;
+      border-radius: 50px !important;
+      span {
+        margin: 0;
+      }
+    }
+  }
+}

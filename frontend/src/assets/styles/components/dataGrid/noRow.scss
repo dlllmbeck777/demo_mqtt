@@ -1,0 +1,7 @@
+@import "../../palette/palette.scss";
+.no-row-overlar-box {
+  margin-top: 8px !important;
+  @include themify($themes) {
+    color: themed("text-drawer-item");
+  }
+}

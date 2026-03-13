@@ -1,0 +1,38 @@
+@import "../../palette/shadow.scss";
+@import "../../palette/palette.scss";
+@mixin box() {
+  box-shadow: $shadow-three;
+  border-radius: 3px;
+  @include themify($themes) {
+    color: themed("text-color");
+  }
+  @include themify($themes) {
+    // background-color: themed("bg-widget");
+    background-color: lighten(themed("bg-card"), 10%);
+  }
+}
+.overview-widget-box {
+  @include box();
+  overflow: "hidden";
+
+  &__header {
+    font-size: 1.1rem;
+    padding: 4px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow: "hidden";
+
+    &:hover {
+      cursor: move;
+    }
+    &__left-box {
+      align-self: center;
+    }
+  }
+  &__header__align {
+    align-items: center;
+  }
+}
+.overview-widget-box-loading {
+  @include box();
+}

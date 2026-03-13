@@ -1,0 +1,535 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 04:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/config/models.py:6
+msgid "name"
+msgstr ""
+
+#: apps/config/models.py:15
+msgid "model_list"
+msgstr ""
+
+#: apps/config/models.py:16
+msgid "model_lists"
+msgstr ""
+
+#: apps/db_dictionaries/models/_type_battery.py:40
+msgid "type_batery"
+msgstr ""
+
+#: apps/db_dictionaries/models/_type_battery.py:41
+msgid "type_batteries"
+msgstr ""
+
+#: apps/db_dictionaries/models/_type_product.py:43
+msgid "type_product"
+msgstr ""
+
+#: apps/db_dictionaries/models/_type_product.py:44
+msgid "type_products"
+msgstr ""
+
+#: apps/db_dictionaries/models/_type_pump.py:39
+msgid "type_pump"
+msgstr ""
+
+#: apps/db_dictionaries/models/_type_pump.py:40
+msgid "type_pumps"
+msgstr ""
+
+#: apps/db_dictionaries/models/_type_status.py:39
+#: apps/db_dictionaries/models/_type_status.py:40
+msgid "type_status"
+msgstr ""
+
+#: apps/db_dictionaries/models/_uom_set.py:67
+msgid "uom_set"
+msgstr ""
+
+#: apps/db_dictionaries/models/_uom_set.py:68
+msgid "uom_sets"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:18
+msgid "Start Datetime"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:23
+msgid "End Datetime"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:28
+msgid "Name"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:35
+msgid "Short Name"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:42
+msgid "Active"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:47
+msgid "Operated"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:55
+msgid "Last Update User"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:58
+msgid "Last Update Date"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:64
+msgid "Row ID"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:71
+msgid "Create Source"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:79
+msgid "Update Source"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:87
+msgid "Version"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:93
+msgid "Accounting ID"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:99
+msgid "Serial ID"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:105
+msgid "Registry ID"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:144
+msgid "base_domain"
+msgstr ""
+
+#: apps/db_models/models/model_base_domain.py:145
+msgid "base_domains"
+msgstr ""
+
+#: apps/db_models/models/model_base_equip.py:7
+msgid "Status"
+msgstr ""
+
+#: apps/db_models/models/model_base_equip.py:13
+msgid "Product"
+msgstr ""
+
+#: apps/db_models/models/model_base_equip.py:19
+msgid "Code"
+msgstr ""
+
+#: apps/db_models/models/model_base_equip.py:25
+msgid "Direct Entry"
+msgstr ""
+
+#: apps/db_models/models/model_base_equip.py:29
+msgid "SCADA"
+msgstr ""
+
+#: apps/db_models/models/model_base_equip.py:49
+msgid "base_equip"
+msgstr ""
+
+#: apps/db_models/models/model_base_equip.py:50
+msgid "base_equips"
+msgstr ""
+
+#: apps/db_models/models/model_base_geo.py:8
+msgid "Latitude"
+msgstr ""
+
+#: apps/db_models/models/model_base_geo.py:14
+msgid "Longitude"
+msgstr ""
+
+#: apps/db_models/models/model_base_geo.py:20
+msgid "Country"
+msgstr ""
+
+#: apps/db_models/models/model_base_geo.py:26
+msgid "Region"
+msgstr ""
+
+#: apps/db_models/models/model_base_geo.py:32
+msgid "Sub-Region"
+msgstr ""
+
+#: apps/db_models/models/model_base_geo.py:38
+msgid "City"
+msgstr ""
+
+#: apps/db_models/models/model_base_geo.py:61
+msgid "base_geo"
+msgstr ""
+
+#: apps/db_models/models/model_base_geo.py:62
+msgid "base_geos"
+msgstr ""
+
+#: apps/db_models/models/model_item_battery.py:13
+#: apps/db_models/models/model_item_field.py:13
+msgid "Company Ref."
+msgstr ""
+
+#: apps/db_models/models/model_item_battery.py:20
+#: apps/db_models/models/model_item_completion.py:14
+msgid "Field Ref."
+msgstr ""
+
+#: apps/db_models/models/model_item_battery.py:27
+#: apps/db_models/models/model_item_completion.py:21
+msgid "Battery Ref."
+msgstr ""
+
+#: apps/db_models/models/model_item_battery.py:30
+msgid "Battery Type"
+msgstr ""
+
+#: apps/db_models/models/model_item_battery.py:36
+msgid "Prod. Start"
+msgstr ""
+
+#: apps/db_models/models/model_item_battery.py:48
+msgid "battery"
+msgstr ""
+
+#: apps/db_models/models/model_item_battery.py:49
+msgid "batteries"
+msgstr ""
+
+#: apps/db_models/models/model_item_company.py:13
+msgid "Parent Company"
+msgstr ""
+
+#: apps/db_models/models/model_item_company.py:16
+msgid "Contact Name"
+msgstr ""
+
+#: apps/db_models/models/model_item_company.py:22
+msgid "Address"
+msgstr ""
+
+#: apps/db_models/models/model_item_company.py:28
+msgid "e-mail"
+msgstr ""
+
+#: apps/db_models/models/model_item_company.py:34
+msgid "Phone"
+msgstr ""
+
+#: apps/db_models/models/model_item_company.py:40
+msgid "Operator"
+msgstr ""
+
+#: apps/db_models/models/model_item_company.py:45
+msgid "Owner"
+msgstr ""
+
+#: apps/db_models/models/model_item_company.py:50
+msgid "Purchaser"
+msgstr ""
+
+#: apps/db_models/models/model_item_company.py:55
+msgid "Transporter"
+msgstr ""
+
+#: apps/db_models/models/model_item_company.py:60
+msgid "Service Provider"
+msgstr ""
+
+#: apps/db_models/models/model_item_company.py:90
+msgid "company"
+msgstr ""
+
+#: apps/db_models/models/model_item_company.py:91
+msgid "companies"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:23
+msgid "Comp. Type"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:24
+msgid "Disp. Type"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:25
+msgid "Inv. Method"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:26
+msgid "Lift Type"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:27
+msgid "Recovery"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:29
+msgid "bot_x"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:30
+msgid "bot_y"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:31
+msgid "completion_md"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:32
+msgid "completion_tvd"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:34
+msgid "API"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:35
+msgid "CGR"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:36
+msgid "GOR"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:37
+msgid "WGR"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:38
+msgid "WOR"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:40
+msgid "Gas Density"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:41
+msgid "Gas Shrink"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:42
+msgid "NGL Frac"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:43
+msgid "Oil Density"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:45
+msgid "Cond Theo. Method"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:46
+msgid "Gas Theo. Method"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:47
+msgid "Oil Theo. Method"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:48
+msgid "Water Theo. Method"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:50
+msgid "Reservoir Phase"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:51
+msgid "Reservoir Type"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:81
+msgid "completion"
+msgstr ""
+
+#: apps/db_models/models/model_item_completion.py:82
+msgid "completions"
+msgstr ""
+
+#: apps/db_models/models/model_item_field.py:22
+msgid "field"
+msgstr ""
+
+#: apps/db_models/models/model_item_field.py:23
+msgid "fields"
+msgstr ""
+
+#: apps/db_models/models/model_item_pump.py:54
+msgid "pump"
+msgstr ""
+
+#: apps/db_models/models/model_item_pump.py:55
+msgid "pumps"
+msgstr ""
+
+#: apps/users/admin.py:18
+msgid "Personal info"
+msgstr ""
+
+#: apps/users/admin.py:19
+msgid "Dates"
+msgstr ""
+
+#: apps/users/admin.py:20
+msgid "Permissions and Groups"
+msgstr ""
+
+#: apps/users/models.py:78
+msgid "First Name"
+msgstr ""
+
+#: apps/users/models.py:79
+msgid "Last Name"
+msgstr ""
+
+#: apps/users/models.py:80
+msgid "Email address"
+msgstr ""
+
+#: apps/users/models.py:82
+msgid "staff status"
+msgstr ""
+
+#: apps/users/models.py:83
+msgid "superuser status"
+msgstr ""
+
+#: apps/users/models.py:84
+msgid "active"
+msgstr ""
+
+#: apps/users/models.py:85
+msgid "admin"
+msgstr ""
+
+#: apps/users/models.py:86
+msgid "client"
+msgstr ""
+
+#: apps/users/models.py:87
+msgid "employee"
+msgstr ""
+
+#: apps/users/models.py:91
+msgid "date joined"
+msgstr ""
+
+#: apps/users/models.py:92
+msgid "date updated"
+msgstr ""
+
+#: apps/users/models.py:134
+msgid "User"
+msgstr ""
+
+#: apps/users/models.py:135
+msgid "Users"
+msgstr ""
+
+#: apps/users/serializers.py:34
+msgid "Please use a different email address provider."
+msgstr ""
+
+#: apps/users/serializers.py:36
+msgid "Email already in use, please use a different email address."
+msgstr ""
+
+#: apps/users/serializers.py:51
+msgid "Unable to log in with provided credentials."
+msgstr ""
+
+#: apps/users/serializers.py:55
+msgid "Must include \"username\" and \"password\"."
+msgstr ""
+
+#: apps/users/serializers.py:74
+msgid "Password fields didn't match."
+msgstr ""
+
+#: apps/users/serializers.py:81
+msgid "Old password is not correct"
+msgstr ""
+
+#: apps/users/urls.py:15
+msgid "login/"
+msgstr ""
+
+#: apps/users/urls.py:16
+msgid "logout/"
+msgstr ""
+
+#: apps/users/urls.py:17
+msgid "register/"
+msgstr ""
+
+#: apps/users/urls.py:18
+msgid "change-password/"
+msgstr ""
+
+#: apps/users/urls.py:20
+msgid "^users/$"
+msgstr ""
+
+#: apps/users/urls.py:21
+msgid "^user-details/([0-9])$"
+msgstr ""
+
+#: core/urls.py:31
+msgid "admin/"
+msgstr ""
+
+#: core/urls.py:46
+msgid "Ligeia Administration"
+msgstr ""
+
+#: core/urls.py:47
+msgid "Ligeia"
+msgstr ""
+
+#: core/urls.py:48
+msgid "Welcome to Ligeia"
+msgstr ""
+
+#: settings/base.py:96
+msgid "English"
+msgstr ""
+
+#: settings/base.py:97
+msgid "Russian"
+msgstr ""
+
+#: settings/base.py:98
+msgid "German"
+msgstr ""

@@ -1,0 +1,6 @@
+{% load my_filters %}
+from django.db import models
+import uuid
+class {{ table_name }} (models.Model):
+    {% for i in column %}{{ i.column_name }} = models.{{ i.column_type }}({% for key in i.column_attr %}{% if key == "default" %}{% if i.column_attr|get_item:key == 'uuid4' %}{{ key }} = uuid.uuid4{% else %}{{ key }} = "{{ i.column_attr|get_item:key }}"{% endif %}{% else %}{% if i.column_attr|get_item:key == 'uuid4' %}{{ key }} = uuid.uuid4{% else %}{{ key }} = {{ i.column_attr|get_item:key }}{% endif %}{% endif %} {% if key != i.column_attr|get_last_key:key %}, {% endif %}{% endfor %})
+    {% endfor %}

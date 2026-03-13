@@ -1,0 +1,11 @@
+@mixin defaultScroll {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 100%;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #606060;
+  }
+}

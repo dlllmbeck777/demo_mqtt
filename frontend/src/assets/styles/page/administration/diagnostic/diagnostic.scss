@@ -1,0 +1,6 @@
+@import "../../../components/boxes.scss";
+.diagnostic-container {
+  &__body {
+    height: calc(100% - 48px);
+  }
+}

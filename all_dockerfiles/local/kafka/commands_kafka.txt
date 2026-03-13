@@ -1,0 +1,54 @@
+https://medium.com/@sirajul.anik/apache-kafka-understanding-how-to-produce-and-consume-messages-9744c612f40f
+
+https://digitalis.io/blog/apache-cassandra/getting-started-with-kafka-cassandra-connector/
+
+/// create topic
+
+/bin/kafka-topics --create \
+    --zookeeper zookeeper:2181 \
+    --replication-factor 1 \
+    --partitions 1 \
+    --topic test
+
+
+/bin/kafka-topics --bootstrap-server localhost:9092 --list
+
+/// produce message
+
+/bin/kafka-console-producer --bootstrap-server localhost:9092 \
+--topic test
+
+{"myid":0,"datetime":"2021","temperature":15,"equipment_id":0}
+
+
+/// consume message
+
+/bin/kafka-console-consumer --bootstrap-server localhost:9092 \
+--topic test \
+--from-beginning
+
+/bin/kafka-console-consumer --bootstrap-server localhost:9092 \
+--topic temperature_table \
+--from-beginning
+
+/bin/kafka-console-consumer --bootstrap-server localhost:9092 \
+--topic kafka_temp01 \
+--from-beginning
+
+/bin/kafka-avro-console-producer \
+--topic kafka_temp01 \
+--bootstrap-server broker:29092 \
+--property value.schema.id=2 \
+--property schema.registry.url=http://schema-registry:8081 < data.json
+
+/bin/kafka-avro-console-consumer \
+   --topic kafka_temperature \
+   --bootstrap-server  broker:29092 \
+   --property print.key=true \
+   --from-beginning
+
+/bin/kafka-avro-console-consumer \
+  --topic avro-topic1 \
+  --bootstrap-server  broker:29092 \
+  --property print.key=true \
+  --from-beginning

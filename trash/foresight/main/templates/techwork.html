@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block sidebar %}
+<li class="sidebar-item  "><a class="sidebar-link" href="/"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/home.svg' %}">
+  <span>Главное меню </span></a></li>
+<li class="sidebar-item active"><a class="sidebar-link" href="/work"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/repair.svg' %}"><span>Тех.работы </span></a></li>
+<li class="sidebar-item"><a class="sidebar-link" href="/repair"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/repair.svg' %}"><span>Ремонты </span></a></li>
+<li class="sidebar-item"><a class="sidebar-link" href="{% url 'logout'%}?next={{request.path}}"> 
+  <img class="svg-icon svg-icon-sm svg-icon-heavy" src="{% static 'main/image/logout.svg' %}"><span>Выйти </span></a></li>
+
+{% endblock %}
+
+{% block title %}
+<a class="navbar-brand" href="">Технические работы</a> 
+{% endblock %}
+            
+            
+{% block content %}
+<div class="container-fluid">
+  <div class="row gy-4">
+    <div class="col-md-12">
+      <div class="d-flex justify-content-between">
+        <h3 class="description">Запрос о техническом обслуживаний</h3>
+        <a href="/work/history/">
+          <h3 class="description"><u> История ТО</u></h3>
+        </a>
+      
+      </div><div class="col-md-12">
+          <div class="card card-stats">
+            <div class="card-header-3">
+              <h5 class="description card-title">Заполните форму</h5>
+            </div>
+            <div class="card-body">
+              <form method="POST" class="post-form">{% csrf_token %}
+                <div class="row">
+                  <div class="update ml-auto mr-auto d-flex justify-content-center">
+                    {% if messages %}
+                      {% for message in messages %}
+                        <h5 class="description card-title text-success">{{message}}</h5>
+                      {% endfor %}
+                    {% endif %}
+                    {% if message %}
+                      <h5 class="description card-title text-danger">{{message}}</h5>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      {{ maintenance_form | crispy }}
+                      <h5 class="description">Выполненные работы</h5>
+                      <input type="checkbox" class="checkboxinput form-check-input" value="" id="oil-check">
+                      <label  class="description" for="oil-check">
+                        Замена смазки в подшипниках насоса                    
+                      </label>                
+                      {% if oil_formset %}
+                      {{ oil_formset.management_form }}
+                      <div id="oil-formset">
+                        {% for form in oil_formset %}
+                        <div class="oil-form">
+                          {{ form | crispy }}
+                        </div>
+                        {% endfor %}
+                        <div id="oil-empty-form" class="d-none">
+                          <div class="col-md-12">
+                            <div class="card card-stats" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                              <div class="card-header-3">
+                                <h5 class="description card-title">Заполните форму</h5>
+                              </div>
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="form-group">
+                                      {{oil_formset.empty_form | crispy }} 
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      {% endif %}
+                      </div>
+                      <input type="checkbox" class="checkboxinput form-check-input" id="sealant-check">
+                      <label  class="description" for="sealant-check">
+                        Замена уплотнения                    
+                      </label>
+                      {% if sealant_formset %}
+                      {{ sealant_formset.management_form }}
+                      <div id="sealant-formset">
+                        {% for form in sealant_formset %}
+                        <div class="sealant-form">
+                          {{ form | crispy }}
+                        </div>
+                        {% endfor %}
+                        <div id="sealant-empty-form" class="d-none"> 
+                          <div class="col-md-12">
+                            <div class="card card-stats" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                              <div class="card-header-3">
+                                <h5 class="description card-title">Заполните форму</h5>
+                              </div>
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="form-group">
+                                      {{sealant_formset.empty_form | crispy }} 
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>  
+                        </div>
+                      {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="update ml-auto mr-auto d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-round">Создать</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script>
+    const oil_check = document.getElementById("oil-check")
+    const sealant_check = document.getElementById("sealant-check")
+        
+    oil_check.addEventListener('change', function(){
+      if(this.checked){
+        console.log("ASD")
+        sealant_check.required = false
+        changeCheck(this.id, 1)
+      }
+      else{
+        sealant_check.required = true
+        changeCheck(this.id, 0)
+      }
+    })
+    sealant_check.addEventListener('change', function(){
+      if(this.checked){
+        changeCheck(this.id, 1)
+        oil_check.required =false
+      }
+      else{
+        changeCheck(this.id, 0)
+        oil_check.required = true
+      }
+    })
+    
+    function changeCheck(check, checked){
+      check = check.split("-")[0]
+
+      formset = document.getElementById(`${check}-formset`)
+      totalNewForms = document.getElementById(`id_${check}-TOTAL_FORMS`)
+      currentWorkForms = document.getElementsByClassName(`${check}-form`)
+      currentFormCount = currentWorkForms.length
+      
+      if(checked){
+        console.log(`${check}-empty-form`)
+        console.log(document.getElementById(`${check}-empty-form`))
+        emptyFormEl = document.getElementById(`${check}-empty-form`).cloneNode(true)
+        emptyFormEl.setAttribute('class', `${check}-form`)
+        emptyFormEl.setAttribute('id', `${check}-form-${currentFormCount}`)
+        const regex = new RegExp('__prefix__', 'g')
+        emptyFormEl.innerHTML = emptyFormEl.innerHTML.replace(regex, currentFormCount)
+        totalNewForms.setAttribute('value', currentFormCount + 1)
+        formset.append(emptyFormEl)
+        console.log(`${check}-${currentFormCount}-${check}`)
+        document.getElementById(`id_${check}-${currentFormCount}-${check}`).setAttribute('required', 'required')
+        document.getElementById(`id_${check}-${currentFormCount}-datePerformed`).setAttribute('required', 'required')
+      }
+      else{
+        lastForm = document.getElementById(`${check}-form-${currentFormCount-1}`)
+        lastForm.remove()
+        totalNewForms.setAttribute('value', currentFormCount - 1)
+      }
+    }
+
+
+  </script>
+
+{% endblock %}`

@@ -1,0 +1,100 @@
+@import "../../palette/palette.scss";
+@import "../../components/scrollbar.scss";
+
+.notification {
+  @include defaultScroll();
+  &__container {
+    width: 400px;
+    height: 90vh;
+    &__header {
+      padding-bottom: 8px;
+      font-size: 1.4rem;
+      padding: 16px;
+      &__btn-box {
+        padding-left: 16px;
+        padding-bottom: 8px;
+        &__btn-active {
+          @include themify($themes) {
+            background-color: themed("bg-selected-profile-page");
+          }
+        }
+        &__btn {
+          font-size: 1rem;
+          border-radius: 20px;
+          margin-right: 8px;
+        }
+      }
+    }
+    // Options 1
+
+    // &__item {
+    //   padding: 8px 16px;
+    //   box-sizing: border-box;
+    // }
+    // &__item__error {
+    //   background-color: lighten($color: #f44336, $amount: 10%);
+    // }
+    // &__item__warning {
+    //   background-color: lighten($color: #ffa726, $amount: 10%);
+    // }
+    // &__item__info {
+    //   background-color: darken($color: #2b98f8, $amount: 10%);
+    // }
+
+    // Options 2
+    // &__item {
+    //   padding: 8px 16px;
+    //   box-sizing: border-box;
+    //   border-radius: 5px;
+    //   margin-bottom: 8px;
+    // }
+    // &__item__error {
+    //   border: 1px solid;
+    //   border-color: lighten($color: #f44336, $amount: 10%);
+    // }
+    // &__item__warning {
+    //   border: 1px solid;
+    //   border-color: lighten($color: #ffa726, $amount: 10%);
+    // }
+    // &__item__info {
+    //   border: 1px solid;
+    //   border-color: darken($color: #2b98f8, $amount: 10%);
+    // }
+    //option 3
+    // &__item {
+    //   padding: 8px;
+    //   border-radius: 5px;
+    //   margin: 8px;
+    //   width: calc(100% - 16px) !important;
+    // }
+    // &__item__error {
+    //   border: 1px solid;
+    //   border-color: lighten($color: #f44336, $amount: 10%);
+    // }
+    // &__item__warning {
+    //   border: 1px solid;
+    //   border-color: lighten($color: #ffa726, $amount: 10%);
+    // }
+    // &__item__info {
+    //   border: 1px solid;
+    //   border-color: darken($color: #2b98f8, $amount: 10%);
+    // }
+
+    //option 4
+    &__item {
+      padding: 8px;
+      border-radius: 5px;
+      margin: 8px;
+      width: calc(100% - 16px) !important;
+    }
+    &__item__error {
+      border: 1px solid #f44336;
+    }
+    &__item__warning {
+      border: 1px solid #ffa726;
+    }
+    &__item__info {
+      border: 1px solid #2b98f8;
+    }
+  }
+}

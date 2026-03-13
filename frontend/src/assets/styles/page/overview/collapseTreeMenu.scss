@@ -1,0 +1,7 @@
+@import "../../palette/palette.scss";
+.collapse-menu-selected {
+  @include themify($themes) {
+    background-color: darken(themed("bg-tree-menu"), 6%) !important;
+    color: #42a5f5;
+  }
+}

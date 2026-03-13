@@ -1,0 +1,97 @@
+http_status_messages = {
+    100: "Continue (100): The server has received the request headers and the client should proceed to send the request body.",
+    101: "Switching Protocols (101): The server has agreed to switch protocols.",
+    102: "Processing (102): The server is processing the request and will return the response when complete.",
+    103: "Early Hints (103): The server is indicating possible response headers to the client before fully completing the request.",
+    200: "OK (200): Request successful. Data has been received and processed.",
+    201: "Created (201): The resource has been successfully created.",
+    202: "Accepted (202): The request has been accepted for processing, but processing has not been completed.",
+    203: "Non-Authoritative Information (203): The server is a transforming proxy that received 200 OK from an origin server and is returning it to the client.",
+    204: "No Content (204): The server successfully processed the request and there is no additional content to send in the response.",
+    205: "Reset Content (205): The server successfully processed the request, but there is no content to send in the response. The client should reset its document view.",
+    206: "Partial Content (206): The server has fulfilled a partial GET request.",
+    207: "Multi-Status (207): The message body that follows is an XML message and can contain a number of separate response codes, depending on how many sub-requests were made.",
+    208: "Already Reported (208): The members of a DAV binding have already been enumerated in a preceding part of the (multistatus) response, and are not being included again.",
+    226: "IM Used (226): The server has fulfilled a request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.",
+    300: "Multiple Choices (300): The requested resource corresponds to any one of a set of representations, each with its own specific location, and agent-driven negotiation information is being provided.",
+    301: "Moved Permanently (301): The requested resource has been assigned a new permanent URI and any future references to this resource should use the given URI.",
+    302: "Found (302): The requested resource resides temporarily under a different URI.",
+    303: "See Other (303): The response to the request can be found under a different URI and should be retrieved using a GET method on that resource.",
+    304: "Not Modified (304): The client has performed a conditional GET request and the resource has not been modified.",
+    305: "Use Proxy (305): The requested resource must be accessed through the proxy given by the Location field.",
+    306: "Switch Proxy (306): This status code is no longer used, but was used in a previous version of the protocol.",
+    307: "Temporary Redirect (307): The requested resource resides temporarily under a different URI and the user agent must not change the request method if it performs an automatic redirection to that URI.",
+    308: "Permanent Redirect (308): The requested resource has been assigned a new permanent URI and any future references to this resource ought to use one of the enclosed URIs.",
+    400: "Bad Request (400): The server cannot or will not process the request due to an apparent client error.",
+    401: "Unauthorized (401): The request has not been applied because it lacks valid authentication credentials for the target resource.",
+    402: "Payment Required (402): This status code is reserved for future use.",
+    403: "Forbidden (403): The server understood the request, but it refuses to authorize it.",
+    404: "Not Found (404): The requested resource could not be found on the server.",
+    405: "Method Not Allowed (405): The method specified in the request is not allowed for the target resource.",
+    406: "Not Acceptable (406): The target resource does not have a current representation that would be acceptable to the user agent.",
+    407: "Proxy Authentication Required (407): The client must first authenticate itself with the proxy.",
+    408: "Request Timeout (408): The server timed out waiting for the request.",
+    409: "Conflict (409): The request could not be completed due to a conflict with the current state of the resource.",
+    410: "Gone (410): The requested resource is no longer available and will not be available again.",
+    411: "Length Required (411): The server refuses to accept the request without a defined Content-Length.",
+    412: "Precondition Failed (412): One or more conditions in the request header fields evaluated to false when tested on the server.",
+    413: "Payload Too Large (413): The server is refusing to process a request because the request payload is larger than the server is willing or able to process.",
+    414: "URI Too Long (414): The server is refusing to service the request because the request-target is longer than the server is willing to interpret.",
+    415: "Unsupported Media Type (415): The server is refusing to service the request because the entity of the request is in a format not supported by the requested resource.",
+    416: "Range Not Satisfiable (416): None of the ranges in the request's Range header field overlap the current extent of the selected resource or that the set of ranges requested has been rejected due to invalid ranges or an excessive request of small or overlapping ranges.",
+    417: "Expectation Failed (417): The expectation given in the request's Expect header field could not be met by at least one of the inbound servers.",
+    418: "I'm a Teapot (418): Any attempt to brew coffee with a teapot should result in the error code '418 I'm a teapot'.",
+    421: "Misdirected Request (421): The request was directed at a server that is not able to produce a response.",
+    422: "Unprocessable Entity (422): The request was well-formed but was unable to be followed due to semantic errors.",
+    423: "Locked (423): The resource that is being accessed is locked.",
+    424: "Failed Dependency (424): The request failed because it depended on another request and that request failed.",
+    425: "Too Early (425): The server is unwilling to risk processing a request that might be replayed.",
+    426: "Upgrade Required (426): The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol.",
+    428: "Precondition Required (428): The origin server requires the request to be conditional.",
+    429: "Too Many Requests (429): The user has sent too many requests in a given amount of time.",
+    431: "Request Header Fields Too Large (431): The server is unwilling to process the request because its header fields are too large.",
+    451: "Unavailable For Legal Reasons (451): The resource requested is not available due to legal reasons.",
+    500: "Internal Server Error (500): The server has encountered a situation it doesn't know how to handle.",
+    501: "Not Implemented (501): The request method is not supported by the server and cannot be handled.",
+    502: "Bad Gateway (502): The server, while acting as a gateway or proxy, received an invalid response from the upstream server it accessed in attempting to fulfill the request.",
+    503: "Service Unavailable (503): The server is not ready to handle the request. Common causes include when the server is down for maintenance or is overloaded.",
+    504: "Gateway Timeout (504): The server, while acting as a gateway or proxy, did not receive a timely response from the upstream server or some other auxiliary server it needed to access in order to complete the request.",
+    505: "HTTP Version Not Supported (505): The server does not support the HTTP protocol version that was used in the request message.",
+    506: "Variant Also Negotiates (506): Transparent content negotiation for the request results in a circular reference.",
+    507: "Insufficient Storage (507): The server is unable to store the representation needed to complete the request.",
+    508: "Loop Detected (508): The server detected an infinite loop while processing the request.",
+    510: "Not Extended (510): The policy for accessing the resource has not been met in the request.",
+    511: "Network Authentication Required (511): The client needs to authenticate to gain network access.",
+    # Devam eden HTTP durum kodları burada...
+}
+
+import uuid
+
+status = 0
+ID = f"TYPE.HTTP_CODE.{status}"
+key = http_status_messages.keys()
+data = []
+for item in key:
+    tempt = {
+        "CULTURE": "en-US",
+        "ID": f"TYPE.HTTP_CODE.{item}",
+        "SHORT_LABEL": http_status_messages[item],
+        "MOBILE_LABEL": None,
+        "ICON": None,
+        "PARENT": "HTTP_CODE",
+        "LAYER_NAME": "STD",
+        "HIDDEN": "False",
+        "LAST_UPDT_USER": None,
+        "LAST_UPDT_DATE": "2023-01-01",
+        "VERSION": uuid.uuid4().hex,
+        "DB_ID": None,
+        "ROW_ID": uuid.uuid4().hex,
+        "STATUS": None,
+        "SORT_ORDER": None,
+        "REV_GRP_ID": None,
+    }
+    data.append(tempt)
+import json
+
+with open("data.json", "w") as json_file:
+    json.dump(data, json_file, indent=4)

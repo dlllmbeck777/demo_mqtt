@@ -1,0 +1,51 @@
+version: '3.3'
+
+services:
+  db:
+    image: postgres:12-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=inkaidb
+      - POSTGRES_USER=inkai_user
+      - POSTGRES_PASSWORD=inkai
+
+  redis:
+    image: redis:6-alpine
+
+  web:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile
+    image: foresight_web
+    command: /start
+    volumes:
+      - .:/foresight
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env/.dev-sample
+    depends_on:
+      - redis
+      - db
+
+  
+
+  
+
+  celery_beat:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile
+    image: foresight_scelery_beat
+    command: /start-celerybeat
+    volumes:
+      - .:/foresight
+    env_file:
+      - ./.env/.dev-sample
+    depends_on:
+      - redis
+      - db
+
+volumes:
+  postgres_data:

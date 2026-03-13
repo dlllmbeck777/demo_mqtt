@@ -1,0 +1,50 @@
+@import "../palette/palette.scss";
+@import "../components/divider.scss";
+@import "../palette/typography.scss";
+.app-header {
+  justify-content: space-between;
+  padding: 13px;
+  height: 59px;
+  align-content: center;
+  @include themify($themes) {
+    background-color: themed("bg-app-header");
+  }
+  .drawer-menu-icon {
+    // @include h-4;
+    font-size: 34px;
+    @include themify($themes) {
+      color: themed("text-app-header");
+    }
+  }
+  .drawer-menu-icon-box {
+    max-width: 50px;
+    min-width: 50px;
+    margin-right: 15px;
+    visibility: hidden;
+  }
+
+  .app-header-box {
+    height: 100%;
+  }
+  .app-header__left-box {
+    height: 100%;
+    align-items: center;
+
+    .app-header__left-box__app-logo {
+      @include themify($themes) {
+        background-image: themed("app-logo");
+      }
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 87px;
+      height: 26px;
+      cursor: pointer;
+    }
+  }
+  .app-header__right-box {
+    align-items: center;
+    &__alert-icon {
+      font-size: 24px;
+    }
+  }
+}

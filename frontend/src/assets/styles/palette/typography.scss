@@ -1,0 +1,32 @@
+//mui typography
+
+@mixin body2 {
+  //card next button,
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.01082em;
+  line-height: 1.43;
+}
+
+@mixin h-4 {
+  //drawer menu icon,
+  font-size: 2.125rem;
+  font-weight: 400;
+  letter-spacing: 0.0075em;
+  line-height: 1.6;
+}
+
+@mixin h-6 {
+  //card title,
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.0075em;
+  line-height: 1.6;
+}
+
+// @mixin subtitle2 {
+//   font-size: 0.875rem;
+//   font-weight: 500;
+//   letter-spacing: 0.00714em;
+//   line-height: 1.57;
+// }

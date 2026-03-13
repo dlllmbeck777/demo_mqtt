@@ -1,0 +1,240 @@
+NAME,QUANTITY_TYPE,CATALOG_NAME,CATALOG_SYMBOL,RP66_SYMBOL,BASE_UNIT
+inverse henry,reluctance,POSC,1/H,1/H,Base Unit Description
+per Kelvin,volumetric thermal expansion,POSC,1/K,1/K,Base Unit Description
+per Kelvin,linear thermal expansion,POSC,1/K,1/K,Base Unit Description
+per kilogram,per mass,POSC,1/kg,1/kg,Base Unit Description
+per metre,per length,POSC,1/m,1/m,Base Unit Description
+per metre,wave number,POSC,1/m,1/m,Base Unit Description
+per square metre,per area,POSC,1/m2,1/m2,Base Unit Description
+per cubic metre,per volume,POSC,1/m3,1/m3,Base Unit Description
+per Newton,per force,POSC,1/N,1/N,Base Unit Description
+per Pascal,bulk compressibility,POSC,1/Pa,1/Pa,Base Unit Description
+per Pascal,compressibility,POSC,1/Pa,1/Pa,Base Unit Description
+per second,per time,POSC,1/s,1/s,Base Unit Description
+per second,operations per time,POSC,1/s,1/s,Base Unit Description
+per second,frequency,POSC,1/s,1/s,Base Unit Description
+per Volt,per electric potential,POSC,1/V,1/V,Base Unit Description
+ampere,electric current,POSC,A,A,The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.
+ampere,magnetic potential difference,POSC,A,A,The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.
+ampere,magnetomotive force,POSC,A,A,The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.
+amperes metres squared,electromagnetic moment,POSC,A.m2,A.m2,The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.
+amperes/metre,linear electric current density,POSC,A/m,A/m,The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.
+amperes/metre,magnetic field strength,POSC,A/m,A/m,The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.
+amperes/metre,magnetization,POSC,A/m,A/m,The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.
+amperes/square metre,current density,POSC,A/m2,A/m2,The ampere is that constant current which. if maintained in two straight parallel conductors of infinite length. of negligible circular cross section. and placed 1 metre apart in vacuum.would produce between these conductors a force equal to 2 x 10**-7 newton per metre of length.
+bel,level of power intensity,POSC,B,10 dB,A unit of intensity. A bel is the base 10 logarithm of a power or amplitude ratio. Some systems define a specific base value.
+bels/metre,attenuation per length,POSC,B/m,10 dB/m,A unit of intensity. A bel is the base 10 logarithm of a power or amplitude ratio. Some systems define a specific base value.
+bels/octave,attenuation,POSC,B/O,10 dB/m,The power or amplitude variation that occurs over a doubling of the domain variable.
+baud,data transmission speed,POSC,Bd,1/s,A unit of transmission speed. equal to one bit per second. This unit is being deprecated in favor of bits per second (bps).
+bits per second,data transmission speed,POSC,bps,1/s,A unit of transmission speed. equal to one bit per second.
+becquerel,activity (of radioactivity),POSC,Bq,Bq,The activity of a radionuclide decaying at the rate of one spontaneous nuclear transition per second
+becquerel per kilogram,specific activity (of radioactivity),POSC,Bq/kg,Bq/kg,The activity of a radionuclide decaying at the rate of one spontaneous nuclear transition per second
+byte,digital storage,POSC,byte,Bq/kg,The capacity. in bytes. of a storage device or an information system.is one eighth of the base two logarithm of the number of possible states of the device or system.
+coulomb,electric capacity,POSC,C,C,The time integral of electric current.equal to 1 A.s
+coulomb,electric charge,POSC,C,C,The time integral of electric current.equal to 1 A.s
+coulomb,electric flux,POSC,C,C,The time integral of electric current.equal to 1 A.s
+coulomb metres,electric dipole moment,POSC,C.m,C.m,The time integral of electric current.equal to 1 A.s
+coulomb per kilogram,exposure (radioactivity),POSC,C/kg,C/kg,The time integral of electric current.equal to 1 A.s
+coulombs/square metre,electric polarization,POSC,C/m2,C/m2,The time integral of electric current.equal to 1 A.s
+coulombs/cubic metre,charge density,POSC,C/m3,C/m3,The time integral of electric current.equal to 1 A.s
+candela,luminous intensity,POSC,cd,cd,The candela is the luminous intensity. in a given direction.of a source that emits monochromatic radiation of frequency 540 X 10**12 hertz and that has a radian intensity in that direction of 1/683 watt per steradian.
+candelas/square metre,luminance,POSC,cd/m2,cd/m2,The candela is the luminous intensity. in a given direction.of a source that emits monochromatic radiation of frequency 540 X 10**12 hertz and that has a radian intensity in that direction of 1/683 watt per steradian.
+equivalent,electrochemical equivalent,POSC,eq,eq,The charge contained in one mole of electrons. The amount is equal to 96487 coulombs.
+equivalent per kilogram,equivalent per mass,POSC,eq/kg,eq/kg,The charge contained in one mole of electrons. The amount is equal to 96487 coulombs.
+equivalents per cubic metre,equivalent per volume,POSC,eq/m3,eq/m3,The charge contained in one mole of electrons. The amount is equal to 96487 coulombs.
+euclid,dimensionless,POSC,Euc,100%,A base unit to describe all dimensionless values.such as ratios and factors.
+euclid,volumic concentration,POSC,Euc,100%,A base unit to describe all dimensionless values.such as ratios and factors.
+euclid,mass concentration,POSC,Euc,100%,A base unit to describe all dimensionless values.such as ratios and factors.
+euclid,mass concentration,POSC,Euc,100%,A base unit to describe all dimensionless values.such as ratios and factors.
+euclid,linear strain,POSC,Euc,100%,A base unit to describe all dimensionless values.such as ratios and factors.
+euclid,shear strain,POSC,Euc,100%,A base unit to describe all dimensionless values.such as ratios and factors.
+euclid,attenuation,POSC,Euc,100%,A base unit to describe all dimensionless values.such as ratios and factors.
+euclid,poisson ratio,POSC,Euc,100%,A base unit to describe all dimensionless values.such as ratios and factors.
+farad,capacitance,POSC,F,F,The capacitance of a capacitor between the plates of which there appears a difference of potential of 1 V when it is charged by a quantity of electricity equal to 1 C.
+farads/metre,permittivity,POSC,F/m,F/m,The capacitance of a capacitor between the plates of which there appears a difference of potential of 1 V when it is charged by a quantity of electricity equal to 1 C.
+gas unit,volumic concentration,POSC,gu,F/m,Can mean 1/50th per cent or 1/100th percent.depending on country.
+API gamma ray units,gamma ray API unit,POSC,gAPI,gAPI,A unit defined by the American Petroleum Institute for gamma ray log measurements.
+gray,absorbed dose,POSC,Gy,Gy,The absorbed dose when the energy per unit mass imparted to matter by ionizing radiation is 1 J/kg
+henry,self inductance,POSC,H,H,The inductance of a closed circuit in which an electromotive force of 1 V is produced when the electric current in the circuit varies uniformly at a rate of 1 A/s.
+henry,permeance,POSC,H,H,The inductance of a closed circuit in which an electromotive force of 1 V is produced when the electric current in the circuit varies uniformly at a rate of 1 A/s.
+henries/metre,magnetic permeability,POSC,H/m,H/m,The inductance of a closed circuit in which an electromotive force of 1 V is produced when the electric current in the circuit varies uniformly at a rate of 1 A/s.
+hertz,frequency,POSC,Hz,Hz,The frequency of a periodic phenomenon of which the period is 1 second.
+joule,moment of force,POSC,J,J,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joule,moment of couple,POSC,J,J,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joule,torque,POSC,J,J,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joule,energy,POSC,J,J,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joule,work,POSC,J,J,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules per delta kelvin,heat capacity,POSC,J/K,J/K,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/kilogram,specific energy,POSC,J/kg,J/kg,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/kilogram degree kelvin,specific heat capacity,POSC,J/kg.K,J/kg.K,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/kilogram degree kelvin,massic heat capacity,POSC,J/kg.K,J/kg.K,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/cubic metre,normal stress,POSC,J/m3,J/m3,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/cubic metre,shear stress,POSC,J/m3,J/m3,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/cubic metre,modulus of elasticity,POSC,J/m3,J/m3,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/cubic metre,shear modulus,POSC,J/m3,J/m3,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/cubic metre,modulus of rigidity,POSC,J/m3,J/m3,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/cubic metre,bulk modulus,POSC,J/m3,J/m3,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/cubic metre,modulus of compression,POSC,J/m3,J/m3,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/cubic metre,electromagnetic energy density,POSC,J/m3,J/m3,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/cubic metre,radiant energy density,POSC,J/m3,J/m3,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/mole,molar thermodynamic energy,POSC,J/mol,J/mol,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/mole,chemical potential,POSC,J/mol,J/mol,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/mole,affinity of a chemical reaction,POSC,J/mol,J/mol,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/mole degree kelvin,molar heat capacity,POSC,J/mol.K,J/mol.K,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/mole degree kelvin,molar entropy,POSC,J/mol.K,J/mol.K,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+joules/mole degree kelvin,molar gas constant,POSC,J/mol.K,J/mol.K,The work done when the point of application of a force of 1 N is displaced a distance of 1 m in the direction of the force.
+kelvin,thermodynamic temperature,POSC,K,K,The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.
+kelvin,delta temperature,POSC,K,K,The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.
+kelvin metres squared/watt,thermal insulance,POSC,K.m2/W,K.m2/W,The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.
+kelvin metres squared/watt,coefficient of thermal insulation,POSC,K.m2/W,K.m2/W,The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.
+degrees kelvin/metre,temperature per length,POSC,K/m,K/m,The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.
+kelvin per second,temperature per time,POSC,K/s,K/s,The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.
+delta kelvin per watt,thermal resistance,POSC,K/W,K/W,The kelvin. unit of thermodynamic temperature.is the fraction 1/273.16 of the thermodynamic temperature of the triple point of water.
+kilogram,mass,POSC,kg,kg,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+meter-kilogram,mass length,POSC,kg.m,kg.m,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilogram metres/second,momentum,POSC,kg.m/s,kg.m/s,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilogram metres/second,impulse,POSC,kg.m/s,kg.m/s,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilogram metres squared,moment of inertia,POSC,kg.m2,kg.m2,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilograms/joule,mass per energy,POSC,kg/J,kg/J,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilograms/metre,linear density,POSC,kg/m,kg/m,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilograms/metre,linear mass,POSC,kg/m,kg/m,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilograms/metre,mass per length,POSC,kg/m,kg/m,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilograms/square metre,surface density,POSC,kg/m2,kg/m2,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilograms/square metre,areic mass,POSC,kg/m2,kg/m2,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilograms/square metre seconds,mass per time per area,POSC,kg/m2.s,kg/m2.s,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilograms/cubic metre,density,POSC,kg/m3,kg/m3,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilograms/cubic metre,mass density,POSC,kg/m3,kg/m3,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilograms/cubic metre,volumic mass,POSC,kg/m3,kg/m3,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilogram/metre fourth,mass per volume per length,POSC,kg/m4,kg/m4,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+kilograms/second,mass flow rate,POSC,kg/s,kg/s,"The kilogram is the unit of mass (not force), it is equal to the mass of the international prototype of the kilogram."
+lumen,luminous flux,POSC,lm,lm,The luminous flux emitted in a solid angle of 1 sr by a point source having a uniform intensity of 1 cd.
+lumen second,quantity of light,POSC,lm.s,lm.s,The luminous flux emitted in a solid angle of 1 sr by a point source having a uniform intensity of 1 cd.
+lumens/watt,luminous efficacy,POSC,lm/W,lm/W,The luminous flux emitted in a solid angle of 1 sr by a point source having a uniform intensity of 1 cd.
+lux,illuminance,POSC,lx,lx,The illuminance produced by a luminous flux of 1 lm uniformly distributed over a surface of 1 m2.
+lux seconds,light exposure,POSC,lx.s,lx.s,The illuminance produced by a luminous flux of 1 lm uniformly distributed over a surface of 1 m2.
+metre,length,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metre,breadth,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metre,height,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metre,depth,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metre,thickness,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metre,radius,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metre,radius of curvature,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metre,Cartesian coordinates,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metre,diameter,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metre,length of path,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metre,distance,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metre,wavelength,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metre,mean free path,POSC,m,m,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metres/degree kelvin,length per temperature,POSC,m/K,m/K,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metres/second,velocity,POSC,m/s,m/s,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metres/second squared,acceleration linear,POSC,m/s2,m/s2,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+square metres,area,POSC,m2,m2,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+square metres/kilogram,mass attenuation coefficient,POSC,m2/kg,m2/kg,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+square metres/mol,cross section absorption,POSC,m2/mol,m2/mol,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+square metres/second Pascal,unit productivity index,POSC,m2/Pa.s,m2/Pa.s,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+square metres/second Pascal,mobility,POSC,m2/Pa.s,m2/Pa.s,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+square metres/second,kinematic viscosity,POSC,m2/s,m2/s,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+square metres/second,thermal diffusivity,POSC,m2/s,m2/s,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+square metres/second,diffusion coefficient,POSC,m2/s,m2/s,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+square metres/second,area per time,POSC,m2/s,m2/s,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+cubic metres,volume,POSC,m3,m3,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+cubic metres/joule,isothermal compressibility,POSC,m3/J,m3/J,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+cubic metres/kilogram,specific volume,POSC,m3/kg,m3/kg,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+cubic metres/kilogram,massic volume,POSC,m3/kg,m3/kg,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+cubic metres/mole,molar volume,POSC,m3/mol,m3/mol,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+cubic metres/second pascal,productivity index,POSC,m3/Pa.s,m3/Pa.s,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+(cubic metres/second) per pascal,productivity index,WITSML,m3/Pa/s,m3/Pa/s,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+cubic metres/pascal second squared,specific productivity index,POSC,m3/Pa2.s2,m3/Pa2.s2,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+cubic metres/second,volume flow rate,POSC,m3/s,m3/s,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+cubic metres/seconds squared,volume per time per time,POSC,m3/s2,m3/s2,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+cubic metres/std cubic metres. 0 deg C,volume per standard volume,POSC,m3/scm(0C),m3/s2,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+cubic metres/std cubic metres. 15 deg C,volume per standard volume,POSC,m3/scm(15C),m3/s2,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metres fourth,second moment of area,POSC,m4,m4,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metres fourth,moment of section,POSC,m4,m4,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+metres fourth/second,volume length per time,POSC,m4/s,m4/s,The metre is the length equal to 1 650 763.73 wavelengths in vacuum of the radiation corresponding to the transition between the levels 2p10 and 5d5 of the krypton-86 atom.
+mole,amount of substance,POSC,mol,mol,The mole is the amount of substance of a system that contains as many elementary entities as there are atoms in 0.012 kilogram of carbon-12. When the mole is used. the elementary entities must be specified and may be atoms. molecules. ions. electrons. other particles.or specified groups of such particles.
+moles/square metre,mole per area,POSC,mol/m2,mol/m2,The mole is the amount of substance of a system that contains as many elementary entities as there are atoms in 0.012 kilogram of carbon-12. When the mole is used. the elementary entities must be specified and may be atoms. molecules. ions. electrons. other particles.or specified groups of such particles.
+moles/square metre second,mole per time per area,POSC,mol/m2.s,mol/m2.s,The mole is the amount of substance of a system that contains as many elementary entities as there are atoms in 0.012 kilogram of carbon-12. When the mole is used. the elementary entities must be specified and may be atoms. molecules. ions. electrons. other particles.or specified groups of such particles.
+moles/cubic metre,concentration of B,POSC,mol/m3,mol/m3,The mole is the amount of substance of a system that contains as many elementary entities as there are atoms in 0.012 kilogram of carbon-12. When the mole is used. the elementary entities must be specified and may be atoms. molecules. ions. electrons. other particles.or specified groups of such particles.
+moles/cubic metre,amount of a substance,POSC,mol/m3,mol/m3,The mole is the amount of substance of a system that contains as many elementary entities as there are atoms in 0.012 kilogram of carbon-12. When the mole is used. the elementary entities must be specified and may be atoms. molecules. ions. electrons. other particles.or specified groups of such particles.
+moles/second,mole per time,POSC,mol/s,mol/s,The mole is the amount of substance of a system that contains as many elementary entities as there are atoms in 0.012 kilogram of carbon-12. When the mole is used. the elementary entities must be specified and may be atoms. molecules. ions. electrons. other particles.or specified groups of such particles.
+newton,force,POSC,N,N,That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.
+newton square metres,force area,POSC,N.m2,N.m2,That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.
+newtons/metre,force per length,POSC,N/m,N/m,That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.
+newtons/metre,energy per area,POSC,N/m,N/m,That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.
+newtons/cubic metre,force per volume,POSC,N/m3,N/m3,That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.
+newtons/cubic metre,pressure per length,POSC,N/m3,N/m3,That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.
+newtons fourth metres/kilogram,parachor,POSC,N4/kg.m7,N4/kg.m7,That force which. when ap0plied to a body having a mass of 1 kg.gives it an acceleration of 1 m/s2.
+API neutron units,neutron API unit,POSC,nAPI,nAPI,A unit defined by the American Petroleum Institute for neutron log measurements.
+octave,frequency interval,POSC,O,O,The number of octaves between two positive values is the base two logarithm of their ratio.
+ohm,resistance,POSC,ohm,ohm,The electric resistance between two points of a conductor when a constant difference of potential of 1 V. applied between these two points. produces in this conductor a current of 1 A.this conductor not being the source of any electromotive force.
+ohm,impedance,POSC,ohm,ohm,The electric resistance between two points of a conductor when a constant difference of potential of 1 V. applied between these two points. produces in this conductor a current of 1 A.this conductor not being the source of any electromotive force.
+ohm metre,electrical resistivity,POSC,ohm.m,ohm.m,The electric resistance between two points of a conductor when a constant difference of potential of 1 V. applied between these two points. produces in this conductor a current of 1 A.this conductor not being the source of any electromotive force.
+ohm per metre,resistivity per length,POSC,ohm/m,ohm/m,The electric resistance between two points of a conductor when a constant difference of potential of 1 V. applied between these two points. produces in this conductor a current of 1 A.this conductor not being the source of any electromotive force.
+pascal,force per area,POSC,Pa,Pa,The pressure or stress of 1 N/m2.
+pascal,pressure,POSC,Pa,Pa,The pressure or stress of 1 N/m2.
+pascal seconds,dynamic viscosity,POSC,Pa.s,Pa.s,The pressure or stress of 1 N/m2.
+pascal seconds,mass per time per length,POSC,Pa.s,Pa.s,The pressure or stress of 1 N/m2.
+pascal seconds/cubic metre,pressure time per volume,POSC,Pa.s/m3,Pa.s/m3,The pressure or stress of 1 N/m2.
+pascal seconds/cubic metre,acoustic impedance,POSC,Pa.s/m3,Pa.s/m3,The pressure or stress of 1 N/m2.
+pascal second /cubic metre squared,nonDarcy flow coefficient,POSC,Pa.s/m6,Pa.s/m6,The pressure or stress of 1 N/m2.
+pascals/metre,force per volume,POSC,Pa/m,Pa/m,The pressure or stress of 1 N/m2.
+pascals/metre,pressure per length,POSC,Pa/m,Pa/m,The pressure or stress of 1 N/m2.
+pascals/cubic metre,Darcy flow coefficient,POSC,Pa/m3,Pa/m3,The pressure or stress of 1 N/m2.
+pascal/ second,pressure per time,POSC,Pa/s,Pa/s,The pressure or stress of 1 N/m2.
+pascal squared,pressure squared,POSC,Pa2,Pa2,The pressure or stress of 1 N/m2.
+pH,pH,POSC,pH,Pa2,The negative.base 10 logarithm of the concentration of hydrogen ions in a solution.
+radian,plane angle,POSC,rad,rad,The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.
+radians/metre,angle per length,POSC,rad/m,rad/m,The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.
+radians per cubic metre,angle per volume,POSC,rad/m3,rad/m3,The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.
+radians/second,angular velocity,POSC,rad/s,rad/s,The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.
+radians/second,rotational frequency,POSC,rad/s,rad/s,The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.
+radians/second,circular frequency,POSC,rad/s,rad/s,The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.
+radians/second,angle per time,POSC,rad/s,rad/s,The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.
+radians/second,rotational velocity,POSC,rad/s,rad/s,The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.
+radians/second squared,angular acceleration,POSC,rad/s2,rad/s2,The radian is the plane angle between two radii of a circle that cut of. on the circumference.an arc equal in length to the radius.
+siemens,electric conductance,POSC,S,S,The electric conductance of a conductor in which a current of 1 A is produced by an electric potential difference of 1 V.
+siemens,admittance,POSC,S,S,The electric conductance of a conductor in which a current of 1 A is produced by an electric potential difference of 1 V.
+siemens,susceptance,POSC,S,S,The electric conductance of a conductor in which a current of 1 A is produced by an electric potential difference of 1 V.
+second,time,POSC,s,s,The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom.
+siemens/metre,conductivity,POSC,S/m,S/m,The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom.
+seconds/metre,time per length,POSC,s/m,s/m,The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom.
+seconds/metre,slowness,POSC,s/m,s/m,The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom.
+seconds/metre,interval transit time,POSC,s/m,s/m,The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom.
+seconds/cubic metre,time per volume,POSC,s/m3,s/m3,The second is the duration of 9 192 631 770 periods of the radiation corresponding to the transition between the two hyperfine levels of the ground state of the cesium-133 atom.
+standard cubic metres at 0 deg Celsius,standard volume,POSC,scm(0C),s/m3,A unit of standard volume. The number of scm(0C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..0 degrees Celsius.
+std cubic metres. 0 deg C/square metre,standard volume per area,POSC,scm(0C)/m2,s/m3,A unit of standard volume. The number of scm(0C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..0 degrees Celsius.
+std cubic metres. 0 deg C/cubic metre,standard volume per volume,POSC,scm(0C)/m3,s/m3,A unit of standard volume. The number of scm(0C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..0 degrees Celsius.
+standard cubic metres at 15 deg Celsius,standard volume,POSC,scm(15C),s/m3,A unit of standard volume. The number of scm(15C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..15 degrees Celsius.
+std cubic metres. 15 deg C/square metre,standard volume per area,POSC,scm(15C)/m2,s/m3,A unit of standard volume. The number of scm(15C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..15 degrees Celsius.
+std cubic metres. 15 deg C/cubic metre,stadard volume per volume,POSC,scm(15C)/m3,s/m3,A unit of standard volume. The number of scm(15C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..15 degrees Celsius.
+std cubic metres. 15 deg C/second,standard volume per time,POSC,scm(15C)/s,s/m3,A unit of standard volume. The number of scm(15C) of a fluid is the volume the fluid will occupy (in cubic metres) when the fluid is reduced to standard conditions of 1 atm..15 degrees Celsius.
+steradian,solid angle,POSC,sr,sr,The steradian is the solid angle that. having its vertex in the center of a circle.cuts of an area of the surface of the sphere equal to that of a square with sides of length equal to the radius of the sphere.
+sievert,dose equivalent,POSC,Sv,Sv,The dose equivalent when the absorbed dose of ionizing radiation multiplied by the dimensionless factors Q (quality facot) and N (product of any othe multiplying factors) stipulated by the Intl. Commission on Radiological Protection is 1. J/kg.
+sievert per second,dose equivalent rate,POSC,Sv/s,Sv,The dose equivalent rate when the absorbed dose per second of ionizing radiation multiplied by the appropriate factors is equivalent to 1 Sievert per second.
+tesla,magnetic induction,POSC,T,T,The magnetic flux density of 1 Wb/m2. Alternatively. it is defined as the magnetic flux density that produces on a 1-m length of wire carrying a current of 1A. oriented normal to the flux density. a force of 1 N.magnetic flux density being defined as an axial vector quantity such that the force exerted on an element of current is equal to the vector product of this element and the magnetic flux density.
+tesla,magnetic flux density,POSC,T,T,The magnetic flux density of 1 Wb/m2. Alternatively. it is defined as the magnetic flux density that produces on a 1-m length of wire carrying a current of 1A. oriented normal to the flux density. a force of 1 N.magnetic flux density being defined as an axial vector quantity such that the force exerted on an element of current is equal to the vector product of this element and the magnetic flux density.
+volt,electric potential,POSC,V,V,The difference of electric potential between two points of a conductor carrying a constant current of 1 A when the power dissipated between these points is equal to 1 W.
+volts/Bel,potential difference per per power drop,POSC,V/B,V/B,The difference of electric potential between two points of a conductor carrying a constant current of 1 A when the power dissipated between these points is equal to 1 W.
+volts/metre,electric field strength,POSC,V/m,V/m,The difference of electric potential between two points of a conductor carrying a constant current of 1 A when the power dissipated between these points is equal to 1 W.
+watt,power,POSC,W,W,The power that represents a rate of energy transfer of 1 J/s.
+watt,heat flow rate,POSC,W,W,The power that represents a rate of energy transfer of 1 J/s.
+Watts per delta kelvin,thermal conductance,POSC,W/K,W/K,The power that represents a rate of energy transfer of 1 J/s.
+watts/metre kelvin,energy length per time area temperature,POSC,W/m.K,W/m.K,The power that represents a rate of energy transfer of 1 J/s.
+watts/metre kelvin,thermal conductivity,POSC,W/m.K,W/m.K,The power that represents a rate of energy transfer of 1 J/s.
+watts/square metre,density of heat flow rate,POSC,W/m2,W/m2,The power that represents a rate of energy transfer of 1 J/s.
+watts/square metre,poynting vector,POSC,W/m2,W/m2,The power that represents a rate of energy transfer of 1 J/s.
+watts/square metre,radiant energy,POSC,W/m2,W/m2,The power that represents a rate of energy transfer of 1 J/s.
+watts/square metre,fluence rate,POSC,W/m2,W/m2,The power that represents a rate of energy transfer of 1 J/s.
+watts/square metre,radiant exitance,POSC,W/m2,W/m2,The power that represents a rate of energy transfer of 1 J/s.
+watts/square metre,irradiance,POSC,W/m2,W/m2,The power that represents a rate of energy transfer of 1 J/s.
+watts/square metre,sound intensity,POSC,W/m2,W/m2,The power that represents a rate of energy transfer of 1 J/s.
+watts/square metre,energy fluence rate,POSC,W/m2,W/m2,The power that represents a rate of energy transfer of 1 J/s.
+watts/square metre kelvin,heat transfer coefficient,POSC,W/m2.K,W/m2.K,The power that represents a rate of energy transfer of 1 J/s.
+watts/square metre steradian,radiance,POSC,W/m2.sr,W/m2.sr,The power that represents a rate of energy transfer of 1 J/s.
+watts/cubic metre,power per volume,POSC,W/m3,W/m3,The power that represents a rate of energy transfer of 1 J/s.
+watts/cubic metre kelvin,volumetric heat transfer coefficient,POSC,W/m3.K,W/m3.K,The power that represents a rate of energy transfer of 1 J/s.
+watts/steradian,radiant intensity,POSC,W/sr,W/sr,The power that represents a rate of energy transfer of 1 J/s.
+weber,magnetic flux,POSC,Wb,Wb,The magnetic flux which. linking a circuit of one turn.produces in it an alectromotive orce of 1 V as it is reduced to zero at a uniform rate in 1 s.
+weber metres,magnetic dipole moment,POSC,Wb.m,Wb.m,The magnetic flux which. linking a circuit of one turn.produces in it an alectromotive orce of 1 V as it is reduced to zero at a uniform rate in 1 s.
+webers/metre,magnetic vector potential,POSC,Wb/m,Wb/m,The magnetic flux which. linking a circuit of one turn.produces in it an alectromotive orce of 1 V as it is reduced to zero at a uniform rate in 1 s.

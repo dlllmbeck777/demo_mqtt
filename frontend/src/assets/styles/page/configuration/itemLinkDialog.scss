@@ -1,0 +1,19 @@
+@import "../../palette/palette.scss";
+.item-link-dialog-header {
+  justify-content: space-between;
+  cursor: move;
+  height: 55px;
+  align-items: center;
+  padding: 0 8px;
+  @include themify($themes) {
+    background-color: themed("bg-app-header");
+    color: themed("text-color");
+  }
+  &__date-picker {
+    width: 140px;
+  }
+}
+.item-link-dialog-footer {
+  justify-content: space-between;
+  align-items: center;
+}

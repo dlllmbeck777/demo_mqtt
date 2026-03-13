@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+<a class="navbar-brand" href="">Главное меню</a> 
+{% endblock %}
+            
+{% block content %}
+
+{% load static %}
+<div class="container-fluid">
+  <div class="row gy-4">
+    <div class="col-lg-12">
+      <div class="row">  
+        <!-- <div class="col-lg-12" style="margin-top: 35px">
+          <form action=""  method="get" >
+            <div class="row">
+              <div class="col-lg-3 d-flex justify-content-center align-self-center" style="margin-bottom: 15px;">
+                <select class=" form-control custom-select" name="pump">
+                  {% for item in first_list %}
+                  <option value="{{item.code}}">{{item}}</option>
+                  {% endfor %}
+                  {% for item in second_list %}
+                  <option value="{{item.code}}">{{item}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-lg-3 d-flex justify-content-center align-self-center form-group" style="margin-bottom: 15px;">
+                <input type="date" class="form-control dateinput form-control" name="start">
+              </div>
+              <div class="col-lg-3 d-flex justify-content-center align-self-center  form-group" style="margin-bottom: 15px;">
+                <input type="date" class="form-control dateinput form-control" name="end">
+              </div>
+              <div class="col-lg-3 d-flex flex-row-reverse align-self-center  form-group" style="margin-bottom: 15px;">
+                <button  id="report-button" class="btn btn-primary btn-round">Получить отчет</button>
+                <img id="report-loading" class="d-none" height="10%" width="10%" src="{% static '/main/image/spinner.gif' %}">
+              </div>
+
+            </div>
+          </form>
+        </div> -->
+        {% for station in stations %}
+        <div class="col-lg-12" style="margin-top: 15px;">
+          <div class="card">
+            <div class="card-header ">
+              <h5 class="description card-title" style="">{{station.name}}</h5>
+            </div>
+            <div class="row">
+              {% for pump in station.pump_set.all %}
+              <div class="col-sm-4 hover">
+                <div class="card-body">
+                  <a href="/motor/{{pump.pk}}">
+
+                  <div class="card">
+                    <div class="card-header-2 d-flex justify-content-between">
+                      <h6 class="description card-title">{{pump.name}}</h6>
+                      <!-- <span class="dot" id="{{pump.pk}}-status"></span> -->
+                    </div>
+                    <div class="card-body" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                      <div class="row">
+                        <div id="svg-{{pump.pk}}" class="pump-svg-place col-xl-6">
+                        </div>
+                        <div class="col-xl-6  container-fluid p-0">
+                          <div class="d-flex align-self-center justify-content-center">
+                            <p style="font-size: 85%; color: #adb5bd">
+                              {% for sensor in pump.sensor_set.all %}
+                              <span class="short-text"></span>{{ sensor.name }}: </span><b id="sensor-{{sensor.pk}}">--</b> {{sensor.unit}}<br>
+                            {% endfor %}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div></a>
+
+                </div>
+              </div>
+              {% endfor %}
+            </div> 
+          </div>
+        </div>
+        {% endfor %}
+      </div>   
+    </div>
+  </div>
+</div>
+<svg id="pump-svg"  version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" id="pump" class="svg-content d-none" width="668.25px" height="432.75px" style="width: 100%; height: 100%;" viewBox="0 0 668.25 432.75" enable-background="new 0 0 668.25 432.75" xml:space="preserve">
+  <g class="PUMP">
+    <path class="content" fill="#2d3035" stroke="#ffffff" stroke-miterlimit="10" d="M96,260.75v18.302c10.594-1.501,15.519-11.492,15.75-16.802
+      c0.25-5.75,11-170,11-170h-29.5h-29.5c0,0,10.75,164.25,11,170c0.231,5.31,5.156,15.301,15.75,16.802V260.75"></path>
+    <polyline class="content" fill="#2d3035" stroke="#ffffff" stroke-miterlimit="10" points="90.5,260.75 90.5,283.5 66.75,283.5 66.75,290
+      93.25,290 119.75,290 119.75,283.5 96,283.5 96,260.75 	"></polyline>
+  </g>
+  <g class="SHAFT">
+    <polygon class="content" fill="#2d3035" stroke="#ffffff" stroke-miterlimit="10" points="129.75,197.688 129.75,205 129.75,212.313
+      169.75,212.313 169.75,205 169.75,197.688 	"></polygon>
+    <polygon class="content" fill="#2d3035" stroke="#ffffff" stroke-miterlimit="10" points="126.375,195.125 126.375,205 126.375,214.875
+      129.75,214.875 129.75,205 129.75,195.125 	"></polygon>
+  </g>
+  <g class="BEARING_x5F_UNIT">
+    <polygon class="content" fill="#2d3035" stroke="#ffffff" stroke-miterlimit="10" points="177.125,178.625 177.125,205 177.125,231.375
+      235.375,231.375 235.375,205 235.375,178.625 	"></polygon>
+  </g>
+  <g class="ELECTRIC_x5F_MOTOR_x5F_BEARING_x5F_1">
+    <polygon class="content" fill="#2d3035" stroke="#ffffff" stroke-miterlimit="10" points="379,153 371.877,172.999 371.877,205 371.877,237.001
+      379,257 390,257 390,205 390,153 	"></polygon>
+  </g>
+  <g class="ELECTRIC_x5F_MOTOR_x5F_BEARING_x5F_2">
+    <polygon class="content" fill="#2d3035" stroke="#ffffff" stroke-linejoin="round" stroke-miterlimit="10" points="583.333,131.667 583.333,205
+      583.333,278.334 600.333,248.334 600.333,205 600.333,161.667 	"></polygon>
+  </g>
+  <g class="ROTOR">
+    <polygon class="content" fill="#2d3035" stroke="#ffffff" stroke-miterlimit="10" points="395.667,131.667 395.667,205 395.667,278.334
+      583.333,278.334 583.333,205 583.333,131.667 	"></polygon>
+  </g>
+  <g class="ALL_x5F_OTHER">
+    <polygon fill="none" stroke="#ffffff" stroke-linejoin="round" stroke-miterlimit="10" points="390,152.667 390,205 390,257.334
+      395.667,278.334 395.667,205 395.667,131.667 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="363.75,195.5 363.75,205 363.75,214.5 371.877,237.001
+      371.877,205 371.877,172.999 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="530.667,131.667 530.667,205 530.667,278.334
+      534.333,278.334 534.333,205 534.333,131.667 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="358.375,195.5 358.375,205 358.375,214.5 363.75,214.5
+      363.75,205 363.75,195.5 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="343,172.999 343,205 343,237.001 371.877,237.001
+      371.877,205 371.877,172.999 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="238.5,171.25 238.5,205 238.5,238.75 343,238.75 343,205
+      343,171.25 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="242.5,171.25 242.5,205 242.5,238.75 341.25,238.75
+      341.25,205 341.25,171.25 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="238.5,238.75 238.5,242.375 238.5,246 343,246 343,242.375
+      343,238.75 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="242.5,238.75 242.5,242.375 242.5,246 341.25,246
+      341.25,242.375 341.25,238.75 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="347.375,197.375 347.375,193.75 331.5,193.75 331.5,182
+      315.625,182 315.625,193.75 278.25,193.75 278.25,182 262.125,182 262.125,193.75 251.125,193.75 251.125,199.5 242.5,199.5
+      242.5,205 242.5,210.5 251.125,210.5 251.125,216.25 262.125,216.25 262.125,228 278.25,228 278.25,216.25 315.625,216.25
+      315.625,228 331.5,228 331.5,216.25 347.375,216.25 347.375,212.625 358.375,212.625 358.375,205 358.375,197.375 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="235.375,186.25 235.375,205 235.375,223.75 242.5,223.75
+      242.5,205 242.5,186.25 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="124.375,158.25 124.375,205 124.375,251.75 177.125,233.375
+      177.125,205 177.125,176.625 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="120.625,143 120.625,205 120.625,267 124.375,267
+      124.375,205 124.375,143 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="40.167,162.667 40.167,205 40.167,247.334 42.333,247.334
+      42.333,205 42.333,162.667 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="42.333,151.833 42.333,205 42.333,258.166 48.833,258.166
+      48.833,205 48.833,151.833 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="48.833,165.167 48.833,205 48.833,244.834 73.668,244.834
+      68.51,165.167 	"></polygon>
+    <rect x="380.938" y="82.75" fill="none" stroke="#ffffff" stroke-miterlimit="10" width="53.562" height="48.917"></rect>
+    <path fill="none" stroke="#ffffff" stroke-miterlimit="10" d="M231,222.415c0,1.56-1.275,2.835-2.834,2.835h-43.831
+      c-1.559,0-2.834-1.275-2.834-2.835v-34.83c0-1.559,1.275-2.834,2.834-2.834h43.831c1.559,0,2.834,1.275,2.834,2.834V222.415z"></path>
+    <path fill="none" stroke="#ffffff" stroke-miterlimit="10" d="M169.75,213.854c0,4.677-3.636,9.698-8.079,11.158l-27.217,8.944
+      c-4.443,1.46-8.079-1.173-8.079-5.85v-46.212c0-4.677,3.636-7.31,8.079-5.849l27.217,8.943c4.443,1.46,8.079,6.481,8.079,11.159
+      V213.854z"></path>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="93.25,290 65.25,290 65.25,296.5 93.25,296.5 121.25,296.5
+      121.25,290 	"></polygon>
+    <rect x="216.333" y="231.375" fill="none" stroke="#ffffff" stroke-miterlimit="10" width="16.5" height="58.625"></rect>
+    <rect x="221.667" y="238.709" fill="none" stroke="#ffffff" stroke-miterlimit="10" width="11.167" height="45.458"></rect>
+    <rect x="214.833" y="290" fill="none" stroke="#ffffff" stroke-miterlimit="10" width="32.5" height="6.5"></rect>
+    <rect x="399.334" y="290" fill="none" stroke="#ffffff" stroke-miterlimit="10" width="148" height="6.5"></rect>
+    <rect x="429.334" y="251.75" fill="none" stroke="#ffffff" stroke-miterlimit="10" width="71.666" height="38.25"></rect>
+    <rect x="399.334" y="269" fill="none" stroke="#ffffff" stroke-miterlimit="10" width="131.333" height="21"></rect>
+    <rect x="403.667" y="296.5" fill="none" stroke="#ffffff" stroke-miterlimit="10" width="139.333" height="40.833"></rect>
+    <rect x="390" y="337.333" fill="none" stroke="#ffffff" stroke-miterlimit="10" width="41" height="3.667"></rect>
+    <rect x="568.834" y="344.333" fill="none" stroke="#ffffff" stroke-miterlimit="10" width="20.5" height="3.667"></rect>
+    <path fill="none" stroke="#ffffff" stroke-miterlimit="10" d="M114.584,340.333c0,0.779-0.638,1.417-1.417,1.417H73.333
+      c-0.78,0-1.417-0.638-1.417-1.417v-39.834c0-0.779,0.638-1.417,1.417-1.417h39.833c0.78,0,1.417,0.638,1.417,1.417V340.333z"></path>
+    <path fill="none" stroke="#ffffff" stroke-miterlimit="10" d="M116.026,341.775c0,0.779-0.638,1.417-1.417,1.417H71.892
+      c-0.78,0-1.417-0.638-1.417-1.417v-42.719c0-0.779,0.638-1.417,1.417-1.417h42.717c0.78,0,1.417,0.638,1.417,1.417V341.775z"></path>
+    <rect x="73.333" y="343.333" fill="none" stroke="#ffffff" stroke-miterlimit="10" width="39.833" height="2"></rect>
+    <line fill="none" stroke="#ffffff" stroke-miterlimit="10" x1="272.833" y1="182" x2="272.833" y2="228"></line>
+    <line fill="none" stroke="#ffffff" stroke-miterlimit="10" x1="321.167" y1="182" x2="321.167" y2="228"></line>
+    <line fill="none" stroke="#ffffff" stroke-miterlimit="10" x1="251.125" y1="199.5" x2="272.833" y2="199.5"></line>
+    <line fill="none" stroke="#ffffff" stroke-miterlimit="10" x1="251.125" y1="210.5" x2="272.833" y2="210.5"></line>
+    <line fill="none" stroke="#ffffff" stroke-miterlimit="10" x1="347.375" y1="212.625" x2="321.167" y2="212.625"></line>
+    <line fill="none" stroke="#ffffff" stroke-miterlimit="10" x1="347.375" y1="197.375" x2="321.167" y2="197.375"></line>
+    <line fill="none" stroke="#ffffff" stroke-miterlimit="10" x1="120.625" y1="267" x2="113.538" y2="267"></line>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="116.026,296.5 575.334,296.5 591.833,344.333
+      116.026,344.333 	"></polygon>
+    <line fill="none" stroke="#ffffff" stroke-miterlimit="10" x1="111.75" y1="262.25" x2="119.75" y2="283.5"></line>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="93.25,86.5 47,86.5 47,92.25 93.25,92.25 139.5,92.25
+      139.5,86.5 	"></polygon>
+    <polygon fill="none" stroke="#ffffff" stroke-miterlimit="10" points="93.25,84.75 58.5,84.75 58.5,86.5 93.25,86.5 128,86.5
+      128,84.75 	"></polygon>
+    <line fill="none" stroke="#ffffff" stroke-miterlimit="10" x1="74.75" y1="262.25" x2="66.75" y2="283.5"></line>
+  </g>
+  </svg>
+  <script>
+    window.onload = loadSvg
+  
+  function loadSvg(){
+    pump_svg_class = document.getElementsByClassName("pump-svg-place")
+    svg = document.getElementById('pump-svg')
+    for(i in pump_svg_class){
+      svg_temp = svg.cloneNode(true)
+      svg_temp.setAttribute('class', 'svg-content')
+      svg_temp.setAttribute('id', `pump-svg-${pump_svg_class[i].id.split("-")[1]}`)
+      pump_svg_class[i].append(svg_temp)
+    }
+  
+  }
+  
+  
+  
+  var ws_url = 'ws://'+window.location.host+'/ws/';
+  var dataSocket = new WebSocket(ws_url);
+  dataSocket.onmessage = function(event){
+    var data = JSON.parse(event.data);
+    colorSvg(data['pump_statuses'], false, "")
+    
+    for (let [key, value] of Object.entries(data['values'])){
+      try{
+        document.getElementById(`sensor-${key}`).innerHTML = value[0][0].toFixed(2);
+      }catch{
+        
+      }
+        
+    }
+  }
+  </script>
+  
+{% endblock %}
+
+
+
+
+
+ 
+ 

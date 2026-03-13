@@ -1,0 +1,22 @@
+@import "../../../palette/palette.scss";
+.project-container {
+  &__body {
+    padding-left: 8px;
+    &__input-container {
+      margin-bottom: 8px;
+      @include themify($themes) {
+        display: flex;
+        align-items: center;
+        color: themed("text-color");
+      }
+      &__label {
+        display: inline-block;
+        width: 130px;
+      }
+      &__input {
+        display: inline-block;
+        width: 300px;
+      }
+    }
+  }
+}

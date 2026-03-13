@@ -1,0 +1,2182 @@
+NAME,QUANTITY_TYPE,CATALOG_NAME,CATALOG_SYMBOL,RP66_SYMBOL,BASE_UNIT,A,B,C,D
+percent,dimensionless,POSC,%,%,Euc,0,0.01,1,0
+percent,area per area,POSC,%,pu,Euc,0,0.01,1,0
+percent,volumic concentration,POSC,%,pu,Euc,0,0.01,1,0
+percent,mass concentration,POSC,%,pu,Euc,0,0.01,1,0
+percent,force per force,POSC,%,pu,Euc,0,0.01,1,0
+percent,linear strain,POSC,%,pu,Euc,0,0.01,1,0
+percent,relative elongation,POSC,%,pu,Euc,0,0.01,1,0
+percent,relative power,POSC,%,pu,Euc,0,0.01,1,0
+percent,length per length,POSC,%,pu,Euc,0,0.01,1,0
+per annum,per time,POSC,1/a,1/a,1/s,0,1,31558150,0
+per angstrom,per length,POSC,1/angstrom,1/a,1/m,0,10000000000,1,0
+per angstrom,wave number,POSC,1/angstrom,1/a,1/m,0,10000000000,1,0
+per bar,bulk compressibility,POSC,1/bar,1/bar,1/Pa,0,0.000001,1,0
+per bar,compressibility,POSC,1/bar,1/bar,1/Pa,0,0.000001,1,0
+per barrel,per volume,POSC,1/bbl,1/bbl,1/m3,0,1,0.1589873,0
+per centimetre,per length,POSC,1/cm,1/cm,1/m,0,100,1,0
+per centimetre,wave number,POSC,1/cm,1/cm,1/m,0,100,1,0
+per day,per time,POSC,1/d,1/d,1/s,0,1,86400,0
+per degree Celsius,volumetric thermal expansion,POSC,1/C,1/C,1/K,0,1,1,0
+per degree Fahrenheit,volumetric thermal expansion,POSC,1/F,1/F,1/K,0,9,5,0
+per degree Rankine,volumetric thermal expansion,POSC,1/R,1/R,1/K,0,9,5,0
+per foot,per length,POSC,1/ft,1/ft,1/m,0,1,0.3048,0
+per square foot,per area,POSC,1/ft2,1/ft2,1/m2,0,1,0.09290304,0
+per cubic foot,per volume,POSC,1/ft3,1/ft3,1/m3,0,1,0.02831685,0
+per gram,per mass,POSC,1/g,1/g,1/kg,0,1000,1,0
+per UK gallon,per volume,POSC,1/galUK,1/galUK,1/m3,0,1,0.00456092,0
+per US gallon,per volume,POSC,1/galUS,1/galUS,1/m3,0,1,0.003785412,0
+per hour,per time,POSC,1/h,1/h,1/s,0,1,3600,0
+per inch,per length,POSC,1/in,1/in,1/m,0,1,0.0254,0
+per square kilometre,per area,POSC,1/km2,1/km2,1/m2,0,1,1000000,0
+per kilopascal,bulk compressibility,POSC,1/kPa,1/kPa,1/Pa,0,0.001,1,0
+per kilopascal,compressibility,POSC,1/kPa,1/kPa,1/Pa,0,0.001,1,0
+per litre,per volume,POSC,1/L,1/L,1/m3,0,1000,1,0
+per pound force,per force,POSC,1/lbf,1/lbf,1/N,0,1,4.448.222,0
+per pound,per mass,POSC,1/lbm,1/lbm,1/kg,0,1,0.4535924,0
+per mile,per length,POSC,1/mi,1/mi,1/m,0,1,1.609.344,0
+per square mile,per area,POSC,1/mi2,1/mi2,1/m2,0,1,2589988.11,0
+per minute,per time,POSC,1/min,1/min,1/s,0,1,60,0
+per millimetre,per length,POSC,1/mm,1/mm,1/m,0,1000,1,0
+per millimetre,wave number,POSC,1/mm,1/mm,1/m,0,1000,1,0
+per nanometre,per length,POSC,1/nm,1/nm,1/m,0,1000000000,1,0
+per nanometre,wave number,POSC,1/nm,1/nm,1/m,0,1000000000,1,0
+per pico pascal,bulk compressibility,POSC,1/pPa,1/pPa,1/Pa,0,1E+12,1,0
+per pico pascal,compressibility,POSC,1/pPa,1/pPa,1/Pa,0,1E+12,1,0
+per pounds/square inch,bulk compressibility,POSC,1/psi,1/psi,1/Pa,0,1,6.894.757,0
+per pounds/square inch,compressibility,POSC,1/psi,1/psi,1/Pa,0,1,6.894.757,0
+per micro pounds per square inch,bulk compressibility,POSC,1/upsi,1/upsi,1/Pa,0,1,0.006894757,0
+per micro pounds per square inch,compressibility,POSC,1/upsi,1/upsi,1/Pa,0,1,0.006894757,0
+per microvolt,per electric potential,POSC,1/uV,1/uV,1/V,0,1000000,1,0
+per week,per time,POSC,1/wk,1/uV,1/s,0,1,604800,0
+per yard,per length,POSC,1/yd,1/uV,1/m,0,1,0.9144,0
+thousand cubic feet,volume,POSC,1000ft3,1/uV,m3,0,28.316.846.592,1,0
+thousand cubic feet per barrel,volume per volume,POSC,1000ft3/bbl,1/uV,Euc,0,28.316.846.592,0.1589873,0
+thousand cubic feet per day,volume flow rate,POSC,1000ft3/d,1/uV,m3/s,0,2.831.685,86400,0
+thousand cubic feet per day per foot,volume per time per length,POSC,1000ft3/d.ft,1/uV,m2/s,0,9.290.304,86400,0
+thousand cubic feet per day per psi,productivity index,POSC,1000ft3/psi.d,1/uV,m3/Pa.s,0,2.831.685,595707004.8,0
+thousand cubic metres per day,volume flow rate,POSC,1000m3/d,1/uV,m3/s,0,1000,86400,0
+thousand cubic meter per day per meter,volume per time per length,POSC,1000m3/d.m,km3/(d.m),m2/s,0,1000,86400,0
+thousand cubic metres per hour,volume flow rate,POSC,1000m3/h,km3/(d.m),m3/s,0,1000,3600,0
+thousand cubic meters per hour per meter,volume per time per length,POSC,1000m3/h.m,km3/(h.m),m2/s,0,1000,3600,0
+thousand (cubic meter per day)-meter,volume length per time,POSC,1000m4/d,km3/(h.m),m4/s,0,1000,86400,0
+100000 years,time,POSC,100ka,km3/(h.m),s,0,3.15582E+12,1,0
+ten thousand kilograms per cubic metre,density,POSC,10Mg/m3,km3/(h.m),kg/m3,0,10000,1,0
+ten thousand kilograms per cubic metre,mass density,POSC,10Mg/m3,km3/(h.m),kg/m3,0,10000,1,0
+ten thousand kilograms per cubic metre,volumic mass,POSC,10Mg/m3,km3/(h.m),kg/m3,0,10000,1,0
+annum,time,POSC,a,a,s,0,31558150,1,0
+Ampere hour,electric capacity,POSC,A.h,A.h,C,0,3600,1,0
+Ampere hour,electric charge,POSC,A.h,A.h,C,0,3600,1,0
+Ampere hour,electric flux,POSC,A.h,A.h,C,0,3600,1,0
+ampere per square centimeter,current density,POSC,A/cm2,A/cm2,A/m2,0,10000,1,0
+ampere per square foot,current density,POSC,A/ft2,A/ft2,A/m2,0,1,0.09290304,0
+Ampere/millimetre,linear electric current density,POSC,A/mm,A/mm,A/m,0,1000,1,0
+Ampere/millimetre,magnetic field strength,POSC,A/mm,A/mm,A/m,0,1000,1,0
+Ampere/millimetre,magnetization,POSC,A/mm,A/mm,A/m,0,1000,1,0
+Ampere/square millimetre,current density,POSC,A/mm2,A/mm2,A/m2,0,1000000,1,0
+acre,area,POSC,acre,acre,m2,0,4.046.873,1,0
+acre foot,volume,POSC,acre.ft,acre.ft,m3,0,1.233.489,1,0
+acre feet/million stbs. 60 F,volume per standard volume,POSC,acre.ft/MMstb,acre.ft,m3/scm(15C),0,1.233.489,158987.3,0
+attogram,mass,POSC,ag,ag,kg,0,1.00E-21,1,0
+attojoule,energy,POSC,aJ,aJ,J,0,1.00E-18,1,0
+attojoule,work,POSC,aJ,aJ,J,0,1.00E-18,1,0
+Angstrom,length,POSC,angstrom,aJ,m,0,0.0000000001,1,0
+Technical atmosphere,force per area,POSC,at,aJ,Pa,0,98066.5,1,0
+Technical atmosphere,pressure,POSC,at,aJ,Pa,0,98066.5,1,0
+Atmosphere,force per area,POSC,atm,atm,Pa,0,101325,1,0
+Atmosphere,pressure,POSC,atm,atm,Pa,0,101325,1,0
+Atmospheres per ft,force per volume,POSC,atm/ft,atm/ft,Pa/m,0,101325,0.3048,0
+Atmospheres per ft,pressure per length,POSC,atm/ft,atm/ft,Pa/m,0,101325,0.3048,0
+atmosphere per hour,pressure per time,POSC,atm/h,atm/h,Pa/s,0,101325,3600,0
+Atmospheres per hundred metre,force per volume,POSC,atm/hm,atm/h,Pa/m,0,101325,100,0
+Atmospheres per hundred metre,pressure per length,POSC,atm/hm,atm/h,Pa/m,0,101325,100,0
+Atmospheres/metre,force per volume,POSC,atm/m,atm/m,Pa/m,0,101325,1,0
+Atmospheres/metre,pressure per length,POSC,atm/m,atm/m,Pa/m,0,101325,1,0
+barn,area,POSC,b,b,m2,0,1.00E+28,1,0
+barns/cubic centimetre,area per volume,POSC,b/cm3,b/cm3,1/m,0,1.00E+34,1,0
+barns/electron,cross section absorption,POSC,b/elec,b/cm3,m2/mol,0,0.00006023,1,0
+bar,force per area,POSC,bar,bar,Pa,0,100000,1,0
+bar,pressure,POSC,bar,bar,Pa,0,100000,1,0
+bar per hour,pressure per time,POSC,bar/h,bar/h,Pa/s,0,100000,3600,0
+bar per kilometer,force per volume,POSC,bar/km,bar/km,Pa/m,0,100,1,0
+bar per kilometer,pressure per length,POSC,bar/km,bar/km,Pa/m,0,100,1,0
+bar per meter,force per volume,POSC,bar/m,bar/m,Pa/m,0,100000,1,0
+bar per meter,pressure per length,POSC,bar/m,bar/m,Pa/m,0,100000,1,0
+bar squared,pressure squared,POSC,bar2,bar2,Pa2,0,10000000000,1,0
+bar squared per centipoise,pressure squared per (dynamic viscosity),POSC,bar2/cP,bar2/cP,Pa/s,0,1.E+13,1,0
+barrel,volume,POSC,bbl,bbl,m3,0,0.1589873,1,0
+barrel per hundred barrel,volume per volume,POSC,bbl/100bbl,bbl,Euc,0,0.01,1,0
+barrels/acre,volume per area,POSC,bbl/acre,bbl/acre,m,0,0.1589873,4.046.879,0
+barrel/acre foot,volume per volume,POSC,bbl/acre.ft,bbl/acre.ft,Euc,0,0.1589873,1.233.489,0
+barrel/barrel,volume per volume,POSC,bbl/bbl,bbl/bbl,Euc,0,1,1,0
+barrels/centiPoise day psi,specific productivity index,POSC,bbl/cP.d.psi,bbl/cP.d.psi,m3/Pa2.s2,0,0.1589873,595707,0
+barrel/day,volume flow rate,POSC,bbl/d,bbl/d,m3/s,0,0.1589873,86400,0
+barrels/day acre foot,volume per time per volume,POSC,bbl/d.acre.ft,bbl/d.acre.ft,1/s,0,0.1589873,106573450,0
+barrels/day foot,volume per time per length,POSC,bbl/d.ft,bbl/d.ft,m2/s,0,0.1589873,26334.72,0
+barrels/day foot,volume per time per length,POSC,bbl/d.ft,bbl/(d.ft),m2/s,0,0.1589873,26334.72,0
+barrels/day foot pounds/sq in,unit productivity index,POSC,bbl/d.ft.psi,bbl/d.ft.psi,m2/Pa.s,0,0.000000000266888418,0.3048,0
+barrel/day pounds/square inch,productivity index,POSC,bbl/d.psi,bbl/d.psi,m3/Pa.s,0,0.000000000266888418,1,0
+barrel/day pounds/square inch,productivity index,POSC,(Deprecated),bbl/d.psi,m3/Pa.s,0,0.000000000266888418,1,0
+barrels/day per day,volume per time per time,POSC,bbl/d2,bbl/d2,m3/s2,0,0.0000000000212978,1,0
+barrel/foot,volume per length,POSC,bbl/ft,bbl/ft,m2,0,0.1589873,0.3048,0
+barrel per cubic foot,volume per volume,POSC,bbl/ft3,bbl/ft3,Euc,0,0.1589873,0.02831685,0
+barrel/hour,volume flow rate,POSC,bbl/hr,bbl/hr,m3/s,0,0.1589873,3600,0
+barrels/hour/hour,volume per time per time,POSC,bbl/hr2,bbl/hr2,m3/s2,0,0.1589873,12960000,0
+barrel/inch,volume per length,POSC,bbl/in,bbl/in,m2,0,0.1589873,0.0254,0
+barrel per thousand cubic feet,volume per volume,POSC,bbl/k(ft3),bbl/in,Euc,0,0.1589873,2.831.685,0
+barrel per day per kilopascal,productivity index,POSC,bbl/kPa.d,bbl/kPa.d,m3/Pa.s,0,0.1589873,86400000,0
+barrel per day per kilopascal,productivity index,POSC,bbl/kPa.d,bbl/(d.kPa),m3/Pa.s,0,0.1589873,86400000,0
+barrel per million cubic feet,volume per volume,POSC,bbl/M(ft3),bbl/(d.kPa),Euc,0,0.1589873,28316.85,0
+barrel/mile,volume per length,POSC,bbl/mi,bbl/mi,m2,0,0.1589873,1.609.344,0
+barrel per minute,volume flow rate,POSC,bbl/min,bbl/min,m3/s,0,0.1589873,60,0
+barrels/million std cubic feet. 60 F,volume per standard volume,POSC,bbl/MMscf(60F),bbl/min,m3/scm(15C),0,0.1589873,28.262.357,0
+barrel per day per psi,productivity index,POSC,bbl/psi.d,bbl/psi.d,m3/Pa.s,0,0.1589873,595707004.8,0
+barrel per day per psi,productivity index,POSC,bbl/psi.d,bbl/(d.psi),m3/Pa.s,0,0.1589873,595707004.8,0
+barrels/stock tank barrel. 60 F,volume per standard volume,POSC,bbl/stb(60F),bbl/(d.psi),m3/scm(15C),0,1,1,0
+barrel per U.K. ton,specific volume,POSC,bbl/tonUK,bbl/tonUK,m3/kg,0,1.564.763,1,0
+barrel per U.K. ton,massic volume,POSC,bbl/tonUK,bbl/tonUK,m3/kg,0,1.564.763,1,0
+barrel per U.S. ton,specific volume,POSC,bbl/tonUS,bbl/tonUS,m3/kg,0,1.752.535,1,0
+barrel per U.S. ton,massic volume,POSC,bbl/tonUS,bbl/tonUS,m3/kg,0,1.752.535,1,0
+billion cubic feet,volume,POSC,bcf,bbl/tonUS,m3,0,28316850,1,0
+bit,digital storage,POSC,bit,bbl/tonUS,byte,0,1,8,0
+British thermal unit,energy,POSC,Btu,Btu,J,0,1.055.056,1,0
+British thermal unit,work,POSC,Btu,Btu,J,0,1.055.056,1,0
+Btus/hour foot squared F per inch,energy length per time area temperature,POSC,Btu.in/hr.ft2.F,Btu.in/h.ft2.F,W/m.K,0,0.1442279,1,0
+million Btus/hour,heat flow rate,POSC,Btu(million)/hr,Btu.in/h.ft2.F,W,0,293071.1,1,0
+million Btus/hour,heat flow rate,POSC,(Deprecated),Btu.in/h.ft2.F,W,0,293071.1,1,0
+British thermal units/barrel,normal stress,POSC,Btu/bbl,Btu/bbl,J/m3,0,1.055.056,0.1589873,0
+British thermal units/barrel,shear stress,POSC,Btu/bbl,Btu/bbl,J/m3,0,1.055.056,0.1589873,0
+British thermal units/barrel,modulus of elasticity,POSC,Btu/bbl,Btu/bbl,J/m3,0,1.055.056,0.1589873,0
+British thermal units/barrel,shear modulus,POSC,Btu/bbl,Btu/bbl,J/m3,0,1.055.056,0.1589873,0
+British thermal units/barrel,modulus of rigidity,POSC,Btu/bbl,Btu/bbl,J/m3,0,1.055.056,0.1589873,0
+British thermal units/barrel,bulk modulus,POSC,Btu/bbl,Btu/bbl,J/m3,0,1.055.056,0.1589873,0
+British thermal units/barrel,modulus of compression,POSC,Btu/bbl,Btu/bbl,J/m3,0,1.055.056,0.1589873,0
+British thermal units/barrel,electromagnetic energy density,POSC,Btu/bbl,Btu/bbl,J/m3,0,1.055.056,0.1589873,0
+British thermal units/barrel,radiant energy density,POSC,Btu/bbl,Btu/bbl,J/m3,0,1.055.056,0.1589873,0
+Btus/brake-horsepower hour,relative power,POSC,Btu/bhp.hr,Btu/bbl,Euc,0,0.0003930148,1,0
+British thermal units/cubic foot,normal stress,POSC,Btu/ft3,Btu/ft3,J/m3,0,37258.95,1,0
+British thermal units/cubic foot,shear stress,POSC,Btu/ft3,Btu/ft3,J/m3,0,37258.95,1,0
+British thermal units/cubic foot,modulus of elasticity,POSC,Btu/ft3,Btu/ft3,J/m3,0,37258.95,1,0
+British thermal units/cubic foot,shear modulus,POSC,Btu/ft3,Btu/ft3,J/m3,0,37258.95,1,0
+British thermal units/cubic foot,modulus of rigidity,POSC,Btu/ft3,Btu/ft3,J/m3,0,37258.95,1,0
+British thermal units/cubic foot,bulk modulus,POSC,Btu/ft3,Btu/ft3,J/m3,0,37258.95,1,0
+British thermal units/cubic foot,modulus of compression,POSC,Btu/ft3,Btu/ft3,J/m3,0,37258.95,1,0
+British thermal units/cubic foot,electromagnetic energy density,POSC,Btu/ft3,Btu/ft3,J/m3,0,37258.95,1,0
+British thermal units/cubic foot,radiant energy density,POSC,Btu/ft3,Btu/ft3,J/m3,0,37258.95,1,0
+British thermal units/U.K. gallon,normal stress,POSC,Btu/galUK,Btu/galUK,J/m3,0,232080,1,0
+British thermal units/U.K. gallon,shear stress,POSC,Btu/galUK,Btu/galUK,J/m3,0,232080,1,0
+British thermal units/U.K. gallon,modulus of elasticity,POSC,Btu/galUK,Btu/galUK,J/m3,0,232080,1,0
+British thermal units/U.K. gallon,shear modulus,POSC,Btu/galUK,Btu/galUK,J/m3,0,232080,1,0
+British thermal units/U.K. gallon,modulus of rigidity,POSC,Btu/galUK,Btu/galUK,J/m3,0,232080,1,0
+British thermal units/U.K. gallon,bulk modulus,POSC,Btu/galUK,Btu/galUK,J/m3,0,232080,1,0
+British thermal units/U.K. gallon,modulus of compression,POSC,Btu/galUK,Btu/galUK,J/m3,0,232080,1,0
+British thermal units/U.K. gallon,electromagnetic energy density,POSC,Btu/galUK,Btu/galUK,J/m3,0,232080,1,0
+British thermal units/U.K. gallon,radiant energy density,POSC,Btu/galUK,Btu/galUK,J/m3,0,232080,1,0
+British thermal units/U.S. gallon,normal stress,POSC,Btu/galUS,Btu/galUS,J/m3,0,278716.3,1,0
+British thermal units/U.S. gallon,shear stress,POSC,Btu/galUS,Btu/galUS,J/m3,0,278716.3,1,0
+British thermal units/U.S. gallon,modulus of elasticity,POSC,Btu/galUS,Btu/galUS,J/m3,0,278716.3,1,0
+British thermal units/U.S. gallon,shear modulus,POSC,Btu/galUS,Btu/galUS,J/m3,0,278716.3,1,0
+British thermal units/U.S. gallon,modulus of rigidity,POSC,Btu/galUS,Btu/galUS,J/m3,0,278716.3,1,0
+British thermal units/U.S. gallon,bulk modulus,POSC,Btu/galUS,Btu/galUS,J/m3,0,278716.3,1,0
+British thermal units/U.S. gallon,modulus of compression,POSC,Btu/galUS,Btu/galUS,J/m3,0,278716.3,1,0
+British thermal units/U.S. gallon,electromagnetic energy density,POSC,Btu/galUS,Btu/galUS,J/m3,0,278716.3,1,0
+British thermal units/U.S. gallon,radiant energy density,POSC,Btu/galUS,Btu/galUS,J/m3,0,278716.3,1,0
+British thermal unit/hour,heat flow rate,POSC,Btu/hr,Btu/h,W,0,0.2930711,1,0
+British thermal units/hour foot deg F,thermal conductivity,POSC,Btu/hr.ft.F,Btu/h.ft.F,W/m.K,0,1.730.735,1,0
+Btus/hour per square foot,density of heat flow rate,POSC,Btu/hr.ft2,Btu/h.ft2,W/m2,0,3.154.591,1,0
+Btus/hour per square foot,poynting vector,POSC,Btu/hr.ft2,Btu/h.ft2,W/m2,0,3.154.591,1,0
+Btus/hour per square foot,radiant energy,POSC,Btu/hr.ft2,Btu/h.ft2,W/m2,0,3.154.591,1,0
+Btus/hour per square foot,fluence rate,POSC,Btu/hr.ft2,Btu/h.ft2,W/m2,0,3.154.591,1,0
+Btus/hour per square foot,radiant exitance,POSC,Btu/hr.ft2,Btu/h.ft2,W/m2,0,3.154.591,1,0
+Btus/hour per square foot,irradiance,POSC,Btu/hr.ft2,Btu/h.ft2,W/m2,0,3.154.591,1,0
+Btus/hour per square foot,sound intensity,POSC,Btu/hr.ft2,Btu/h.ft2,W/m2,0,3.154.591,1,0
+Btus/hour per square foot,energy fluence rate,POSC,Btu/hr.ft2,Btu/h.ft2,W/m2,0,3.154.591,1,0
+Btus/hour foot squared deg F,heat transfer coefficient,POSC,Btu/hr.ft2.F,Btu/h.ft2.F,W/m2.K,0,5.678.263,1,0
+Btus/hour foot squared deg R,heat transfer coefficient,POSC,Btu/hr.ft2.R,Btu/hr.ft2.R,W/m2.K,0,5.678.263,1,0
+British thermal units/hour cubic foot,power per volume,POSC,Btu/hr.ft3,Btu/h.ft3,W/m3,0,1.034.971,1,0
+Btus/hour foot cubed deg F,volumetric heat transfer coefficient,POSC,Btu/hr.ft3.F,Btu/h.ft3.F,W/m3.K,0,1.862.947,1,0
+Btus/hour metre squared deg C,heat transfer coefficient,POSC,Btu/hr.m2.C,Btu/h.m2.C,W/m2.K,0,0.2930711,1,0
+British thermal units/pound mass,specific energy,POSC,Btu/lbm,Btu/lbm,J/kg,0,2326,1,0
+British thermal units/pound mass deg F,specific heat capacity,POSC,Btu/lbm.F,Btu/lbm.F,J/kg.K,0,4186.8,1,0
+British thermal units/pound mass deg F,massic heat capacity,POSC,Btu/lbm.F,Btu/lbm.F,J/kg.K,0,4186.8,1,0
+British thermal units/pound mass deg R,specific heat capacity,POSC,Btu/lbm.R,Btu/lbm.R,J/kg.K,0,4186.8,1,0
+British thermal units/pound mass deg R,massic heat capacity,POSC,Btu/lbm.R,Btu/lbm.R,J/kg.K,0,4186.8,1,0
+British thermal units/minute,heat flow rate,POSC,Btu/min,Btu/min,W,0,1.758.427,1,0
+British thermal units/pound mass mol,molar thermodynamic energy,POSC,Btu/lbmole,Btu/min,J/mol,0,2.326,1,0
+British thermal units/pound mass mol,chemical potential,POSC,Btu/lbmole,Btu/min,J/mol,0,2.326,1,0
+British thermal units/pound mass mol,affinity of a chemical reaction,POSC,Btu/lbmole,Btu/min,J/mol,0,2.326,1,0
+British thermal units/pound mass mol,molar thermodynamic energy,POSC,Btu/mol(lbm),Btu/min,J/mol,0,2326,1,0
+British thermal units/pound mass mol,chemical potential,POSC,(Deprecated),Btu/min,J/mol,0,2326,1,0
+British thermal units/pound mass mol,affinity of a chemical reaction,POSC,(Deprecated),Btu/min,J/mol,0,2326,1,0
+Btus/pound mass mol deg F,molar heat capacity,POSC,Btu/lbmole.F,Btu/min,J/mol.K,0,41.868,1,0
+Btus/pound mass mol deg F,molar entropy,POSC,Btu/lbmole.F,Btu/min,J/mol.K,0,41.868,1,0
+Btus/pound mass mol deg F,molar gas constant,POSC,Btu/lbmole.F,Btu/min,J/mol.K,0,41.868,1,0
+Btus/pound mass mol deg F,molar heat capacity,POSC,Btu/mol(lbm).F,Btu/min,J/mol.K,0,4186.8,1,0
+Btus/pound mass mol deg F,molar entropy,POSC,(Deprecated),Btu/min,J/mol.K,0,4186.8,1,0
+Btus/pound mass mol deg F,molar gas constant,POSC,(Deprecated),Btu/min,J/mol.K,0,4186.8,1,0
+British thermal units/second,heat flow rate,POSC,Btu/s,Btu/s,W,0,1.055.056,1,0
+British thermal units/second square foot,density of heat flow rate,POSC,Btu/s.ft2,Btu/s.ft2,W/m2,0,11356.53,1,0
+British thermal units/second square foot,poynting vector,POSC,Btu/s.ft2,Btu/s.ft2,W/m2,0,11356.53,1,0
+British thermal units/second square foot,radiant energy,POSC,Btu/s.ft2,Btu/s.ft2,W/m2,0,11356.53,1,0
+British thermal units/second square foot,fluence rate,POSC,Btu/s.ft2,Btu/s.ft2,W/m2,0,11356.53,1,0
+British thermal units/second square foot,radiant exitance,POSC,Btu/s.ft2,Btu/s.ft2,W/m2,0,11356.53,1,0
+British thermal units/second square foot,irradiance,POSC,Btu/s.ft2,Btu/s.ft2,W/m2,0,11356.53,1,0
+British thermal units/second square foot,sound intensity,POSC,Btu/s.ft2,Btu/s.ft2,W/m2,0,11356.53,1,0
+British thermal units/second square foot,energy fluence rate,POSC,Btu/s.ft2,Btu/s.ft2,W/m2,0,11356.53,1,0
+Btus/second per square foot deg F,heat transfer coefficient,POSC,Btu/s.ft2.F,Btu/s.ft2.F,W/m2.K,0,20441.75,1,0
+Btus/second per cubic foot,power per volume,POSC,Btu/s.ft3,Btu/s.ft3,W/m3,0,37258.95,1,0
+Btus/second per cubic foot deg F,volumetric heat transfer coefficient,POSC,Btu/s.ft3.F,Btu/s.ft3.F,W/m3.K,0,67066.11,1,0
+cycle,plane angle,POSC,c,c,rad,0,6.283.185.307,1,0
+Coulombs/square centimetre,electric polarization,POSC,C/cm2,C/cm2,C/m2,0,1,0.0001,0
+Coulombs/cubic centimeter,charge density,POSC,C/cm3,C/cm3,C/m3,0,1,0.000001,0
+coulomb per gram,exposure (radioactivity),POSC,C/g,C/g,C/kg,0,1000,1,0
+Coulombs/square millimetre,electric polarization,POSC,C/mm2,C/mm2,C/m2,0,1,0.000001,0
+Coulombs/cubic millimetre,charge density,POSC,C/mm3,C/mm3,C/m3,0,1,0.000000001,0
+cycles/second,angular velocity,POSC,c/s,c/s,rad/s,0,6.283.185.307,1,0
+cycles/second,frequency,POSC,c/s,c/s,rad/s,0,6.283.185.307,1,0
+cycles/second,rotational frequency,POSC,c/s,c/s,rad/s,0,6.283.185.307,1,0
+cycles/second,circular frequency,POSC,c/s,c/s,rad/s,0,6.283.185.307,1,0
+cycles/second,angle per time,POSC,c/s,c/s,rad/s,0,6.283.185.307,1,0
+cycles/second,rotational velocity,POSC,c/s,c/s,rad/s,0,6.283.185.307,1,0
+calorie,energy,POSC,cal,cal,J,0,4.184,1,0
+calorie,work,POSC,cal,cal,J,0,4.184,1,0
+calories/cubic centimetre,normal stress,POSC,cal/cm3,cal/cm3,J/m3,0,4.184,0.000001,0
+calories/cubic centimetre,shear stress,POSC,cal/cm3,cal/cm3,J/m3,0,4.184,0.000001,0
+calories/cubic centimetre,modulus of elasticity,POSC,cal/cm3,cal/cm3,J/m3,0,4.184,0.000001,0
+calories/cubic centimetre,shear modulus,POSC,cal/cm3,cal/cm3,J/m3,0,4.184,0.000001,0
+calories/cubic centimetre,modulus of rigidity,POSC,cal/cm3,cal/cm3,J/m3,0,4.184,0.000001,0
+calories/cubic centimetre,bulk modulus,POSC,cal/cm3,cal/cm3,J/m3,0,4.184,0.000001,0
+calories/cubic centimetre,modulus of compression,POSC,cal/cm3,cal/cm3,J/m3,0,4.184,0.000001,0
+calories/cubic centimetre,electromagnetic energy density,POSC,cal/cm3,cal/cm3,J/m3,0,4.184,0.000001,0
+calories/cubic centimetre,radiant energy density,POSC,cal/cm3,cal/cm3,J/m3,0,4.184,0.000001,0
+calories/gram,specific energy,POSC,cal/g,cal/g,J/kg,0,4184,1,0
+calories/gram degree Kelvin,specific heat capacity,POSC,cal/g.K,cal/g.K,J/kg.K,0,4184,1,0
+calories/gram degree Kelvin,massic heat capacity,POSC,cal/g.K,cal/g.K,J/kg.K,0,4184,1,0
+calories/hour centimetre degree Celsius,thermal conductivity,POSC,cal/h.cm.C,cal/h.cm.C,W/m.K,0,0.1162222,1,0
+calories/hour centimetre squared,density of heat flow rate,POSC,cal/h.cm2,cal/h.cm2,W/m2,0,1.162.222,1,0
+calories/hour centimetre squared,poynting vector,POSC,cal/h.cm2,cal/h.cm2,W/m2,0,1.162.222,1,0
+calories/hour centimetre squared,radiant energy,POSC,cal/h.cm2,cal/h.cm2,W/m2,0,1.162.222,1,0
+calories/hour centimetre squared,fluence rate,POSC,cal/h.cm2,cal/h.cm2,W/m2,0,1.162.222,1,0
+calories/hour centimetre squared,radiant exitance,POSC,cal/h.cm2,cal/h.cm2,W/m2,0,1.162.222,1,0
+calories/hour centimetre squared,irradiance,POSC,cal/h.cm2,cal/h.cm2,W/m2,0,1.162.222,1,0
+calories/hour centimetre squared,sound intensity,POSC,cal/h.cm2,cal/h.cm2,W/m2,0,1.162.222,1,0
+calories/hour centimetre squared,energy fluence rate,POSC,cal/h.cm2,cal/h.cm2,W/m2,0,1.162.222,1,0
+calories/hour square centimetre deg C,heat transfer coefficient,POSC,cal/h.cm2.C,cal/h.cm2.C,W/m2.K,0,1.162.222,1,0
+calories/hour cubic centimetre,power per volume,POSC,cal/h.cm3,cal/h.cm3,W/m3,0,1.162.222,1,0
+calories/kilogram,specific energy,POSC,cal/kg,cal/kg,J/kg,0,4.184,1,0
+calories/pound mass,specific energy,POSC,cal/lbm,cal/lbm,J/kg,0,9.224.141,1,0
+calories/milliliter,normal stress,POSC,cal/mL,cal/mL,J/m3,0,4184000,1,0
+calories/milliliter,shear stress,POSC,cal/mL,cal/mL,J/m3,0,4184000,1,0
+calories/milliliter,modulus of elasticity,POSC,cal/mL,cal/mL,J/m3,0,4184000,1,0
+calories/milliliter,shear modulus,POSC,cal/mL,cal/mL,J/m3,0,4184000,1,0
+calories/milliliter,modulus of rigidity,POSC,cal/mL,cal/mL,J/m3,0,4184000,1,0
+calories/milliliter,bulk modulus,POSC,cal/mL,cal/mL,J/m3,0,4184000,1,0
+calories/milliliter,modulus of compression,POSC,cal/mL,cal/mL,J/m3,0,4184000,1,0
+calories/milliliter,electromagnetic energy density,POSC,cal/mL,cal/mL,J/m3,0,4184000,1,0
+calories/milliliter,radiant energy density,POSC,cal/mL,cal/mL,J/m3,0,4184000,1,0
+calories/cubic millimetre,normal stress,POSC,cal/mm3,cal/mm3,J/m3,0,4.184,0.000000001,0
+calories/cubic millimetre,shear stress,POSC,cal/mm3,cal/mm3,J/m3,0,4.184,0.000000001,0
+calories/cubic millimetre,modulus of elasticity,POSC,cal/mm3,cal/mm3,J/m3,0,4.184,0.000000001,0
+calories/cubic millimetre,shear modulus,POSC,cal/mm3,cal/mm3,J/m3,0,4.184,0.000000001,0
+calories/cubic millimetre,modulus of rigidity,POSC,cal/mm3,cal/mm3,J/m3,0,4.184,0.000000001,0
+calories/cubic millimetre,bulk modulus,POSC,cal/mm3,cal/mm3,J/m3,0,4.184,0.000000001,0
+calories/cubic millimetre,modulus of compression,POSC,cal/mm3,cal/mm3,J/m3,0,4.184,0.000000001,0
+calories/cubic millimetre,electromagnetic energy density,POSC,cal/mm3,cal/mm3,J/m3,0,4.184,0.000000001,0
+calories/cubic millimetre,radiant energy density,POSC,cal/mm3,cal/mm3,J/m3,0,4.184,0.000000001,0
+calories/gram mol degree celsius,molar heat capacity,POSC,cal/mol.C,cal/mm3,J/mol.K,0,4.184,1,0
+calories/gram mol degree celsius,molar entropy,POSC,cal/mol.C,cal/mm3,J/mol.K,0,4.184,1,0
+calories/gram mol degree celsius,molar gas constant,POSC,cal/mol.C,cal/mm3,J/mol.K,0,4.184,1,0
+calories/gram mol degree celsius,molar heat capacity,POSC,cal/mol(g).C,cal/mm3,J/mol.K,0,4184,1,0
+calories/gram mol degree celsius,molar entropy,POSC,(Deprecated),cal/mm3,J/mol.K,0,4184,1,0
+calories/gram mol degree celsius,molar gas constant,POSC,(Deprecated),cal/mm3,J/mol.K,0,4184,1,0
+calories/second centimetre deg C,thermal conductivity,POSC,cal/s.cm.C,cal/s.cm.C,W/m.K,0,418.4,1,0
+calories/second square centimetre deg C,heat transfer coefficient,POSC,cal/s.cm2.C,cal/s.cm2.C,W/m2.K,0,41840,1,0
+calories/second cubic centimetre,power per volume,POSC,cal/s.cm3,cal/s.cm3,W/m3,0,4184000,1,0
+centesimal second,plane angle,POSC,ccgr,cal/s.cm3,rad,0,31.415.926.535.898,2000000,0
+centiEuclid,dimensionless,POSC,cEuc,%,Euc,0,0.01,1,0
+centiEuclid,poisson ratio,POSC,cEuc,%,Euc,0,0.01,1,0
+centesimal minute,plane angle,POSC,cgr,%,rad,0,31.415.926.535.898,20000,0
+ch,power,POSC,ch,%,W,0,735.499,1,0
+ch hours,energy,POSC,ch.h,%,J,0,2647796,1,0
+ch hours,work,POSC,ch.h,%,J,0,2647796,1,0
+Benoit chain (1895 A),length,POSC,chBnA,%,m,0,201.167.824,1,0
+Benoit chain (1895 A),breadth,POSC,chBnA,%,m,0,201.167.824,1,0
+Benoit chain (1895 A),height,POSC,chBnA,%,m,0,201.167.824,1,0
+Benoit chain (1895 A),thickness,POSC,chBnA,%,m,0,201.167.824,1,0
+Benoit chain (1895 A),radius,POSC,chBnA,%,m,0,201.167.824,1,0
+Benoit chain (1895 A),Cartesian coordinates,POSC,chBnA,%,m,0,201.167.824,1,0
+Benoit chain (1895 A),diameter,POSC,chBnA,%,m,0,201.167.824,1,0
+Benoit chain (1895 A),distance,POSC,chBnA,%,m,0,201.167.824,1,0
+Benoit chain (1895 B),length,POSC,chBnB,%,m,0,792,39.370.113,0
+Benoit chain (1895 B),breadth,POSC,chBnB,%,m,0,792,39.370.113,0
+Benoit chain (1895 B),height,POSC,chBnB,%,m,0,792,39.370.113,0
+Benoit chain (1895 B),thickness,POSC,chBnB,%,m,0,792,39.370.113,0
+Benoit chain (1895 B),radius,POSC,chBnB,%,m,0,792,39.370.113,0
+Benoit chain (1895 B),Cartesian coordinates,POSC,chBnB,%,m,0,792,39.370.113,0
+Benoit chain (1895 B),diameter,POSC,chBnB,%,m,0,792,39.370.113,0
+Benoit chain (1895 B),distance,POSC,chBnB,%,m,0,792,39.370.113,0
+Clarke chain,length,POSC,chCla,%,m,0,2.011.661.949,1,0
+Clarke chain,breadth,POSC,chCla,%,m,0,2.011.661.949,1,0
+Clarke chain,height,POSC,chCla,%,m,0,2.011.661.949,1,0
+Clarke chain,thickness,POSC,chCla,%,m,0,2.011.661.949,1,0
+Clarke chain,radius,POSC,chCla,%,m,0,2.011.661.949,1,0
+Clarke chain,Cartesian coordinates,POSC,chCla,%,m,0,2.011.661.949,1,0
+Clarke chain,diameter,POSC,chCla,%,m,0,2.011.661.949,1,0
+Clarke chain,distance,POSC,chCla,%,m,0,2.011.661.949,1,0
+Sears chain,length,POSC,chSe,%,m,0,792,39.370.147,0
+Sears chain,breadth,POSC,chSe,%,m,0,792,39.370.147,0
+Sears chain,height,POSC,chSe,%,m,0,792,39.370.147,0
+Sears chain,thickness,POSC,chSe,%,m,0,792,39.370.147,0
+Sears chain,radius,POSC,chSe,%,m,0,792,39.370.147,0
+Sears chain,Cartesian coordinates,POSC,chSe,%,m,0,792,39.370.147,0
+Sears chain,diameter,POSC,chSe,%,m,0,792,39.370.147,0
+Sears chain,distance,POSC,chSe,%,m,0,792,39.370.147,0
+chus,energy,POSC,Chu,%,J,0,1.899.101,1,0
+chus,work,POSC,Chu,%,J,0,1.899.101,1,0
+US Survey chain,length,POSC,chUS,%,m,0,792,39.37,0
+US Survey chain,breadth,POSC,chUS,%,m,0,792,39.37,0
+US Survey chain,height,POSC,chUS,%,m,0,792,39.37,0
+US Survey chain,thickness,POSC,chUS,%,m,0,792,39.37,0
+US Survey chain,radius,POSC,chUS,%,m,0,792,39.37,0
+US Survey chain,Cartesian coordinates,POSC,chUS,%,m,0,792,39.37,0
+US Survey chain,diameter,POSC,chUS,%,m,0,792,39.37,0
+US Survey chain,distance,POSC,chUS,%,m,0,792,39.37,0
+curie,activity (of radioactivity),POSC,Ci,Ci,Bq,0,37000000000,1,0
+centimetre,length,POSC,cm,cm,m,0,0.01,1,0
+centimetre,breadth,POSC,cm,cm,m,0,0.01,1,0
+centimetre,height,POSC,cm,cm,m,0,0.01,1,0
+centimetre,thickness,POSC,cm,cm,m,0,0.01,1,0
+centimetre,radius,POSC,cm,cm,m,0,0.01,1,0
+centimetre,radius of curvature,POSC,cm,cm,m,0,0.01,1,0
+centimetre,Cartesian coordinates,POSC,cm,cm,m,0,0.01,1,0
+centimetre,diameter,POSC,cm,cm,m,0,0.01,1,0
+centimetre,length of path,POSC,cm,cm,m,0,0.01,1,0
+centimetre,distance,POSC,cm,cm,m,0,0.01,1,0
+centimetre,wavelength,POSC,cm,cm,m,0,0.01,1,0
+centimetre,mean free path,POSC,cm,cm,m,0,0.01,1,0
+centimeter per year,velocity,POSC,cm/a,cm/a,m/s,0,0.01,31558150,0
+centimetre/second,velocity,POSC,cm/s,cm/s,m/s,0,0.01,1,0
+centimetre/second squared,acceleration linear,POSC,cm/s2,cm/s2,m/s2,0,0.01,1,0
+square centimetre,area,POSC,cm2,cm2,m2,0,0.0001,1,0
+centimetres squared/gram,mass attenuation coefficient,POSC,cm2/g,cm2/g,m2/kg,0,0.1,1,0
+centimetres squared/second,kinematic viscosity,POSC,cm2/s,cm2/s,m2/s,0,0.0001,1,0
+centimetres squared/second,thermal diffusivity,POSC,cm2/s,cm2/s,m2/s,0,0.0001,1,0
+centimetres squared/second,area per time,POSC,cm2/s,cm2/s,m2/s,0,0.0001,1,0
+cubic centimetre,volume,POSC,cm3,cm3,m3,0,0.000001,1,0
+cubic centimeter per thirty minutes,volume flow rate,POSC,cm3/30min,cm3,m3/s,0,0.000001,1800,0
+cubic centimeters/ cubic centimetres,volume per volume,POSC,cm3/cm3,cm3/cm3,Euc,0,1,1,0
+cubic centimetres/gram,specific volume,POSC,cm3/g,cm3/g,m3/kg,0,0.001,1,0
+cubic centimetres/gram,massic volume,POSC,cm3/g,cm3/g,m3/kg,0,0.001,1,0
+cubic centimeter per hour,volume flow rate,POSC,cm3/h,cm3/h,m3/s,0,0.000001,3600,0
+cubic centimetre/cubic metre,volume per volume,POSC,cm3/m3,cm3/m3,Euc,0,0.000001,1,0
+cubic centimeter per minute,volume flow rate,POSC,cm3/min,cm3/min,m3/s,0,0.000001,60,0
+cubic centimeter per second,volume flow rate,POSC,cm3/s,cm3/s,m3/s,0,0.000001,1,0
+centimetres fourth,second moment of area,POSC,cm4,cm4,m4,0,0.00000001,1,0
+cm of water at 4 C.,force per area,POSC,cmH2O(4C),cm4,Pa,0,980.638,1,0
+cm of water at 4 C.,pressure,POSC,cmH2O(4C),cm4,Pa,0,980.638,1,0
+centipoise,dynamic viscosity,POSC,cP,cP,Pa.s,0,0.001,1,0
+ten milli second,time,POSC,cs,cP,s,0,0.01,1,0
+centiStoke,kinematic viscosity,POSC,cSt,cP,m2/s,0,0.000001,1,0
+centiStoke,area per time,POSC,cSt,cP,m2/s,0,0.000001,1,0
+carat,mass,POSC,ct,cP,kg,0,0.0002,1,0
+capture unit,area per volume,POSC,cu,cu,1/m,0,0.1,1,0
+cubic feet,volume,POSC,cu ft,ft3,m3,0,0.02831685,1,0
+cubic feet,volume,POSC,(Deprecated),ft3,m3,0,0.02831685,1,0
+cubic inch,volume,POSC,cu in,in3,m3,0,0.00001638706,1,0
+cubic inch,volume,POSC,(Deprecated),in3,m3,0,0.00001638706,1,0
+cubic yard,volume,POSC,cu yd,1/27 ft3,m3,0,0.7645549,1,0
+cubic yard,volume,POSC,(Deprecated),1/27 ft3,m3,0,0.7645549,1,0
+cubic mile,volume,POSC,cubem,mi3,m3,0,4168182000,1,0
+cubic mile,volume,POSC,(Deprecated),mi3,m3,0,4168182000,1,0
+curie,activity (of radioactivity),POSC,curie,Ci,Bq,0,37000000000,1,0
+curie,activity (of radioactivity),POSC,(Deprecated),Ci,Bq,0,37000000000,1,0
+cheval vapeur,power,POSC,CV,Ci,W,0,735.499,1,0
+CV hours,energy,POSC,CV.h,Ci,J,0,2647796,1,0
+CV hours,work,POSC,CV.h,Ci,J,0,2647796,1,0
+UK hundredweight,mass,POSC,cwtUK,Ci,kg,0,5.080.235,1,0
+US hundredweight,mass,POSC,cwtUS,Ci,kg,0,4.535.924,1,0
+darcy,permeability rock,POSC,D,D,m2,0,0.000000000000986923,1,0
+day,time,POSC,d,d,s,0,86400,1,0
+darcy foot,permeability length,POSC,D.ft,D.ft,m3,0,0.0000000000003008141,1,0
+darcy metre,permeability length,POSC,D.m,D.m,m3,0,0.000000000000986923,1,0
+day per barrel,time per volume,POSC,d/bbl,d/bbl,s/m3,0,86400,0.1589873,0
+days/cubic foot,time per volume,POSC,d/ft3,d/ft3,s/m3,0,86400,0.028316846592,0
+day per thousand cubic feet,time per volume,POSC,d/k(ft3),d/ft3,s/m3,0,86400,28.316.846.592,0
+days/cubic metre,time per volume,POSC,d/m3,d/m3,s/m3,0,86400,1,0
+decanewtons,force,POSC,daN,d/m3,N,0,10,1,0
+decanewton metres,moment of force,POSC,daN.m,d/m3,J,0,10,1,0
+decanewton metres,moment of couple,POSC,daN.m,d/m3,J,0,10,1,0
+decanewton metres,torque,POSC,daN.m,d/m3,J,0,10,1,0
+API gravity,density,POSC,dAPI,dAPI,kg/m3,141500,0,131.5,1
+API gravity,mass density,POSC,dAPI,dAPI,kg/m3,141500,0,131.5,1
+API gravity,volumic mass,POSC,dAPI,dAPI,kg/m3,141500,0,131.5,1
+decibel,level of power intensity,POSC,dB,dB,B,0,0.1,1,0
+decibels/foot,attenuation per length,POSC,dB/ft,dB/ft,B/m,0,0.1,0.3048,0
+decibels/metre,attenuation per length,POSC,dB/m,dB/m,B/m,0,0.1,1,0
+decibels/kilometre,attenuation per length,POSC,dB/km,dB/km,B/m,0,0.0001,1,0
+decibels/octave,attenuation,POSC,dB/O,dB/km,B/O,0,0.1,1,0
+change in degrees Celsius,delta temperature,POSC,C,C,K,0,1,1,0
+change in degrees Fahrenheit,delta temperature,POSC,F,F,K,0,5,9,0
+change in degrees Kelvin,delta temperature,POSC,K,K,K,0,1,1,0
+change in degrees Rankine,delta temperature,POSC,R,R,K,0,5,9,0
+degree of an angle,plane angle,POSC,a,a,rad,0,0.01745329,1,0
+degrees of an angle/100 feet,angle per length,POSC,a/100ft,a,rad/m,0,0.01745329,30.48,0
+degrees of an angle per thirty feet,angle per length,POSC,a/30ft,a,rad/m,0,0.01745329,9.144,0
+degrees of an angle/30 metres,angle per length,POSC,a/30m,a,rad/m,0,0.01745329,30,0
+degrees of an angle/foot,angle per length,POSC,a/ft,a/ft,rad/m,0,0.01745329,0.3048,0
+degrees of an angle/100 feet,angle per length,POSC,a/ft(100),a/ft,rad/m,0,0.01745329,30.48,0
+degrees of an angle/100 feet,angle per length,POSC,(Deprecated),a/ft,rad/m,0,0.01745329,30.48,0
+degrees of an angle per hour,rotational frequency,POSC,a/h,a/h,rad/s,0,0.01745329,3600,0
+degrees of an angle per hour,circular frequency,POSC,a/h,a/h,rad/s,0,0.01745329,3600,0
+degrees of an angle per hour,angle per time,POSC,a/h,a/h,rad/s,0,0.01745329,3600,0
+degrees of an angle per hour,rotational velocity,POSC,a/h,a/h,rad/s,0,0.01745329,3600,0
+degrees of an angle/metre,angle per length,POSC,a/m,a/m,rad/m,0,0.01745329,1,0
+degrees of an angle/30 metres,angle per length,POSC,a/m(30),a/m,rad/m,0,0.01745329,30,0
+degrees of an angle/30 metres,angle per length,POSC,(Deprecated),a/m,rad/m,0,0.01745329,30,0
+degrees of an angle/minute,rotational frequency,POSC,da/min,a/min,rad/s,0,0.01745329,60,0
+degrees of an angle/minute,circular frequency,POSC,a/min,a/min,rad/s,0,0.01745329,60,0
+degrees of an angle/minute,angle per time,POSC,a/min,a/min,rad/s,0,0.01745329,60,0
+degrees of an angle/minute,rotational velocity,POSC,a/min,a/min,rad/s,0,0.01745329,60,0
+degrees of an angle per second,rotational frequency,POSC,a/s,a/s,rad/s,0,0.01745329,1,0
+degrees of an angle per second,circular frequency,POSC,a/s,a/s,rad/s,0,0.01745329,1,0
+degrees of an angle per second,angle per time,POSC,a/s,a/s,rad/s,0,0.01745329,1,0
+degrees Celsius,thermodynamic temperature,POSC,C,C,K,273.15,1,1,0
+degrees C square metres hours/kilocal,thermal insulance,POSC,C.m2.h/kcal,C.m2.h/kcal,K.m2/W,0,0.8604208,1,0
+degrees C square metres hours/kilocal,coefficient of thermal insulation,POSC,C.m2.h/kcal,C.m2.h/kcal,K.m2/W,0,0.8604208,1,0
+degrees Celsius per hundred metre,temperature per length,POSC,C/100m,C.m2.h/kcal,K/m,0,0.01,1,0
+degrees Celsius per foot,temperature per length,POSC,C/ft,C/ft,K/m,0,1,0.3048,0
+degrees Celsius per hour,temperature per time,POSC,C/h,C/h,K/s,0,1,3600,0
+degrees Celsius/kilometre,temperature per length,POSC,C/km,C/km,K/m,0,0.001,1,0
+degrees Celsius/metre,temperature per length,POSC,C/m,C/m,K/m,0,1,1,0
+degrees Celsius per minute,temperature per time,POSC,C/min,C/min,K/s,0,1,60,0
+degrees Celsius per second,temperature per time,POSC,C/s,C/s,K/s,0,1,1,0
+degree Fahrenheit,thermodynamic temperature,POSC,F,F,K,2298.35,5,9,0
+degrees F square feet hours/Btu,thermal insulance,POSC,F.ft2.h/Btu,F.ft2.h/Btu,K.m2/W,0,0.1761102,1,0
+degrees F square feet hours/Btu,coefficient of thermal insulation,POSC,F.ft2.h/Btu,F.ft2.h/Btu,K.m2/W,0,0.1761102,1,0
+degrees Fahrenheit/100 feet.,temperature per length,POSC,F/100ft,F.ft2.h/Btu,K/m,0,0.01822689,1,0
+degrees Fahrenheit/foot,temperature per length,POSC,F/ft,F/ft,K/m,0,1.822.689,1,0
+degrees Fahrenheit/100 feet.,temperature per length,POSC,F/ft(100),F/ft,K/m,0,0.01822689,1,0
+degrees Fahrenheit/100 feet.,temperature per length,POSC,(Deprecated),F/ft,K/m,0,0.01822689,1,0
+degrees Fahrenheit per hour,temperature per time,POSC,F/h,F/h,K/s,0,5,32400,0
+degrees Fahrenheit per meter,temperature per length,POSC,F/m,F/m,K/m,0,5,9,0
+degrees Fahrenheit per minute,temperature per time,POSC,F/min,F/min,K/s,0,5,540,0
+degrees Fahrenheit per second,temperature per time,POSC,F/s,F/s,K/s,0,5,9,0
+degrees Rankine,thermodynamic temperature,POSC,R,R,K,0,5,9,0
+decimetre,length,POSC,dm,dm,m,0,0.1,1,0
+decimetre,breadth,POSC,dm,dm,m,0,0.1,1,0
+decimetre,height,POSC,dm,dm,m,0,0.1,1,0
+decimetre,thickness,POSC,dm,dm,m,0,0.1,1,0
+decimetre,radius,POSC,dm,dm,m,0,0.1,1,0
+decimetre,radius of curvature,POSC,dm,dm,m,0,0.1,1,0
+decimetre,Cartesian coordinates,POSC,dm,dm,m,0,0.1,1,0
+decimetre,diameter,POSC,dm,dm,m,0,0.1,1,0
+decimetre,length of path,POSC,dm,dm,m,0,0.1,1,0
+decimetre,distance,POSC,dm,dm,m,0,0.1,1,0
+decimetre,wavelength,POSC,dm,dm,m,0,0.1,1,0
+decimetre,mean free path,POSC,dm,dm,m,0,0.1,1,0
+decimeter per second,velocity,POSC,dm/s,dm/s,m/s,0,0.1,1,0
+cubic decimetre,volume,POSC,dm3,dm3,m3,0,0.001,1,0
+cubic decimetre,volume,POSC,dm3,L,m3,0,0.001,1,0
+cubic decimetres/100 kilometres,volume per length,POSC,dm3/100km,L,m2,0,0.00000001,1,0
+cubic decimetres/kilogram,specific volume,POSC,dm3/kg,dm3/kg,m3/kg,0,0.001,1,0
+cubic decimetres/kilogram,massic volume,POSC,dm3/kg,dm3/kg,m3/kg,0,0.001,1,0
+cubic decimetres/100 kilometres,volume per length,POSC,dm3/km(100),dm3/kg,m2,0,0.00000001,1,0
+cubic decimetres/100 kilometres,volume per length,POSC,(Deprecated),dm3/kg,m2,0,0.00000001,1,0
+cubic decimetres/kilowatt hour,isothermal compressibility,POSC,dm3/kW.h,dm3/kW.h,m3/J,0,0.0000000002777778,1,0
+cubic decimetres/metre,volume per length,POSC,dm3/m,dm3/m,m2,0,0.001,1,0
+cubic decimetres/cubic metre,volume per volume,POSC,dm3/m3,dm3/m3,Euc,0,0.001,1,0
+cubic decimetres/megajoule,isothermal compressibility,POSC,dm3/MJ,dm3/MJ,m3/J,0,0.000000001,1,0
+cubic decimetres/kilogram mole,molar volume,POSC,dm3/kmol,dm3/MJ,m3/mol,0,0.000001,1,0
+cubic decimetres/kilogram mole,molar volume,POSC,dm3/mol(kg),dm3/mol,m3/mol,0,0.001,1,0
+cubic decimetres/kilogram mole,molar volume,POSC,(Deprecated),dm3/mol,m3/mol,0,0.001,1,0
+cubic decimetres/second,volume flow rate,POSC,dm3/s,dm3/s,m3/s,0,0.001,1,0
+cubic decimetres/second/second,volume per time per time,POSC,dm3/s2,dm3/s2,m3/s2,0,0.001,1,0
+cubic decimetres/ton,specific volume,POSC,dm3/t,dm3/t,m3/kg,0,0.000001,1,0
+cubic decimetres/ton,massic volume,POSC,dm3/t,dm3/t,m3/kg,0,0.000001,1,0
+decinewton metres,moment of force,POSC,dN.m,dN.m,J,0,0.1,1,0
+decinewton metres,moment of couple,POSC,dN.m,dN.m,J,0,0.1,1,0
+decinewton metres,torque,POSC,dN.m,dN.m,J,0,0.1,1,0
+dynes,force,POSC,dyne,dN.m,N,0,0.00001,1,0
+dyne centimetre squared,force area,POSC,dyne.cm2,dN.m,N.m2,0,0.000000001,1,0
+dyne seconds/square centimetre,dynamic viscosity,POSC,dyne.s/cm2,dN.m,Pa.s,0,0.1,1,0
+dynes/centimetre,force per length,POSC,dyne/cm,dN.m,N/m,0,0.001,1,0
+dynes/square centimetre,force per area,POSC,dyne/cm2,.1 Pa,Pa,0,0.1,1,0
+dynes/square centimetre,pressure,POSC,dyne/cm2,.1 Pa,Pa,0,0.1,1,0
+dynes/centimetre fourth/gram cm cubed,parachor,POSC,(dyne/cm)4/gcm3,(dyne/cm)4/gcm3,N4/kg.m7,0,0.001,1,0
+newton/metre fourth/kilogram metre cubed,parachor,POSC,(N/m)4/kg.m3,(N/m)4/kg.m3,N4/kg.m7,0,1,1,0
+electric horsepower,power,POSC,ehp,ehp,W,0,746,1,0
+exajoule,energy,POSC,EJ,EJ,J,0,1.00E+18,1,0
+exajoule,work,POSC,EJ,EJ,J,0,1.00E+18,1,0
+exajoules/year,heat flow rate,POSC,EJ/a,EJ/a,W,0,31687540000,1,0
+equivalents/ Liter,equivalent per volume,POSC,eq/L,eq/L,eq/m3,0,1000,1,0
+ergs,energy,POSC,erg,eq/L,J,0,0.0000001,1,0
+ergs,work,POSC,erg,eq/L,J,0,0.0000001,1,0
+ergs/year,heat flow rate,POSC,erg/a,eq/L,W,0,0.0000001,31558150,0
+ergs/square centimetre,energy per area,POSC,erg/cm2,mN/m,N/m,0,0.001,1,0
+ergs/cubic centimetre,normal stress,POSC,erg/cm3,mN/m,J/m3,0,0.1,1,0
+ergs/cubic centimetre,shear stress,POSC,erg/cm3,mN/m,J/m3,0,0.1,1,0
+ergs/cubic centimetre,modulus of elasticity,POSC,erg/cm3,mN/m,J/m3,0,0.1,1,0
+ergs/cubic centimetre,shear modulus,POSC,erg/cm3,mN/m,J/m3,0,0.1,1,0
+ergs/cubic centimetre,modulus of rigidity,POSC,erg/cm3,mN/m,J/m3,0,0.1,1,0
+ergs/cubic centimetre,bulk modulus,POSC,erg/cm3,mN/m,J/m3,0,0.1,1,0
+ergs/cubic centimetre,modulus of compression,POSC,erg/cm3,mN/m,J/m3,0,0.1,1,0
+ergs/cubic centimetre,electromagnetic energy density,POSC,erg/cm3,mN/m,J/m3,0,0.1,1,0
+ergs/cubic centimetre,radiant energy density,POSC,erg/cm3,mN/m,J/m3,0,0.1,1,0
+ergs/gram,specific energy,POSC,erg/g,mN/m,J/kg,0,0.0001,1,0
+ergs/kilogram,specific energy,POSC,erg/kg,mN/m,J/kg,0,0.0000001,1,0
+ergs/cubic metre,normal stress,POSC,erg/m3,mN/m,J/m3,0,0.0000001,1,0
+ergs/cubic metre,shear stress,POSC,erg/m3,mN/m,J/m3,0,0.0000001,1,0
+ergs/cubic metre,modulus of elasticity,POSC,erg/m3,mN/m,J/m3,0,0.0000001,1,0
+ergs/cubic metre,shear modulus,POSC,erg/m3,mN/m,J/m3,0,0.0000001,1,0
+ergs/cubic metre,modulus of rigidity,POSC,erg/m3,mN/m,J/m3,0,0.0000001,1,0
+ergs/cubic metre,bulk modulus,POSC,erg/m3,mN/m,J/m3,0,0.0000001,1,0
+ergs/cubic metre,modulus of compression,POSC,erg/m3,mN/m,J/m3,0,0.0000001,1,0
+ergs/cubic metre,electromagnetic energy density,POSC,erg/m3,mN/m,J/m3,0,0.0000001,1,0
+ergs/cubic metre,radiant energy density,POSC,erg/m3,mN/m,J/m3,0,0.0000001,1,0
+electron volts,energy,POSC,eV,eV,J,0,1.60E-13,1,0
+electron volts,work,POSC,eV,eV,J,0,1.60E-13,1,0
+fathoms,depth,POSC,fathom,eV,m,0,18.288,1,0
+fathoms,length,POSC,fathom,eV,m,0,18.288,1,0
+femtocoulomb,electric capacity,POSC,fC,fC,C,0,1.00E-15,1,0
+femtocoulomb,electric charge,POSC,fC,fC,C,0,1.00E-15,1,0
+femtocoulomb,electric flux,POSC,fC,fC,C,0,1.00E-15,1,0
+UK fluid ounce,volume,POSC,fl ozUK,fC,m3,0,0.00002841308,1,0
+UK fluid ounce,volume,POSC,(Deprecated),fC,m3,0,0.00002841308,1,0
+US fluid ounces,volume,POSC,fl ozUS,fC,m3,0,0.00002957353,1,0
+US fluid ounces,volume,POSC,(Deprecated),fC,m3,0,0.00002957353,1,0
+flops,operations per time,POSC,flops,1/s,1/s,0,1,1,0
+UK fluid ounce,volume,POSC,flozUK,1/s,m3,0,0.00002841308,1,0
+US fluid ounces,volume,POSC,flozUS,1/s,m3,0,0.00002957353,1,0
+femtometer,length,POSC,fm,fm,m,0,1.00E-15,1,0
+femtometer,breadth,POSC,fm,fm,m,0,1.00E-15,1,0
+femtometer,height,POSC,fm,fm,m,0,1.00E-15,1,0
+femtometer,thickness,POSC,fm,fm,m,0,1.00E-15,1,0
+femtometer,radius,POSC,fm,fm,m,0,1.00E-15,1,0
+femtometer,radius of curvature,POSC,fm,fm,m,0,1.00E-15,1,0
+femtometer,Cartesian coordinates,POSC,fm,fm,m,0,1.00E-15,1,0
+femtometer,diameter,POSC,fm,fm,m,0,1.00E-15,1,0
+femtometer,length of path,POSC,fm,fm,m,0,1.00E-15,1,0
+femtometer,distance,POSC,fm,fm,m,0,1.00E-15,1,0
+femtometer,wavelength,POSC,fm,fm,m,0,1.00E-15,1,0
+femtometer,mean free path,POSC,fm,fm,m,0,1.00E-15,1,0
+footcandles,illuminance,POSC,footcandle,fm,lx,0,1.076.391,1,0
+footcandle seconds,light exposure,POSC,footcandle.s,fm,lx.s,0,1.076.391,1,0
+foot,length,POSC,ft,ft,m,0,0.3048,1,0
+foot,breadth,POSC,ft,ft,m,0,0.3048,1,0
+foot,height,POSC,ft,ft,m,0,0.3048,1,0
+foot,thickness,POSC,ft,ft,m,0,0.3048,1,0
+foot,radius,POSC,ft,ft,m,0,0.3048,1,0
+foot,radius of curvature,POSC,ft,ft,m,0,0.3048,1,0
+foot,Cartesian coordinates,POSC,ft,ft,m,0,0.3048,1,0
+foot,diameter,POSC,ft,ft,m,0,0.3048,1,0
+foot,length of path,POSC,ft,ft,m,0,0.3048,1,0
+foot,distance,POSC,ft,ft,m,0,0.3048,1,0
+foot,wavelength,POSC,ft,ft,m,0,0.3048,1,0
+foot,mean free path,POSC,ft,ft,m,0,0.3048,1,0
+foot pounds force,moment of force,POSC,ft.lbf,ft.lbf,J,0,1.355.818,1,0
+foot pounds force,moment of couple,POSC,ft.lbf,ft.lbf,J,0,1.355.818,1,0
+foot pounds force,torque,POSC,ft.lbf,ft.lbf,J,0,1.355.818,1,0
+foot pounds force/barrel,normal stress,POSC,ft.lbf/bbl,ft.lbf/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,shear stress,POSC,ft.lbf/bbl,ft.lbf/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,modulus of elasticity,POSC,ft.lbf/bbl,ft.lbf/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,shear modulus,POSC,ft.lbf/bbl,ft.lbf/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,modulus of rigidity,POSC,ft.lbf/bbl,ft.lbf/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,bulk modulus,POSC,ft.lbf/bbl,ft.lbf/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,modulus of compression,POSC,ft.lbf/bbl,ft.lbf/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,electromagnetic energy density,POSC,ft.lbf/bbl,ft.lbf/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,radiant energy density,POSC,ft.lbf/bbl,ft.lbf/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/US gallon,normal stress,POSC,ft.lbf/galUS,ft.lbf/galUS,J/m3,0,3.581.692,1,0
+foot pounds force/US gallon,shear stress,POSC,ft.lbf/galUS,ft.lbf/galUS,J/m3,0,3.581.692,1,0
+foot pounds force/US gallon,modulus of elasticity,POSC,ft.lbf/galUS,ft.lbf/galUS,J/m3,0,3.581.692,1,0
+foot pounds force/US gallon,shear modulus,POSC,ft.lbf/galUS,ft.lbf/galUS,J/m3,0,3.581.692,1,0
+foot pounds force/US gallon,modulus of rigidity,POSC,ft.lbf/galUS,ft.lbf/galUS,J/m3,0,3.581.692,1,0
+foot pounds force/US gallon,bulk modulus,POSC,ft.lbf/galUS,ft.lbf/galUS,J/m3,0,3.581.692,1,0
+foot pounds force/US gallon,modulus of compression,POSC,ft.lbf/galUS,ft.lbf/galUS,J/m3,0,3.581.692,1,0
+foot pounds force/US gallon,electromagnetic energy density,POSC,ft.lbf/galUS,ft.lbf/galUS,J/m3,0,3.581.692,1,0
+foot pounds force/US gallon,radiant energy density,POSC,ft.lbf/galUS,ft.lbf/galUS,J/m3,0,3.581.692,1,0
+foot pounds force/pound mass,specific energy,POSC,ft.lbf/lbm,ft.lbf/lbm,J/kg,0,1.355.818,0.4535924,0
+foot pounds force/minute,heat flow rate,POSC,ft.lbf/min,ft.lbf/min,W,0,0.02259697,1,0
+foot pounds force/second,heat flow rate,POSC,ft.lbf/s,ft.lbf/s,W,0,1.355.818,1,0
+foot-pound mass,mass length,POSC,ft.lbm,ft.lbm,kg.m,0,0.1382549,1,0
+feet per 100 feet,linear strain,POSC,ft/100ft,ft.lbm,Euc,0,0.01,1,0
+feet per 100 feet,relative elongation,POSC,ft/100ft,ft.lbm,Euc,0,0.01,1,0
+feet per 100 feet,scale,POSC,ft/100ft,ft.lbm,Euc,0,0.01,1,0
+feet per 100 feet,linear concentration,POSC,ft/100ft,ft.lbm,Euc,0,0.01,1,0
+feet per 100 feet,length per length,POSC,ft/100ft,ft.lbm,Euc,0,0.01,1,0
+feet/barrel,length per volume,POSC,ft/bbl,ft/bbl,1/m2,0,1.917.134,1,0
+feet/day,velocity,POSC,ft/d,ft/d,m/s,0,0.3048,86400,0
+feet/degree Fahrenheit,length per temperature,POSC,ft/F,ft/F,m/K,0,0.54864,1,0
+feet per feet,linear strain,POSC,ft/ft,ft/ft,Euc,0,1,1,0
+feet per feet,relative elongation,POSC,ft/ft,ft/ft,Euc,0,1,1,0
+feet per feet,scale,POSC,ft/ft,ft/ft,Euc,0,1,1,0
+feet per feet,linear concentration,POSC,ft/ft,ft/ft,Euc,0,1,1,0
+feet per feet,length per length,POSC,ft/ft,ft/ft,Euc,0,1,1,0
+feet/cubic foot,length per volume,POSC,ft/ft3,ft/ft3,1/m2,0,1.076.391,1,0
+feet/US gallon,length per volume,POSC,ft/galUS,ft/galUS,1/m2,0,8.051.964,1,0
+feet/hour,velocity,POSC,ft/h,ft/h,m/s,0,0.3048,3600,0
+feet/inch,scale,POSC,ft/in,ft/in,Euc,0,12,1,0
+feet/inch,length per length,POSC,ft/in,ft/in,Euc,0,12,1,0
+feet/metre,linear strain,POSC,ft/m,ft/m,Euc,0,0.3048,1,0
+feet/metre,relative elongation,POSC,ft/m,ft/m,Euc,0,0.3048,1,0
+feet/metre,scale,POSC,ft/m,ft/m,Euc,0,0.3048,1,0
+feet/metre,linear concentration,POSC,ft/m,ft/m,Euc,0,0.3048,1,0
+feet/metre,length per length,POSC,ft/m,ft/m,Euc,0,0.3048,1,0
+feet/mile,linear strain,POSC,ft/mi,ft/mi,Euc,0,1,5280,0
+feet/mile,relative elongation,POSC,ft/mi,ft/mi,Euc,0,1,5280,0
+feet/mile,scale,POSC,ft/mi,ft/mi,Euc,0,1,5280,0
+feet/mile,linear concentration,POSC,ft/mi,ft/mi,Euc,0,1,5280,0
+feet/mile,length per length,POSC,ft/mi,ft/mi,Euc,0,1,5280,0
+feet/minute,velocity,POSC,ft/min,ft/min,m/s,0,0.3048,60,0
+foot per millisecond,velocity,POSC,ft/ms,ft/ms,m/s,0,304.8,1,0
+feet/second,velocity,POSC,ft/s,ft/s,m/s,0,0.3048,1,0
+feet/second squared,acceleration linear,POSC,ft/s2,ft/s2,m/s2,0,0.3048,1,0
+foot per microsecond,velocity,POSC,ft/us,ft/us,m/s,0,304800,1,0
+square foot,area,POSC,ft2,ft2,m2,0,0.09290304,1,0
+square feet/hour,kinematic viscosity,POSC,ft2/h,ft2/h,m2/s,0,0.09290304,3600,0
+square feet/hour,thermal diffusivity,POSC,ft2/h,ft2/h,m2/s,0,0.09290304,3600,0
+square feet/hour,area per time,POSC,ft2/h,ft2/h,m2/s,0,0.09290304,3600,0
+square feet/cubic inch,area per volume,POSC,ft2/in3,ft2/in3,1/m,0,5.669.291,1,0
+square feet/second,kinematic viscosity,POSC,ft2/s,ft2/s,m2/s,0,0.09290304,1,0
+square feet/second,thermal diffusivity,POSC,ft2/s,ft2/s,m2/s,0,0.09290304,1,0
+square feet/second,area per time,POSC,ft2/s,ft2/s,m2/s,0,0.09290304,1,0
+cubic feet,volume,POSC,ft3,ft3,m3,0,0.02831685,1,0
+cubic feet at standard conditions,standard volume,POSC,ft3(std.60F),ft3,scm(15C),0,0.0011953,1,0
+cubic feet at standard conditions,standard volume,POSC,(Deprecated),ft3,scm(15C),0,0.0011953,1,0
+cubic feet/barrel,volume per volume,POSC,ft3/bbl,ft3/bbl,Euc,0,0.02831685,0.1589873,0
+cubic feet/day,volume flow rate,POSC,ft3/d,ft3/d,m3/s,0,0.02831685,86400,0
+cubic feet/day foot psi,unit productivity index,POSC,ft3/d.ft.psi,ft3/d.ft.psi,m2/Pa.s,0,0.09290304,5957067005,0
+cubic feet/day/day,volume per time per time,POSC,ft3/d2,ft3/d2,m3/s2,0,0.02831685,7464960000,0
+cubic feet/foot,volume per length,POSC,ft3/ft,ft3/ft,m2,0,0.09290304,1,0
+cubic feet/cubic foot,volume per volume,POSC,ft3/ft3,ft3/ft3,Euc,0,1,1,0
+cubic feet/hour,volume flow rate,POSC,ft3/h,ft3/h,m3/s,0,0.02831685,3600,0
+cubic feet/hour/hour,volume per time per time,POSC,ft3/h2,ft3/h2,m3/s2,0,0.02831685,12960000,0
+cubic feet per kilogram,specific volume,POSC,ft3/kg,ft3/kg,m3/kg,0,0.02831685,1,0
+cubic feet per kilogram,massic volume,POSC,ft3/kg,ft3/kg,m3/kg,0,0.02831685,1,0
+cubic feet/pound mass,specific volume,POSC,ft3/lbm,ft3/lbm,m3/kg,0,0.06242796,1,0
+cubic feet/pound mass,massic volume,POSC,ft3/lbm,ft3/lbm,m3/kg,0,0.06242796,1,0
+cubic feet/minute,volume flow rate,POSC,ft3/min,ft3/min,m3/s,0,0.02831685,60,0
+cubic feet/min square foot,volume per time per area,POSC,ft3/min.ft2,ft3/min.ft2,m/s,0,0.3048,60,0
+cubic feet/minute/minute,volume per time per time,POSC,ft3/min2,ft3/min2,m3/s2,0,0.02831685,3600,0
+cubic feet/mole (pound mass),molar volume,POSC,ft3/lbmole,ft3/min2,m3/mol,0,0.00006242796,1,0
+cubic feet/mole (pound mass),molar volume,POSC,ft3/mol(lbm),ft3/min2,m3/mol,0,0.06242796,1,0
+cubic feet/mole (pound mass),molar volume,POSC,(Deprecated),ft3/min2,m3/mol,0,0.06242796,1,0
+cubic feet/second,volume flow rate,POSC,ft3/s,ft3/s,m3/s,0,0.02831685,1,0
+cubic feet/second square foot,volume per time per area,POSC,ft3/s.ft2,ft3/s.ft2,m/s,0,0.3048,1,0
+cubic feet/second/second,volume per time per time,POSC,ft3/s2,ft3/s2,m3/s2,0,0.02831685,1,0
+cubic feet per 94 pound sack,specific volume,POSC,ft3/sack94,ft3/s2,m3/kg,0,0.02831685,4.263.769,0
+cubic feet per 94 pound sack,massic volume,POSC,ft3/sack94,ft3/s2,m3/kg,0,0.02831685,4.263.769,0
+cubic feet/std cubic foot. 60 deg F,volume per standard volume,POSC,ft3/scf(60F),ft3/s2,m3/scm(15C),0,1,1,0
+British Foot (Benoit 1895 A),length,POSC,ftBnA,ft3/s2,m,0,0.9143992,3,0
+British Foot (Benoit 1895 A),depth,POSC,ftBnA,ft3/s2,m,0,0.9143992,3,0
+British Foot (Benoit 1895 A),Cartesian coordinates,POSC,ftBnA,ft3/s2,m,0,0.9143992,3,0
+British Foot (Benoit 1895 A),distance,POSC,ftBnA,ft3/s2,m,0,0.9143992,3,0
+British Foot (Benoit 1895 B),length,POSC,ftBnB,ft3/s2,m,0,12,39.370.113,0
+British Foot (Benoit 1895 B),depth,POSC,ftBnB,ft3/s2,m,0,12,39.370.113,0
+British Foot (Benoit 1895 B),Cartesian coordinates,POSC,ftBnB,ft3/s2,m,0,12,39.370.113,0
+British Foot (Benoit 1895 B),distance,POSC,ftBnB,ft3/s2,m,0,12,39.370.113,0
+British Foot 1865,length,POSC,ftBr(65),ft3/s2,m,0,0.9144025,3,0
+British Foot 1865,depth,POSC,ftBr(65),ft3/s2,m,0,0.9144025,3,0
+British Foot 1865,Cartesian coordinates,POSC,ftBr(65),ft3/s2,m,0,0.9144025,3,0
+British Foot 1865,distance,POSC,ftBr(65),ft3/s2,m,0,0.9144025,3,0
+Imperial Foot,length,POSC,ftCla,ftCla,m,0,0.304797265,1,0
+Imperial Foot,depth,POSC,ftCla,ftCla,m,0,0.304797265,1,0
+Imperial Foot,Cartesian coordinates,POSC,ftCla,ftCla,m,0,0.304797265,1,0
+Imperial Foot,distance,POSC,ftCla,ftCla,m,0,0.304797265,1,0
+Gold Coast Foot,length,POSC,ftGC,ftCla,m,0,6378300,20926201,0
+Gold Coast Foot,depth,POSC,ftGC,ftCla,m,0,6378300,20926201,0
+Gold Coast Foot,Cartesian coordinates,POSC,ftGC,ftCla,m,0,6378300,20926201,0
+Gold Coast Foot,distance,POSC,ftGC,ftCla,m,0,6378300,20926201,0
+Indian Foot,length,POSC,ftInd,ftCla,m,0,12,39.370.142,0
+Indian Foot,depth,POSC,ftInd,ftCla,m,0,12,39.370.142,0
+Indian Foot,Cartesian coordinates,POSC,ftInd,ftCla,m,0,12,39.370.142,0
+Indian Foot,distance,POSC,ftInd,ftCla,m,0,12,39.370.142,0
+Indian Foot. 1937,length,POSC,ftInd(37),ftCla,m,0,0.30479841,1,0
+Indian Foot. 1937,depth,POSC,ftInd(37),ftCla,m,0,0.30479841,1,0
+Indian Foot. 1937,Cartesian coordinates,POSC,ftInd(37),ftCla,m,0,0.30479841,1,0
+Indian Foot. 1937,distance,POSC,ftInd(37),ftCla,m,0,0.30479841,1,0
+Indian Foot. 1962,length,POSC,ftInd(62),ftCla,m,0,0.3047996,1,0
+Indian Foot. 1962,depth,POSC,ftInd(62),ftCla,m,0,0.3047996,1,0
+Indian Foot. 1962,Cartesian coordinates,POSC,ftInd(62),ftCla,m,0,0.3047996,1,0
+Indian Foot. 1962,distance,POSC,ftInd(62),ftCla,m,0,0.3047996,1,0
+Indian Foot. 1975,length,POSC,ftInd(75),ftCla,m,0,0.3047995,1,0
+Indian Foot. 1975,depth,POSC,ftInd(75),ftCla,m,0,0.3047995,1,0
+Indian Foot. 1975,Cartesian coordinates,POSC,ftInd(75),ftCla,m,0,0.3047995,1,0
+Indian Foot. 1975,distance,POSC,ftInd(75),ftCla,m,0,0.3047995,1,0
+Modified American Foot,length,POSC,ftMA,ftAM,m,0,0.304812253,1,0
+Modified American Foot,depth,POSC,ftMA,ftAM,m,0,0.304812253,1,0
+Modified American Foot,Cartesian coordinates,POSC,ftMA,ftAM,m,0,0.304812253,1,0
+Modified American Foot,distance,POSC,ftMA,ftAM,m,0,0.304812253,1,0
+Sears Foot,length,POSC,ftSe,ftAM,m,0,12,39.370.147,0
+Sears Foot,depth,POSC,ftSe,ftAM,m,0,12,39.370.147,0
+Sears Foot,Cartesian coordinates,POSC,ftSe,ftAM,m,0,12,39.370.147,0
+Sears Foot,distance,POSC,ftSe,ftAM,m,0,12,39.370.147,0
+US Survey Foot,length,POSC,ftUS,ftUS,m,0,12,39.37,0
+US Survey Foot,depth,POSC,ftUS,ftUS,m,0,12,39.37,0
+US Survey Foot,Cartesian coordinates,POSC,ftUS,ftUS,m,0,12,39.37,0
+US Survey Foot,distance,POSC,ftUS,ftUS,m,0,12,39.37,0
+gram,mass,POSC,g,g,kg,0,0.001,1,0
+gram feet/cubic centimetre second,mass per time per area,POSC,g.ft/cm3.s,g.ft/cm3.s,kg/m2.s,0,0.0003048,0.000001,0
+grams/cubic centimetre,density,POSC,g/cm3,g/cm3,kg/m3,0,1000,1,0
+grams/cubic centimetre,mass density,POSC,g/cm3,g/cm3,kg/m3,0,1000,1,0
+grams/cubic centimetre,volumic mass,POSC,g/cm3,g/cm3,kg/m3,0,1000,1,0
+grams/centimetre fourth,mass per volume per length,POSC,g/cm4,g/cm4,kg/m4,0,100000,1,0
+grams/cubic decimetre,density,POSC,g/dm3,g/dm3,kg/m3,0,1,1,0
+grams/cubic decimetre,mass density,POSC,g/dm3,g/dm3,kg/m3,0,1,1,0
+grams/cubic decimetre,volumic mass,POSC,g/dm3,g/dm3,kg/m3,0,1,1,0
+grams/UK gallon,density,POSC,g/galUK,g/galUK,kg/m3,0,0.2199692,1,0
+grams/UK gallon,mass density,POSC,g/galUK,g/galUK,kg/m3,0,0.2199692,1,0
+grams/UK gallon,volumic mass,POSC,g/galUK,g/galUK,kg/m3,0,0.2199692,1,0
+grams/US gallon,density,POSC,g/galUS,g/galUS,kg/m3,0,0.264172,1,0
+grams/US gallon,mass density,POSC,g/galUS,g/galUS,kg/m3,0,0.264172,1,0
+grams/US gallon,volumic mass,POSC,g/galUS,g/galUS,kg/m3,0,0.264172,1,0
+grams/kilogram,mass concentration,POSC,g/kg,g/kg,Euc,0,0.001,1,0
+grams/litre,density,POSC,g/L,g/L,kg/m3,0,1,1,0
+grams/litre,mass density,POSC,g/L,g/L,kg/m3,0,1,1,0
+grams/litre,volumic mass,POSC,g/L,g/L,kg/m3,0,1,1,0
+grams/cubic metre,density,POSC,g/m3,g/m3,kg/m3,0,0.001,1,0
+grams/cubic metre,mass density,POSC,g/m3,g/m3,kg/m3,0,0.001,1,0
+grams/cubic metre,volumic mass,POSC,g/m3,g/m3,kg/m3,0,0.001,1,0
+grams/second,mass flow rate,POSC,g/s,g/s,kg/s,0,0.001,1,0
+gigayears,time,POSC,Ga,g/s,s,0,3.16E+22,1,0
+galileo,acceleration linear,POSC,Gal,g/s,m/s2,0,0.01,1,0
+US gallons/94 lb sack,specific volume,POSC,gal/sack,g/s,m3/kg,0,0.003785412,4.263.769,0
+US gallons/94 lb sack,massic volume,POSC,(Deprecated),g/s,m3/kg,0,0.003785412,4.263.769,0
+UK gallon,volume,POSC,galUK,galUK,m3,0,0.004546092,1,0
+UK gallons per day,volume flow rate,POSC,galUK/d,galUK/d,m3/s,0,0.004549092,86400,0
+UK gallons/cubic foot,volume per volume,POSC,galUK/ft3,galUK/ft3,Euc,0,0.1605437,1,0
+UK gallons/hour,volume flow rate,POSC,galUK/hr,galUK/h,m3/s,0,0.004549092,3600,0
+UK gallons/hour foot,volume per time per length,POSC,galUK/hr.ft,galUK/h.ft,m2/s,0,0.000004143055,1,0
+UK gallons/hour square foot,volume per time per area,POSC,galUK/hr.ft2,galUK/h.ft2,m/s,0,0.0000135927,1,0
+UK gallons/hour inch,volume per time per length,POSC,galUK/hr.in,galUK/h.in,m2/s,0,0.00004971667,1,0
+UK gallons/hour square inch,volume per time per area,POSC,galUK/hr.in2,galUK/h.in2,m/s,0,0.001957349,1,0
+UK gallons/hour/hour,volume per time per time,POSC,galUK/hr2,galUK/h2,m3/s2,0,0.004546092,12960000,0
+UK gallons per thousand UK gallons,volume per volume,POSC,galUK/kgalUK,galUK/h2,Euc,0,0.001,1,0
+UK gallons/pound mass,specific volume,POSC,galUK/lbm,galUK/lbm,m3/kg,0,0.01002242,1,0
+UK gallons/pound mass,massic volume,POSC,galUK/lbm,galUK/lbm,m3/kg,0,0.01002242,1,0
+UK gallons/1000 barrels,volume per volume,POSC,galUK/Mbbl,galUK/lbm,Euc,0,0.00002859406,1,0
+UK gallons/mile,volume per length,POSC,galUK/mi,galUK/mi,m2,0,0.004546092,1.609.344,0
+UK gallons/minute,volume flow rate,POSC,galUK/min,galUK/min,m3/s,0,0.004549092,60,0
+UK gallons/minute foot,volume per time per length,POSC,galUK/min.ft,galUK/min.ft,m2/s,0,0.0002485333,1,0
+UK gallons/minute square foot,volume per time per area,POSC,galUK/min.ft2,galUK/min.ft2,m/s,0,0.0008155621,1,0
+UK gallons/minute/minute,volume per time per time,POSC,galUK/min2,galUK/min2,m3/s2,0,0.004546092,3600,0
+US gallons,volume,POSC,galUS,galUS,m3,0,0.003785412,1,0
+US gallons per ten barrels,volume per volume,POSC,galUS/10bbl,galUS,Euc,0,0.002380952381,1,0
+US gallons/barrels,volume per volume,POSC,galUS/bbl,galUS/bbl,Euc,0,0.02380952381,1,0
+US gallons per day,volume flow rate,POSC,galUS/d,galUS/d,m3/s,0,0.003785412,86400,0
+US gallons/foot,volume per length,POSC,galUS/ft,galUS/ft,m2,0,0.003785412,0.3048,0
+US gallons/cubic foot,volume per volume,POSC,galUS/ft3,galUS/ft3,Euc,0,0.1336806,1,0
+US gallons/hour,volume flow rate,POSC,galUS/hr,galUS/h,m3/s,0,0.003785412,3600,0
+US gallons/foot hour,volume per time per length,POSC,galUS/hr.ft,galUS/h.ft,m2/s,0,0.000003449814,1,0
+US gallons/hour square foot,volume per time per area,POSC,galUS/hr.ft2,galUS/h.ft2,m/s,0,0.00001131829,1,0
+US gallons/hour inch,volume per time per length,POSC,galUS/hr.in,galUS/h.in,m2/s,0,0.00004139776,1,0
+US gallons/hour square inch,volume per time per area,POSC,galUS/hr.in2,galUS/h.in2,m/s,0,0.001629833,1,0
+US gallons/hour/hour,volume per time per time,POSC,galUS/hr2,galUS/h2,m3/s2,0,0.003785412,12960000,0
+US gallons per thousand US gallons,volume per volume,POSC,galUS/kgalUS,galUS/h2,Euc,0,0.001,1,0
+US gallons/pound mass,specific volume,POSC,galUS/lbm,galUS/lbm,m3/kg,0,0.008345404,1,0
+US gallons/pound mass,massic volume,POSC,galUS/lbm,galUS/lbm,m3/kg,0,0.008345404,1,0
+US gallons/1000 barrels,volume per volume,POSC,galUS/Mbbl,galUS/lbm,Euc,0,0.00002380952,1,0
+US gallons/mile,volume per length,POSC,galUS/mi,galUS/mi,m2,0,0.003785412,1.609.344,0
+US gallons/minute,volume flow rate,POSC,galUS/min,galUS/min,m3/s,0,0.003785412,60,0
+US gallons/minute foot,volume per time per length,POSC,galUS/min.ft,galUS/min.ft,m2/s,0,0.0002069888,1,0
+US gallons/minute square foot,volume per time per area,POSC,galUS/min.ft2,galUS/min.ft2,m/s,0,0.0006790972,1,0
+US gallons/minute/minute,volume per time per time,POSC,galUS/min2,galUS/min2,m3/s2,0,0.003785412,3600,0
+US gals/1000 std cubic feet. 60 deg F,volume per standard volume,POSC,galUS/Mscf(60F),galUS/min2,m3/scm(15C),0,0.003785412,28.262.357,0
+US gallons/94 lb sack,specific volume,POSC,galUS/sack94,galUS/min2,m3/kg,0,0.003785412,4.263.769,0
+US gallons/94 lb sack,massic volume,POSC,galUS/sack94,galUS/min2,m3/kg,0,0.003785412,4.263.769,0
+US gallons/UK ton,specific volume,POSC,galUS/tonUK,galUS/tonUK,m3/kg,0,0.000003725627,1,0
+US gallons/UK ton,massic volume,POSC,galUS/tonUK,galUS/tonUK,m3/kg,0,0.000003725627,1,0
+US gallons/US ton,specific volume,POSC,galUS/tonUS,galUS/tonUS,m3/kg,0,0.000004172702,1,0
+US gallons/US ton,massic volume,POSC,galUS/tonUS,galUS/tonUS,m3/kg,0,0.000004172702,1,0
+gamma,linear electric current density,POSC,gamma,galUS/tonUS,A/m,0,0.0007957747,1,0
+gamma,magnetic field strength,POSC,gamma,galUS/tonUS,A/m,0,0.0007957747,1,0
+gamma,magnetization,POSC,gamma,galUS/tonUS,A/m,0,0.0007957747,1,0
+gauss,magnetic induction,POSC,gauss,galUS/tonUS,T,0,0.0001,1,0
+gauss,magnetic flux density,POSC,gauss,galUS/tonUS,T,0,0.0001,1,0
+gigabecquerel,activity (of radioactivity),POSC,GBq,GBq,Bq,0,1000000000,1,0
+billions of electron volts,energy,POSC,GeV,GeV,J,0,0.000000000160219,1,0
+billions of electron volts,work,POSC,GeV,GeV,J,0,0.000000000160219,1,0
+gram force,force,POSC,gf,gf,N,0,0.00980665,1,0
+gigahertz,frequency,POSC,GHz,GHz,rad/s,0,6283185307,1,0
+gigajoule,energy,POSC,GJ,GJ,J,0,1000000000,1,0
+gigajoule,work,POSC,GJ,GJ,J,0,1000000000,1,0
+gravity,acceleration linear,POSC,gn,gn,m/s2,0,980.665,1,0
+gigaohm,resistance,POSC,Gohm,Gohm,ohm,0,1000000000,1,0
+gigaohm,impedance,POSC,Gohm,Gohm,ohm,0,1000000000,1,0
+gons,plane angle,POSC,gon,Gohm,rad,0,0.015707963268,1,0
+gigapascal,force per area,POSC,GPa,GPa,Pa,0,1000000000,1,0
+gigapascal,pressure,POSC,GPa,GPa,Pa,0,1000000000,1,0
+gigapascal per centimeter,force per volume,POSC,GPa/cm,GPa/cm,Pa/m,0,1E+11,1,0
+gigapascal per centimeter,pressure per length,POSC,GPa/cm,GPa/cm,Pa/m,0,1E+11,1,0
+gigapascal squared,pressure squared,POSC,GPa2,GPa2,Pa2,0,1.00E+18,1,0
+grad,plane angle,POSC,gr,GPa2,rad,0,0.015707963268,1,0
+gigaradian,plane angle,POSC,Grad,Grad,rad,0,1000000000,1,0
+gigaradian,plane angle,POSC,(Deprecated),Grad,rad,0,1000000000,1,0
+grain,mass,POSC,grain,Grad,kg,0,0.00006479891,1,0
+grains/100 cubic feet,density,POSC,grain/100ft3,Grad,kg/m3,0,0.00002288352,1,0
+grains/100 cubic feet,mass density,POSC,grain/100ft3,Grad,kg/m3,0,0.00002288352,1,0
+grains/100 cubic feet,volumic mass,POSC,grain/100ft3,Grad,kg/m3,0,0.00002288352,1,0
+grains/cubic foot,density,POSC,grain/ft3,Grad,kg/m3,0,0.002288352,1,0
+grains/cubic foot,mass density,POSC,grain/ft3,Grad,kg/m3,0,0.002288352,1,0
+grains/cubic foot,volumic mass,POSC,grain/ft3,Grad,kg/m3,0,0.002288352,1,0
+grains/100 cubic feet,density,POSC,grain/ft3(100),Grad,kg/m3,0,0.00002288352,1,0
+grains/100 cubic feet,mass density,POSC,(Deprecated),Grad,kg/m3,0,0.00002288352,1,0
+grains/100 cubic feet,volumic mass,POSC,(Deprecated),Grad,kg/m3,0,0.00002288352,1,0
+grains/US gallon,density,POSC,grain/galUS,Grad,kg/m3,0,0.01711806,1,0
+grains/US gallon,mass density,POSC,grain/galUS,Grad,kg/m3,0,0.01711806,1,0
+grains/US gallon,volumic mass,POSC,grain/galUS,Grad,kg/m3,0,0.01711806,1,0
+gigasiemens,electric conductance,POSC,GS,GS,S,0,1000000000,1,0
+gigasiemens,admittance,POSC,GS,GS,S,0,1000000000,1,0
+gigasiemens,susceptance,POSC,GS,GS,S,0,1000000000,1,0
+giga standard cubic metres 15C,standard volume,POSC,Gsm3,GS,scm(15C),0,1000000000,1,0
+gigawatt,power,POSC,GW,GW,W,0,1000000000,1,0
+gigawatt,heat flow rate,POSC,GW,GW,W,0,1000000000,1,0
+gigawatt hour,energy,POSC,GW.h,GW.h,J,0,3.6E+12,1,0
+gigawatt hour,work,POSC,GW.h,GW.h,J,0,3.6E+12,1,0
+hour,time,POSC,h,h,s,0,3600,1,0
+hours/cubic foot,time per volume,POSC,h/ft3,h/ft3,s/m3,0,3600,0.028316846592,0
+hour per thousand foot,time per length,POSC,h/kft,h/ft3,s/m,0,3600,304.8,0
+hour per kilometer,time per length,POSC,h/km,h/km,s/m,0,3.Haz,1,0
+hour per cubic meter,time per volume,POSC,h/m3,h/m3,s/m3,0,3600,1,0
+hectare,area,POSC,ha,ha,m2,0,10000,1,0
+hectare metres,volume,POSC,ha.m,ha.m,m3,0,10000,1,0
+hectobar,force per area,POSC,hbar,hbar,Pa,0,10000000,1,0
+hectobar,pressure,POSC,hbar,hbar,Pa,0,10000000,1,0
+hydraulic horsepower,power,POSC,hhp,hhp,W,0,746.043,1,0
+(hydraulic) horsepower per square inch,density of heat flow rate,POSC,hhp/in2,hhp/in2,W/m2,0,746.043,0.00064516,0
+(hydraulic) horsepower per square inch,poynting vector,POSC,hhp/in2,hhp/in2,W/m2,0,746.043,0.00064516,0
+(hydraulic) horsepower per square inch,radiant energy,POSC,hhp/in2,hhp/in2,W/m2,0,746.043,0.00064516,0
+(hydraulic) horsepower per square inch,fluence rate,POSC,hhp/in2,hhp/in2,W/m2,0,746.043,0.00064516,0
+(hydraulic) horsepower per square inch,radiant exitance,POSC,hhp/in2,hhp/in2,W/m2,0,746.043,0.00064516,0
+(hydraulic) horsepower per square inch,irradiance,POSC,hhp/in2,hhp/in2,W/m2,0,746.043,0.00064516,0
+(hydraulic) horsepower per square inch,sound intensity,POSC,hhp/in2,hhp/in2,W/m2,0,746.043,0.00064516,0
+(hydraulic) horsepower per square inch,energy fluence rate,POSC,hhp/in2,hhp/in2,W/m2,0,746.043,0.00064516,0
+hectoliter,volume,POSC,hL,hL,m3,0,0.1,1,0
+horsepower,power,POSC,hp,hp,W,0,7.456.999,1,0
+horsepower hour,energy,POSC,hp.hr,hp.h,J,0,2684520,1,0
+horsepower hour,work,POSC,hp.hr,hp.h,J,0,2684520,1,0
+horsepower hours/barrel,normal stress,POSC,hp.hr/bbl,hp.h/bbl,J/m3,0,2684520,0.1589873,0
+horsepower hours/barrel,shear stress,POSC,hp.hr/bbl,hp.h/bbl,J/m3,0,2684520,0.1589873,0
+horsepower hours/barrel,modulus of elasticity,POSC,hp.hr/bbl,hp.h/bbl,J/m3,0,2684520,0.1589873,0
+horsepower hours/barrel,shear modulus,POSC,hp.hr/bbl,hp.h/bbl,J/m3,0,2684520,0.1589873,0
+horsepower hours/barrel,modulus of rigidity,POSC,hp.hr/bbl,hp.h/bbl,J/m3,0,2684520,0.1589873,0
+horsepower hours/barrel,bulk modulus,POSC,hp.hr/bbl,hp.h/bbl,J/m3,0,2684520,0.1589873,0
+horsepower hours/barrel,modulus of compression,POSC,hp.hr/bbl,hp.h/bbl,J/m3,0,2684520,0.1589873,0
+horsepower hours/barrel,electromagnetic energy density,POSC,hp.hr/bbl,hp.h/bbl,J/m3,0,2684520,0.1589873,0
+horsepower hours/barrel,radiant energy density,POSC,hp.hr/bbl,hp.h/bbl,J/m3,0,2684520,0.1589873,0
+horsepower hours/pound mass,specific energy,POSC,hp.hr/lbm,hp.h/lbm,J/kg,0,2684520,0.4535924,0
+horsepower/cubic foot,power per volume,POSC,hp/ft3,hp/ft3,W/m3,0,26334.14,1,0
+horsepower per square inch,density of heat flow rate,POSC,hp/in2,hp/in2,W/m2,0,7.456.999,0.00064516,0
+horsepower per square inch,poynting vector,POSC,hp/in2,hp/in2,W/m2,0,7.456.999,0.00064516,0
+horsepower per square inch,radiant energy,POSC,hp/in2,hp/in2,W/m2,0,7.456.999,0.00064516,0
+horsepower per square inch,fluence rate,POSC,hp/in2,hp/in2,W/m2,0,7.456.999,0.00064516,0
+horsepower per square inch,radiant exitance,POSC,hp/in2,hp/in2,W/m2,0,7.456.999,0.00064516,0
+horsepower per square inch,irradiance,POSC,hp/in2,hp/in2,W/m2,0,7.456.999,0.00064516,0
+horsepower per square inch,sound intensity,POSC,hp/in2,hp/in2,W/m2,0,7.456.999,0.00064516,0
+horsepower per square inch,energy fluence rate,POSC,hp/in2,hp/in2,W/m2,0,7.456.999,0.00064516,0
+hundred seconds,time,POSC,hs,hp/in2,s,0,100,1,0
+inch,length,POSC,in,in,m,0,0.0254,1,0
+inch,breadth,POSC,in,in,m,0,0.0254,1,0
+inch,height,POSC,in,in,m,0,0.0254,1,0
+inch,thickness,POSC,in,in,m,0,0.0254,1,0
+inch,radius,POSC,in,in,m,0,0.0254,1,0
+inch,radius of curvature,POSC,in,in,m,0,0.0254,1,0
+inch,Cartesian coordinates,POSC,in,in,m,0,0.0254,1,0
+inch,diameter,POSC,in,in,m,0,0.0254,1,0
+inch,length of path,POSC,in,in,m,0,0.0254,1,0
+inch,distance,POSC,in,in,m,0,0.0254,1,0
+inch,wavelength,POSC,in,in,m,0,0.0254,1,0
+inch,mean free path,POSC,in,in,m,0,0.0254,1,0
+tenth of an inch,length,POSC,in/10,in,m,0,0.00254,1,0
+tenth of an inch,breadth,POSC,in/10,in,m,0,0.00254,1,0
+tenth of an inch,height,POSC,in/10,in,m,0,0.00254,1,0
+tenth of an inch,thickness,POSC,in/10,in,m,0,0.00254,1,0
+tenth of an inch,radius,POSC,in/10,in,m,0,0.00254,1,0
+tenth of an inch,radius of curvature,POSC,in/10,in,m,0,0.00254,1,0
+tenth of an inch,Cartesian coordinates,POSC,in/10,in,m,0,0.00254,1,0
+tenth of an inch,diameter,POSC,in/10,in,m,0,0.00254,1,0
+16th of an inch,length,POSC,in/16,1/16 in,m,0,0.0015875,1,0
+16th of an inch,breadth,POSC,in/16,1/16 in,m,0,0.0015875,1,0
+16th of an inch,height,POSC,in/16,1/16 in,m,0,0.0015875,1,0
+16th of an inch,thickness,POSC,in/16,1/16 in,m,0,0.0015875,1,0
+16th of an inch,radius,POSC,in/16,1/16 in,m,0,0.0015875,1,0
+16th of an inch,radius of curvature,POSC,in/16,1/16 in,m,0,0.0015875,1,0
+16th of an inch,Cartesian coordinates,POSC,in/16,1/16 in,m,0,0.0015875,1,0
+16th of an inch,diameter,POSC,in/16,1/16 in,m,0,0.0015875,1,0
+32nd of an inch,length,POSC,in/32,1/32 in,m,0,0.00079375,1,0
+32nd of an inch,breadth,POSC,in/32,1/32 in,m,0,0.00079375,1,0
+32nd of an inch,height,POSC,in/32,1/32 in,m,0,0.00079375,1,0
+32nd of an inch,thickness,POSC,in/32,1/32 in,m,0,0.00079375,1,0
+32nd of an inch,radius,POSC,in/32,1/32 in,m,0,0.00079375,1,0
+32nd of an inch,radius of curvature,POSC,in/32,1/32 in,m,0,0.00079375,1,0
+32nd of an inch,Cartesian coordinates,POSC,in/32,1/32 in,m,0,0.00079375,1,0
+32nd of an inch,diameter,POSC,in/32,1/32 in,m,0,0.00079375,1,0
+64th of an inch,length,POSC,in/64,1/64 in,m,0,0.000396875,1,0
+64th of an inch,breadth,POSC,in/64,1/64 in,m,0,0.000396875,1,0
+64th of an inch,height,POSC,in/64,1/64 in,m,0,0.000396875,1,0
+64th of an inch,thickness,POSC,in/64,1/64 in,m,0,0.000396875,1,0
+64th of an inch,radius,POSC,in/64,1/64 in,m,0,0.000396875,1,0
+64th of an inch,radius of curvature,POSC,in/64,1/64 in,m,0,0.000396875,1,0
+64th of an inch,Cartesian coordinates,POSC,in/64,1/64 in,m,0,0.000396875,1,0
+64th of an inch,diameter,POSC,in/64,1/64 in,m,0,0.000396875,1,0
+inches/year,velocity,POSC,in/a,in/a,m/s,0,0.0254,31558150,0
+inches/inch degree Fahrenheit,linear thermal expansion,POSC,in/in.F,in/in.F,1/K,0,1.Ağu,1,0
+inches/minute,velocity,POSC,in/min,in/min,m/s,0,0.0254,60,0
+inches/second,velocity,POSC,in/s,in/s,m/s,0,0.0254,1,0
+square inches,area,POSC,in2,in2|sq in,m2,0,0.00064516,1,0
+square inches/square foot,area per area,POSC,in2/ft2,in2/ft2,Euc,0,1,144,0
+square inches/square foot,shear strain,POSC,in2/ft2,in2/ft2,Euc,0,1,144,0
+square inches/square inch,area per area,POSC,in2/in2,in2/in2,Euc,0,1,1,0
+square inches/square inch,shear strain,POSC,in2/in2,in2/in2,Euc,0,1,1,0
+square inches/second,kinematic viscosity,POSC,in2/s,in2/s,m2/s,0,0.00064516,1,0
+square inches/second,thermal diffusivity,POSC,in2/s,in2/s,m2/s,0,0.00064516,1,0
+square inches/second,area per time,POSC,in2/s,in2/s,m2/s,0,0.00064516,1,0
+cubic inches,volume,POSC,in3,in3|cu in,m3,0,0.00001638706,1,0
+cubic inches/foot,volume per length,POSC,in3/ft,in3/ft,m2,0,0.000016387064,0.3048,0
+inches to the fourth,second moment of area,POSC,in4,in4,m4,0,0.0000004162314,1,0
+inches of water at 39.2 deg F,force per area,POSC,inH2O(39.2F),in4,Pa,0,249.082,1,0
+inches of water at 39.2 deg F,pressure,POSC,inH2O(39.2F),in4,Pa,0,249.082,1,0
+inches of water at 60 deg F,force per area,POSC,inH2O(60F),in4,Pa,0,248.84,1,0
+inches of water at 60 deg F,pressure,POSC,inH2O(60F),in4,Pa,0,248.84,1,0
+inches of mercury at 32 deg F,force per area,POSC,inHg(32F),in4,Pa,0,3386.38,1,0
+inches of mercury at 32 deg F,pressure,POSC,inHg(32F),in4,Pa,0,3386.38,1,0
+inches of mercury at 60 deg F,force per area,POSC,inHg(60F),in4,Pa,0,3376.85,1,0
+inches of mercury at 60 deg F,pressure,POSC,inHg(60F),in4,Pa,0,3376.85,1,0
+US Survey inch,length,POSC,inUS,inUS,m,0,1,39.37,0
+US Survey inch,depth,POSC,inUS,inUS,m,0,1,39.37,0
+US Survey inch,Cartesian coordinates,POSC,inUS,inUS,m,0,1,39.37,0
+US Survey inch,distance,POSC,inUS,inUS,m,0,1,39.37,0
+joules/square centimetre,energy per area,POSC,J/cm2,J/cm2,N/m,0,10000,1,0
+joules/cubic decimetre,normal stress,POSC,J/dm3,J/dm3,J/m3,0,1000,1,0
+joules/cubic decimetre,shear stress,POSC,J/dm3,J/dm3,J/m3,0,1000,1,0
+joules/cubic decimetre,modulus of elasticity,POSC,J/dm3,J/dm3,J/m3,0,1000,1,0
+joules/cubic decimetre,shear modulus,POSC,J/dm3,J/dm3,J/m3,0,1000,1,0
+joules/cubic decimetre,modulus of rigidity,POSC,J/dm3,J/dm3,J/m3,0,1000,1,0
+joules/cubic decimetre,bulk modulus,POSC,J/dm3,J/dm3,J/m3,0,1000,1,0
+joules/cubic decimetre,modulus of compression,POSC,J/dm3,J/dm3,J/m3,0,1000,1,0
+joules/cubic decimetre,electromagnetic energy density,POSC,J/dm3,J/dm3,J/m3,0,1000,1,0
+joules/cubic decimetre,radiant energy density,POSC,J/dm3,J/dm3,J/m3,0,1000,1,0
+joules/gram,specific energy,POSC,J/g,J/g,J/kg,0,1000,1,0
+joules/gram degree Kelvin,specific heat capacity,POSC,J/g.K,J/g.K,J/kg.K,0,1000,1,0
+joules/gram degree Kelvin,massic heat capacity,POSC,J/g.K,J/g.K,J/kg.K,0,1000,1,0
+joules/metre,energy per length,POSC,J/m,J/m,N,0,1,1,0
+joules/square metre,energy per area,POSC,J/m2,J/m2,N/m,0,1,1,0
+joules/second square metre deg C,heat transfer coefficient,POSC,J/s.m2.C,J/s.m2.C,W/m2.K,0,1,1,0
+degrees Kelvin square metres/kilowatt,thermal insulance,POSC,K.m2/kW,K.m2/kW,K.m2/W,0,0.001,1,0
+degrees Kelvin square metres/kilowatt,coefficient of thermal insulation,POSC,K.m2/kW,K.m2/kW,K.m2/W,0,0.001,1,0
+kiloampere,electric current,POSC,kA,kA,A,0,1000,1,0
+kiloampere,magnetic potential difference,POSC,kA,kA,A,0,1000,1,0
+kiloampere,magnetomotive force,POSC,kA,kA,A,0,1000,1,0
+thousand barrels per day,volume flow rate,POSC,kbbl/d,kA,m3/s,0,1.589.873,86400,0
+kilobyte,digital storage,POSC,kbyte,kA,byte,0,1024,1,0
+kilocoulombs,electric capacity,POSC,kC,kC,C,0,1000,1,0
+kilocoulombs,electric charge,POSC,kC,kC,C,0,1000,1,0
+kilocoulombs,electric flux,POSC,kC,kC,C,0,1000,1,0
+kilocalories,energy,POSC,kcal,kcal,J,0,4184,1,0
+kilocalories,work,POSC,kcal,kcal,J,0,4184,1,0
+kilocalorie metres/square centimetre,energy length per area,POSC,kcal.m/cm2,kcal.m/cm2,N,0,4184,0.0001,0
+kilocalories/cubic centimetre,normal stress,POSC,kcal/cm3,kcal/cm3,J/m3,0,4184,0.000001,0
+kilocalories/cubic centimetre,shear stress,POSC,kcal/cm3,kcal/cm3,J/m3,0,4184,0.000001,0
+kilocalories/cubic centimetre,modulus of elasticity,POSC,kcal/cm3,kcal/cm3,J/m3,0,4184,0.000001,0
+kilocalories/cubic centimetre,shear modulus,POSC,kcal/cm3,kcal/cm3,J/m3,0,4184,0.000001,0
+kilocalories/cubic centimetre,modulus of rigidity,POSC,kcal/cm3,kcal/cm3,J/m3,0,4184,0.000001,0
+kilocalories/cubic centimetre,bulk modulus,POSC,kcal/cm3,kcal/cm3,J/m3,0,4184,0.000001,0
+kilocalories/cubic centimetre,modulus of compression,POSC,kcal/cm3,kcal/cm3,J/m3,0,4184,0.000001,0
+kilocalories/cubic centimetre,electromagnetic energy density,POSC,kcal/cm3,kcal/cm3,J/m3,0,4184,0.000001,0
+kilocalories/cubic centimetre,radiant energy density,POSC,kcal/cm3,kcal/cm3,J/m3,0,4184,0.000001,0
+kilocalories/gram,specific energy,POSC,kcal/g,kcal/g,J/kg,0,4184,0.001,0
+kilocalories/hour,power,POSC,kcal/h,kcal/h,W,0,1.162.222,1,0
+kilocalories/hour metre degree Celsius,thermal conductivity,POSC,kcal/h.m.C,kcal/h.m.C,W/m.K,0,1.162.222,1,0
+kilocalorie/hour square metre deg C,heat transfer coefficient,POSC,kcal/h.m2.,kcal/h.m2.C,W/m2.K,0,1.162.222,1,0
+kilocalories/kilogram,specific energy,POSC,kcal/kg,kcal/kg,J/kg,0,4184,1,0
+kilocalories/kilogram degree Celsius,specific heat capacity,POSC,kcal/kg.,kcal/kg.C,J/kg.K,0,4184,1,0
+kilocalories/kilogram degree Celsius,massic heat capacity,POSC,kcal/kg.C,kcal/kg.C,J/kg.K,0,4184,1,0
+kilocalroies/cubic metre,normal stress,POSC,kcal/m3,kcal/m3,J/m3,0,4184,1,0
+kilocalroies/cubic metre,shear stress,POSC,kcal/m3,kcal/m3,J/m3,0,4184,1,0
+kilocalroies/cubic metre,modulus of elasticity,POSC,kcal/m3,kcal/m3,J/m3,0,4184,1,0
+kilocalroies/cubic metre,shear modulus,POSC,kcal/m3,kcal/m3,J/m3,0,4184,1,0
+kilocalroies/cubic metre,modulus of rigidity,POSC,kcal/m3,kcal/m3,J/m3,0,4184,1,0
+kilocalroies/cubic metre,bulk modulus,POSC,kcal/m3,kcal/m3,J/m3,0,4184,1,0
+kilocalroies/cubic metre,modulus of compression,POSC,kcal/m3,kcal/m3,J/m3,0,4184,1,0
+kilocalroies/cubic metre,electromagnetic energy density,POSC,kcal/m3,kcal/m3,J/m3,0,4184,1,0
+kilocalroies/cubic metre,radiant energy density,POSC,kcal/m3,kcal/m3,J/m3,0,4184,1,0
+kilocalories/mole (gram),molar thermodynamic energy,POSC,kcal/mol,kcal/m3,J/mol,0,4184,1,0
+kilocalories/mole (gram),chemical potential,POSC,kcal/mol,kcal/m3,J/mol,0,4184,1,0
+kilocalories/mole (gram),affinity of a chemical reaction,POSC,kcal/mol,kcal/m3,J/mol,0,4184,1,0
+kilocalories/mole (gram),molar thermodynamic energy,POSC,kcal/mol(g),kcal/m3,J/mol,0,4184000,1,0
+kilocalories/mole (gram),chemical potential,POSC,(Deprecated),kcal/m3,J/mol,0,4184000,1,0
+kilocalories/mole (gram),affinity of a chemical reaction,POSC,(Deprecated),kcal/m3,J/mol,0,4184000,1,0
+kilocandela,luminous intensity,POSC,kcd,kcd,cd,0,1000,1,0
+kilkodynes,force,POSC,kdyne,kcd,N,0,0.01,1,0
+thousand per second,per time,POSC,kEuc/s,kcd,1/s,0,1000,1,0
+kiloelectron volts,energy,POSC,keV,keV,J,0,1.60E-08,1,0
+kiloelectron volts,work,POSC,keV,keV,J,0,1.60E-08,1,0
+thousand foot pounds force,moment of force,POSC,kft.lbf,keV,J,0,1355818,1,0
+thousand foot pounds force,moment of couple,POSC,kft.lbf,keV,J,0,1355818,1,0
+thousand foot pounds force,torque,POSC,kft.lbf,keV,J,0,1355818,1,0
+thousand feet per hour,velocity,POSC,kft/h,keV,m/s,0,304.8,3600,0
+thousand feet per second,velocity,POSC,kft/s,keV,m/s,0,304.8,1,0
+kilogram metres/square centimetre,mass per length,POSC,kg.m/cm2,kg.m/cm2,kg/m,0,10000,1,0
+kilogram per day,mass flow rate,POSC,kg/d,kg/d,kg/s,0,1,86400,0
+kilograms/cubic decimetre,density,POSC,kg/dm3,kg/dm3,kg/m3,0,1000,1,0
+kilograms/cubic decimetre,mass density,POSC,kg/dm3,kg/dm3,kg/m3,0,1000,1,0
+kilograms/cubic decimetre,volumic mass,POSC,kg/dm3,kg/dm3,kg/m3,0,1000,1,0
+kilograms/decimetre fourth,mass per volume per length,POSC,kg/dm4,kg/dm4,kg/m4,0,10000,1,0
+kilograms/hour,mass flow rate,POSC,kg/h,kg/h,kg/s,0,1,3600,0
+kilograms/kilogram,mass concentration,POSC,kg/kg,kg/kg,Euc,0,1,1,0
+kilograms/kilowatt hour,mass per energy,POSC,kg/kW.h,kg/kW.h,kg/J,0,1,3600000,0
+kilogram per litre,density,POSC,kg/L,kg/L,kg/m3,0,1000,1,0
+kilogram per litre,mass density,POSC,kg/L,kg/L,kg/m3,0,1000,1,0
+kilogram per litre,volumic mass,POSC,kg/L,kg/L,kg/m3,0,1000,1,0
+kilograms/metre second,mass per time per length,POSC,kg/m.s,kg/m.s,Pa.s,0,1,1,0
+kilogram per min,mass flow rate,POSC,kg/min,kg/min,kg/s,0,1,60,0
+kilograms/megajoule,mass per energy,POSC,kg/MJ,kg/MJ,kg/J,0,0.000001,1,0
+kilogram per 94 pound sack,mass concentration,POSC,kg/sack94,kg/MJ,Euc,0,1,4.263.769,0
+kilogram force,force,POSC,kgf,kgf,N,0,980.665,1,0
+kilogram force metres,moment of force,POSC,kgf.m,kgf.m,J,0,980.665,1,0
+kilogram force metres,moment of couple,POSC,kgf.m,kgf.m,J,0,980.665,1,0
+kilogram force metres,torque,POSC,kgf.m,kgf.m,J,0,980.665,1,0
+kilogram force metres/square centimetre,energy per area,POSC,kgf.m/cm2,kgf.m/cm2,N/m,0,98066.5,1,0
+kilograms force metres/metre,force length per length,POSC,kgf.m/m,kgf.m/m,N,0,980.665,1,0
+kilogram force metres squared,force area,POSC,kgf.m2,kgf.m2,N.m2,0,980.665,1,0
+kilograms force seconds/square metre,dynamic viscosity,POSC,kgf.s/m2,kgf.s/m2,Pa.s,0,980.665,1,0
+kilograms force/centimetre,force per length,POSC,kgf/cm,kgf/cm,N/m,0,980.665,0.01,0
+kilogram per square centimeter,force per area,POSC,kgf/cm2,kgf/cm2,Pa,0,980.665,0.0001,0
+kilogram per square centimeter,pressure,POSC,kgf/cm2,kgf/cm2,Pa,0,980.665,0.0001,0
+kilogram force per kilogram force,force per force,POSC,kgf/kgf,kgf/kgf,Euc,0,1,1,0
+kilogram force/square millimetre,force per area,POSC,kgf/mm2,kgf/mm2,Pa,0,980.665,0.000001,0
+kilogram force/square millimetre,pressure,POSC,kgf/mm2,kgf/mm2,Pa,0,980.665,0.000001,0
+kilohertz,frequency,POSC,kHz,kHz,rad/s,0,6.283.185.307,1,0
+kilojoules,energy,POSC,kJ,kJ,J,0,1000,1,0
+kilojoules,work,POSC,kJ,kJ,J,0,1000,1,0
+kilojoule metres/hour sq metre deg K,energy length per time area temperature,POSC,kJ.m/h.m2.K,kJ.m/h.m2.K,W/m.K,0,1,3.Haz,0
+kilojoules/cubic decimetre,normal stress,POSC,kJ/dm3,kJ/dm3,J/m3,0,1000000,1,0
+kilojoules/cubic decimetre,shear stress,POSC,kJ/dm3,kJ/dm3,J/m3,0,1000000,1,0
+kilojoules/cubic decimetre,modulus of elasticity,POSC,kJ/dm3,kJ/dm3,J/m3,0,1000000,1,0
+kilojoules/cubic decimetre,shear modulus,POSC,kJ/dm3,kJ/dm3,J/m3,0,1000000,1,0
+kilojoules/cubic decimetre,modulus of rigidity,POSC,kJ/dm3,kJ/dm3,J/m3,0,1000000,1,0
+kilojoules/cubic decimetre,bulk modulus,POSC,kJ/dm3,kJ/dm3,J/m3,0,1000000,1,0
+kilojoules/cubic decimetre,modulus of compression,POSC,kJ/dm3,kJ/dm3,J/m3,0,1000000,1,0
+kilojoules/cubic decimetre,electromagnetic energy density,POSC,kJ/dm3,kJ/dm3,J/m3,0,1000000,1,0
+kilojoules/cubic decimetre,radiant energy density,POSC,kJ/dm3,kJ/dm3,J/m3,0,1000000,1,0
+kilojoules/hour square metre deg K,heat transfer coefficient,POSC,kJ/h.m2.K,kJ/h.m2.K,W/m2.K,0,1000,3600,0
+kilojoule/kilogram,specific energy,POSC,kJ/kg,kJ/kg,J/kg,0,1000,1,0
+kilojoules/kilogram degree Kelvin,specific heat capacity,POSC,kJ/kg.K,kJ/kg.K,J/kg.K,0,1000,1,0
+kilojoules/kilogram degree Kelvin,massic heat capacity,POSC,kJ/kg.K,kJ/kg.K,J/kg.K,0,1000,1,0
+kilojoule/cubic metre,normal stress,POSC,kJ/m3,kJ/m3,J/m3,0,1000,1,0
+kilojoule/cubic metre,shear stress,POSC,kJ/m3,kJ/m3,J/m3,0,1000,1,0
+kilojoule/cubic metre,modulus of elasticity,POSC,kJ/m3,kJ/m3,J/m3,0,1000,1,0
+kilojoule/cubic metre,shear modulus,POSC,kJ/m3,kJ/m3,J/m3,0,1000,1,0
+kilojoule/cubic metre,modulus of rigidity,POSC,kJ/m3,kJ/m3,J/m3,0,1000,1,0
+kilojoule/cubic metre,bulk modulus,POSC,kJ/m3,kJ/m3,J/m3,0,1000,1,0
+kilojoule/cubic metre,modulus of compression,POSC,kJ/m3,kJ/m3,J/m3,0,1000,1,0
+kilojoule/cubic metre,electromagnetic energy density,POSC,kJ/m3,kJ/m3,J/m3,0,1000,1,0
+kilojoule/cubic metre,radiant energy density,POSC,kJ/m3,kJ/m3,J/m3,0,1000,1,0
+kilojoule/mole (kilogram),molar thermodynamic energy,POSC,kJ/kmol,kJ/mol,J/mol,0,1.0,1,0
+kilojoule/mole (kilogram),chemical potential,POSC,kJ/kmol,kJ/mol,J/mol,0,1.0,1,0
+kilojoule/mole (kilogram),affinity of a chemical reaction,POSC,kJ/kmol,kJ/mol,J/mol,0,1.0,1,0
+kilojoule/mole (kilogram),molar thermodynamic energy,POSC,kJ/mol(kg),kJ/mol,J/mol,0,1000,1,0
+kilojoule/mole (kilogram),chemical potential,POSC,(Deprecated),kJ/mol,J/mol,0,1000,1,0
+kilojoule/mole (kilogram),affinity of a chemical reaction,POSC,(Deprecated),kJ/mol,J/mol,0,1000,1,0
+kilojoules/mole (kilogram) deg K,molar heat capacity,POSC,kJ/kmol.K,kJ/kmol.K,J/mol.K,0,1.0,1,0
+kilojoules/mole (kilogram) deg K,molar entropy,POSC,kJ/kmol.K,kJ/kmol.K,J/mol.K,0,1.0,1,0
+kilojoules/mole (kilogram) deg K,molar gas constant,POSC,kJ/kmol.K,kJ/kmol.K,J/mol.K,0,1.0,1,0
+kilojoules/mole (kilogram) deg K,molar heat capacity,POSC,kJ/mol(kg).K,kJ/mol.K,J/mol.K,0,1000,1,0
+kilojoules/mole (kilogram) deg K,molar entropy,POSC,(Deprecated),kJ/mol.K,J/mol.K,0,1000,1,0
+kilojoules/mole (kilogram) deg K,molar gas constant,POSC,(Deprecated),kJ/mol.K,J/mol.K,0,1000,1,0
+thousand pounds force,force,POSC,klbf,kJ/mol.K,N,0,4.448.222,1,0
+thousand pounds mass,mass,POSC,klbm,kJ/mol.K,kg,0,4.535.924,1,0
+thousand pounds mass per inch,mass per length,POSC,klbm/in,kJ/mol.K,kg/m,0,4.535.924,0.0254,0
+thousand pounds mass per inch,linear density,POSC,klbm/in,kJ/mol.K,kg/m,0,4.535.924,0.0254,0
+kilolux,illuminance,POSC,klx,klx,lx,0,1000,1,0
+kilometre,length,POSC,km,km,m,0,1000,1,0
+kilometre,breadth,POSC,km,km,m,0,1000,1,0
+kilometre,height,POSC,km,km,m,0,1000,1,0
+kilometre,thickness,POSC,km,km,m,0,1000,1,0
+kilometre,radius,POSC,km,km,m,0,1000,1,0
+kilometre,radius of curvature,POSC,km,km,m,0,1000,1,0
+kilometre,Cartesian coordinates,POSC,km,km,m,0,1000,1,0
+kilometre,diameter,POSC,km,km,m,0,1000,1,0
+kilometre,length of path,POSC,km,km,m,0,1000,1,0
+kilometre,distance,POSC,km,km,m,0,1000,1,0
+kilometre,wavelength,POSC,km,km,m,0,1000,1,0
+kilometre,mean free path,POSC,km,km,m,0,1000,1,0
+kilometre/ centimetre,scale,POSC,km/cm,km/cm,Euc,0,100000,1,0
+kilometre/ centimetre,length per length,POSC,km/cm,km/cm,Euc,0,100000,1,0
+kilometres/cubic decimetre,length per volume,POSC,km/dm3,km/dm3,1/m2,0,1000000,1,0
+kilometres/hour,velocity,POSC,km/h,km/h,m/s,0,1,3.Haz,0
+kilometres/litre,length per volume,POSC,km/L,km/L,1/m2,0,1000000,1,0
+kilometer per second,velocity,POSC,km/s,km/s,m/s,0,1000,1,0
+square kilometres,area,POSC,km2,km2,m2,0,1000000,1,0
+cubic kilometres,volume,POSC,km3,km3,m3,0,1000000000,1,0
+kilomole,amount of substance,POSC,kmol,kmol,mol,0,1000,1,0
+kilonewtons,force,POSC,kN,kN,N,0,1000,1,0
+kilonewton metres,moment of force,POSC,kN.m,kN.m,J,0,1000,1,0
+kilonewton metres,moment of couple,POSC,kN.m,kN.m,J,0,1000,1,0
+kilonewton metres,torque,POSC,kN.m,kN.m,J,0,1000,1,0
+kilonewton metres squared,force area,POSC,kN.m2,kN.m2,N.m2,0,1000,1,0
+kilonewtons/metre,force per length,POSC,kN/m,kN/m,N/m,0,1000,1,0
+kilonewtons/square metre,force per area,POSC,kN/m2,kN/m2,Pa,0,1000,1,0
+kilonewtons/square metre,pressure,POSC,kN/m2,kN/m2,Pa,0,1000,1,0
+knots,velocity,POSC,knot,kN/m2,m/s,0,1852,3600,0
+kilohm,resistance,POSC,kohm,kohm,ohm,0,1000,1,0
+kilohm,impedance,POSC,kohm,kohm,ohm,0,1000,1,0
+kilo ohm metre,electrical resistivity,POSC,kohm.m,kohm.m,ohm.m,0,1000,1,0
+kilopascals,force per area,POSC,kPa,kPa,Pa,0,1000,1,0
+kilopascals,pressure,POSC,kPa,kPa,Pa,0,1000,1,0
+kilopascal seconds/metre,mass per time per area,POSC,kPa.s/m,kPa.s/m,kg/m2.s,0,1000,1,0
+kilopascal per hundred meter,force per volume,POSC,kPa/100m,kPa/hm,Pa/m,0,10,1,0
+kilopascal per hundred meter,pressure per length,POSC,kPa/100m,kPa/hm,Pa/m,0,10,1,0
+kilopascal per hour,pressure per time,POSC,kPa/h,kPa/h,Pa/s,0,1000,3600,0
+kilopascals/metre,force per volume,POSC,kPa/m,kPa/m,Pa/m,0,1000,1,0
+kilopascals/metre,pressure per length,POSC,kPa/m,kPa/m,Pa/m,0,1000,1,0
+kilopascal per min,pressure per time,POSC,kPa/min,kPa/min,Pa/s,0,1000,60,0
+kilopascal squared,pressure squared,POSC,kPa2,kPa2,Pa2,0,1000000,1,0
+kilopascal squared per centipoise,pressure squared per (dynamic viscosity),POSC,kPa2/cP,kPa2/cP,Pa/s,0,1000000000,1,0
+kilopascal squared per thousand centipoise,pressure squared per (dynamic viscosity),POSC,kPa2/kcP,kPa2/cP,Pa/s,0,1000000,1,0
+thousand pounds per square inch,force per area,POSC,kpsi,kPa2/cP,Pa,0,6894757,1,0
+thousand pounds per square inch,pressure,POSC,kpsi,kPa2/cP,Pa,0,6894757,1,0
+thousand pound per square inch. squared,pressure squared,POSC,kpsi2,kPa2/cP,Pa2,0,4.75377E+13,1,0
+kiloradian,plane angle,POSC,krad,kPa2/cP,rad,0,1000,1,0
+kilosiemens,electric conductance,POSC,kS,kS,S,0,1000,1,0
+kilosiemens,admittance,POSC,kS,kS,S,0,1000,1,0
+kilosiemens,susceptance,POSC,kS,kS,S,0,1000,1,0
+kilo standard cubic metres 15C,standard volume,POSC,ksm3,kS,scm(15C),0,1000,1,0
+thousand std cubic metres/ day,standard volume per time,POSC,ksm3/d,kS,scm(15C)/s,0,1000,86400,0
+1000 std cubic metres/ std cubic metre,volume per volume,POSC,ksm3/sm3,kS,Euc,0,1000,1,0
+kilovolt,electric potential,POSC,kV,kV,V,0,1000,1,0
+kilowatts,power,POSC,kW,kW,W,0,1000,1,0
+kilowatts,heat flow rate,POSC,kW,kW,W,0,1000,1,0
+kilowatt hours,energy,POSC,kW.h,kW.h,J,0,3600000,1,0
+kilowatt hours,work,POSC,kW.h,kW.h,J,0,3600000,1,0
+kilowatt hours/decimetre,normal stress,POSC,kW.h/dm3,kW.h/dm3,J/m3,0,3600000,0.001,0
+kilowatt hours/decimetre,shear stress,POSC,kW.h/dm3,kW.h/dm3,J/m3,0,3600000,0.001,0
+kilowatt hours/decimetre,modulus of elasticity,POSC,kW.h/dm3,kW.h/dm3,J/m3,0,3600000,0.001,0
+kilowatt hours/decimetre,shear modulus,POSC,kW.h/dm3,kW.h/dm3,J/m3,0,3600000,0.001,0
+kilowatt hours/decimetre,modulus of rigidity,POSC,kW.h/dm3,kW.h/dm3,J/m3,0,3600000,0.001,0
+kilowatt hours/decimetre,bulk modulus,POSC,kW.h/dm3,kW.h/dm3,J/m3,0,3600000,0.001,0
+kilowatt hours/decimetre,modulus of compression,POSC,kW.h/dm3,kW.h/dm3,J/m3,0,3600000,0.001,0
+kilowatt hours/decimetre,electromagnetic energy density,POSC,kW.h/dm3,kW.h/dm3,J/m3,0,3600000,0.001,0
+kilowatt hours/decimetre,radiant energy density,POSC,kW.h/dm3,kW.h/dm3,J/m3,0,3600000,0.001,0
+kilowatt hours/kilogram,specific energy,POSC,kW.h/kg,kW.h/kg,J/kg,0,3600000,1,0
+kilowatt hours/kilogram degree C,specific heat capacity,POSC,kW.h/kg.C,kW.h/kg.C,J/kg.K,0,3600000,1,0
+kilowatt hours/kilogram degree C,massic heat capacity,POSC,kW.h/kg.C,kW.h/kg.C,J/kg.K,0,3600000,1,0
+kilowatt hours/cubic metres,normal stress,POSC,kW.h/m3,kW.h/m3,J/m3,0,3600000,1,0
+kilowatt hours/cubic metres,shear stress,POSC,kW.h/m3,kW.h/m3,J/m3,0,3600000,1,0
+kilowatt hours/cubic metres,modulus of elasticity,POSC,kW.h/m3,kW.h/m3,J/m3,0,3600000,1,0
+kilowatt hours/cubic metres,shear modulus,POSC,kW.h/m3,kW.h/m3,J/m3,0,3600000,1,0
+kilowatt hours/cubic metres,modulus of rigidity,POSC,kW.h/m3,kW.h/m3,J/m3,0,3600000,1,0
+kilowatt hours/cubic metres,bulk modulus,POSC,kW.h/m3,kW.h/m3,J/m3,0,3600000,1,0
+kilowatt hours/cubic metres,modulus of compression,POSC,kW.h/m3,kW.h/m3,J/m3,0,3600000,1,0
+kilowatt hours/cubic metres,electromagnetic energy density,POSC,kW.h/m3,kW.h/m3,J/m3,0,3600000,1,0
+kilowatt hours/cubic metres,radiant energy density,POSC,kW.h/m3,kW.h/m3,J/m3,0,3600000,1,0
+kilowatts/square centimetre,density of heat flow rate,POSC,kW/cm2,kW/cm2,W/m2,0,10000000,1,0
+kilowatts/square centimetre,poynting vector,POSC,kW/cm2,kW/cm2,W/m2,0,10000000,1,0
+kilowatts/square centimetre,radiant energy,POSC,kW/cm2,kW/cm2,W/m2,0,10000000,1,0
+kilowatts/square centimetre,fluence rate,POSC,kW/cm2,kW/cm2,W/m2,0,10000000,1,0
+kilowatts/square centimetre,radiant exitance,POSC,kW/cm2,kW/cm2,W/m2,0,10000000,1,0
+kilowatts/square centimetre,irradiance,POSC,kW/cm2,kW/cm2,W/m2,0,10000000,1,0
+kilowatts/square centimetre,sound intensity,POSC,kW/cm2,kW/cm2,W/m2,0,10000000,1,0
+kilowatts/square centimetre,energy fluence rate,POSC,kW/cm2,kW/cm2,W/m2,0,10000000,1,0
+kilowatts/square metre,density of heat flow rate,POSC,kW/m2,kW/m2,W/m2,0,1000,1,0
+kilowatts/square metre,poynting vector,POSC,kW/m2,kW/m2,W/m2,0,1000,1,0
+kilowatts/square metre,radiant energy,POSC,kW/m2,kW/m2,W/m2,0,1000,1,0
+kilowatts/square metre,fluence rate,POSC,kW/m2,kW/m2,W/m2,0,1000,1,0
+kilowatts/square metre,radiant exitance,POSC,kW/m2,kW/m2,W/m2,0,1000,1,0
+kilowatts/square metre,irradiance,POSC,kW/m2,kW/m2,W/m2,0,1000,1,0
+kilowatts/square metre,sound intensity,POSC,kW/m2,kW/m2,W/m2,0,1000,1,0
+kilowatts/square metre,energy fluence rate,POSC,kW/m2,kW/m2,W/m2,0,1000,1,0
+kilowatts/square metre degree Kelvin,heat transfer coefficient,POSC,kW/m2.K,kW/m2.K,W/m2.K,0,1000,1,0
+kilowatts/cubic metre,power per volume,POSC,kW/m3,kW/m3,W/m3,0,1000,1,0
+killowatts/cubic metre degree Kelvin,volumetric heat transfer coefficient,POSC,kW/m3.K,kW/m3.K,W/m3.K,0,1000,1,0
+litre,volume,POSC,L,L,m3,0,0.001,1,0
+litre,volume,POSC,L,dm3,m3,0,0.001,1,0
+liter per hundred kilogram,specific volume,POSC,L/100kg,dm3,m3/kg,0,0.00001,1,0
+liter per hundred kilogram,massic volume,POSC,L/100kg,dm3,m3/kg,0,0.00001,1,0
+litres/100 kilometres,volume per length,POSC,L/100km,dm3,m2,0,0.000000001,1,0
+liter per ten barrel,volume per volume,POSC,L/10bbl,dm3,Euc,0,0.001,1.589.873,0
+litres per minute per bar,productivity index,POSC,L/bar.min,(L/min)/bar,m3/Pa.s,0,0.001,6000000,0
+liter per hour,volume flow rate,POSC,L/h,L/h,m3/s,0,0.001,3600,0
+liter per kilogram,specific volume,POSC,L/kg,L/kg,m3/kg,0,0.001,1,0
+liter per kilogram,massic volume,POSC,L/kg,L/kg,m3/kg,0,0.001,1,0
+litres/100 kilometres,volume per length,POSC,L/km(100),L/kg,m2,0,0.000000001,1,0
+litres/100 kilometres,volume per length,POSC,(Deprecated),L/kg,m2,0,0.000000001,1,0
+litres/metre,volume per length,POSC,L/m,L/m,m2,0,0.001,1,0
+litres/cubic metre,volume per volume,POSC,L/m3,L/m3,Euc,0,0.001,1,0
+liter per minute,volume flow rate,POSC,L/min,L/min,m3/s,0,0.001,60,0
+litres/mole (gram),molar volume,POSC,L/mol,L/min,m3/mol,0,.001,1,0
+litres/mole (gram),molar volume,POSC,L/mol(g),L/min,m3/mol,0,1,1,0
+litres/mole (gram),molar volume,POSC,(Deprecated),L/min,m3/mol,0,1,1,0
+litres/mole (kilogram),molar volume,POSC,L/kmol,L/mol,m3/mol,0,0.000001,1,0
+litres/mole (kilogram),molar volume,POSC,L/mol(kg),L/mol,m3/mol,0,0.001,1,0
+litres/mole (kilogram),molar volume,POSC,(Deprecated),L/mol,m3/mol,0,0.001,1,0
+litres/second,volume flow rate,POSC,L/s,L/s,m3/s,0,0.001,1,0
+litres/second/second,volume per time per time,POSC,L/s2,L/s2,m3/s2,0,0.001,1,0
+litres/tonne,specific volume,POSC,L/t,L/t,m3/kg,0,0.000001,1,0
+litres/tonne,massic volume,POSC,L/t,L/t,m3/kg,0,0.000001,1,0
+liter per UK ton,specific volume,POSC,L/tonUK,L/tonUK,m3/kg,0,0.001,1.016.047,0
+liter per UK ton,massic volume,POSC,L/tonUK,L/tonUK,m3/kg,0,0.001,1.016.047,0
+pounds force,force,POSC,lbf,lbf,N,0,4.448.222,1,0
+foot pounds force,moment of force,POSC,lbf.ft,lbf.ft,J,0,1.355.818,1,0
+foot pounds force,moment of couple,POSC,lbf.ft,lbf.ft,J,0,1.355.818,1,0
+foot pounds force,torque,POSC,lbf.ft,lbf.ft,J,0,1.355.818,1,0
+foot pounds force/barrel,normal stress,POSC,lbf.ft/bbl,lbf.ft/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,shear stress,POSC,lbf.ft/bbl,lbf.ft/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,modulus of elasticity,POSC,lbf.ft/bbl,lbf.ft/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,shear modulus,POSC,lbf.ft/bbl,lbf.ft/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,modulus of rigidity,POSC,lbf.ft/bbl,lbf.ft/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,bulk modulus,POSC,lbf.ft/bbl,lbf.ft/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,modulus of compression,POSC,lbf.ft/bbl,lbf.ft/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,electromagnetic energy density,POSC,lbf.ft/bbl,lbf.ft/bbl,J/m3,0,1.355.818,0.1589873,0
+foot pounds force/barrel,radiant energy density,POSC,lbf.ft/bbl,lbf.ft/bbl,J/m3,0,1.355.818,0.1589873,0
+pounds force feet/inch,force length per length,POSC,lbf.ft/in,lbf.ft/in,N,0,1.355.818,0.0254,0
+foot pounds force/square inch,energy per area,POSC,lbf.ft/in2,lbf.ft/in2,N/m,0,2.101.522,1,0
+foot pounds force/pound mass,specific energy,POSC,lbf.ft/lbm,lbf.ft/lbm,J/kg,0,1.355.818,0.4535924,0
+inch pounds force,moment of force,POSC,lbf.in,lbf.in,J,0,0.1129848,1,0
+inch pounds force,moment of couple,POSC,lbf.in,lbf.in,J,0,0.1129848,1,0
+inch pounds force,torque,POSC,lbf.in,lbf.in,J,0,0.1129848,1,0
+pounds force inches/inch,force length per length,POSC,lbf.in/in,lbf.in/in,N,0,4.448.222,1,0
+pounds force inches squared,force area,POSC,lbf.in2,lbf.in2,N.m2,0,0.002869815,1,0
+pounds force seconds/square foot,dynamic viscosity,POSC,lbf.s/ft2,lbf.s/ft2,Pa.s,0,4.788.026,1,0
+pounds force seconds/square inch,dynamic viscosity,POSC,lbf.s/in2,lbf.s/in2,Pa.s,0,6.894.757,1,0
+pounds force per hundred foot,force per length,POSC,lbf/100ft,lbf.s/in2,N/m,0,4.448.222,30.48,0
+pounds force/100 square foot,force per area,POSC,lbf/100ft2,lbf.s/in2,Pa,0,0.4788026,1,0
+pounds force/100 square foot,pressure,POSC,lbf/100ft2,lbf.s/in2,Pa,0,0.4788026,1,0
+pounds force per thirty meters,force per length,POSC,lbf/30m,lbf.s/in2,N/m,0,4.448.222,30,0
+pounds force per foot,force per length,POSC,lbf/ft,lbf/ft,N/m,0,4.448.222,0.3048,0
+pounds force/square foot,force per area,POSC,lbf/ft2,lbf/ft2,Pa,0,4.788.026,1,0
+pounds force/square foot,pressure,POSC,lbf/ft2,lbf/ft2,Pa,0,4.788.026,1,0
+pounds force/100 square foot,force per area,POSC,lbf/ft2(100),lbf/ft2,Pa,0,0.4788026,1,0
+pounds force/100 square foot,pressure,POSC,(Deprecated),lbf/ft2,Pa,0,0.4788026,1,0
+pounds force/cubic foot,force per volume,POSC,lbf/ft3,lbf/ft3,N/m3,0,4.448.222,0.02831685,0
+pounds force/cubic foot,pressure per length,POSC,lbf/ft3,lbf/ft3,N/m3,0,4.448.222,0.02831685,0
+pounds force/US gallon,force per volume,POSC,lbf/galUS,lbf/galUS,N/m3,0,4.448.222,0.003785412,0
+pounds force/US gallon,pressure per length,POSC,lbf/galUS,lbf/galUS,N/m3,0,4.448.222,0.003785412,0
+pounds force/inch,force per length,POSC,lbf/in,lbf/in,N/m,0,4.448.222,0.0254,0
+pounds force/square inch,force per area,POSC,lbf/in2,lbf/in2,Pa,0,6.894.757,1,0
+pounds force/square inch,pressure,POSC,lbf/in2,lbf/in2,Pa,0,6.894.757,1,0
+pound force per pound force,force per force,POSC,lbf/lbf,lbf/lbf,Euc,0,1,1,0
+pounds mass,mass,POSC,lbm,lbm,kg,0,0.4535924,1,0
+foot pounds mass/second,momentum,POSC,lbm.ft/s,lbm.ft/s,kg.m/s,0,0.138255,1,0
+foot pounds mass/second,impulse,POSC,lbm.ft/s,lbm.ft/s,kg.m/s,0,0.138255,1,0
+pounds mass square feet,moment of inertia,POSC,lbm.ft2,lbm.ft2,kg.m2,0,0.04214011,1,0
+pounds mass square feet/second squared,moment of force,POSC,lbm.ft2/s2,lbm.ft2/s2,J,0,0.04214011,1,0
+pounds mass square feet/second squared,moment of couple,POSC,lbm.ft2/s2,lbm.ft2/s2,J,0,0.04214011,1,0
+pounds mass square feet/second squared,torque,POSC,lbm.ft2/s2,lbm.ft2/s2,J,0,0.04214011,1,0
+million pounds mass/year,mass flow rate,POSC,lbm(million)/yr,lbm.ft2/s2,kg/s,0,453592.4,31558150,0
+million pounds mass/year,mass flow rate,POSC,(Deprecated),lbm.ft2/s2,kg/s,0,453592.4,31558150,0
+pounds mass/1000 UK gallons,density,POSC,lbm/1000galUK,lbm.ft2/s2,kg/m3,0,9.977.633,1000,0
+pounds mass/1000 UK gallons,mass density,POSC,lbm/1000galUK,lbm.ft2/s2,kg/m3,0,9.977.633,1000,0
+pounds mass/1000 UK gallons,volumic mass,POSC,lbm/1000galUK,lbm.ft2/s2,kg/m3,0,9.977.633,1000,0
+pounds mass/1000 US gallons,density,POSC,lbm/1000galUS,lbm.ft2/s2,kg/m3,0,1.198.264,1000,0
+pounds mass/1000 US gallons,mass density,POSC,lbm/1000galUS,lbm.ft2/s2,kg/m3,0,1.198.264,1000,0
+pounds mass/1000 US gallons,volumic mass,POSC,lbm/1000galUS,lbm.ft2/s2,kg/m3,0,1.198.264,1000,0
+pounds mass per hundred square foot,surface density,POSC,lbm/100ft2,lbm.ft2/s2,kg/m2,0,4.882.428,100,0
+pounds mass per hundred square foot,areic mass,POSC,lbm/100ft2,lbm.ft2/s2,kg/m2,0,4.882.428,100,0
+pounds mass per 10 barrel,density,POSC,lbm/10bbl,lbm.ft2/s2,kg/m3,0,0.4535924,1.589.873,0
+pounds mass per 10 barrel,mass density,POSC,lbm/10bbl,lbm.ft2/s2,kg/m3,0,0.4535924,1.589.873,0
+pounds mass per 10 barrel,volumic mass,POSC,lbm/10bbl,lbm.ft2/s2,kg/m3,0,0.4535924,1.589.873,0
+pounds mass/barrel,density,POSC,lbm/bbl,lbm/bbl,kg/m3,0,0.4535924,0.1589873,0
+pounds mass/barrel,mass density,POSC,lbm/bbl,lbm/bbl,kg/m3,0,0.4535924,0.1589873,0
+pounds mass/barrel,volumic mass,POSC,lbm/bbl,lbm/bbl,kg/m3,0,0.4535924,0.1589873,0
+pound mass per day,mass flow rate,POSC,lbm/d,lbm/d,kg/s,0,0.4535924,86400,0
+pounds mass/foot,mass per length,POSC,lbm/ft,lbm/ft,kg/m,0,0.4535924,0.3048,0
+pounds mass/foot,linear density,POSC,lbm/ft,lbm/ft,kg/m,0,0.4535924,0.3048,0
+pounds mass/foot hour,mass per time per length,POSC,lbm/ft.h,lbm/h.ft,Pa.s,0,0.0004133789,1,0
+pounds mass/foot hour,mass per time per length,POSC,(Deprecated),lbm/h.ft,Pa.s,0,0.0004133789,1,0
+pounds mass/foot second,mass per time per length,POSC,lbm/ft.s,lbm/s.ft,Pa.s,0,1.488.164,1,0
+pounds mass/foot second,mass per time per length,POSC,(Deprecated),lbm/s.ft,Pa.s,0,1.488.164,1,0
+pounds mass/square foot,surface density,POSC,lbm/ft2,lbm/ft2,kg/m2,0,4.882.428,1,0
+pounds mass/square foot,areic mass,POSC,lbm/ft2,lbm/ft2,kg/m2,0,4.882.428,1,0
+pounds mass/cubic foot,density,POSC,lbm/ft3,lbm/ft3,kg/m3,0,1.601.846,1,0
+pounds mass/cubic foot,mass density,POSC,lbm/ft3,lbm/ft3,kg/m3,0,1.601.846,1,0
+pounds mass/cubic foot,volumic mass,POSC,lbm/ft3,lbm/ft3,kg/m3,0,1.601.846,1,0
+pounds mass/foot fourth,mass per volume per length,POSC,lbm/ft4,lbm/ft4,kg/m4,0,1.601.846,0.3048,0
+pounds mass/UK gallon,density,POSC,lbm/galUK,lbm/galUK,kg/m3,0,9.977.633,1,0
+pounds mass/UK gallon,mass density,POSC,lbm/galUK,lbm/galUK,kg/m3,0,9.977.633,1,0
+pounds mass/UK gallon,volumic mass,POSC,lbm/galUK,lbm/galUK,kg/m3,0,9.977.633,1,0
+pounds mass/UK gallon foot,mass per volume per length,POSC,lbm/galUK.ft,lbm/galUK.ft,kg/m4,0,9.977.633,0.3048,0
+pounds mass/1000 UK gallons,density,POSC,lbm/galUK(1000),lbm/galUK.ft,kg/m3,0,9.977.633,1000,0
+pounds mass/1000 UK gallons,mass density,POSC,(Deprecated),lbm/galUK.ft,kg/m3,0,9.977.633,1000,0
+pounds mass/1000 UK gallons,volumic mass,POSC,(Deprecated),lbm/galUK.ft,kg/m3,0,9.977.633,1000,0
+pounds mass/US gallon,density,POSC,lbm/galUS,lbm/galUS,kg/m3,0,1.198.264,1,0
+pounds mass/US gallon,mass density,POSC,lbm/galUS,lbm/galUS,kg/m3,0,1.198.264,1,0
+pounds mass/US gallon,volumic mass,POSC,lbm/galUS,lbm/galUS,kg/m3,0,1.198.264,1,0
+pounds mass/US gallon foot,mass per volume per length,POSC,lbm/galUS.ft,lbm/galUS.ft,kg/m4,0,1.198.264,0.3048,0
+pounds mass/1000 US gallons,density,POSC,lbm/galUS(1000),lbm/galUS.ft,kg/m3,0,1.198.264,1000,0
+pounds mass/1000 US gallons,mass density,POSC,(Deprecated),lbm/galUS.ft,kg/m3,0,1.198.264,1000,0
+pounds mass/1000 US gallons,volumic mass,POSC,(Deprecated),lbm/galUS.ft,kg/m3,0,1.198.264,1000,0
+pounds mass/hour,mass flow rate,POSC,lbm/h,lbm/h,kg/s,0,0.4535924,3600,0
+pounds mass/hour foot,mass per time per length,POSC,lbm/h.ft,lbm/h.ft,Pa.s,0,0.0004133789,1,0
+pounds mass/hour square foot,mass per time per area,POSC,lbm/h.ft2,lbm/h.ft2,kg/m2.s,0,0.00135623,1,0
+pounds mass/horsepower hour,mass per energy,POSC,lbm/hp.h,lbm/hp.h,kg/J,0,0.0000001689659,1,0
+pounds mass/cubic inch,density,POSC,lbm/in3,lbm/in3,kg/m3,0,0.4535924,0.000016387064,0
+pounds mass/cubic inch,mass density,POSC,lbm/in3,lbm/in3,kg/m3,0,0.4535924,0.000016387064,0
+pounds mass/cubic inch,volumic mass,POSC,lbm/in3,lbm/in3,kg/m3,0,0.4535924,0.000016387064,0
+pounds mass/1000 barrels,density,POSC,lbm/Mbbl,lbm/in3,kg/m3,0,0.00285301,1,0
+pounds mass/1000 barrels,mass density,POSC,lbm/Mbbl,lbm/in3,kg/m3,0,0.00285301,1,0
+pounds mass/1000 barrels,volumic mass,POSC,lbm/Mbbl,lbm/in3,kg/m3,0,0.00285301,1,0
+pounds mass/minute,mass flow rate,POSC,lbm/min,lbm/min,kg/s,0,0.4535924,60,0
+pounds mass/second,mass flow rate,POSC,lbm/s,lbm/s,kg/s,0,0.4535924,1,0
+pounds mass/second foot,mass per time per length,POSC,lbm/s.ft,lbm/s.ft,Pa.s,0,1.488.164,1,0
+pounds mass/second square foot,mass per time per area,POSC,lbm/s.ft2,lbm/s.ft2,kg/m2.s,0,4.882.428,1,0
+British link 1895 A,length,POSC,lkBnA,lbm/s.ft2,m,0,0.201167824,1,0
+British link 1895 A,depth,POSC,lkBnA,lbm/s.ft2,m,0,0.201167824,1,0
+British link 1895 A,Cartesian coordinates,POSC,lkBnA,lbm/s.ft2,m,0,0.201167824,1,0
+British link 1895 A,distance,POSC,lkBnA,lbm/s.ft2,m,0,0.201167824,1,0
+British link 1895 B,length,POSC,lkBnB,lbm/s.ft2,m,0,Tem.92,39.370.113,0
+British link 1895 B,depth,POSC,lkBnB,lbm/s.ft2,m,0,Tem.92,39.370.113,0
+British link 1895 B,Cartesian coordinates,POSC,lkBnB,lbm/s.ft2,m,0,Tem.92,39.370.113,0
+British link 1895 B,distance,POSC,lkBnB,lbm/s.ft2,m,0,Tem.92,39.370.113,0
+Clarke link,length,POSC,lkCla,lbm/s.ft2,m,0,Tem.92,39.370.432,0
+Clarke link,depth,POSC,lkCla,lbm/s.ft2,m,0,Tem.92,39.370.432,0
+Clarke link,Cartesian coordinates,POSC,lkCla,lbm/s.ft2,m,0,Tem.92,39.370.432,0
+Clarke link,distance,POSC,lkCla,lbm/s.ft2,m,0,Tem.92,39.370.432,0
+Sears link,length,POSC,lkSe,lbm/s.ft2,m,0,Tem.92,39.370.147,0
+Sears link,depth,POSC,lkSe,lbm/s.ft2,m,0,Tem.92,39.370.147,0
+Sears link,Cartesian coordinates,POSC,lkSe,lbm/s.ft2,m,0,Tem.92,39.370.147,0
+Sears link,distance,POSC,lkSe,lbm/s.ft2,m,0,Tem.92,39.370.147,0
+US Survey link,length,POSC,lkUS,lbm/s.ft2,m,0,Tem.92,39.37,0
+US Survey link,depth,POSC,lkUS,lbm/s.ft2,m,0,Tem.92,39.37,0
+US Survey link,Cartesian coordinates,POSC,lkUS,lbm/s.ft2,m,0,Tem.92,39.37,0
+US Survey link,distance,POSC,lkUS,lbm/s.ft2,m,0,Tem.92,39.37,0
+lumens/square metre,luminous exitance,POSC,lm/m2,lm/m2,lx,0,1,1,0
+lumens/square metre,luminous exitance,POSC,lm/m2,lm/m2,lx,0,1,1,0
+million cubic feet,volume,POSC,M(ft3),lm/m2,m3,0,28.316.846.592,1,0
+million cubic feet per acre-foot,volume per volume,POSC,M(ft3)/acre.ft,lm/m2,Euc,0,1000000,43560,0
+million cubic feet per day,volume flow rate,POSC,M(ft3)/d,lm/m2,m3/s,0,28316.85,86400,0
+million cubic meters,volume,POSC,M(m3),lm/m2,m3,0,0.000000001,1,0
+million cubic metres per day,volume flow rate,POSC,M(m3)/d,lm/m2,m3/s,0,1000000,86400,0
+metres per thirty metres,linear strain,POSC,m/30m,lm/m2,Euc,0,1,30,0
+metres per thirty metres,relative elongation,POSC,m/30m,lm/m2,Euc,0,1,30,0
+metres per thirty metres,scale,POSC,m/30m,lm/m2,Euc,0,1,30,0
+metres per thirty metres,linear concentration,POSC,m/30m,lm/m2,Euc,0,1,30,0
+metres per thirty metres,length per length,POSC,m/30m,lm/m2,Euc,0,1,30,0
+metres/ centimetre,scale,POSC,m/cm,m/cm,Euc,0,100,1,0
+metres/ centimetre,length per length,POSC,m/cm,m/cm,Euc,0,100,1,0
+metres/day,velocity,POSC,m/d,m/d,m/s,0,1,86400,0
+metres/hour,velocity,POSC,m/h,m/h,m/s,0,1,3600,0
+metres/kilometre,linear strain,POSC,m/km,m/km,Euc,0,0.001,1,0
+metres/kilometre,relative elongation,POSC,m/km,m/km,Euc,0,0.001,1,0
+metres/kilometre,scale,POSC,m/km,m/km,Euc,0,0.001,1,0
+metres/kilometre,linear concentration,POSC,m/km,m/km,Euc,0,0.001,1,0
+metres/kilometre,length per length,POSC,m/km,m/km,Euc,0,0.001,1,0
+metres/metre,linear strain,POSC,m/m,m/m,Euc,0,1,1,0
+metres/metre,relative elongation,POSC,m/m,m/m,Euc,0,1,1,0
+metres/metre,scale,POSC,m/m,m/m,Euc,0,1,1,0
+metres/metre,linear concentration,POSC,m/m,m/m,Euc,0,1,1,0
+metres/metre,length per length,POSC,m/m,m/m,Euc,0,1,1,0
+metres/metre Kelvin,linear thermal expansion,POSC,m/m.K,m/m.K,1/K,0,1,1,0
+metres/cubic metre,length per volume,POSC,m/m3,m/m3,1/m2,0,1,1,0
+meter per minute,velocity,POSC,m/min,m/min,m/s,0,1,60,0
+metres/millisecond,velocity,POSC,m/ms,m/ms,m/s,0,1000,1,0
+square metres/cubic centimetre,area per volume,POSC,m2/cm3,m2/cm3,1/m,0,1000000,1,0
+square metres/day kiloPascal,unit productivity index,POSC,m2/d.kPa,m2/d.kPa,m2/Pa.s,0,1,86400000,0
+square metres/gram,mass attenuation coefficient,POSC,m2/g,m2/g,m2/kg,0,1000,1,0
+square metres/hour,kinematic viscosity,POSC,m2/h,m2/h,m2/s,0,1,3600,0
+square metres/hour,thermal diffusivity,POSC,m2/h,m2/h,m2/s,0,1,3600,0
+square metres/hour,area per time,POSC,m2/h,m2/h,m2/s,0,1,3600,0
+square metres/square metre,area per area,POSC,m2/m2,m2/m2,Euc,0,1,1,0
+square metres/square metre,shear strain,POSC,m2/m2,m2/m2,Euc,0,1,1,0
+square metres/cubic metre,area per volume,POSC,m2/m3,m2/m3,1/m,0,1,1,0
+cubic metres at std condition (0 deg C),amount of substance,POSC,m3(std.0C),m2/m3,mol,0,0.0446158,1,0
+cubic metres at std condition (0 deg C),amount of substance,POSC,(Deprecated),m2/m3,mol,0,0.0446158,1,0
+cubic metres at std condition (15 deg C),amount of substance,POSC,m3(std.15C),m2/m3,mol,0,0.0422932,1,0
+cubic metres at std condition (15 deg C),amount of substance,POSC,(Deprecated),m2/m3,mol,0,0.0422932,1,0
+cubic meter per day per bar,productivity index,POSC,m3/bar.d,m3/bar.d,m3/Pa.s,0,1.,8640000000,0
+cubic meter per day per bar,productivity index,POSC,m3/bar.d,m3/(d.bar),m3/Pa.s,0,1.,8640000000,0
+cubic meter per day per bar,productivity index,POSC,m3/bar.d,m3/bar.d,m3/Pa.s,0,1.,8640000000,0
+cubic meter per hour per bar,productivity index,POSC,m3/bar.h,m3.bar.h,m3/Pa.s,0,1,360000000,0
+cubic meter per hour per bar,productivity index,POSC,m3/bar.h,m3/(h.bar),m3/Pa.s,0,1,360000000,0
+cubic meter per hour per bar,productivity index,POSC,m3/bar.h,m3/bar.h,m3/Pa.s,0,1,360000000,0
+cubic meter per minute per bar,productivity index,POSC,m3/bar.min,m3/bar.min,m3/Pa.s,0,1,6000000,0
+cubic meter per minute per bar,productivity index,POSC,m3/bar.min,m3/(min.bar),m3/Pa.s,0,1,6000000,0
+cubic meter per minute per bar,productivity index,POSC,m3/bar.min,m3/bar.min,m3/Pa.s,0,1,6000000,0
+cubic metres/centiPoise day kiloPascal,specific productivity index,POSC,m3/cP.d.kPa,m3/cP.d.kPa,m3/Pa2.s2,0,1,86400,0
+cubic metres/centiPoise Pascal second,specific productivity index,POSC,m3/cP.Pa.s,m3/cP.Pa.s,m3/Pa2.s2,0,1000,1,0
+cubic metres/day,volume flow rate,POSC,m3/d,m3/d,m3/s,0,1,86400,0
+cubic metres/day kilopascal,productivity index,POSC,m3/d.kPa,m3/d.kPa,m3/Pa.s,0,1,86400000,0
+cubic metres/day kilopascal,productivity index,POSC,(Deprecated),m3/d.kPa,m3/Pa.s,0,1,86400000,0
+cubic metres/day kilopascal,productivity index,POSC,(Deprecated),m3/(d.kPa),m3/Pa.s,0,1,86400000,0
+cubic meter per day per meter,volume per time per length,POSC,m3/d.m,m3/d.m,m2/s,0,1,86400,0
+cubic meter per day per meter,volume per time per length,POSC,m3/d.m,m3/(d.m),m2/s,0,1,86400,0
+cubic metres/day/day,volume per time per time,POSC,m3/d2,m3/d2,m3/s2,0,1,7464960000,0
+cubic metres/gram,specific volume,POSC,m3/g,m3/g,m3/kg,0,1000,1,0
+cubic metres/gram,massic volume,POSC,m3/g,m3/g,m3/kg,0,1000,1,0
+cubic metres/hour,volume flow rate,POSC,m3/h,m3/h,m3/s,0,1,3600,0
+cubic meter per hour per meter,volume per time per length,POSC,m3/h.m,m3/h.m,m2/s,0,1,3600,0
+cubic meter per hour per meter,volume per time per length,POSC,m3/h.m,m3/(h.m),m2/s,0,1,3600,0
+cubic metres/hectare metre,volume per volume,POSC,m3/ha.m,m3/ha.m,Euc,0,0.0001,1,0
+cubic metres/kilometre,volume per length,POSC,m3/km,m3/km,m2,0,0.001,1,0
+cubic meter per day per kilopascal,productivity index,POSC,m3/kPa.d,m3/kPa.d,m3/Pa.s,0,1,86400000,0
+cubic meter per day per kilopascal,productivity index,POSC,m3/kPa.d,m3/(d.kPa),m3/Pa.s,0,1,86400000,0
+cubic meter per day per kilopascal,productivity index,POSC,m3/kPa.d,m3/k.kPa,m3/Pa.s,0,1,86400000,0
+(cubic metres per hour) per kilopascal,productivity index,POSC,m3/kPa.h,m3/kPa.h,m3/Pa.s,0,1,3600000,0
+(cubic metres per hour) per kilopascal,productivity index,POSC,m3/kPa.h,(m3/h)/kPa,m3/Pa.s,0,1,3600000,0
+cubic metres/kilowatt hour,isothermal compressibility,POSC,m3/kW.h,m3/kW.h,m3/J,0,1,3600000,0
+cubic metres/metre,volume per length,POSC,m3/m,m3/m,m2,0,1,1,0
+cubic meter per square meter,volume per area,POSC,m3/m2,m3/m2,m,0,1,1,0
+cubic metres/cubic metre,volume per volume,POSC,m3/m3,m3/m3,Euc,0,1,1,0
+cubic meter per minute,volume flow rate,POSC,m3/min,m3/min,m3/s,0,1,60,0
+cubic metres/mole (kilogram),molar volume,POSC,m3/kmol,m3/mol(kg),m3/mol,0,.001,1,0
+cubic metres/mole (kilogram),molar volume,POSC,m3/kmol,m3/mol,m3/mol,0,.001,1,0
+cubic metres/mole (kilogram),molar volume,POSC,m3/mol(kg),m3/mol(kg),m3/mol,0,1,1,0
+cubic metres/mole (kilogram),molar volume,POSC,(Deprecated),m3/mol,m3/mol,0,1,1,0
+cubic meter per day per (pound per square inch),productivity index,POSC,m3/psi.d,m3/psi.d,m3/Pa.s,0,1,595707004.8,0
+cubic meter per day per (pound per square inch),productivity index,POSC,m3/psi.d,m3/(d.psi),m3/Pa.s,0,1,595707004.8,0
+cubic meter per second per foot,volume per time per length,POSC,m3/s.ft,m3/s.ft,m2/s,0,1,0.3048,0
+cubic meter per second per foot,volume per time per length,POSC,m3/s.ft,m3/(s.ft),m2/s,0,1,0.3048,0
+cubic metres/second metre,volume per time per length,POSC,m3/s.m,m3/s.m,m2/s,0,1,1,0
+cubic metres/second square metre,volume per time per area,POSC,m3/s.m2,m3/s.m2,m/s,0,1,1,0
+cubic metres/tonne,specific volume,POSC,m3/t,m3/t,m3/kg,0,0.001,1,0
+cubic metres/tonne,massic volume,POSC,m3/t,m3/t,m3/kg,0,0.001,1,0
+cubic meters per UK ton,specific volume,POSC,m3/tonUK,m3/tonUK,m3/kg,0,1,1.016.047,0
+cubic meters per UK ton,massic volume,POSC,m3/tonUK,m3/tonUK,m3/kg,0,1,1.016.047,0
+cubic meters per US ton,specific volume,POSC,m3/tonUS,m3/tonUS,m3/kg,0,1,9.071.847,0
+cubic meters per US ton,massic volume,POSC,m3/tonUS,m3/tonUS,m3/kg,0,1,9.071.847,0
+milliamp,electric current,POSC,mA,mA,A,0,0.001,1,0
+milliamp,magnetic potential difference,POSC,mA,mA,A,0,0.001,1,0
+milliamp,magnetomotive force,POSC,mA,mA,A,0,0.001,1,0
+megayears,time,POSC,Ma,Ma,s,0,3.15582E+13,1,0
+megaampere,electric current,POSC,MA,MA,A,0,1000000,1,0
+megaampere,magnetic potential difference,POSC,MA,MA,A,0,1000000,1,0
+megaampere,magnetomotive force,POSC,MA,MA,A,0,1000000,1,0
+milliampere per square centimeter,current density,POSC,mA/cm2,mA/cm2,A/m2,0,10,1,0
+milliampere per square foot,current density,POSC,mA/ft2,mA/ft2,A/m2,0,0.001,0.09290304,0
+millibar,force per area,POSC,mbar,mbar,Pa,0,100,1,0
+millibar,pressure,POSC,mbar,mbar,Pa,0,100,1,0
+thousand barrels,volume,POSC,Mbbl,Mbbl,m3,0,1.589.873,1,0
+thousand barrel feet/day,volume length per time,POSC,Mbbl.ft/d,Mbbl.ft/d,m4/s,0,4.845.933,86400,0
+thousand barrels/day,volume flow rate,POSC,Mbbl/d,Mbbl.ft/d,m3/s,0,1.589.873,86400,0
+megabecquerel,activity (of radioactivity),POSC,MBq,MBq,Bq,0,1000000,1,0
+million Btus/hour,heat flow rate,POSC,MBtu/hr,MBq,W,0,293071.1,1,0
+megabyte,digital storage,POSC,Mbyte,Mbyte,byte,0,1048576,1,0
+millicoulomb,electric capacity,POSC,mC,mC,C,0,0.001,1,0
+millicoulomb,electric charge,POSC,mC,mC,C,0,0.001,1,0
+millicoulomb,electric flux,POSC,mC,mC,C,0,0.001,1,0
+millicoulombs/square metre,electric polarization,POSC,mC/m2,mC/m2,C/m2,0,0.001,1,0
+thousand cubic feet,volume,POSC,Mcf,mC/m2,m3,0,28.316.846.592,1,0
+thousand cubic feet,activity (of radioactivity),POSC,mCi,mCi,Bq,0,37000000,1,0
+millicurie,activity (of radioactivity),POSC,mcurie,mCi,Bq,0,37000,1,0
+millicurie,activity (of radioactivity),POSC,(Deprecated),mCi,Bq,0,37000,1,0
+millidarcy,permeability rock,POSC,mD,mD,m2,0,9.87E-11,1,0
+millidarcy foot,permeability length,POSC,mD.ft,mD.ft,m3,0,3.01E-10,1,0
+millidarcy sq feet/pound force second,mobility,POSC,mD.ft2/lbf.s,mD.ft2/lbf.s,m2/Pa.s,0,9.87E-11,4.788.026,0
+millidarcy sq inches/pound force second,mobility,POSC,mD.in2/lbf.s,mD.in2/lbf.s,m2/Pa.s,0,9.87E-11,6.894.757,0
+millidarcy metres,permeability length,POSC,mD.m,mD.m,m3,0,9.87E-11,1,0
+millidarcies/centipoise,mobility,POSC,mD/cP,mD/cP,m2/Pa.s,0,9.87E-11,0.001,0
+millidarcies/Pascal second,mobility,POSC,mD/Pa.s,mD/Pa.s,m2/Pa.s,0,9.87E-11,1,0
+milliequivalent,electrochemical equivalent,POSC,meq,meq,eq,0,0.001,1,0
+milliequivalents/ hectogram,equivalent per mass,POSC,meq/100g,meq,eq/kg,0,100,1,0
+milliequivalents/ cubic centimeter,equivalent per volume,POSC,meq/cm3,meq/cm3,eq/m3,0,1000,1,0
+milliequivalents/ gram,equivalent per mass,POSC,meq/g,meq/g,eq/kg,0,1,1,0
+milliEuclid,dimensionless,POSC,mEuc,ppk,Euc,0,0.001,1,0
+milliEuclid,poisson ratio,POSC,mEuc,ppk,Euc,0,0.001,1,0
+millions of electron volts,energy,POSC,MeV,MeV,J,0,0.000000000000160219,1,0
+millions of electron volts,work,POSC,MeV,MeV,J,0,0.000000000000160219,1,0
+megaflops,operations per time,POSC,Mflops,MeV,1/s,0,1000000,1,0
+megagram,mass,POSC,Mg,Mg,kg,0,1000,1,0
+milligram,mass,POSC,mg,mg,kg,0,0.000001,1,0
+megagrams/year,mass flow rate,POSC,Mg/a,Mg/a,kg/s,0,1000,31558150,0
+megagrams/day,mass flow rate,POSC,Mg/d,Mg/d,kg/s,0,1000,86400,0
+milligrams/cubic decimetre,density,POSC,mg/dm3,mg/dm3,kg/m3,0,0.001,1,0
+milligrams/cubic decimetre,mass density,POSC,mg/dm3,mg/dm3,kg/m3,0,0.001,1,0
+milligrams/cubic decimetre,volumic mass,POSC,mg/dm3,mg/dm3,kg/m3,0,0.001,1,0
+milligrams/US gallon,density,POSC,mg/galUS,mg/galUS,kg/m3,0,0.000264172,1,0
+milligrams/US gallon,mass density,POSC,mg/galUS,mg/galUS,kg/m3,0,0.000264172,1,0
+milligrams/US gallon,volumic mass,POSC,mg/galUS,mg/galUS,kg/m3,0,0.000264172,1,0
+megagrams/hour,mass flow rate,POSC,Mg/h,Mg/h,kg/s,0,1,3.Haz,0
+thousand kilograms per inch,mass per length,POSC,Mg/in,Mg/in,kg/m,0,1000,0.0254,0
+thousand kilograms per inch,linear density,POSC,Mg/in,Mg/in,kg/m,0,1000,0.0254,0
+milligrams/joule,mass per energy,POSC,mg/J,mg/J,kg/J,0,0.000001,1,0
+milligrams/kilogram,mass concentration,POSC,mg/kg,mg/kg,Euc,0,0.000001,1,0
+milligram per litre,density,POSC,mg/L,mg/L,kg/m3,0,0.001,1,0
+milligram per litre,mass density,POSC,mg/L,mg/L,kg/m3,0,0.001,1,0
+milligram per litre,volumic mass,POSC,mg/L,mg/L,kg/m3,0,0.001,1,0
+megagrams/square metre,surface density,POSC,Mg/m2,Mg/m2,kg/m2,0,1000,1,0
+megagrams/square metre,areic mass,POSC,Mg/m2,Mg/m2,kg/m2,0,1000,1,0
+milligrams/cubic metre,density,POSC,mg/m3,mg/m3,kg/m3,0,0.000001,1,0
+milligrams/cubic metre,mass density,POSC,mg/m3,mg/m3,kg/m3,0,0.000001,1,0
+milligrams/cubic metre,volumic mass,POSC,mg/m3,mg/m3,kg/m3,0,0.000001,1,0
+thousand kilograms per cubic metre,density,POSC,Mg/m3,Mg/m3,kg/m3,0,1000000,1,0
+thousand kilograms per cubic metre,mass density,POSC,Mg/m3,Mg/m3,kg/m3,0,1000000,1,0
+thousand kilograms per cubic metre,volumic mass,POSC,Mg/m3,Mg/m3,kg/m3,0,1000000,1,0
+milligalileo,acceleration linear,POSC,mGal,mGal,m/s2,0,0.00001,1,0
+milligauss,magnetic induction,POSC,mgauss,mGal,T,0,0.0000001,1,0
+milligauss,magnetic flux density,POSC,mgauss,mGal,T,0,0.0000001,1,0
+German legal metre,length,POSC,mGer,mGal,m,0,1.000.014,1,0
+German legal metre,depth,POSC,mGer,mGal,m,0,1.000.014,1,0
+German legal metre,Cartesian coordinates,POSC,mGer,mGal,m,0,1.000.014,1,0
+German legal metre,distance,POSC,mGer,mGal,m,0,1.000.014,1,0
+thousand kilograms force,force,POSC,Mgf,mGal,N,0,4448222,1,0
+milligravity,acceleration linear,POSC,mgn,mgn,m/s2,0,0.00980665,1,0
+milligray,absorbed dose,POSC,mGy,mGy,Gy,0,0.001,1,0
+millihenries,self inductance,POSC,mH,mH,H,0,0.001,1,0
+millihenries,permeance,POSC,mH,mH,H,0,0.001,1,0
+mhos,electric conductance,POSC,mho,mho,S,0,1,1,0
+mhos,admittance,POSC,mho,mho,S,0,1,1,0
+mhos,susceptance,POSC,mho,mho,S,0,1,1,0
+mhos/metre,conductivity,POSC,mho/m,mho/m,S/m,0,1,1,0
+megahertz,frequency,POSC,MHz,MHz,rad/s,0,6.283.185.307,1,0
+millihertz,frequency,POSC,mHz,mHz,rad/s,0,0.006283185307,1,0
+mile,length,POSC,mi,mi,m,0,1.609.344,1,0
+mile,breadth,POSC,mi,mi,m,0,1.609.344,1,0
+mile,height,POSC,mi,mi,m,0,1.609.344,1,0
+mile,thickness,POSC,mi,mi,m,0,1.609.344,1,0
+mile,radius,POSC,mi,mi,m,0,1.609.344,1,0
+mile,radius of curvature,POSC,mi,mi,m,0,1.609.344,1,0
+mile,Cartesian coordinates,POSC,mi,mi,m,0,1.609.344,1,0
+mile,diameter,POSC,mi,mi,m,0,1.609.344,1,0
+mile,length of path,POSC,mi,mi,m,0,1.609.344,1,0
+mile,distance,POSC,mi,mi,m,0,1.609.344,1,0
+mile,wavelength,POSC,mi,mi,m,0,1.609.344,1,0
+miles/UK gallon,length per volume,POSC,mi/galUK,mi/galUK,1/m2,0,1.609.344,0.004546092,0
+miles/US gallon,length per volume,POSC,mi/galUS,mi/galUS,1/m2,0,1.609.344,0.003785412,0
+miles/hour,velocity,POSC,mi/h,mi/h,m/s,0,1.609.344,3600,0
+miles/inch,scale,POSC,mi/in,mi/in,Euc,0,63360,1,0
+miles/inch,length per length,POSC,mi/in,mi/in,Euc,0,63360,1,0
+square miles,area,POSC,mi2,mi2,m2,0,2589988,1,0
+cubic mile,volume,POSC,mi3,mi3,m3,0,4168182000,1,0
+mil. a thousandth of an inch,length,POSC,mil,mi3,m,0,0.0000254,1,0
+mil. a thousandth of an inch,breadth,POSC,mil,mi3,m,0,0.0000254,1,0
+mil. a thousandth of an inch,height,POSC,mil,mi3,m,0,0.0000254,1,0
+mil. a thousandth of an inch,thickness,POSC,mil,mi3,m,0,0.0000254,1,0
+mil. a thousandth of an inch,radius,POSC,mil,mi3,m,0,0.0000254,1,0
+mil. a thousandth of an inch,radius of curvature,POSC,mil,mi3,m,0,0.0000254,1,0
+mil. a thousandth of an inch,diameter,POSC,mil,mi3,m,0,0.0000254,1,0
+mil. a thousandth of an inch,length of path,POSC,mil,mi3,m,0,0.0000254,1,0
+mil. a thousandth of an inch,distance,POSC,mil,mi3,m,0,0.0000254,1,0
+mil. a thousandth of an inch,wavelength,POSC,mil,mi3,m,0,0.0000254,1,0
+mil. a thousandth of an inch,mean free path,POSC,mil,mi3,m,0,0.0000254,1,0
+mils/year,velocity,POSC,mil/yr,mi3,m/s,0,0.0000254,31558150,0
+mil_6400,plane angle,POSC,mila,mi3,rad,0,31.415.926.535.898,3200,0
+minutes,time,POSC,min,min,s,0,60,1,0
+minute per foot,time per length,POSC,min/ft,min/ft,s/m,0,60,0.3048,0
+minute per meter,time per length,POSC,min/m,min/m,s/m,0,60,1,0
+minutes angular,plane angle,POSC,mina,mina,rad,0,0.00029088821,1,0
+U.S. Survey mile,length,POSC,miUS,miUS,m,0,1.609.347,1,0
+U.S. Survey mile,depth,POSC,miUS,miUS,m,0,1.609.347,1,0
+U.S. Survey mile,Cartesian coordinates,POSC,miUS,miUS,m,0,1.609.347,1,0
+U.S. Survey mile,distance,POSC,miUS,miUS,m,0,1.609.347,1,0
+U.S. Survey square mile,area,POSC,miUS2,miUS2,m2,0,2589998,1,0
+megajoules,energy,POSC,MJ,MJ,J,0,1000000,1,0
+megajoules,work,POSC,MJ,MJ,J,0,1000000,1,0
+millijoules,energy,POSC,mJ,mJ,J,0,0.001,1,0
+millijoules,work,POSC,mJ,mJ,J,0,0.001,1,0
+megajoules/year,power,POSC,MJ/a,MJ/a,W,0,1000000,31558150,0
+millijoules/square centimetre,energy per area,POSC,mJ/cm2,mJ/cm2,N/m,0,10,1,0
+megajoules/kilogram,specific energy,POSC,MJ/kg,MJ/kg,J/kg,0,1000000,1,0
+megajoules/metre,energy per length,POSC,MJ/m,MJ/m,N,0,1000000,1,0
+millijoules/square metre,energy per area,POSC,mJ/m2,mJ/m2,N/m,0,0.001,1,0
+megajoules/cubic metre,normal stress,POSC,MJ/m3,MJ/m3,J/m3,0,1000000,1,0
+megajoules/cubic metre,shear stress,POSC,MJ/m3,MJ/m3,J/m3,0,1000000,1,0
+megajoules/cubic metre,modulus of elasticity,POSC,MJ/m3,MJ/m3,J/m3,0,1000000,1,0
+megajoules/cubic metre,shear modulus,POSC,MJ/m3,MJ/m3,J/m3,0,1000000,1,0
+megajoules/cubic metre,modulus of rigidity,POSC,MJ/m3,MJ/m3,J/m3,0,1000000,1,0
+megajoules/cubic metre,bulk modulus,POSC,MJ/m3,MJ/m3,J/m3,0,1000000,1,0
+megajoules/cubic metre,modulus of compression,POSC,MJ/m3,MJ/m3,J/m3,0,1000000,1,0
+megajoules/cubic metre,electromagnetic energy density,POSC,MJ/m3,MJ/m3,J/m3,0,1000000,1,0
+megajoules/cubic metre,radiant energy density,POSC,MJ/m3,MJ/m3,J/m3,0,1000000,1,0
+megajoules/mole (kilogram),molar thermodynamic energy,POSC,MJ/kmol,MJ/mol,J/mol,0,1000,1,0
+megajoules/mole (kilogram),chemical potential,POSC,MJ/kmol,MJ/mol,J/mol,0,1000,1,0
+megajoules/mole (kilogram),affinity of a chemical reaction,POSC,MJ/kmol,MJ/mol,J/mol,0,1000,1,0
+megajoules/mole (kilogram),molar thermodynamic energy,POSC,MJ/mol(kg),MJ/mol,J/mol,0,1000000,1,0
+megajoules/mole (kilogram),chemical potential,POSC,(Deprecated),MJ/mol,J/mol,0,1000000,1,0
+megajoules/mole (kilogram),affinity of a chemical reaction,POSC,(Deprecated),MJ/mol,J/mol,0,1000000,1,0
+millidegrees Kelvin/metre,temperature per length,POSC,mK/m,MJ/mol,K/m,0,0.001,1,0
+millilitre,volume,POSC,mL,mL,m3,0,0.000001,1,0
+millilitres/UK gallon,volume per volume,POSC,mL/galUK,mL/galUK,Euc,0,0.0002199692,1,0
+millilitres/US gallon,volume per volume,POSC,mL/galUS,mL/galUS,Euc,0,0.000264172,1,0
+milliliter per milliliter,volume per volume,POSC,mL/mL,mL/mL,Euc,0,1,1,0
+million pounds mass/year,mass flow rate,POSC,Mlbm/yr,mL/mL,kg/s,0,453592.4,31558150,0
+millimetres,length,POSC,mm,mm,m,0,0.001,1,0
+megameter,length,POSC,Mm,Mm,m,0,0.001,1,0
+millimetres/year,velocity,POSC,mm/a,mm/a,m/s,0,0.001,31558150,0
+millimetres/millimetre degree Kelvin,linear thermal expansion,POSC,mm/mm.K,mm/mm.K,1/K,0,1,1,0
+millimetres/second,velocity,POSC,mm/s,mm/s,m/s,0,0.001,1,0
+square millimetres,area,POSC,mm2,mm2,m2,0,0.000001,1,0
+square millimetres/square millimetre,area per area,POSC,mm2/mm2,mm2/mm2,Euc,0,1,1,0
+square millimetres/square millimetre,shear strain,POSC,mm2/mm2,mm2/mm2,Euc,0,1,1,0
+square millimetres/second,kinematic viscosity,POSC,mm2/s,mm2/s,m2/s,0,0.000001,1,0
+square millimetres/second,thermal diffusivity,POSC,mm2/s,mm2/s,m2/s,0,0.000001,1,0
+square millimetres/second,area per time,POSC,mm2/s,mm2/s,m2/s,0,0.000001,1,0
+cubic millimetres,volume,POSC,mm3,mm3,m3,0,0.000000001,1,0
+cubic millimetres/joule,isothermal compressibility,POSC,mm3/J,mm3/J,m3/J,0,0.000000001,1,0
+million barrels,volume,POSC,MMbbl,mm3/J,m3,0,158987.3,1,0
+million barrels/acre foot,volume per volume,POSC,MMbbl/acre.ft,mm3/J,Euc,0,158987.3,1.233.489,0
+million cubic feet,volume,POSC,MMcf,mm3/J,m3,0,28316.85,1,0
+million cubic feet,volume,POSC,(Deprecated),mm3/J,m3,0,28316.85,1,0
+millimetres of Mercury at 0 deg C,force per area,POSC,mmHg(0C),mm3/J,Pa,0,1.333.224,1,0
+millimetres of Mercury at 0 deg C,pressure,POSC,mmHg(0C),mm3/J,Pa,0,1.333.224,1,0
+millimhos/metre,conductivity,POSC,mmho/m,mmho/m,S/m,0,0.001,1,0
+millimole,amount of substance,POSC,mmol,mmol,mol,0,0.001,1,0
+million standard cubic feet at 60 deg F,standard volume,POSC,MMscf(60F),mmol,scm(15C),0,28.262.357,1,0
+million standard cubic feet/day,standard volume per time,POSC,MMscf(60F)/d,mmol,scm(15C)/s,0,28.262.357,86400,0
+million std cu ft/ stock tank barrel,volume per volume,POSC,MMscf60/stb60,mmol,Euc,0,28.262.357,0.1589873,0
+million standard cubic metres 15C,standard volume,POSC,MMscm(15C),mmol,scm(15C),0,1000000,1,0
+million std cubic metres. 15 degC/day,standard volume per time,POSC,MMscm(15C)/d,mmol,scm(15C)/s,0,1000000,86400,0
+million stock tank barrels 60 deg F,standard volume,POSC,MMstb(60F),mmol,scm(15C),0,158987.3,1,0
+million stock tank barrels. 60 deg F/day,standard volume per time,POSC,MMstb(60F)/d,mmol,scm(15C)/s,0,158987.3,86400,0
+million stock tank barrels 60 deg F/acre,standard volume per area,POSC,MMstb/acre,mmol,scm(15C)/m2,0,158987.3,4.046.873,0
+million stbs. 60 deg F/acre foot,standard volume per volume,POSC,MMstb/acre.ft,mmol,scm(15C)/m3,0,158987.3,1.233.489,0
+meganewtons,force,POSC,MN,MN,N,0,1000000,1,0
+millinewtons,force,POSC,mN,mN,N,0,0.001,1,0
+millinewton metres squared,force area,POSC,mN.m2,mN.m2,N.m2,0,0.001,1,0
+millinewtons/kilometre,force per length,POSC,mN/km,mN/km,N/m,0,0.000001,1,0
+millinewtons/metre,force per length,POSC,mN/m,mN/m,N/m,0,0.001,1,0
+megaohm,resistance,POSC,Mohm,Mohm,ohm,0,1000000,1,0
+megaohm,impedance,POSC,Mohm,Mohm,ohm,0,1000000,1,0
+milliohm,resistance,POSC,mohm,mohm,ohm,0,0.001,1,0
+milliohm,impedance,POSC,mohm,mohm,ohm,0,0.001,1,0
+mole (gram),amount of substance,POSC,mol(g),mohm,mol,0,0.001,1,0
+mole (gram),amount of substance,POSC,(Deprecated),mohm,mol,0,0.001,1,0
+mole (kilogram),amount of substance,POSC,mol(kg),mol,mol,0,1,1,0
+mole (kilogram),amount of substance,POSC,(Deprecated),mol,mol,0,1,1,0
+moles (kilogram)/hour,mole per time,POSC,kmol/h,mol/h,mol/s,0,1000,3600,0
+moles (kilogram)/hour,mole per time,POSC,mol(kg)/h,mol/h,mol/s,0,1,3600,0
+moles (kilogram)/hour,mole per time,POSC,(Deprecated),mol/h,mol/s,0,1,3600,0
+moles (kilogram)/cubic metre,concentration of B,POSC,kmol/m3,mol/m3,mol/m3,0,1000,1,0
+moles (kilogram)/cubic metre,amount of a substance,POSC,kmol/m3,mol/m3,mol/m3,0,1000,1,0
+moles (kilogram)/cubic metre,concentration of B,POSC,mol(kg)/m3,mol/m3,mol/m3,0,1,1,0
+moles (kilogram)/cubic metre,amount of a substance,POSC,(Deprecated),mol/m3,mol/m3,0,1,1,0
+moles (kilogram)/second,mole per time,POSC,kmol/s,mol/s,mol/s,0,1000,1,0
+moles (kilogram)/second,mole per time,POSC,mol(kg)/s,mol/s,mol/s,0,1,1,0
+moles (kilogram)/second,mole per time,POSC,(Deprecated),mol/s,mol/s,0,1,1,0
+moles (pounds mass),amount of substance,POSC,lbmole,mol/s,mol,0,4.535.924,1,0
+moles (pounds mass),amount of substance,POSC,mol(lbm),mol/s,mol,0,0.4535924,1,0
+moles (pounds mass),amount of substance,POSC,(Deprecated),mol/s,mol,0,0.4535924,1,0
+moles (pounds mass)/cubic foot,concentration of B,POSC,lbmole/ft3,mol/s,mol/m3,0,16018.46,1,0
+moles (pounds mass)/cubic foot,amount of a substance,POSC,lbmole/ft3,mol/s,mol/m3,0,16018.46,1,0
+moles (pounds mass)/cubic foot,concentration of B,POSC,mol(lbm)/ft3,mol/s,mol/m3,0,1.601.846,1,0
+moles (pounds mass)/cubic foot,amount of a substance,POSC,(Deprecated),mol/s,mol/m3,0,1.601.846,1,0
+moles (pounds mass)/UK gallon,concentration of B,POSC,lbmole/galUK,mol/s,mol/m3,0,9.977.633.537,1,0
+moles (pounds mass)/UK gallon,amount of a substance,POSC,lbmole/galUK,mol/s,mol/m3,0,9.977.633.537,1,0
+moles (pounds mass)/UK gallon,concentration of B,POSC,mol(lbm)/galUK,mol/s,mol/m3,0,9.977.633,1,0
+moles (pounds mass)/UK gallon,amount of a substance,POSC,(Deprecated),mol/s,mol/m3,0,9.977.633,1,0
+moles (pounds mass)/US gallon,concentration of B,POSC,lbmole/galUS,mol/s,mol/m3,0,119826.4,1,0
+moles (pounds mass)/US gallon,amount of a substance,POSC,lbmole/galUS,mol/s,mol/m3,0,119826.4,1,0
+moles (pounds mass)/US gallon,concentration of B,POSC,mol(lbm)/galUS,mol/s,mol/m3,0,1.198.264,1,0
+moles (pounds mass)/US gallon,amount of a substance,POSC,(Deprecated),mol/s,mol/m3,0,1.198.264,1,0
+moles (pounds mass)/hour,mole per time,POSC,lbmole/h,mol/s,mol/s,0,4.535.924,3600,0
+moles (pounds mass)/hour,mole per time,POSC,mol(lbm)/h,mol/s,mol/s,0,0.4535924,3600,0
+moles (pounds mass)/hour,mole per time,POSC,(Deprecated),mol/s,mol/s,0,0.4535924,3600,0
+moles (pounds mass)/hour square foot,mole per time per area,POSC,mol(lbm)/h.ft2,mol/s,mol/m2.s,0,0.4535924,334.450.944,0
+moles (pounds mass)/hour square foot,mole per time per area,POSC,(Deprecated),mol/s,mol/m2.s,0,0.4535924,334.450.944,0
+moles (pounds mass)/hour square foot,mole per time per area,POSC,lbmole/h.ft2,mol/s,mol/m2.s,0,4.535.924,334.450.944,0
+moles (pounds mass)/second,mole per time,POSC,lbmole/s,mol/s,mol/s,0,4.535.924,1,0
+moles (pounds mass)/second,mole per time,POSC,mol(lbm)/s,mol/s,mol/s,0,0.4535924,1,0
+moles (pounds mass)/second,mole per time,POSC,(Deprecated),mol/s,mol/s,0,0.4535924,1,0
+moles (pounds mass)/second square foot,mole per time per area,POSC,lbmole/s.ft2,mol/s,mol/m2.s,0,4.535.924,0.09290304,0
+moles (pounds mass)/second square foot,mole per time per area,POSC,mol(lbm)/s.ft2,mol/s,mol/m2.s,0,0.4535924,0.09290304,0
+moles (pounds mass)/second square foot,mole per time per area,POSC,(Deprecated),mol/s,mol/m2.s,0,0.4535924,0.09290304,0
+millipascal,force per area,POSC,mPa,mPa,Pa,0,0.001,1,0
+millipascal,pressure,POSC,mPa,mPa,Pa,0,0.001,1,0
+megapascals,force per area,POSC,MPa,MPa,Pa,0,1000000,1,0
+megapascals,pressure,POSC,MPa,MPa,Pa,0,1000000,1,0
+millipascal seconds,dynamic viscosity,POSC,mPa.s,mPa.s,Pa.s,0,0.001,1,0
+megapascal seconds/metre (megarayl),mass per time per area,POSC,MPa.s/m,MPa.s/m,kg/m2.s,0,1000000,1,0
+megapascal per hour,pressure per time,POSC,MPa/h,MPa/h,Pa/s,0,1000000,3600,0
+megapascal per meter,force per volume,POSC,MPa/m,MPa/m,Pa/m,0,1000000,1,0
+megapascal per meter,pressure per length,POSC,MPa/m,MPa/m,Pa/m,0,1000000,1,0
+mega pounds per square inch,force per area,POSC,Mpsi,Mpsi,Pa,0,6894757000,1,0
+mega pounds per square inch,pressure,POSC,Mpsi,Mpsi,Pa,0,6894757000,1,0
+milliradian,plane angle,POSC,mrad,mrad,rad,0,0.001,1,0
+megaradian,plane angle,POSC,Mrad,Mrad,rad,0,1000000,1,0
+milli-rem,dose equivalent,POSC,mrem,Mrad,Sv,0,0.00001,1,0
+milli-rems per hour,dose equivalent rate,POSC,mrem/h,Mrad,Sv/s,0,0.00001,3600,0
+millisiemen,electric conductance,POSC,mS,mS,S,0,0.001,1,0
+millisiemen,admittance,POSC,mS,mS,S,0,0.001,1,0
+millisiemen,susceptance,POSC,mS,mS,S,0,0.001,1,0
+milliseconds,time,POSC,ms,ms,s,0,0.001,1,0
+half a millisecond,time,POSC,ms/2,ms,s,0,0.0005,1,0
+milliseconds/centimetre,time per length,POSC,ms/cm,ms/cm,s/m,0,0.1,1,0
+milliseconds/centimetre,slowness,POSC,ms/cm,ms/cm,s/m,0,0.1,1,0
+millisecond per foot,time per length,POSC,ms/ft,ms/ft,s/m,0,0.001,0.3048,0
+millisecond per foot,slowness,POSC,ms/ft,ms/ft,s/m,0,0.001,0.3048,0
+milliseconds/inch,time per length,POSC,ms/in,ms/in,s/m,0,0.001,0.0254,0
+milliseconds/inch,slowness,POSC,ms/in,ms/in,s/m,0,0.001,0.0254,0
+millisiemens/metre,conductivity,POSC,mS/m,mS/m,S/m,0,0.001,1,0
+millisecond per meter,time per length,POSC,ms/m,ms/m,s/m,0,0.001,1,0
+millisecond per meter,slowness,POSC,ms/m,ms/m,s/m,0,0.001,1,0
+milliseconds/second,relative time,POSC,ms/s,ms/s,Euc,0,0.001,1,0
+thousand cubic feet at 60 deg F,standard volume,POSC,Mscf(60F),ms/s,scm(15C),0,28.262.357,1,0
+thousand standard cubic feet/day,standard volume per time,POSC,Mscf(60F)/d,ms/s,scm(15C)/s,0,28.262.357,86400,0
+thousand std cu ft/ stock tank barrel,volume per volume,POSC,Mscf60/stb60,ms/s,Euc,0,28.262.357,0.1589873,0
+thousand std cubic metres. 15 degC/day,standard volume per time,POSC,Mscm(15C)/d,ms/s,scm(15C)/s,0,1000,86400,0
+milliseconds angular,plane angle,POSC,mseca,ms/s,rad,0,0.00000000484814,1,0
+mega standard cubic metres 15C,standard volume,POSC,Msm3,ms/s,scm(15C),0,1000000,1,0
+mega standard cubic metres 15C,standard volume,POSC,(Deprecated),ms/s,scm(15C),0,1000000,1,0
+thousand stock tank barrels 60 F,standard volume,POSC,Mstb(60F),ms/s,scm(15C),0,1.589.873,1,0
+thousand stock tank barrels.60 deg F/day,standard volume per time,POSC,Mstb(60F)/d,ms/s,scm(15C)/s,0,1.589.873,86400,0
+millisievert,dose equivalent,POSC,mSv,mSv,Sv,0,0.001,1,0
+millisieverts per hour,dose equivalent rate,POSC,mSv/h,mSv,Sv/s,0,0.001,3600,0
+milliteslas,magnetic induction,POSC,mT,mT,T,0,0.001,1,0
+milliteslas,magnetic flux density,POSC,mT,mT,T,0,0.001,1,0
+megavolt,electric potential,POSC,MV,MV,V,0,1000000,1,0
+millivolts,electric potential,POSC,mV,mV,V,0,0.001,1,0
+millivolt per foot,electric field strength,POSC,mV/ft,mV/ft,V/m,0,0.001,0.3048,0
+millivolt per meter,electric field strength,POSC,mV/m,mV/m,V/m,0,0.001,1,0
+megawatts,power,POSC,MW,MW,W,0,1000000,1,0
+megawatts,heat flow rate,POSC,MW,MW,W,0,1000000,1,0
+milliwatt,power,POSC,mW,mW,W,0,0.001,1,0
+milliwatt,heat flow rate,POSC,mW,mW,W,0,0.001,1,0
+megawatt hours,energy,POSC,MW.h,MW.h,J,0,3600000000,1,0
+megawatt hours,work,POSC,MW.h,MW.h,J,0,3600000000,1,0
+megawatt hours/kilogram,specific energy,POSC,MW.h/kg,MW.h/kg,J/kg,0,3600000000,1,0
+megawatt hours/cubic metre,normal stress,POSC,MW.h/m3,MW.h/m3,J/m3,0,3600000000,1,0
+megawatt hours/cubic metre,shear stress,POSC,MW.h/m3,MW.h/m3,J/m3,0,3600000000,1,0
+megawatt hours/cubic metre,modulus of elasticity,POSC,MW.h/m3,MW.h/m3,J/m3,0,3600000000,1,0
+megawatt hours/cubic metre,shear modulus,POSC,MW.h/m3,MW.h/m3,J/m3,0,3600000000,1,0
+megawatt hours/cubic metre,modulus of rigidity,POSC,MW.h/m3,MW.h/m3,J/m3,0,3600000000,1,0
+megawatt hours/cubic metre,bulk modulus,POSC,MW.h/m3,MW.h/m3,J/m3,0,3600000000,1,0
+megawatt hours/cubic metre,modulus of compression,POSC,MW.h/m3,MW.h/m3,J/m3,0,3600000000,1,0
+megawatt hours/cubic metre,electromagnetic energy density,POSC,MW.h/m3,MW.h/m3,J/m3,0,3600000000,1,0
+megawatt hours/cubic metre,radiant energy density,POSC,MW.h/m3,MW.h/m3,J/m3,0,3600000000,1,0
+milliwatts/square metres,density of heat flow rate,POSC,mW/m2,mW/m2,W/m2,0,0.001,1,0
+milliwatts/square metres,poynting vector,POSC,mW/m2,mW/m2,W/m2,0,0.001,1,0
+milliwatts/square metres,radiant energy,POSC,mW/m2,mW/m2,W/m2,0,0.001,1,0
+milliwatts/square metres,fluence rate,POSC,mW/m2,mW/m2,W/m2,0,0.001,1,0
+milliwatts/square metres,radiant exitance,POSC,mW/m2,mW/m2,W/m2,0,0.001,1,0
+milliwatts/square metres,irradiance,POSC,mW/m2,mW/m2,W/m2,0,0.001,1,0
+milliwatts/square metres,sound intensity,POSC,mW/m2,mW/m2,W/m2,0,0.001,1,0
+milliwatts/square metres,energy fluence rate,POSC,mW/m2,mW/m2,W/m2,0,0.001,1,0
+milliwebers,magnetic flux,POSC,mWb,mWb,Wb,0,0.001,1,0
+megayears,time,POSC,MY,MA,s,0,3.15582E+13,1,0
+megayears,time,POSC,(Deprecated),MA,s,0,3.15582E+13,1,0
+newton metre,moment of force,POSC,N.m,N.m,J,0,1,1,0
+newton metre,moment of couple,POSC,N.m,N.m,J,0,1,1,0
+newton metre,torque,POSC,N.m,N.m,J,0,1,1,0
+newton metres/metre,force length per length,POSC,N.m/m,N.m/m,N,0,1,1,0
+newton seconds/metre squared,dynamic viscosity,POSC,N.s/m2,N.s/m2,Pa.s,0,1,1,0
+newton per thirty meters,force per length,POSC,N/30m,N.s/m2,N/m,0,1,30,0
+newtons/square metre,force per area,POSC,N/m2,N/m2,Pa,0,1,1,0
+newtons/square metre,pressure,POSC,N/m2,N/m2,Pa,0,1,1,0
+newtons/square millimetre,force per area,POSC,N/mm2,N/mm2,Pa,0,1000000,1,0
+newtons/square millimetre,pressure,POSC,N/mm2,N/mm2,Pa,0,1000000,1,0
+nanoampere,electric current,POSC,nA,nA,A,0,0.000000001,1,0
+nanoampere,magnetic potential difference,POSC,nA,nA,A,0,0.000000001,1,0
+nanoampere,magnetomotive force,POSC,nA,nA,A,0,0.000000001,1,0
+nautical mile,length,POSC,nautmi,nA,m,0,1852,1,0
+nautical mile,depth,POSC,nautmi,nA,m,0,1852,1,0
+nautical mile,Cartesian coordinates,POSC,nautmi,nA,m,0,1852,1,0
+nautical mile,distance,POSC,nautmi,nA,m,0,1852,1,0
+nanocoulomb,electric capacity,POSC,nC,nC,C,0,0.000000001,1,0
+nanocoulomb,electric charge,POSC,nC,nC,C,0,0.000000001,1,0
+nanocoulomb,electric flux,POSC,nC,nC,C,0,0.000000001,1,0
+nanocoulomb,activity (of radioactivity),POSC,nCi,nCi,Bq,0,37,1,0
+nanocurie,activity (of radioactivity),POSC,ncurie,nCi,Bq,0,37,1,0
+nanocurie,activity (of radioactivity),POSC,(Deprecated),nCi,Bq,0,37,1,0
+nanoeuclid,dimensionless,POSC,nEuc,nCi,Euc,0,0.000000001,1,0
+nanoeuclid,poisson ratio,POSC,nEuc,nCi,Euc,0,0.000000001,1,0
+nanohenry,self inductance,POSC,nH,nH,H,0,0.000000001,1,0
+nanohenry,permeance,POSC,nH,nH,H,0,0.000000001,1,0
+nanojoules,energy,POSC,nJ,nJ,J,0,0.000000001,1,0
+nanojoules,work,POSC,nJ,nJ,J,0,0.000000001,1,0
+nanometres,length,POSC,nm,nm,m,0,0.000000001,1,0
+nanometres,breadth,POSC,nm,nm,m,0,0.000000001,1,0
+nanometres,height,POSC,nm,nm,m,0,0.000000001,1,0
+nanometres,thickness,POSC,nm,nm,m,0,0.000000001,1,0
+nanometres,radius,POSC,nm,nm,m,0,0.000000001,1,0
+nanometres,radius of curvature,POSC,nm,nm,m,0,0.000000001,1,0
+nanometres,diameter,POSC,nm,nm,m,0,0.000000001,1,0
+nanometres,length of path,POSC,nm,nm,m,0,0.000000001,1,0
+nanometres,wavelength,POSC,nm,nm,m,0,0.000000001,1,0
+nanometres,mean free path,POSC,nm,nm,m,0,0.000000001,1,0
+nanometer per second,velocity,POSC,nm/s,nm/s,m/s,0,0.000000001,1,0
+nanohm,resistance,POSC,nohm,nohm,ohm,0,0.000000001,1,0
+nanohm,impedance,POSC,nohm,nohm,ohm,0,0.000000001,1,0
+nanoseconds,time,POSC,ns,ns,s,0,0.000000001,1,0
+nanoseconds/foot,time per length,POSC,ns/ft,ns/ft,s/m,0,0.000000001,0.3048,0
+nanoseconds/foot,slowness,POSC,ns/ft,ns/ft,s/m,0,0.000000001,0.3048,0
+nanoseconds/metre,time per length,POSC,ns/m,ns/m,s/m,0,0.000000001,1,0
+nanoseconds/metre,slowness,POSC,ns/m,ns/m,s/m,0,0.000000001,1,0
+nanoteslas,magnetic induction,POSC,nT,nT,T,0,0.000000001,1,0
+nanoteslas,magnetic flux density,POSC,nT,nT,T,0,0.000000001,1,0
+nanowatts,power,POSC,nW,nW,W,0,0.000000001,1,0
+nanowatts,heat flow rate,POSC,nW,nW,W,0,0.000000001,1,0
+oersted,linear electric current density,POSC,Oe,Oe,A/m,0,7.957.747,1,0
+oersted,magnetic field strength,POSC,Oe,Oe,A/m,0,7.957.747,1,0
+oersted,magnetization,POSC,Oe,Oe,A/m,0,7.957.747,1,0
+ohm centimetres,electrical resistivity,POSC,ohm.cm,ohm.cm,ohm.m,0,0.01,1,0
+avoirdupois ounces,mass,POSC,oz(av),ohm.cm,kg,0,0.02834952,1,0
+troy ounces,mass,POSC,oz(troy),ohm.cm,kg,0,0.03110348,1,0
+ounce force,force,POSC,ozf,ozf,N,0,4.448.222,16,0
+ounce mass,mass,POSC,ozm,ozm,kg,0,0.4535924,16.,0
+poise,dynamic viscosity,POSC,P,P,Pa.s,0,0.1,1,0
+picoampere,electric current,POSC,pA,pA,A,0,0.000000000001,1,0
+picoampere,magnetic potential difference,POSC,pA,pA,A,0,0.000000000001,1,0
+picoampere,magnetomotive force,POSC,pA,pA,A,0,0.000000000001,1,0
+pascal seconds squared/ cubic metre,magnetomotive force,POSC,Pa.s2/m3,Pa.s2/m3,kg/m4,0,1,1,0
+pascal gauge,force per area,POSC,Pa(g),Pa.s2/m3,Pa,101325,1,1,0
+pascal gauge,pressure,POSC,Pa(g),Pa.s2/m3,Pa,101325,1,1,0
+pascal per hour,pressure per time,POSC,Pa/h,Pa/h,Pa/s,0,1,3600,0
+picocoulomb,electric capacity,POSC,pC,pC,C,0,0.000000000001,1,0
+picocoulomb,electric charge,POSC,pC,pC,C,0,0.000000000001,1,0
+picocoulomb,electric flux,POSC,pC,pC,C,0,0.000000000001,1,0
+picocoulomb,activity (of radioactivity),POSC,pCi,pCi,Bq,0,0.037,1,0
+picocurie per gram,specific activity (of radioactivity),POSC,pCi/g,pCi/g,Bq/kg,0,37,1,0
+picocurie,activity (of radioactivity),POSC,pcurie,pCi,Bq,0,0.037,1,0
+picocurie,activity (of radioactivity),POSC,(Deprecated),pCi,Bq,0,0.037,1,0
+poundals,force,POSC,pdl,pCi,N,0,0.138255,1,0
+poundal centimetre squared,force area,POSC,pdl.cm2,pCi,N.m2,0,0.0000138255,1,0
+foot poundal,moment of force,POSC,pdl.ft,pCi,J,0,0.04214012,1,0
+foot poundal,moment of couple,POSC,pdl.ft,pCi,J,0,0.04214012,1,0
+foot poundal,torque,POSC,pdl.ft,pCi,J,0,0.04214012,1,0
+poundals/centimetre,force per length,POSC,pdl/cm,pCi,N/m,0,0.138255,0.01,0
+per mille,volumic concentration,POSC,permil,ppk,Euc,0,0.001,1,0
+per mille,mass concentration,POSC,permil,ppk,Euc,0,0.001,1,0
+picrofarads,capacitance,POSC,pF,pF,F,0,0.000000000001,1,0
+picometer,length,POSC,pm,pm,m,0,0.000000000001,1,0
+picometer,breadth,POSC,pm,pm,m,0,0.000000000001,1,0
+picometer,height,POSC,pm,pm,m,0,0.000000000001,1,0
+picometer,thickness,POSC,pm,pm,m,0,0.000000000001,1,0
+picometer,radius,POSC,pm,pm,m,0,0.000000000001,1,0
+picometer,radius of curvature,POSC,pm,pm,m,0,0.000000000001,1,0
+picometer,diameter,POSC,pm,pm,m,0,0.000000000001,1,0
+picometer,length of path,POSC,pm,pm,m,0,0.000000000001,1,0
+picometer,wavelength,POSC,pm,pm,m,0,0.000000000001,1,0
+picometer,mean free path,POSC,pm,pm,m,0,0.000000000001,1,0
+picopascal,force per area,POSC,pPa,pPa,Pa,0,0.000000000001,1,0
+picopascal,pressure,POSC,pPa,pPa,Pa,0,0.000000000001,1,0
+parts per ten thousand,volumic concentration,POSC,ppdk,pPa,Euc,0,0.0001,1,0
+parts per ten thousand,mass concentration,POSC,ppdk,pPa,Euc,0,0.0001,1,0
+parts per thousand,volumic concentration,POSC,ppk,ppk,Euc,0,0.001,1,0
+parts per thousand,mass concentration,POSC,ppk,ppk,Euc,0,0.001,1,0
+parts per million,volumic concentration,POSC,ppm,ppm,Euc,0,0.000001,1,0
+parts per million,mass concentration,POSC,ppm,ppm,Euc,0,0.000001,1,0
+part per million per degree Celsius,volumetric thermal expansion,POSC,ppm/C,ppm/C,1/K,0,0.000001,1,0
+part per million per degree Fahrenheit,volumetric thermal expansion,POSC,ppm/F,ppm/F,1/K,0,0.0000018,1,0
+picosecond,time,POSC,ps,ps,s,0,0.000000000001,1,0
+picosiemens,electric conductance,POSC,pS,pS,S,0,0.000000001,1,0
+picosiemens,admittance,POSC,pS,pS,S,0,0.000000001,1,0
+picosiemens,susceptance,POSC,pS,pS,S,0,0.000000001,1,0
+pounds/square foot,force per area,POSC,psf,lbf/ft2,Pa,0,4.788.026,1,0
+pounds/square foot,pressure,POSC,(Deprecated),lbf/ft2,Pa,0,4.788.026,1,0
+pounds/square inch,force per area,POSC,psi,psi,Pa,0,6.894.757,1,0
+pounds/square inch,pressure,POSC,psi,lbf/in2,Pa,0,6.894.757,1,0
+pounds per square inch days/barrel,pressure time per volume,POSC,psi.d/bbl,psi.d/bbl,Pa.s/m3,0,1,2.305.916,0
+pound per square inch second,dynamic viscosity,POSC,psi.s,psi.s,Pa.s,0,6.894.757,1,0
+pounds/square inch per 100 feet,force per volume,POSC,psi/100ft,psi.s,Pa/m,0,6.894.757,30.48,0
+pounds/square inch per 100 feet,pressure per length,POSC,psi/100ft,psi.s,Pa/m,0,6.894.757,30.48,0
+pounds/square inch per foot,force per volume,POSC,psi/ft,psi/ft,Pa/m,0,6.894.757,0.3048,0
+pounds/square inch per foot,pressure per length,POSC,psi/ft,psi/ft,Pa/m,0,6.894.757,0.3048,0
+pounds/square inch per 100 feet,force per volume,POSC,psi/ft(100),psi/ft,Pa/m,0,6.894.757,30.48,0
+pounds/square inch per 100 feet,pressure per length,POSC,(Deprecated),psi/ft,Pa/m,0,6.894.757,30.48,0
+pound per square inch per hour,pressure per time,POSC,psi/h,psi/h,Pa/s,0,6.894.757,3600,0
+pounds/square inch per thousand feet,force per volume,POSC,psi/kft,psi/h,Pa/m,0,6.894.757,304.8,0
+pounds/square inch per thousand feet,pressure per length,POSC,psi/kft,psi/h,Pa/m,0,6.894.757,304.8,0
+pound per square inch per meter,force per volume,POSC,psi/m,psi/m,Pa/m,0,6.894.757,1,0
+pound per square inch per meter,pressure per length,POSC,psi/m,psi/m,Pa/m,0,6.894.757,1,0
+pound per square inch per minute,pressure per time,POSC,psi/min,psi/min,Pa/s,0,6.894.757,60,0
+pound per square inch squared,pressure squared,POSC,psi2,psi2,Pa2,0,47537674,1,0
+psi squared days/ centipoise cubic foot,Darcy flow coefficient,POSC,psi2.d/cP.ft3,psi2.d/cP.ft3,Pa/m3,0,4.10726E+12,0.000028316847,0
+psi squared days/ centipoise cubic foot,Darcy flow coefficient,POSC,psi2.d/cp.ft3,psi2.d/cP.ft3,Pa/m3,0,4.10726E+12,0.000028316847,0
+psi squared days/ centipoise cubic foot,Darcy flow coefficient,POSC,(Deprecated),psi2.d/cP.ft3,Pa/m3,0,4.10726E+12,0.000028316847,0
+(psi days/cubic foot)squared/centipoise,nonDarcy flow coefficient,POSC,psi2.d2/cP.ft6,psi2.d2/cP.ft6,Pa.s/m6,0,3.55E+27,0.0000008018438,0
+(psi days/cubic foot)squared/centipoise,nonDarcy flow coefficient,POSC,psi2.d2/cp.ft6,psi2.d2/cP.ft6,Pa.s/m6,0,3.55E+27,0.0000008018438,0
+(psi days/cubic foot)squared/centipoise,nonDarcy flow coefficient,POSC,(Deprecated),psi2.d2/cP.ft6,Pa.s/m6,0,3.55E+27,0.0000008018438,0
+pounds/square inch squared/ centipoise,pressure squared per (dynamic viscosity),POSC,psi2/cP,psi2/cP,Pa/s,0,4753764090,1,0
+pounds/square inch absolute,force per area,POSC,psia,psi2/cP,Pa,0,6.894.757,1,0
+pounds/square inch absolute,pressure,POSC,(Deprecated),psi2/cP,Pa,0,6.894.757,1,0
+pounds/square inch gauge,force per area,POSC,psig,psi2/cP,Pa,101325,6.894.757,1,0
+pounds/square inch gauge,pressure,POSC,(Deprecated),psi2/cP,Pa,101325,6.894.757,1,0
+UK pint,volume,POSC,ptUK,psi2/cP,m3,0,0.0005682615,1,0
+UK pints/horsepower hour,isothermal compressibility,POSC,ptUK/hp.hr,psi2/cP,m3/J,0,0.0000000002116809,1,0
+UK pints/1000 barrels,volume per volume,POSC,ptUK/Mbbl,psi2/cP,Euc,0,0.0005682615,1.589.873,0
+US pints,volume,POSC,ptUS,psi2/cP,m3,0,0.0004731765,1,0
+US pint per ten barrel,volume per volume,POSC,ptUS/10bbl,psi2/cP,Euc,0,0.4731765,0.01589873,0
+UK quarts,volume,POSC,qtUK,psi2/cP,m3,0,0.001136523,1,0
+US quarts,volume,POSC,qtUS,psi2/cP,m3,0,0.0009463529,1,0
+quads,energy,POSC,quad,psi2/cP,J,0,1.06E+24,1,0
+quads,work,POSC,quad,psi2/cP,J,0,1.06E+24,1,0
+quads/year,heat flow rate,POSC,quad/yr,psi2/cP,W,0,1.06E+24,31558150,0
+radians per foot,angle per length,POSC,rad/ft,rad/ft,rad/m,0,1,0.3048,0
+radians per cubic foot,angle per volume,POSC,rad/ft3,rad/ft3,rad/m3,0,1,0.028316846592,0
+rad,absorbed dose,POSC,rd,rad/ft3,Gy,0,0.01,1,0
+rem,dose equivalent,POSC,rem,rad/ft3,Sv,0,0.01,1,0
+rems per hour,dose equivalent rate,POSC,rem/h,rad/ft3,Sv/s,0,0.01,3600,0
+revolutions/minute,angle per time,POSC,rev/min,rad/ft3,rad/s,0,6.283.185.307,60,0
+revolutions/minute,angle per time,POSC,(Deprecated),rad/ft3,rad/s,0,6.283.185.307,60,0
+revolutions/second,angle per time,POSC,rev/s,c/s,rad/s,0,6.283.185.307,1,0
+revolutions/minute,angle per time,POSC,rpm,c/s,rad/s,0,6.283.185.307,60,0
+revolutions/minute per second,angular acceleration,POSC,rpm/s,c/s,rad/s2,0,6.283.185.307,60,0
+seconds/centimetre,time per length,POSC,s/cm,s/cm,s/m,0,100,1,0
+seconds/centimetre,slowness,POSC,s/cm,s/cm,s/m,0,100,1,0
+seconds/foot,time per length,POSC,s/ft,s/ft,s/m,0,1,0.3048,0
+seconds/foot,slowness,POSC,s/ft,s/ft,s/m,0,1,0.3048,0
+second per cubic foot,time per volume,POSC,s/ft3,s/ft3,s/m3,0,1,0.028316846592,0
+seconds/inch,time per length,POSC,s/in,s/in,s/m,0,1,0.0254,0
+second per litre,time per volume,POSC,s/L,s/L,s/m3,0,1,0.001,0
+second per UK quart,time per volume,POSC,s/qtUK,s/L,s/m3,0,1,0.001136523,0
+second per US quart,time per volume,POSC,s/qtUS,s/L,s/m3,0,1,0.0009463529,0
+sacks,mass,POSC,sack94,s/L,kg,0,4.263.769,1,0
+std cubic feet at 60 deg F,standard volume,POSC,scf(60F),scf(60F),scm(15C),0,0.028262357,1,0
+std cubic feet at 60 deg F/barrel,standard volume per volume,POSC,scf(60F)/bbl,scf(60F),scm(15C)/m3,0,0.028262357,0.1589873,0
+standard cubic feet/day,standard volume per time,POSC,scf(60F)/d,scf(60F),scm(15C)/s,0,0.028262357,86400,0
+std cubic feet at 60 deg F/square foot,standard volume per area,POSC,scf(60F)/ft2,scf(60F),scm(15C)/m2,0,0.028262357,0.09290304,0
+std cubic feet at 60 deg Ft/cubic foot,standard volume per volume,POSC,scf(60F)/ft3,scf(60F),scm(15C)/m3,0,0.9980757,1,0
+std cubic metres at 15 deg C/day,standard volume per time,POSC,scm(15C)/d,scf(60F),scm(15C)/s,0,1,86400,0
+std cubic metres / stock tank barrel,volume per volume,POSC,scm15/stb60,scf(60F),Euc,0,1,0.1589873,0
+seconds angular,plane angle,POSC,seca,seca,rad,0,0.00000484814,1,0
+capture unit,area per volume,POSC,sigma,cu,1/m,0,0.1,1,0
+capture unit,area per volume,POSC,(Deprecated),cu,1/m,0,0.1,1,0
+std cubic metres/ 1000 std cubic metre,volume per volume,POSC,sm3/ksm3,cu,Euc,0,1,1000,0
+std cubic metres/ std cubic metres,volume per volume,POSC,sm3/sm3,cu,Euc,0,1,1,0
+square feet,area,POSC,sq ft,ft2,m2,0,0.09290304,1,0
+square feet,area,POSC,(Deprecated),ft2,m2,0,0.09290304,1,0
+square inches,area,POSC,sq in,in2,m2,0,0.00064516,1,0
+square inches,area,POSC,(Deprecated),in2,m2,0,0.00064516,1,0
+square miles,area,POSC,sq mi,mi2,m2,0,2589988,1,0
+square miles,area,POSC,(Deprecated),mi2,m2,0,2589988,1,0
+square yards,area,POSC,sq yd,yd2,m2,0,0.8361274,1,0
+square yards,area,POSC,(Deprecated),yd2,m2,0,0.8361274,1,0
+stock tank barrel at 60 deg F,standard volume,POSC,stb(60F),yd2,scm(15C),0,0.1589873,1,0
+stock tank barrels. 60 deg F/acre,standard volume per area,POSC,stb(60F)/acre,yd2,scm(15C)/m2,0,0.1589873,4.046.873,0
+stock tank barrels. 60 deg F/barrel,standard volume per volume,POSC,stb(60F)/bbl,yd2,scm(15C)/m3,0,1,1,0
+stock tank barrels. 60 deg F/day,standard volume per time,POSC,stb(60F)/d,yd2,scm(15C)/s,0,0.1589873,86400,0
+stock tank barrels/ million std cu ft,volume per volume,POSC,stb60/MMscf60,yd2,Euc,0,0.1589873,28.262.357,0
+stock tank barrels/ million std cu mts,volume per volume,POSC,stb60/MMscm15,yd2,Euc,0,0.1589873,1000000,0
+stock tank barrels/ 1000 std cu ft,volume per volume,POSC,stb60/Mscf60,yd2,Euc,0,0.1589873,28.262.357,0
+stock tank barrels/ 1000 std cu metres,volume per volume,POSC,stb60/Mscm15,yd2,Euc,0,0.1589873,1000,0
+stock tank barrels/ std cu metres,volume per volume,POSC,stb60/scm15,yd2,Euc,0,0.1589873,1,0
+sieverts per hour,dose equivalent rate,POSC,Sv/h,yd2,Sv/s,0,1,3600,0
+tonne,mass,POSC,t,t,kg,0,1000,1,0
+tonnes/year,mass flow rate,POSC,t/a,t/a,kg/s,0,1000,31558150,0
+tonnes/day,mass flow rate,POSC,t/d,t/d,kg/s,0,1000,86400,0
+tonnes/hour,mass flow rate,POSC,t/h,t/h,kg/s,0,1000,3600,0
+tonnes per minute,mass flow rate,POSC,t/min,t/min,kg/s,0,1000,60,0
+talbot,quantity of light,POSC,talbot,lm.s,lm.s,0,1,1,0
+terabecquerel,activity (of radioactivity),POSC,TBq,TBq,Bq,0,1.0E12,1,0
+trillion cubic feet,volume,POSC,tcf,TBq,m3,0,28316850000,1,0
+tera electron volts,energy,POSC,TeV,TeV,J,0,0.0000001602177,1,0
+tera electron volts,work,POSC,TeV,TeV,J,0,0.0000001602177,1,0
+therms,energy,POSC,therm,TeV,J,0,105505600,1,0
+therms,work,POSC,therm,TeV,J,0,105505600,1,0
+therms/cubic foot,normal stress,POSC,therm/ft3,TeV,J/m3,0,105505600,0.02831685,0
+therms/cubic foot,shear stress,POSC,therm/ft3,TeV,J/m3,0,105505600,0.02831685,0
+therms/cubic foot,modulus of elasticity,POSC,therm/ft3,TeV,J/m3,0,105505600,0.02831685,0
+therms/cubic foot,shear modulus,POSC,therm/ft3,TeV,J/m3,0,105505600,0.02831685,0
+therms/cubic foot,modulus of rigidity,POSC,therm/ft3,TeV,J/m3,0,105505600,0.02831685,0
+therms/cubic foot,bulk modulus,POSC,therm/ft3,TeV,J/m3,0,105505600,0.02831685,0
+therms/cubic foot,modulus of compression,POSC,therm/ft3,TeV,J/m3,0,105505600,0.02831685,0
+therms/cubic foot,electromagnetic energy density,POSC,therm/ft3,TeV,J/m3,0,105505600,0.02831685,0
+therms/cubic foot,radiant energy density,POSC,therm/ft3,TeV,J/m3,0,105505600,0.02831685,0
+therms/UK gallon,normal stress,POSC,therm/galUK,therm/galUK,J/m3,0,23208000000,1,0
+therms/UK gallon,shear stress,POSC,therm/galUK,therm/galUK,J/m3,0,23208000000,1,0
+therms/UK gallon,modulus of elasticity,POSC,therm/galUK,therm/galUK,J/m3,0,23208000000,1,0
+therms/UK gallon,shear modulus,POSC,therm/galUK,therm/galUK,J/m3,0,23208000000,1,0
+therms/UK gallon,modulus of rigidity,POSC,therm/galUK,therm/galUK,J/m3,0,23208000000,1,0
+therms/UK gallon,bulk modulus,POSC,therm/galUK,therm/galUK,J/m3,0,23208000000,1,0
+therms/UK gallon,modulus of compression,POSC,therm/galUK,therm/galUK,J/m3,0,23208000000,1,0
+therms/UK gallon,electromagnetic energy density,POSC,therm/galUK,therm/galUK,J/m3,0,23208000000,1,0
+therms/UK gallon,radiant energy density,POSC,therm/galUK,therm/galUK,J/m3,0,23208000000,1,0
+therms/pound mass,specific energy,POSC,therm/lbm,therm/lbm,J/kg,0,105505600,0.4535924,0
+terajoules,energy,POSC,TJ,TJ,J,0,1E+12,1,0
+terajoules,work,POSC,TJ,TJ,J,0,1E+12,1,0
+terajoules/year,heat flow rate,POSC,TJ/a,TJ/a,W,0,1E+12,31558150,0
+teraohm,resistance,POSC,Tohm,Tohm,ohm,0,1E+12,1,0
+teraohm,impedance,POSC,Tohm,Tohm,ohm,0,1E+12,1,0
+tons of refrigeration,power,POSC,ton of refrig,Tohm,W,0,3.516.853,1,0
+UK tons force,force,POSC,tonfUK,Tohm,N,0,9.964.016,1,0
+UK ton feet squared,force area,POSC,tonfUK.ft2,Tohm,N.m2,0,9.256.874,1,0
+UK tons force/foot,force per length,POSC,tonfUK/ft,Tohm,N/m,0,9.964.016,0.3048,0
+UK tons force/square foot,pressure,POSC,tonfUK/ft2,Tohm,Pa,0,9.964.016,0.09290304,0
+US tons force,force,POSC,tonfUS,Tohm,N,0,8.896.443,1,0
+US tons force feet,moment of force,POSC,tonfUS.ft,Tohm,J,0,2.711.636,1,0
+US tons force feet,moment of couple,POSC,tonfUS.ft,Tohm,J,0,2.711.636,1,0
+US tons force feet,torque,POSC,tonfUS.ft,Tohm,J,0,2.711.636,1,0
+US tons force feet squared,force area,POSC,tonfUS.ft2,Tohm,N.m2,0,8.265.067,1,0
+US tons force miles,moment of force,POSC,tonfUS.mi,Tohm,J,0,14317440,1,0
+US tons force miles,moment of couple,POSC,tonfUS.mi,Tohm,J,0,14317440,1,0
+US tons force miles,torque,POSC,tonfUS.mi,Tohm,J,0,14317440,1,0
+US ton force miles/barrel,normal stress,POSC,tonfUS.mi/bbl,Tohm,J/m3,0,14317440,0.1589873,0
+US ton force miles/barrel,shear stress,POSC,tonfUS.mi/bbl,Tohm,J/m3,0,14317440,0.1589873,0
+US ton force miles/barrel,modulus of elasticity,POSC,tonfUS.mi/bbl,Tohm,J/m3,0,14317440,0.1589873,0
+US ton force miles/barrel,shear modulus,POSC,tonfUS.mi/bbl,Tohm,J/m3,0,14317440,0.1589873,0
+US ton force miles/barrel,modulus of rigidity,POSC,tonfUS.mi/bbl,Tohm,J/m3,0,14317440,0.1589873,0
+US ton force miles/barrel,bulk modulus,POSC,tonfUS.mi/bbl,Tohm,J/m3,0,14317440,0.1589873,0
+US ton force miles/barrel,modulus of compression,POSC,tonfUS.mi/bbl,Tohm,J/m3,0,14317440,0.1589873,0
+US ton force miles/barrel,electromagnetic energy density,POSC,tonfUS.mi/bbl,Tohm,J/m3,0,14317440,0.1589873,0
+US ton force miles/barrel,radiant energy density,POSC,tonfUS.mi/bbl,Tohm,J/m3,0,14317440,0.1589873,0
+US tons force miles/foot,force length per length,POSC,tonfUS.mi/ft,Tohm,N,0,14317440,0.3048,0
+US tons force/foot,force per length,POSC,tonfUS/ft,Tohm,N/m,0,8.896.443,0.3048,0
+US tons force/square foot,force per area,POSC,tonfUS/ft2,Tohm,Pa,0,95760.52,1,0
+US tons force/square foot,pressure,POSC,tonfUS/ft2,Tohm,Pa,0,95760.52,1,0
+US tons force/square inch,force per area,POSC,tonfUS/in2,Tohm,Pa,0,13789510,1,0
+US tons force/square inch,pressure,POSC,tonfUS/in2,Tohm,Pa,0,13789510,1,0
+UK tons,mass,POSC,tonUK,tonUK,kg,0,1.016.047,1,0
+UK tons/year,mass flow rate,POSC,tonUK/a,tonUK/a,kg/s,0,1.016.047,31558150,0
+UK tons/day,mass flow rate,POSC,tonUK/d,tonUK/d,kg/s,0,1.016.047,86400,0
+UK tons/hour,mass flow rate,POSC,tonUK/h,tonUK/h,kg/s,0,1.016.047,3600,0
+UK tons/minute,mass flow rate,POSC,tonUK/min,tonUK/min,kg/s,0,1.016.047,60,0
+US tons,mass,POSC,tonUS,tonUS,kg,0,9.071.847,1,0
+US tons/year,mass flow rate,POSC,tonUS/a,tonUS/a,kg/s,0,9.071.847,31558150,0
+US tons/day,mass flow rate,POSC,tonUS/d,tonUS/d,kg/s,0,9.071.847,86400,0
+US tons/square foot,surface density,POSC,tonUS/ft2,tonUS/ft2,kg/m2,0,9.764.855,1,0
+US tons/square foot,areic mass,POSC,tonUS/ft2,tonUS/ft2,kg/m2,0,9.764.855,1,0
+US tons/hour,mass flow rate,POSC,tonUS/h,tonUS/h,kg/s,0,9.071.847,3600,0
+US tons/minute,mass flow rate,POSC,tonUS/min,tonUS/min,kg/s,0,9.071.847,60,0
+torr,force per area,POSC,torr,tonUS/min,Pa,0,1.333.224,1,0
+torr,pressure,POSC,torr,tonUS/min,Pa,0,1.333.224,1,0
+terawatts,power,POSC,TW,TW,W,0,1E+12,1,0
+terawatts,heat flow rate,POSC,TW,TW,W,0,1E+12,1,0
+terrawatt hours,energy,POSC,TW.h,TW.h,J,0,3.6E+015,1,0
+terrawatt hours,work,POSC,TW.h,TW.h,J,0,3.6E+015,1,0
+microampere,electric current,POSC,uA,uA,A,0,0.000001,1,0
+microampere,magnetic potential difference,POSC,uA,uA,A,0,0.000001,1,0
+microampere,magnetomotive force,POSC,uA,uA,A,0,0.000001,1,0
+microampere per square centimeter,current density,POSC,uA/cm2,uA/cm2,A/m2,0,0.01,1,0
+microampere per square inch,current density,POSC,uA/in2,uA/in2,A/m2,0,0.000001,0.00064516,0
+microbars,force per area,POSC,ubar,ubar,Pa,0,0.1,1,0
+microbars,pressure,POSC,ubar,ubar,Pa,0,0.1,1,0
+microcoulomb,electric capacity,POSC,uC,uC,C,0,0.000001,1,0
+microcoulomb,electric charge,POSC,uC,uC,C,0,0.000001,1,0
+microcoulomb,electric flux,POSC,uC,uC,C,0,0.000001,1,0
+microcalories/second square centimetre,density of heat flow rate,POSC,ucal/s.cm2,uC,W/m2,0,0.04184,1,0
+microcalories/second square centimetre,poynting vector,POSC,ucal/s.cm2,uC,W/m2,0,0.04184,1,0
+microcalories/second square centimetre,radiant energy,POSC,ucal/s.cm2,uC,W/m2,0,0.04184,1,0
+microcalories/second square centimetre,fluence rate,POSC,ucal/s.cm2,uC,W/m2,0,0.04184,1,0
+microcalories/second square centimetre,radiant exitance,POSC,ucal/s.cm2,uC,W/m2,0,0.04184,1,0
+microcalories/second square centimetre,irradiance,POSC,ucal/s.cm2,uC,W/m2,0,0.04184,1,0
+microcalories/second square centimetre,sound intensity,POSC,ucal/s.cm2,uC,W/m2,0,0.04184,1,0
+microcalories/second square centimetre,energy fluence rate,POSC,ucal/s.cm2,uC,W/m2,0,0.04184,1,0
+microcalories/second square centimetre,activity (of radioactivity),POSC,uCi,uCi,Bq,0,37000,1,0
+microcurie,activity (of radioactivity),POSC,ucurie,uCi,Bq,0,37000,1,0
+microcurie,activity (of radioactivity),POSC,(Deprecated),uCi,Bq,0,37000,1,0
+microEuclids,dimensionless,POSC,uEuc,ppm,Euc,0,0.000001,1,0
+microEuclids,poisson ratio,POSC,uEuc,ppm,Euc,0,0.000001,1,0
+microfarads,capacitance,POSC,uF,uF,F,0,0.000001,1,0
+microfarads/metre,permittivity,POSC,uF/m,uF/m,F/m,0,0.000001,1,0
+micrograms,mass,POSC,ug,ug,kg,0,0.000000001,1,0
+micrograms/cubic centimetre,density,POSC,ug/cm3,ug/cm3,kg/m3,0,0.001,1,0
+micrograms/cubic centimetre,mass density,POSC,ug/cm3,ug/cm3,kg/m3,0,0.001,1,0
+micrograms/cubic centimetre,volumic mass,POSC,ug/cm3,ug/cm3,kg/m3,0,0.001,1,0
+microhenry,self inductance,POSC,uH,uH,H,0,0.000001,1,0
+microhenry,permeance,POSC,uH,uH,H,0,0.000001,1,0
+microhenries/metre,magnetic permeability,POSC,uH/m,uH/m,H/m,0,0.000001,1,0
+microhertz,frequency,POSC,uHz,uHz,rad/s,0,0.000006283185307,1,0
+microjoules,energy,POSC,uJ,uJ,J,0,0.000001,1,0
+microjoules,work,POSC,uJ,uJ,J,0,0.000001,1,0
+microns,length,POSC,um,um,m,0,0.000001,1,0
+microns,breadth,POSC,um,um,m,0,0.000001,1,0
+microns,height,POSC,um,um,m,0,0.000001,1,0
+microns,thickness,POSC,um,um,m,0,0.000001,1,0
+microns,radius,POSC,um,um,m,0,0.000001,1,0
+microns,radius of curvature,POSC,um,um,m,0,0.000001,1,0
+microns,diameter,POSC,um,um,m,0,0.000001,1,0
+microns,length of path,POSC,um,um,m,0,0.000001,1,0
+microns,wavelength,POSC,um,um,m,0,0.000001,1,0
+microns,mean free path,POSC,um,um,m,0,0.000001,1,0
+micrometer per second,velocity,POSC,um/s,um/s,m/s,0,0.000001,1,0
+square microns,area,POSC,um2,um2,m2,0,0.000000000001,1,0
+square micron metres,volume,POSC,um2.m,um2.m,m3,0,0.000000000001,1,0
+microns of Mercury at 0 deg C,force per area,POSC,umHg(0C),um2.m,Pa,0,0.1333224,1,0
+microns of Mercury at 0 deg C,pressure,POSC,umHg(0C),um2.m,Pa,0,0.1333224,1,0
+micromole,amount of substance,POSC,umol,umol,mol,0,0.000001,1,0
+micronewtons,force,POSC,uN,uN,N,0,0.000001,1,0
+unitless,dimensionless,POSC,unitless,uN,Euc,0,1,1,0
+unitless,dimensionless,POSC,(Deprecated),uN,Euc,0,1,1,0
+microohm,resistance,POSC,uohm,uohm,ohm,0,0.000001,1,0
+microohm,impedance,POSC,uohm,uohm,ohm,0,0.000001,1,0
+microhm per foot,resistivity per length,POSC,uohm/ft,uohm/ft,ohm/m,0,0.000001,0.3048,0
+microhm per meter,resistivity per length,POSC,uohm/m,uohm/m,ohm/m,0,0.000001,1,0
+micropascal,force per area,POSC,uPa,uPa,Pa,0,0.000001,1,0
+micropascal,pressure,POSC,uPa,uPa,Pa,0,0.000001,1,0
+micropounds/square inch,force per area,POSC,upsi,upsi,Pa,0,0.006894757,1,0
+micropounds/square inch,pressure,POSC,upsi,upsi,Pa,0,0.006894757,1,0
+microradian,plane angle,POSC,urad,urad,rad,0,0.000001,1,0
+microsiemens,electric conductance,POSC,uS,uS,S,0,0.000001,1,0
+microsiemens,admittance,POSC,uS,uS,S,0,0.000001,1,0
+microsiemens,susceptance,POSC,uS,uS,S,0,0.000001,1,0
+microsecond,time,POSC,us,us,s,0,0.000001,1,0
+microseconds/foot,time per length,POSC,us/ft,us/ft,s/m,0,0.000001,0.3048,0
+microseconds/foot,slowness,POSC,us/ft,us/ft,s/m,0,0.000001,0.3048,0
+microseconds/metre,time per length,POSC,us/m,us/m,s/m,0,0.000001,1,0
+microseconds/metre,slowness,POSC,us/m,us/m,s/m,0,0.000001,1,0
+microteslas,magnetic induction,POSC,uT,uT,T,0,0.000001,1,0
+microteslas,magnetic flux density,POSC,uT,uT,T,0,0.000001,1,0
+microvolts,electric potential,POSC,uV,uV,V,0,0.000001,1,0
+microvolt per foot,electric field strength,POSC,uV/ft,uV/ft,V/m,0,0.000001,0.3048,0
+microvolt per meter,electric field strength,POSC,uV/m,uV/m,V/m,0,0.000001,1,0
+microwatts,power,POSC,uW,uW,W,0,0.000001,1,0
+microwatts,heat flow rate,POSC,uW,uW,W,0,0.000001,1,0
+microwatts/cubic metre,power per volume,POSC,uW/m3,uW/m3,W/m3,0,0.000001,1,0
+microwebers,magnetic flux,POSC,uWb,uWb,Wb,0,0.000001,1,0
+volts/decibel,potential difference per per power drop,POSC,V/dB,V/dB,V/B,0,10,1,0
+volume percent,volume per volume,POSC,volpercent,%,Euc,0,0.01,1,0
+volume percent,volume per volume,POSC,(Deprecated),%,Euc,0,0.01,1,0
+volume parts per million,volume per volume,POSC,volppm,ppm,Euc,0,0.000001,1,0
+volume parts per million,volume per volume,POSC,(Deprecated),ppm,Euc,0,0.000001,1,0
+watts/square centimetre,density of heat flow rate,POSC,W/cm2,W/cm2,W/m2,0,10000,1,0
+watts/square centimetre,poynting vector,POSC,W/cm2,W/cm2,W/m2,0,10000,1,0
+watts/square centimetre,radiant energy,POSC,W/cm2,W/cm2,W/m2,0,10000,1,0
+watts/square centimetre,fluence rate,POSC,W/cm2,W/cm2,W/m2,0,10000,1,0
+watts/square centimetre,radiant exitance,POSC,W/cm2,W/cm2,W/m2,0,10000,1,0
+watts/square centimetre,irradiance,POSC,W/cm2,W/cm2,W/m2,0,10000,1,0
+watts/square centimetre,sound intensity,POSC,W/cm2,W/cm2,W/m2,0,10000,1,0
+watts/square centimetre,energy fluence rate,POSC,W/cm2,W/cm2,W/m2,0,10000,1,0
+watts/kilowatt,relative power,POSC,W/kW,W/kW,Euc,0,0.001,1,0
+watts per square millimeter,density of heat flow rate,POSC,W/mm2,W/mm2,W/m2,0,1000000,1,0
+watts per square millimeter,poynting vector,POSC,W/mm2,W/mm2,W/m2,0,1000000,1,0
+watts per square millimeter,radiant energy,POSC,W/mm2,W/mm2,W/m2,0,1000000,1,0
+watts per square millimeter,fluence rate,POSC,W/mm2,W/mm2,W/m2,0,1000000,1,0
+watts per square millimeter,radiant exitance,POSC,W/mm2,W/mm2,W/m2,0,1000000,1,0
+watts per square millimeter,irradiance,POSC,W/mm2,W/mm2,W/m2,0,1000000,1,0
+watts per square millimeter,sound intensity,POSC,W/mm2,W/mm2,W/m2,0,1000000,1,0
+watts per square millimeter,energy fluence rate,POSC,W/mm2,W/mm2,W/m2,0,1000000,1,0
+watts/watt,relative power,POSC,W/W,W/W,Euc,0,1,1,0
+webers/millimetre,magnetic vector potential,POSC,Wb/mm,Wb/mm,Wb/m,0,1000,1,0
+weeks,time,POSC,wk,Wb/mm,s,0,604800,1,0
+weight percent,mass concentration,POSC,wtpercent,%,Euc,0,0.01,1,0
+weight percent,mass concentration,POSC,(Deprecated),%,Euc,0,0.01,1,0
+weight parts per million,mass concentration,POSC,wtppm,ppm,Euc,0,0.000001,1,0
+weight parts per million,mass concentration,POSC,(Deprecated),ppm,Euc,0,0.000001,1,0
+yards,length,POSC,yd,ppm,m,0,0.9144,1,0
+yards,breadth,POSC,yd,ppm,m,0,0.9144,1,0
+yards,height,POSC,yd,ppm,m,0,0.9144,1,0
+yards,thickness,POSC,yd,ppm,m,0,0.9144,1,0
+yards,radius,POSC,yd,ppm,m,0,0.9144,1,0
+yards,radius of curvature,POSC,yd,ppm,m,0,0.9144,1,0
+yards,Cartesian coordinates,POSC,yd,ppm,m,0,0.9144,1,0
+yards,diameter,POSC,yd,ppm,m,0,0.9144,1,0
+yards,length of path,POSC,yd,ppm,m,0,0.9144,1,0
+yards,distance,POSC,yd,ppm,m,0,0.9144,1,0
+square yards,area,POSC,yd2,ppm,m2,0,0.83612736,1,0
+cubic yard,volume,POSC,yd3,1/27 ft3,m3,0,0.7645549,1,0
+Benoits yard (1895 A),length,POSC,ydBnA,1/27 ft3,m,0,0.9143992,1,0
+Benoits yard (1895 A),depth,POSC,ydBnA,1/27 ft3,m,0,0.9143992,1,0
+Benoits yard (1895 A),Cartesian coordinates,POSC,ydBnA,1/27 ft3,m,0,0.9143992,1,0
+Benoits yard (1895 A),distance,POSC,ydBnA,1/27 ft3,m,0,0.9143992,1,0
+Benoits yard (1895 B),length,POSC,ydBnB,1/27 ft3,m,0,36,39.370.113,0
+Benoits yard (1895 B),depth,POSC,ydBnB,1/27 ft3,m,0,36,39.370.113,0
+Benoits yard (1895 B),Cartesian coordinates,POSC,ydBnB,1/27 ft3,m,0,36,39.370.113,0
+Benoits yard (1895 B),distance,POSC,ydBnB,1/27 ft3,m,0,36,39.370.113,0
+Clarkes yard,length,POSC,ydCla,1/27 ft3,m,0,0.914391795,1,0
+Clarkes yard,depth,POSC,ydCla,1/27 ft3,m,0,0.914391795,1,0
+Clarkes yard,Cartesian coordinates,POSC,ydCla,1/27 ft3,m,0,0.914391795,1,0
+Clarkes yard,distance,POSC,ydCla,1/27 ft3,m,0,0.914391795,1,0
+imperial yard,length,POSC,ydIm,1/27 ft3,m,0,0.914391795,1,0
+imperial yard,depth,POSC,ydIm,1/27 ft3,m,0,0.914391795,1,0
+imperial yard,Cartesian coordinates,POSC,ydIm,1/27 ft3,m,0,0.914391795,1,0
+imperial yard,distance,POSC,ydIm,1/27 ft3,m,0,0.914391795,1,0
+Indian yard,length,POSC,ydInd,1/27 ft3,m,0,36,39.370.142,0
+Indian yard,depth,POSC,ydInd,1/27 ft3,m,0,36,39.370.142,0
+Indian yard,Cartesian coordinates,POSC,ydInd,1/27 ft3,m,0,36,39.370.142,0
+Indian yard,distance,POSC,ydInd,1/27 ft3,m,0,36,39.370.142,0
+Indian yard (1937),length,POSC,ydInd(37),1/27 ft3,m,0,0.91439523,1,0
+Indian yard (1937),depth,POSC,ydInd(37),1/27 ft3,m,0,0.91439523,1,0
+Indian yard (1937),Cartesian coordinates,POSC,ydInd(37),1/27 ft3,m,0,0.91439523,1,0
+Indian yard (1937),distance,POSC,ydInd(37),1/27 ft3,m,0,0.91439523,1,0
+Indian yard (1962),length,POSC,ydInd(62),1/27 ft3,m,0,0.9143988,1,0
+Indian yard (1962),depth,POSC,ydInd(62),1/27 ft3,m,0,0.9143988,1,0
+Indian yard (1962),Cartesian coordinates,POSC,ydInd(62),1/27 ft3,m,0,0.9143988,1,0
+Indian yard (1962),distance,POSC,ydInd(62),1/27 ft3,m,0,0.9143988,1,0
+Indian yard (1975),length,POSC,ydInd(75),1/27 ft3,m,0,0.9143985,1,0
+Indian yard (1975),depth,POSC,ydInd(75),1/27 ft3,m,0,0.9143985,1,0
+Indian yard (1975),Cartesian coordinates,POSC,ydInd(75),1/27 ft3,m,0,0.9143985,1,0
+Indian yard (1975),distance,POSC,ydInd(75),1/27 ft3,m,0,0.9143985,1,0
+Sears yard,length,POSC,ydSe,1/27 ft3,m,0,36,39.370.147,0
+Sears yard,depth,POSC,ydSe,1/27 ft3,m,0,36,39.370.147,0
+Sears yard,Cartesian coordinates,POSC,ydSe,1/27 ft3,m,0,36,39.370.147,0
+Sears yard,distance,POSC,ydSe,1/27 ft3,m,0,36,39.370.147,0
+100000 years,time,POSC,yr(100k),1/27 ft3,s,0,3.15582E+12,1,0
+100000 years,time,POSC,(Deprecated),1/27 ft3,s,0,3.15582E+12,1,0

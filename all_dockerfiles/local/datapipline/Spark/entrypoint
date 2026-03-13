@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd /app/datapipline/formatting
+spark-submit --conf spark.pyspark.python=/usr/local/bin/python3 --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.5 --jars kafka-clients-2.2.0.jar --driver-class-path kafka-clients-2.2.0.jar services4.py

@@ -1,0 +1,260 @@
+[
+    {
+        "ROLES_ID": "923eba42b99d4a9ba07740638f5d5d41",
+        "ROLES_NAME": "Admin",
+        "LAYER_NAME": "KNOC",
+        "LAST_UPDT_DATE": null,
+        "LAST_UPDATE_USER": "umut@gmail.com",
+        "PROPERTY_ID": [
+            {
+                "ROW_ID": "1e165c2d314c41e2a1665bc368e3fed0",
+                "ROLES_TYPES": "RESOURE_LIST",
+                "ROLES_INFO": "Resource List",
+                "CREATE": true,
+                "READ": true,
+                "UPDATE": true,
+                "DELETE": true,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "58281494cdbd410da16391c7bc9f0b67",
+                "ROLES_TYPES": "REPORT",
+                "ROLES_INFO": "Report",
+                "CREATE": true,
+                "READ": true,
+                "UPDATE": true,
+                "DELETE": true,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "fdffb698fcbd438aae558f619ef16113",
+                "ROLES_TYPES": "USERS",
+                "ROLES_INFO": "Users",
+                "CREATE": true,
+                "READ": true,
+                "UPDATE": true,
+                "DELETE": true,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "485844724f9d43f4a43087ce74941fee",
+                "ROLES_TYPES": "ROLES",
+                "ROLES_INFO": "Roles",
+                "CREATE": true,
+                "READ": true,
+                "UPDATE": true,
+                "DELETE": true,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "6fd33fad77f240f3854560e589a25d86",
+                "ROLES_TYPES": "PROJECT",
+                "ROLES_INFO": "Project",
+                "CREATE": true,
+                "READ": true,
+                "UPDATE": true,
+                "DELETE": true,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "80ef4587b51f4a99bd44a2d6aa630ea8",
+                "ROLES_TYPES": "CODE_LIST",
+                "ROLES_INFO": "Code List",
+                "CREATE": true,
+                "READ": true,
+                "UPDATE": true,
+                "DELETE": true,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "2f9ce340bd54439fb40cecb3fade8e27",
+                "ROLES_TYPES": "TYPES",
+                "ROLES_INFO": "Types",
+                "CREATE": true,
+                "READ": true,
+                "UPDATE": true,
+                "DELETE": true,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "0cd3b70d61c94aef9debd8a0d680cb3d",
+                "ROLES_TYPES": "WORKFLOWS",
+                "ROLES_INFO": "Workflows",
+                "CREATE": true,
+                "READ": true,
+                "UPDATE": true,
+                "DELETE": true,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "b8651dbda67d41cdaa8a56946ba3da83",
+                "ROLES_TYPES": "CONFIG",
+                "ROLES_INFO": "Configuration",
+                "CREATE": true,
+                "READ": true,
+                "UPDATE": true,
+                "DELETE": true,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "0e3889795cf9483185b19b61a8da671d",
+                "ROLES_TYPES": "TAGS_IMPORT",
+                "ROLES_INFO": "Tags Import",
+                "CREATE": true,
+                "READ": true,
+                "UPDATE": true,
+                "DELETE": true,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "ad9864fd8cab4f5c850e66c95b0c75b8",
+                "ROLES_TYPES": "TAGS_MANAGER",
+                "ROLES_INFO": "Tags Manager",
+                "CREATE": true,
+                "READ": true,
+                "UPDATE": true,
+                "DELETE": true,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "52be14b216784885991e6169209ce4f6",
+                "ROLES_TYPES": "TAGS_CALCULATED",
+                "ROLES_INFO": "Tags Calculated",
+                "CREATE": true,
+                "READ": true,
+                "UPDATE": true,
+                "DELETE": true,
+                "LAST_UPDT_DATE": null
+            }
+        ]
+    },
+    {
+        "ROLES_ID": "1b4fe042f0a248009fe70be4fe2cf000",
+        "ROLES_NAME": "User",
+        "LAYER_NAME": "KNOC",
+        "LAST_UPDT_DATE": null,
+        "LAST_UPDATE_USER": "umut@gmail.com",
+        "PROPERTY_ID": [
+            {
+                "ROW_ID": "7dfb20b554334ee1a7c21e28631a73d2",
+                "ROLES_TYPES": "RESOURE_LIST",
+                "ROLES_INFO": "Resource List",
+                "CREATE": false,
+                "READ": false,
+                "UPDATE": false,
+                "DELETE": false,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "64ed4fd7b72945349a45607fd9a5c5b8",
+                "ROLES_TYPES": "REPORT",
+                "ROLES_INFO": "Report",
+                "CREATE": false,
+                "READ": false,
+                "UPDATE": false,
+                "DELETE": false,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "5146ed484b0a4572a457b5fef43ea2b8",
+                "ROLES_TYPES": "USERS",
+                "ROLES_INFO": "Users",
+                "CREATE": false,
+                "READ": false,
+                "UPDATE": false,
+                "DELETE": false,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "3a950debb3fc4966b9c2d810e7b4b351",
+                "ROLES_TYPES": "ROLES",
+                "ROLES_INFO": "Roles",
+                "CREATE": false,
+                "READ": false,
+                "UPDATE": false,
+                "DELETE": false,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "3c18d138efd84c2090edd7e1911a997b",
+                "ROLES_TYPES": "PROJECT",
+                "ROLES_INFO": "Project",
+                "CREATE": false,
+                "READ": false,
+                "UPDATE": false,
+                "DELETE": false,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "72b6adf0a028463da81b54fedc91d12a",
+                "ROLES_TYPES": "CODE_LIST",
+                "ROLES_INFO": "Code List",
+                "CREATE": false,
+                "READ": false,
+                "UPDATE": false,
+                "DELETE": false,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "cc00fc862d6d4eea8620a54f272fd8b8",
+                "ROLES_TYPES": "TYPES",
+                "ROLES_INFO": "Types",
+                "CREATE": false,
+                "READ": false,
+                "UPDATE": false,
+                "DELETE": false,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "f1eae739e6f84ec0832b439e820c48e5",
+                "ROLES_TYPES": "WORKFLOWS",
+                "ROLES_INFO": "Workflows",
+                "CREATE": false,
+                "READ": false,
+                "UPDATE": false,
+                "DELETE": false,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "97810f46e86c4204b2a9f9417190fb39",
+                "ROLES_TYPES": "CONFIG",
+                "ROLES_INFO": "Configuration",
+                "CREATE": false,
+                "READ": false,
+                "UPDATE": false,
+                "DELETE": false,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "ee15c156949f4ad2979fb7ec6be9b8d3",
+                "ROLES_TYPES": "TAGS_IMPORT",
+                "ROLES_INFO": "Tags Import",
+                "CREATE": false,
+                "READ": false,
+                "UPDATE": false,
+                "DELETE": false,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "47ba35308b99494db4088408ce67b47a",
+                "ROLES_TYPES": "TAGS_MANAGER",
+                "ROLES_INFO": "Tags Manager",
+                "CREATE": false,
+                "READ": false,
+                "UPDATE": false,
+                "DELETE": false,
+                "LAST_UPDT_DATE": null
+            },
+            {
+                "ROW_ID": "d332f96229fa41f49ff9e67eb23f0dde",
+                "ROLES_TYPES": "TAGS_CALCULATED",
+                "ROLES_INFO": "Tags Calculated",
+                "CREATE": false,
+                "READ": false,
+                "UPDATE": false,
+                "DELETE": false,
+                "LAST_UPDT_DATE": null
+            }
+        ]
+    }
+]

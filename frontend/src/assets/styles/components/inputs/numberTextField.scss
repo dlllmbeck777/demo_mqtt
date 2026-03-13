@@ -1,0 +1,21 @@
+.number-text-field {
+  & .MuiOutlinedInput-input {
+    font-size: 1rem;
+    padding: 4px 2px 4px 0px !important;
+    padding-left: 14px !important;
+  }
+  font-size: 1rem;
+  width: 100%;
+  min-width: 125px;
+}
+
+.overview-number-text-field {
+  & .MuiOutlinedInput-input {
+    font-size: 1rem;
+    padding: 4px 2px 4px 0px !important;
+    padding-left: 14px !important;
+  }
+  font-size: 1rem;
+  width: 75px;
+  min-width: 75px;
+}

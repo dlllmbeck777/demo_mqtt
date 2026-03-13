@@ -1,0 +1,50 @@
+@import "../components/boxes.scss";
+.item-container__body {
+  &__action-box {
+    &__date-break {
+      margin-inline: 8px !important;
+      &__container {
+        align-items: center;
+        height: 100%;
+        &__btn-box {
+          align-items: center;
+          &__btn {
+            text-transform: capitalize;
+            font-size: 1rem;
+            margin: 0 2px;
+          }
+          &__date-picker {
+            width: 125px;
+          }
+        }
+      }
+    }
+  }
+  &__property-box {
+    &__links {
+      height: 100%;
+      margin-left: 8px;
+      border: 1px solid;
+      border-color: $grey-200;
+      border-radius: 3px;
+      position: relative;
+      @include themify($themes) {
+        color: themed("text-drawer-selected-item");
+      }
+      &__in-out {
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+      }
+      &__divider {
+        position: absolute;
+        left: 50%;
+        border-width: 0.1px;
+        height: 100%;
+        @include themify($themes) {
+          background-color: themed("text-drawer-selected-item");
+        }
+      }
+    }
+  }
+}

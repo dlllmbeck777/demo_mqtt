@@ -1,0 +1,14 @@
+@import "../../../components/scrollbar.scss";
+.profile-update-info {
+  width: 100%;
+  height: 100%;
+  form {
+    height: calc(100% - 110px);
+  }
+  &__body {
+    height: 100%;
+    padding: 16px;
+    overflow: auto;
+    @include defaultScroll;
+  }
+}

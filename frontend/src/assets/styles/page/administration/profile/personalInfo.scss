@@ -1,0 +1,22 @@
+@import "../../../palette/palette.scss";
+@mixin breakpoint($breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+.profile-personal-info {
+  &__body {
+    padding: 20px;
+    &__form-label {
+      @include themify($themes) {
+        color: themed("text-color");
+      }
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    @include breakpoint(1920px) {
+      width: 50%;
+    }
+  }
+}

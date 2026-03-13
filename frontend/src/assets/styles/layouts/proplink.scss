@@ -1,0 +1,39 @@
+@import "../palette/palette.scss";
+.prop-link-container {
+  height: 100%;
+  position: relative;
+  &__btn-group {
+    padding-right: 8px;
+    height: 100%;
+    &__btn {
+      padding: 8px !important;
+      &__text {
+        writing-mode: vertical-rl;
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        text-transform: capitalize;
+        font-weight: bold;
+        @include themify($themes) {
+          color: themed("text-drawer-item");
+        }
+      }
+    }
+    &__display {
+      display: none !important;
+    }
+  }
+  &__divider {
+    margin-inline: 4px;
+    border-width: 0.2px;
+    @include themify($themes) {
+      border-color: themed("text-drawer-item");
+      background-color: themed("text-drawer-item");
+    }
+  }
+  &__body {
+    width: calc(100% - 52px);
+    padding-left: 8px;
+  }
+}

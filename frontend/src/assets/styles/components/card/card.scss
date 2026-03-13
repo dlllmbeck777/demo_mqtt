@@ -1,0 +1,57 @@
+@import "../../palette/shadow.scss";
+@import "../../palette/typography.scss";
+.card-container {
+  max-width: 1500px;
+  padding: 20px;
+  .card-container__card-box {
+    @include themify($themes) {
+      background-color: themed("bg-card");
+    }
+    height: 225px;
+    cursor: pointer;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    position: relative;
+    box-shadow: $shadow-three;
+    border-left: 20px solid;
+    @include themify($themes) {
+      border-color: themed("border-card");
+    }
+
+    &:hover {
+      top: -3px;
+      left: -3px;
+      box-shadow: $shadow-five;
+      @include themify($themes) {
+        border-color: themed("border-card-hover");
+      }
+    }
+    &:active {
+      top: 0px;
+      left: 0px;
+      box-shadow: $shadow-one;
+    }
+    .card-container__card-box__body {
+      padding: 16px;
+      .card-container__card-box__body__title {
+        @include themify($themes) {
+          color: themed("text-card");
+        }
+        @include h-6;
+        font-weight: 700;
+      }
+
+      .card-container__card-box__body__btn-next {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-right: 34px;
+        margin-bottom: 20px;
+        @include body2;
+        @include themify($themes) {
+          color: themed("text-card");
+        }
+      }
+    }
+  }
+}

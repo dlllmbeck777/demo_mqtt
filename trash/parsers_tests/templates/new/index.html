@@ -1,0 +1,12 @@
+from django.db import models<br><br>
+
+{% for i in table %}
+    <p>
+      Class  {{i.table_name}} (models.Model):
+        <ul>
+        {% for i in column%} 
+         {{i.column_name}} = models. {{i.column_type}}(precision = {{i.precision}}, IsIdentity = {{i.identity}}, null = {{i.null}}, default = {{i.DefaultValueType}}, pkorder = {{PkOrder}})<br>
+        {% endfor %}
+    </ul>
+    </p>
+    {% endfor %}

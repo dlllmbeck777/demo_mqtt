@@ -1,0 +1,41 @@
+@import "../../../components/boxes.scss";
+@import "../../../palette//palette.scss";
+.types-container__body {
+  &__property-box {
+    &__datagrid {
+      height: 100%;
+      margin-left: 8px;
+    }
+  }
+}
+
+.types-property-container {
+  height: 100%;
+  padding: 0px 50px;
+  box-sizing: border-box;
+  &__paper {
+    flex: 1;
+    width: 100%;
+    padding: 8px;
+    &__datagrid-box {
+      height: 100%;
+    }
+  }
+}
+
+.types-property-action-menu-icon span:first-child {
+  margin: 0;
+}
+
+.types-link-container {
+  padding: 8px;
+  &__item-box {
+    border: 1px solid;
+    border-radius: 8px;
+    @include themify($themes) {
+      color: themed("text-color");
+      border-color: themed("text-color");
+    }
+    padding: 8px;
+  }
+}

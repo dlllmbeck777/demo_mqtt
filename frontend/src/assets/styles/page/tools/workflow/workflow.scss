@@ -1,0 +1,18 @@
+@import "../../../palette/palette.scss";
+.workflow-container {
+  &__body {
+    padding-left: 8px;
+    height: 100%;
+    &__step-one {
+      &__input-box {
+        flex-wrap: nowrap;
+        width: 50%;
+        &__label {
+          @include themify($themes) {
+            color: themed("text-color");
+          }
+        }
+      }
+    }
+  }
+}

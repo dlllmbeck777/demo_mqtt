@@ -1,0 +1,8 @@
+@import "../palette/palette.scss";
+.vertical-divider {
+  border-width: "0.2px";
+  @include themify($themes) {
+    border-color: themed("text-drawer-selected-item");
+    background-color: themed("text-drawer-selected-item");
+  }
+}

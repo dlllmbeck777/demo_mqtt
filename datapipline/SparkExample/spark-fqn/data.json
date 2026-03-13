@@ -1,0 +1,5 @@
+{"id": 1, "tarih": "Sattelite-1,pump 151/1", "time": "23/01/2023 00:00:00", "quality":196 , "temperature": 31.99,"created_by":"some_device-IMX18ID#1","version":"1","company":"Ligeia-Inkai"}
+{"id": 2, "tarih": "Sattelite-1,pump 151/1", "time": "23/01/2020 00:00:00", "quality":196 , "pressure": 6.73,"created_by":"some_device-IMX18ID#1","version":"1","company":"Ligeia-Inkai"}
+{"id": 3, "tarih": "Sattelite-1,pump 151/1", "time": "23/01/2023 00:00:00", "quality":196 , "vibration_x": 8.17,"created_by":"some_device-IMX18ID#1","version":"1","company":"Ligeia-Inkai"}
+{"id": 4, "tarih": "Sattelite-1,pump 151/1", "time": "23/01/2023 00:00:00", "quality":196 , "vibration_y": 7.95,"created_by":"some_device-IMX18ID#1","version":"1","company":"Ligeia-Inkai"}
+{"id": 5, "tarih": "Sattelite-1,pump 151/1", "time": "23/01/2023 00:00:00", "quality":196 , "vibration_motor": 6.7,"created_by":"some_device-IMX18ID#1","version":"1","company":"Ligeia-Inkai"}
