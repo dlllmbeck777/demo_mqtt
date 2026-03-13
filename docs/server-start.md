@@ -47,6 +47,14 @@ docker compose up -d --build django frontend client
 
 Do not start the whole file with bare `docker compose up` for the first boot. The compose file also contains optional Kafka/NiFi services, and they are not required to bring up the UI and API.
 
+If PostgreSQL was already started before with `postgres:latest` and now fails on a data-directory format error, remove the old bootstrap volume on a fresh server and recreate it:
+
+```bash
+docker compose down
+docker volume rm demo_mqtt_postgres-data
+docker compose up -d postgres
+```
+
 The UI will be available on:
 
 - `http://SERVER_IP/` through nginx

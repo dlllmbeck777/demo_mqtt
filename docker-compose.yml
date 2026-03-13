@@ -76,7 +76,7 @@ services:
       - net
   postgres:
     restart: unless-stopped
-    image: postgres:latest
+    image: postgres:11.20-alpine
     container_name: ligeiaai-postgres-1
     volumes:
       - postgres-data:/var/lib/postgresql/data/
