@@ -187,6 +187,18 @@ services:
       PORT: 9021
     networks:
       - net
+  kafdrop:
+    image: obsidiandynamics/kafdrop:latest
+    restart: unless-stopped
+    container_name: ligeiaai-kafdrop
+    depends_on:
+      - apache-kafka-broker1
+    ports:
+      - "9000:9000"
+    environment:
+      KAFKA_BROKERCONNECT: broker:29092
+    networks:
+      - net
   connect:
     build:
       context: .

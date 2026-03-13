@@ -67,8 +67,16 @@ The UI will be available on:
 If dashboards need historical Influx data or MQTT/Kafka/NiFi flows, start these separately:
 
 ```bash
-docker compose -f docker-compose/data/docker-compose.yml up -d influxdb1 zookeeper apache-kafka-broker1 rabbitmq mosquitto nifi
+docker compose -f docker-compose/data/docker-compose.yml up -d influxdb1 zookeeper apache-kafka-broker1 rabbitmq mosquitto nifi kafdrop
 ```
+
+If you use the root compose file instead of the separate data stack, Kafka UI is available through `kafdrop`:
+
+```bash
+docker compose up -d zookeeper apache-kafka-broker1 kafdrop
+```
+
+Open `http://SERVER_IP:9000/`.
 
 If you also need the alternate DB stack from `docker-compose/db`, create the external network first:
 
