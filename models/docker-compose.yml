@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   prediction_p2tempb1:
     restart: unless-stopped

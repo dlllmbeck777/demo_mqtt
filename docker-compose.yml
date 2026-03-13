@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   frontend:
     restart: unless-stopped
@@ -44,7 +43,6 @@ services:
     depends_on:
       - redis
       - postgres
-      - apache-kafka-broker1
       - elasticsearch
     ports:
       - "8000:8000"
@@ -136,7 +134,7 @@ services:
   zookeeper:
     hostname: zookeeper
     container_name: zookeeper
-    image: 'bitnami/zookeeper:latest'
+    image: confluentinc/cp-zookeeper:6.1.1
     ports:
       - "2181:2181"
     environment:

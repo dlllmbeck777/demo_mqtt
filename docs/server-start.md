@@ -43,6 +43,8 @@ docker compose run --rm django bash -lc "cd backend && python manage.py migrate"
 docker compose up -d --build django frontend client
 ```
 
+Do not start the whole file with bare `docker compose up` for the first boot. The compose file also contains optional Kafka/NiFi services, and they are not required to bring up the UI and API.
+
 The UI will be available on:
 
 - `http://SERVER_IP/` through nginx
