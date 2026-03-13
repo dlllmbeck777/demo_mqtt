@@ -31,6 +31,8 @@ INFLUX_HOST=http://YOUR_INFLUX_HOST:8086
 REACT_APP_INFLUX_URL=http://YOUR_INFLUX_HOST:8086
 ```
 
+If `.env` is missing, the compose file now has safe bootstrap defaults for PostgreSQL, CouchDB and pgAdmin. You can still start faster with `cp .env.example .env`, then edit only the values you need.
+
 If InfluxDB runs in the same server from the separate stack, use `http://YOUR_SERVER_IP:8086` for the frontend and `http://host.docker.internal:8086` or a reachable container/network address for backend access.
 
 ## Start core stack
@@ -50,6 +52,7 @@ The UI will be available on:
 - `http://SERVER_IP/` through nginx
 - `http://SERVER_IP:3000/` directly from the React dev server
 - `http://SERVER_IP:8000/` for Django API
+- PostgreSQL is internal-only by default and is no longer published on host port `5434`
 
 ## Start optional data stack
 

@@ -1,4 +1,4 @@
-FROM node:18-alpine3.15
+FROM node:18-alpine
 WORKDIR /frontend
 
 RUN apk update && apk add bash

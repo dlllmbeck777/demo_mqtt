@@ -55,10 +55,12 @@ services:
     ports:
       - "5984:5984"
     environment:
-      - COUCHDB_USER=${COUCHDB_USER}
-      - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
+      - COUCHDB_USER=${COUCHDB_USER:-admin}
+      - COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-change-me}
     volumes:
       - couch-data:/opt/couchdb/data
+    networks:
+      - net
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
     container_name: elasticsearch
@@ -78,14 +80,12 @@ services:
     container_name: ligeiaai-postgres-1
     volumes:
       - postgres-data:/var/lib/postgresql/data/
-    # env_file:
-    #   - .env
     environment:
-      - POSTGRES_USER=${PG_USER}
-      - POSTGRES_PASSWORD=${PG_PASS}
-      - POSTGRES_DB=${PG_DB}
-    ports:
-      - "5434:5432"
+      - POSTGRES_USER=${PG_USER:-postgres}
+      - POSTGRES_PASSWORD=${PG_PASS:-postgres}
+      - POSTGRES_DB=${PG_DB:-ligeia}
+    expose:
+      - "5432"
     networks:
       - net
   pgadmin:
@@ -95,8 +95,8 @@ services:
     volumes:
       - pgadmin-data:/var/lib/pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASS}
+      PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL:-admin@example.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASS:-change-me}
     ports:
       - "5050:80"
     networks:
