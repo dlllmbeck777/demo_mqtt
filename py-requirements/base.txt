@@ -6,8 +6,8 @@ psycopg2-binary
 whitenoise
 haystack
 # Django Framework
-Django
-djangorestframework
+Django==3.2.25
+djangorestframework==3.13.1
 django-environ
 django-filter
 django-rest-knox
@@ -54,7 +54,7 @@ django-celery-beat
 
 # DRF docs
 
-dj-rest-auth
+dj-rest-auth==2.2.5
 #social-auth-app-django
 django-allauth==0.51.0
 
