@@ -15,7 +15,10 @@ fi
 
 cd "$APP_DIR"
 
-if [[ ! -x node_modules/.bin/react-scripts ]]; then
+if [[ ! -x node_modules/.bin/react-scripts ]] \
+  || [[ ! -f node_modules/.package-lock.json ]] \
+  || [[ package.json -nt node_modules/.package-lock.json ]] \
+  || [[ package-lock.json -nt node_modules/.package-lock.json ]]; then
   mkdir -p node_modules
   npm config set legacy-peer-deps true
   npm install

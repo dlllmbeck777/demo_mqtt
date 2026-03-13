@@ -37,9 +37,6 @@ export const Solid = ({ highchartProps, width, height }) => {
       ? parseFloat(highchartProps?.["Minimum"])
       : 0;
     let myNum = number * 100;
-    console.log(highchartProps?.Measurement?.[0].SHORT_NAME +  '  MAX ************* <<<<<<<<<<<<<<<<< ' + max);
-    console.log(highchartProps?.Measurement?.[0].SHORT_NAME +  '  MIN ************* <<<<<<<<<<<<<<<<< ' + min);
-    console.log(highchartProps?.Measurement?.[0].SHORT_NAME +  '  MyNUM ************* <<<<<<<<<<<<<<<<< ' + myNum);
     return (myNum * max) / 100;
   }
 
@@ -75,7 +72,6 @@ export const Solid = ({ highchartProps, width, height }) => {
     }
     count++;
   }
-  console.log(highchartProps?.Measurement?.[0].SHORT_NAME +  '   COUNT ?????????????????????????????????????? : ' + count);
   React.useEffect(() => {
     const refSecond =
       highchartProps?.["Widget Refresh (seconds)"] === ""
@@ -83,15 +79,10 @@ export const Solid = ({ highchartProps, width, height }) => {
         : parseInt(highchartProps?.["Widget Refresh (seconds)"]);
 
     const tagName = highchartProps?.Measurement?.[0].NAME;
-    console.log(tagName);
-    console.log('SHORT_NAME --------------------------------- ' + highchartProps?.Measurement?.[0].SHORT_NAME);
-    console.log('CATALOG_SYMBOL' + highchartProps?.Measurement?.[0].CATALOG_SYMBOL);
     const wsFunc = (data) => {
-      setCategories((prev) => Date.parse(data["_time"]) + 18000000);
-      setValue((prev) => data["_value"]);
+      setCategories(Date.parse(data["_time"]) + 18000000);
+      setValue(data["_value"]);
     };
-    console.log('wsFunc -------------------------------- ....................... ' + wsFunc);
-    console.log(highchartProps?.Measurement?.[0].SHORT_NAME +  '  STOP ========================================================== ' + stop);
     const ws = new webSocket(refSecond, tagName, wsFunc);
     ws.openWs();
     return () => {

@@ -43,9 +43,9 @@ export function dateFormatDDMMYYHHMMSS(date) {
 }
 
 export function newDate(date) {
-    var date = date.split("-");
-    var day = date[0];
-    var month = date[1];
-    var year = date[2];
+    const dateParts = date.split("-");
+    var day = dateParts[0];
+    var month = dateParts[1];
+    var year = dateParts[2];
     return new Date(year, month - 1, day);
 }

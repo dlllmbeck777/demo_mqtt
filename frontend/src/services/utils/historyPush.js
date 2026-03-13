@@ -4,7 +4,7 @@ export const myHistoryPush = (index, value) => {
     var pathnames = window.location.pathname.split("/").filter((x) => x);
     pathnames[index] = value.replaceAll("/", "U+002F")
     var routeTo = "";
-    pathnames.map(e => {
+    pathnames.forEach((e) => {
         routeTo += `/${e}`
     });
     history.push(routeTo);

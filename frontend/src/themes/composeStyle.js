@@ -1,4 +1,3 @@
-import React from "react";
 import { createTheme } from "@mui/material/styles";
 import palette from "./palette";
 import themeTypography from "./typography";
@@ -15,6 +14,5 @@ const ComposeStyle = () => {
 }
 
 export default ComposeStyle
-
 
 

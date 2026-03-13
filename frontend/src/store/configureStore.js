@@ -1,5 +1,4 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import thunk from 'redux-thunk';
 import logger from 'redux-logger'
 
 
@@ -99,8 +98,7 @@ export const store = configureStore({
             serializableCheck: {
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
             },
-        }),
-    middleware: [thunk, logger]
+        }).concat(logger),
 });
 
 export const persistor = persistStore(store);
