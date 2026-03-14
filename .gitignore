@@ -115,6 +115,7 @@ celerybeat.pid
 # Environments
 .env
 frontend/.env
+!docker-compose/.env
 .venv
 env/
 venv/

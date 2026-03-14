@@ -1,5 +1,7 @@
 # Server Start
 
+If you need the original split deployment layout, use [historical-stack.md](/d:/ligeaai_backup_2025-05-11/ligeia.ai/docs/historical-stack.md).
+
 ## Fast path
 
 1. Install Docker Engine and Docker Compose plugin on the server.

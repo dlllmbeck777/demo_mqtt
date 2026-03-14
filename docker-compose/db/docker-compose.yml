@@ -6,10 +6,23 @@ services:
     ports:
       - "5984:5984"
     environment:
-      - COUCHDB_USER=${COUCHDB_USER}
-      - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
+      - COUCHDB_USER=${COUCHDB_USER:-admin}
+      - COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-change-me}
     volumes:
       - couch-data:/opt/couchdb/data
+    networks:
+      - app_net
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "cluster.name=my-cluster"
+      - "node.name=node-1"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
     networks:
       - app_net
   postgres:
@@ -17,15 +30,13 @@ services:
     image: postgres:11.20-alpine
     container_name: ligeiaai-postgres-1
     volumes:
-      - postgres-data1:/var/lib/postgresql@11/data/
-    env_file:
-      - ../.env
+      - postgres-data1:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=${PG_USER}
-      - POSTGRES_PASSWORD=${PG_PASS}
-      - POSTGRES_DB=${PG_DB}
+      - POSTGRES_USER=${PG_USER:-postgres}
+      - POSTGRES_PASSWORD=${PG_PASS:-postgres}
+      - POSTGRES_DB=${PG_DB:-demo}
     ports:
-      - "5434:5432"
+      - "${PG_EXPOSE_PORT:-5434}:5432"
     networks:
       - app_net
   pgadmin:
@@ -35,8 +46,8 @@ services:
     volumes:
       - pgadmin-data:/var/lib/pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASS}
+      PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL:-admin@example.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASS:-change-me}
     ports:
       - "5050:80"
     networks:
@@ -57,21 +68,22 @@ services:
     container_name: ligeiaai-redis-ts
     hostname: ligeiaai-redis-ts
     ports:
-      - "6380:6380"
+      - "${REDIS_TS_PORT:-6380}:6379"
     networks:
       - app_net
-  db:
+  mongo-dev:
     restart: on-failure
     container_name: mongo-dev
+    hostname: mongo-dev
     image: mongo:4.2
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER_NAME}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER_NAME:-admin}
       - MONGO_INITDB_DATABASE=auth
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASS}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASS:-admin}
     networks:
       - app_net
     ports:
-      - '27017:27017'
+      - "${MONGO_PORT:-27017}:27017"
     volumes:
       - ./data:/data/db
 
@@ -80,17 +92,17 @@ services:
     container_name: mongo-express
     image: mongo-express
     depends_on:
-      - db
+      - mongo-dev
     networks:
       - app_net
     environment:
-      - ME_CONFIG_MONGODB_SERVER=${MONGO_SERVER}
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=${MONGO_USER_NAME}
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGO_PASS}
-      - ME_CONFIG_BASICAUTH_USERNAME=${MONGO_USER_NAME}
-      - ME_CONFIG_BASICAUTH_PASSWORD=${MONGO_USER_PASS}
+      - ME_CONFIG_MONGODB_SERVER=${MONGO_SERVER:-mongo-dev}
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=${MONGO_USER_NAME:-admin}
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=${MONGO_PASS:-admin}
+      - ME_CONFIG_BASICAUTH_USERNAME=${MONGO_USER_NAME:-admin}
+      - ME_CONFIG_BASICAUTH_PASSWORD=${MONGO_USER_PASS:-change-me}
     ports:
-      - '8081:8081'
+      - "${MONGO_ADMIN_PORT:-8081}:8081"
     volumes:
       - ./data:/data/db
 networks:

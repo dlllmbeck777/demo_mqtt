@@ -5,6 +5,7 @@ from datetime import timedelta
 from rest_framework.settings import api_settings
 from django.utils.translation import gettext_lazy as _
 from settings.localapp import modelApp
+from utils.service_config import MONGO_URL
 
 logger = logging.getLogger(__name__)
 
@@ -15,6 +16,7 @@ BASE_DIR = os.path.join(
 )
 
 environ.Env.read_env(os.path.join(BASE_DIR, "../.env"))
+os.environ.setdefault("Mongo_Client", MONGO_URL)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("SECRET_KEY")

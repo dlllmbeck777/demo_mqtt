@@ -11,6 +11,10 @@ def _get_env(name, default=None):
 DEFAULT_BACKEND_API_BASE_URL = "http://192.168.1.88:8000"
 BACKEND_API_BASE_URL = _get_env("APP_API_BASE_URL", DEFAULT_BACKEND_API_BASE_URL)
 
+DEFAULT_MONGO_URL = "mongodb://root:admin@mongodb-timescale:27017/"
+MONGO_URL = _get_env("Mongo_Client", DEFAULT_MONGO_URL)
+os.environ.setdefault("Mongo_Client", MONGO_URL)
+
 DEFAULT_CELERY_URL = "redis://192.168.1.88:6379"
 CELERY_BROKER_URL = _get_env("CELERY_BROKER", _get_env("BROKER_URL", DEFAULT_CELERY_URL))
 CELERY_RESULT_BACKEND = _get_env(

@@ -4,12 +4,12 @@ import datetime
 from kafka import KafkaProducer
 import json
 from helper import send_alarm, get_health_status_messages
+from utils.service_config import MONGO_URL
 
 
 def mongoHealtCheck():
     try:
-        client = os.environ.get("Mongo_Client")
-        client = MongoClient(client)
+        client = MongoClient(os.environ.get("Mongo_Client", MONGO_URL))
         db = client["test_database"]
         coll = db["test_collection"]
         count = coll.count_documents({})

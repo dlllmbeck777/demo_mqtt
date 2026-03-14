@@ -6,9 +6,10 @@ services:
       dockerfile: Dockerfile
     container_name: ligeiaai-frontend-1
     env_file:
-      - .env
+      - ../.env
     volumes:
       - ../../frontend:/frontend
+      - frontend-node-modules:/frontend/node_modules
     ports:
       - "3000:3000"
     environment:
@@ -32,12 +33,12 @@ services:
     command: /start
     container_name: ligeiaai-django-1
     env_file:
-      - .env
+      - ../.env
     volumes:
       - ../../:/django
     environment:
-      - CELERY_BROKER=redis://redis:6379/1
-      - CELERY_BACKEND=redis://redis:6379/1
+      - CELERY_BROKER=${CELERY_BROKER:-redis://redis:6379/1}
+      - CELERY_BACKEND=${CELERY_BACKEND:-redis://redis:6379/1}
     ports:
       - "8000:8000"
     networks:
@@ -47,16 +48,5 @@ networks:
     driver: bridge
   app_net:
     external: true
-  # elasticsearch:
-  #   image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
-  #   container_name: elasticsearch
-  #   environment:
-  #     - discovery.type=single-node
-  #     - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-  #     - "cluster.name=my-cluster"
-  #     - "node.name=node-1"
-  #   ports:
-  #     - "9200:9200"
-  #     - "9300:9300"
-  #   networks:
-  #     - net
+volumes:
+  frontend-node-modules: null

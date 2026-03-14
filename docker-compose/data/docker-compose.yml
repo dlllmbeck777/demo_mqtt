@@ -1,5 +1,6 @@
 services:
   influxdb1:
+    restart: unless-stopped
     image: influxdb:latest
     container_name: influxdb1
     environment:
@@ -13,16 +14,13 @@ services:
       - DOCKER_INFLUXDB_INIT_BUCKET=test_bucket
     ports:
       - "8086:8086"
-        #env_file:
-        #- '.env'
     volumes:
-      - /mnt/data/influxdb/data:/var/lib/influxdb2
-      - /mnt/data/influxdb/config:/etc/influxdb2
-      #- /mnt/data/influxdb:/var/lib/influxdb
-      #- /srv/docker/influxdb/data:/var/lib/influxdb
+      - influxdb-data:/var/lib/influxdb2
+      - influxdb-config:/etc/influxdb2
     networks:
       - app_net
   zookeeper:
+    restart: unless-stopped
     hostname: zookeeper
     container_name: zookeeper
     image: confluentinc/cp-zookeeper:6.1.1
@@ -35,6 +33,7 @@ services:
     networks:
       - app_net
   apache-kafka-broker1:
+    restart: unless-stopped
     image: confluentinc/cp-enterprise-kafka:5.3.1
     hostname: broker
     container_name: ligeiaai-apache-kafka-broker-1
@@ -59,6 +58,7 @@ services:
     networks:
       - app_net
   control-center:
+    restart: unless-stopped
     image: confluentinc/cp-enterprise-control-center:5.3.1
     hostname: control-center
     container_name: ligeiaai-control-center
@@ -79,8 +79,9 @@ services:
     networks:
       - app_net
   rabbitmq:
+    restart: unless-stopped
     image: rabbitmq:3-management
-    hostname: localhost
+    hostname: rabbitmq
     container_name: ligeiaai-rabbitmq
     ports:
       - '15672:15672'
@@ -120,7 +121,7 @@ services:
     image: 'nordal/nifi-linux'
     container_name: apache_nifi
     env_file:
-      - .env
+      - ../.env
     ports:
       - "8082:8082"
     volumes:
@@ -139,9 +140,42 @@ services:
       - zookeeper
     networks:
       - app_net
+  connect:
+    build:
+      context: ../../
+      dockerfile: ./all_dockerfiles/dev/datapipelines/Dockerfile
+    container_name: ligeiaai-connect
+    hostname: connect
+    ports:
+      - "8088:8088"
+    depends_on:
+      - apache-kafka-broker1
+    environment:
+      CONNECT_BOOTSTRAP_SERVERS: broker:29092
+      CONNECT_GROUP_ID: "connect-group"
+      CONNECT_CONFIG_STORAGE_TOPIC: "connect-config-storage"
+      CONNECT_OFFSET_STORAGE_TOPIC: "connect-offset-storage"
+      CONNECT_STATUS_STORAGE_TOPIC: "connect-status-storage"
+      CONNECT_KEY_CONVERTER: "org.apache.kafka.connect.storage.StringConverter"
+      CONNECT_VALUE_CONVERTER: "org.apache.kafka.connect.converters.ByteArrayConverter"
+      CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_PLUGIN_PATH: "/usr/share/confluent-hub-components"
+      CONNECT_REST_ADVERTISED_HOST_NAME: "connect"
+      CONNECT_REST_HOST_NAME: "connect"
+      CONNECT_REST_PORT: "8088"
+      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 1
+      CONNECT_LOG4J_ROOT_LOGLEVEL: "INFO"
+      CLASSPATH: /usr/share/java/monitoring-interceptors/monitoring-interceptors-5.1.1.jar
+      CONNECT_PRODUCER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor"
+      CONNECT_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
+    networks:
+      - app_net
   kafdrop:
     image: obsidiandynamics/kafdrop
-    restart: "no"
+    restart: unless-stopped
     ports:
       - "9000:9000"
     environment:
@@ -154,6 +188,8 @@ networks:
   app_net:
     external: true
 volumes:
+  influxdb-data: null
+  influxdb-config: null
   zookeeper_data: null
   broker_data: null
   connect_data: null
