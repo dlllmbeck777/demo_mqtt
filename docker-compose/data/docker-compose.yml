@@ -98,7 +98,7 @@ services:
         target: /mosquitto/config/
       - type: bind
         source: ./log/
-        target: /mosquitto/log/:ro
+        target: /mosquitto/log/
       - type: volume
         source: data
         target: /mosquitto/data1/

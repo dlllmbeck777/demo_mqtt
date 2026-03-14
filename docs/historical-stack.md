@@ -21,6 +21,12 @@ chmod +x scripts/start-historical-stack.sh scripts/stop-historical-stack.sh
 ./scripts/start-historical-stack.sh
 ```
 
+If you pulled SQL dumps from Git, fetch the real content before restore:
+
+```bash
+git lfs pull
+```
+
 Edit at least:
 
 - `ALLOWED_HOSTS`

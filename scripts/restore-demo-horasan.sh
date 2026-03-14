@@ -10,7 +10,11 @@ fi
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DEFAULT_DUMP="$1"
 LAYER_DUMP="$2"
-ENV_FILE="${ROOT_DIR}/.env"
+ENV_FILE="${ROOT_DIR}/docker-compose/.env"
+
+if [[ ! -f "$ENV_FILE" ]]; then
+  ENV_FILE="${ROOT_DIR}/.env"
+fi
 
 if [[ ! -f "$DEFAULT_DUMP" ]]; then
   echo "Default dump not found: $DEFAULT_DUMP"
@@ -21,6 +25,19 @@ if [[ ! -f "$LAYER_DUMP" ]]; then
   echo "Layer dump not found: $LAYER_DUMP"
   exit 1
 fi
+
+assert_not_lfs_pointer() {
+  local path="$1"
+
+  if head -n 1 "$path" | grep -q "https://git-lfs.github.com/spec/v1"; then
+    echo "Dump file is still a Git LFS pointer: $path"
+    echo "Run 'git lfs pull' or restore the real file from your local backup before importing."
+    exit 1
+  fi
+}
+
+assert_not_lfs_pointer "$DEFAULT_DUMP"
+assert_not_lfs_pointer "$LAYER_DUMP"
 
 get_env_value() {
   local key="$1"
