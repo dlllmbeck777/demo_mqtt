@@ -4,17 +4,27 @@ import sys
 import json
 import os
 
-Mongo_Client = "mongodb://admin:admin@mongo-dev:27017/"
+Mongo_Client = os.environ.get("Mongo_Client", "mongodb://admin:admin@mongo-dev:27017/")
 Mongo_Db_Name = os.environ.get("Mongo_Notifications_db")
 
 client = MongoClient(Mongo_Client)
-mongo_db = client["inkai"]
-collection = mongo_db[Mongo_Db_Name]
+
+
+def get_collection(data_dict):
+    layer_name = str(
+        data_dict.get("layer")
+        or os.environ.get("DIAGNOSTIC_LAYER_NAME")
+        or os.environ.get("COMPANY_NAME")
+        or "STD"
+    ).strip().lower()
+    mongo_db = client[layer_name]
+    return mongo_db[Mongo_Db_Name]
 
 def process_data(data):
     data_dict = json.loads(data)
     source = data_dict.get('source')
     state = data_dict.get('state')
+    collection = get_collection(data_dict)
 
     collection.create_index([('source', 1)], unique=True)
 
@@ -43,4 +53,3 @@ def process_data(data):
 for line in sys.stdin:
     processed_data = process_data(line.strip())
     print(processed_data)
-

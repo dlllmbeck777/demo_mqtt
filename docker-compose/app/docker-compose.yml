@@ -1,3 +1,9 @@
+﻿x-default-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: ${DOCKER_LOG_MAX_SIZE:-10m}
+    max-file: "${DOCKER_LOG_MAX_FILE:-5}"
+
 services:
   frontend:
     restart: unless-stopped
@@ -16,6 +22,7 @@ services:
       - CHOKIDAR_USEPOLLING=true
     networks:
       - app_net
+    logging: *default-logging
   client:
     restart: unless-stopped
     image: nginx
@@ -25,6 +32,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
     networks:
       - app_net
+    logging: *default-logging
   django:
     restart: unless-stopped
     build:
@@ -43,6 +51,72 @@ services:
       - "8000:8000"
     networks:
       - app_net
+    logging: *default-logging
+  housekeeping:
+    restart: unless-stopped
+    build:
+      context: ../../
+      dockerfile: ./all_dockerfiles/local/django/Dockerfile
+    command: /bin/sh -c "while true; do cd /django && python scripts/prune-runtime-data.py; sleep ${PRUNE_INTERVAL_SECONDS:-21600}; done"
+    env_file:
+      - ../.env
+    volumes:
+      - ../../:/django
+    networks:
+      - app_net
+    logging: *default-logging
+  diagnostic-probes:
+    restart: unless-stopped
+    build:
+      context: ../../
+      dockerfile: ./all_dockerfiles/local/django/Dockerfile
+    command: python /django/scripts/run-diagnostic-probes.py
+    env_file:
+      - ../.env
+    volumes:
+      - ../../:/django
+    networks:
+      - app_net
+    logging: *default-logging
+  diagnostic-notifications-consumer:
+    restart: unless-stopped
+    build:
+      context: ../../
+      dockerfile: ./all_dockerfiles/local/django/Dockerfile
+    command: python /django/scripts/consume-diagnostic-topic.py --topic notifications
+    env_file:
+      - ../.env
+    volumes:
+      - ../../:/django
+    networks:
+      - app_net
+    logging: *default-logging
+  diagnostic-warnings-consumer:
+    restart: unless-stopped
+    build:
+      context: ../../
+      dockerfile: ./all_dockerfiles/local/django/Dockerfile
+    command: python /django/scripts/consume-diagnostic-topic.py --topic warnings
+    env_file:
+      - ../.env
+    volumes:
+      - ../../:/django
+    networks:
+      - app_net
+    logging: *default-logging
+  diagnostic-logs-consumer:
+    restart: unless-stopped
+    build:
+      context: ../../
+      dockerfile: ./all_dockerfiles/local/django/Dockerfile
+    command: python /django/scripts/consume-diagnostic-topic.py --topic logs
+    env_file:
+      - ../.env
+    volumes:
+      - ../../:/django
+    networks:
+      - app_net
+    logging: *default-logging
 networks:
   app_net:
     external: true

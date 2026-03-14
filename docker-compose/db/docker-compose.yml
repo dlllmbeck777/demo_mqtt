@@ -1,3 +1,9 @@
+﻿x-default-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: ${DOCKER_LOG_MAX_SIZE:-10m}
+    max-file: "${DOCKER_LOG_MAX_FILE:-5}"
+
 services:
   couchserver:
     image: couchdb:latest
@@ -12,6 +18,7 @@ services:
       - couch-data:/opt/couchdb/data
     networks:
       - app_net
+    logging: *default-logging
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
     container_name: elasticsearch
@@ -25,6 +32,7 @@ services:
       - "9300:9300"
     networks:
       - app_net
+    logging: *default-logging
   postgres:
     restart: unless-stopped
     image: postgres:11.20-alpine
@@ -39,6 +47,7 @@ services:
       - "${PG_EXPOSE_PORT:-5434}:5432"
     networks:
       - app_net
+    logging: *default-logging
   pgadmin:
     restart: on-failure
     image: dpage/pgadmin4:latest
@@ -52,6 +61,7 @@ services:
       - "5050:80"
     networks:
       - app_net
+    logging: *default-logging
   redis:
     restart: on-failure
     image: redis:latest
@@ -62,6 +72,7 @@ services:
       - 6379
     networks:
       - app_net
+    logging: *default-logging
   redis-ts:
     restart: on-failure
     image: redislabs/redistimeseries:latest
@@ -71,6 +82,7 @@ services:
       - "${REDIS_TS_PORT:-6380}:6379"
     networks:
       - app_net
+    logging: *default-logging
   mongo-dev:
     restart: on-failure
     container_name: mongo-dev
@@ -86,6 +98,7 @@ services:
       - "${MONGO_PORT:-27017}:27017"
     volumes:
       - ./data:/data/db
+    logging: *default-logging
 
   mongo-express:
     restart: on-failure
@@ -105,6 +118,7 @@ services:
       - "${MONGO_ADMIN_PORT:-8081}:8081"
     volumes:
       - ./data:/data/db
+    logging: *default-logging
 networks:
   app_net:
     external: true

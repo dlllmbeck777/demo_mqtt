@@ -1,3 +1,9 @@
+﻿x-default-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: ${DOCKER_LOG_MAX_SIZE:-10m}
+    max-file: "${DOCKER_LOG_MAX_FILE:-5}"
+
 services:
   influxdb1:
     restart: unless-stopped
@@ -19,6 +25,7 @@ services:
       - influxdb-config:/etc/influxdb2
     networks:
       - app_net
+    logging: *default-logging
   zookeeper:
     restart: unless-stopped
     hostname: zookeeper
@@ -32,6 +39,7 @@ services:
       - ALLOW_ANONYMOUS_LOGIN=yes
     networks:
       - app_net
+    logging: *default-logging
   apache-kafka-broker1:
     restart: unless-stopped
     image: confluentinc/cp-enterprise-kafka:5.3.1
@@ -55,8 +63,12 @@ services:
       CONFLUENT_METRICS_ENABLE: "true"
       CONFLUENT_SUPPORT_CUSTOMER_ID: "anonymous"
       KAFKA_JMX_HOSTNAME: localhost
+      KAFKA_LOG_RETENTION_HOURS: ${KAFKA_LOG_RETENTION_HOURS:-168}
+      KAFKA_LOG_RETENTION_BYTES: ${KAFKA_LOG_RETENTION_BYTES:-1073741824}
+      KAFKA_LOG_SEGMENT_BYTES: ${KAFKA_LOG_SEGMENT_BYTES:-268435456}
     networks:
       - app_net
+    logging: *default-logging
   control-center:
     restart: unless-stopped
     image: confluentinc/cp-enterprise-control-center:5.3.1
@@ -78,6 +90,7 @@ services:
       PORT: 9021
     networks:
       - app_net
+    logging: *default-logging
   rabbitmq:
     restart: unless-stopped
     image: rabbitmq:3-management
@@ -88,6 +101,7 @@ services:
       - '5672:5672'
     networks:
       - app_net
+    logging: *default-logging
   mosquitto:
     restart: unless-stopped
     image: eclipse-mosquitto:2
@@ -113,6 +127,7 @@ services:
         mode: host
     networks:
       - app_net
+    logging: *default-logging
   nifi:
     build:
       context: ../../
@@ -140,6 +155,7 @@ services:
       - zookeeper
     networks:
       - app_net
+    logging: *default-logging
   connect:
     build:
       context: ../../
@@ -173,6 +189,7 @@ services:
       CONNECT_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
     networks:
       - app_net
+    logging: *default-logging
   kafdrop:
     image: obsidiandynamics/kafdrop
     restart: unless-stopped
@@ -184,6 +201,7 @@ services:
       - apache-kafka-broker1
     networks:
       - app_net
+    logging: *default-logging
 networks:
   app_net:
     external: true

@@ -9,6 +9,22 @@ from services.logging.logs_helper import send_logs
 import time
 
 
+def _resolve_request_layer(request):
+    if request is not None:
+        layer = getattr(request, "active_layers", None)
+        if layer:
+            return str(layer).strip().lower()
+
+        user = getattr(request, "user", None)
+        active_layer = getattr(user, "active_layer", None)
+        if hasattr(active_layer, "LAYER_NAME"):
+            return str(active_layer.LAYER_NAME).strip().lower()
+        if active_layer:
+            return str(active_layer).strip().lower()
+
+    return None
+
+
 class KafkaLogger:
     # def __init__(self):
     #     self.producer = None
@@ -54,13 +70,13 @@ class KafkaLogger:
         kwargs = {
             "alarms_type": "Info",
             "error_message": message,
-            "source": str(request.path),
-            "layer_name": "inkai",
+            "source": str(request.path) if request else "system",
+            "layer_name": _resolve_request_layer(request),
             "category": "logs",
             "topic": "logs",
             "timestamp": timestamp,
             "state": "None",
-            "user": str(request.user),
+            "user": str(request.user) if request else "Anonymous",
         }
         send_logs(**kwargs)
         # try:
@@ -77,13 +93,13 @@ class KafkaLogger:
             "alarms_type": "Alarms",
             "error_message": "Out Of The Range Data Alarms",
             "source": "out of the range scripts",
-            "layer_name": "inkai",
+            "layer_name": _resolve_request_layer(request),
             "topic": "logs",
             "category": "logs",
             "timestamp": timestamp,
             "state": "None",
             "is_read": False,
-            "user": str(request.user),
+            "user": str(request.user) if request else "Anonymous",
         }
         send_logs(**kwargs)
 
@@ -93,13 +109,13 @@ class KafkaLogger:
         kwargs = {
             "alarms_type": "Info",
             "error_message": message,
-            "source": str(request.path),
-            "layer_name": "inkai",
+            "source": str(request.path) if request else "system",
+            "layer_name": _resolve_request_layer(request),
             "topic": "logs",
             "category": "logs",
             "timestamp": timestamp,
             "state": "None",
-            "user": str(request.user),
+            "user": str(request.user) if request else "Anonymous",
         }
         send_logs(**kwargs)
 
@@ -109,12 +125,12 @@ class KafkaLogger:
         kwargs = {
             "alarms_type": "Alarms",
             "error_message": message,
-            "source": str(request.path),
-            "layer_name": "inkai",
+            "source": str(request.path) if request else "system",
+            "layer_name": _resolve_request_layer(request),
             "topic": "logs",
             "category": "logs",
             "timestamp": timestamp,
             "state": "None",
-            "user": str(request.user),
+            "user": str(request.user) if request else "Anonymous",
         }
         send_logs(**kwargs)

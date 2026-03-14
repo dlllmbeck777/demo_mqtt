@@ -11,6 +11,16 @@ producer = None
 producer_failed = False
 
 
+def resolve_layer_name(layer_name=None):
+    value = (
+        layer_name
+        or os.environ.get("DIAGNOSTIC_LAYER_NAME")
+        or os.environ.get("COMPANY_NAME")
+        or "STD"
+    )
+    return str(value).strip().lower()
+
+
 def get_producer():
     global producer, producer_failed
 
@@ -49,7 +59,7 @@ def send_logs(
     source,
     alarms_type="Notification",
     error_message="There is No Problem",
-    layer_name="inkai",
+    layer_name=None,
     category="system_health",
     state="Running",
     timestamp=int(time.time() * 1000),
@@ -67,7 +77,7 @@ def send_logs(
     data = {
         "LOG_TYPE": alarms_type,
         "error_message": error_message,
-        "layer": layer_name,
+        "layer": resolve_layer_name(layer_name),
         "priority": priority.get(alarms_type),
         "source": source,
         "category": category,
