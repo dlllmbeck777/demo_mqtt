@@ -4,6 +4,12 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
+export PG_DB="${PG_DB:-ligeia}"
+export PG_USER="${PG_USER:-postgres}"
+export PG_PASS="${PG_PASS:-postgres}"
+export PG_HOST="${PG_HOST:-postgres}"
+export PG_PORT="${PG_PORT:-5432}"
+
 postgres_ready() {
 python << END
 import sys
