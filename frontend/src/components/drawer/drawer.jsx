@@ -12,10 +12,11 @@ const Drawer = () => {
   const navItems = useSelector((state) => state.drawerMenu?.data);
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const culture = useSelector((state) => state.lang.cultur);
+  const activeLayer = useSelector((state) => state.auth?.user?.active_layer);
 
   React.useEffect(() => {
     dispatch(loadDrawerMenu(culture));
-  }, [isAuth, culture]);
+  }, [activeLayer, isAuth, culture, dispatch]);
   return (
     <ComponentError
       errMsg={

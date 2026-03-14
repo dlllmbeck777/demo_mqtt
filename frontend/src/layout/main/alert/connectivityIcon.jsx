@@ -11,7 +11,6 @@ const AlertIcon = () => {
   const [data, setData] = React.useState([]);
   const [reloadWs, setReloadWs] = React.useState(false);
   const layer = useSelector((state) => state?.auth?.user?.active_layer);
-  const layer2 = 'inkai'
   const CULTURE = useSelector((state) => state.lang.cultur);
   const [tooltip, setTooltip] = React.useState([]);
   async function asyncGetTooltipText() {
@@ -32,9 +31,9 @@ const AlertIcon = () => {
     asyncGetTooltipText();
   }, [CULTURE]);
   React.useEffect(() => {
-    //console.log(`WWW7   -----------------------------  ${wsBaseUrl}/ws/last/warnings/${layer2?.toLowerCase()}/`);
+    const currentLayer = String(layer || "STD").toLowerCase();
     const alarms = new W3CWebSocket(
-      `${wsBaseUrl}/ws/last/warnings/${layer2?.toLowerCase()}/`
+      `${wsBaseUrl}/ws/last/warnings/${currentLayer}/`
     );
     //console.log(`ALARM   ++++++++++++++++++++++++++++++++++++++++++++++++  ${alarms}`);
     alarms.onerror = function () {

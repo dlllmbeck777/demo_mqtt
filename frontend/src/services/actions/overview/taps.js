@@ -34,7 +34,12 @@ const _setLinkedItem = () => (dispatch, getState) => {
 }
 let cancelToken;
 export const loadTapsOverview = () => async (dispatch, getState) => {
-  const linkId = getState().collapseMenu.selectedItem.FROM_ITEM_ID;
+  const selectedItem = getState().collapseMenu.selectedItem;
+  const linkId = selectedItem?.FROM_ITEM_ID;
+  if (!linkId) {
+    dispatch(cleanTabs());
+    return Promise.resolve([]);
+  }
   try {
     if (cancelToken) {
       cancelToken.cancel()
@@ -78,6 +83,9 @@ export const loadTapsOverview = () => async (dispatch, getState) => {
     return Promise.resolve(titles)
   } catch (err) {
     console.log(err);
+    dispatch(cleanTabs());
+    dispatch(setTapsLoaderFalse());
+    return Promise.reject(err);
   }
 };
 

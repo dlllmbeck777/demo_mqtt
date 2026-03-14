@@ -17,14 +17,21 @@ var W3CWebSocket = require("websocket").w3cwebsocket;
 let sys_health;
 let communications_status;
 
+const getLayerName = (getState) =>
+    String(getState()?.auth?.user?.active_layer || "STD").toLowerCase();
+
 
 const loadSystemStatus = () => async (dispatch, getState) => {
-    const layer = 'inkai' //getState()?.auth?.user?.active_layer
+    const layer = getLayerName(getState)
     const culture = getState()?.lang?.cultur
     const column = await system_health(culture)
+    dispatch({
+        type: SET_SYSTEM_HEALTH_DIAGNOSTIC,
+        payload: { column, row: [] }
+    })
     try {
         sys_health = new W3CWebSocket(
-            `${wsBaseUrl}/ws/notifications/${layer.toLowerCase()}/${uuidv4()}/`
+            `${wsBaseUrl}/ws/notifications/${layer}/${uuidv4()}/`
         );
         sys_health.onerror = function () {
             console.log("Connection Error");
@@ -40,7 +47,6 @@ const loadSystemStatus = () => async (dispatch, getState) => {
                 if (sys_health.readyState === sys_health.OPEN) {
                     if (typeof e.data === "string") {
                         let row = JSON.parse(e.data);
-                        console.log(row);
                         dispatch({
                             type: SET_SYSTEM_HEALTH_DIAGNOSTIC,
                             payload: { column, row }
@@ -57,12 +63,16 @@ const loadSystemStatus = () => async (dispatch, getState) => {
 }
 
 const loadCommunicationsStatus = (time) => async (dispatch, getState) => {
-    const layer = 'inkai' //getState()?.auth?.user?.active_layer
+    const layer = getLayerName(getState)
     const culture = getState()?.lang?.cultur
     const column = await communicationsStatus(culture)
+    dispatch({
+        type: SET_COMMUNICATIONS_STATUS_DIAGNOSTIC,
+        payload: { column, row: [] }
+    })
     try {
         communications_status = new W3CWebSocket(
-            `${wsBaseUrl}/ws/communications/${layer.toLowerCase()}/${uuidv4()}/`
+            `${wsBaseUrl}/ws/communications/${layer}/${uuidv4()}/`
         );
         communications_status.onerror = function () {
             console.log("Connection Error");
@@ -104,6 +114,7 @@ const loadLogs = () => async (dispatch, getState) => {
 
 export const loadDiagnostic = () => (dispatch, getState) => {
     const time = getState().diagnostic.timePicker
+    closeWs()
     dispatch(loadSystemStatus())
     dispatch(loadCommunicationsStatus())
     dispatch(loadAlarmsHistory(time))

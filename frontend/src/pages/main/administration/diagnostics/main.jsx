@@ -21,12 +21,13 @@ const Main = () => {
   selectDrawerItem("Diagnostics");
   const dispatch = useDispatch();
   const CULTURE = useSelector((state) => state.lang.cultur);
+  const ACTIVE_LAYER = useSelector((state) => state.auth?.user?.active_layer);
   React.useEffect(() => {
     dispatch(loadDiagnostic());
     return () => {
       dispatch(cleanDiagnostic());
     };
-  }, [CULTURE]);
+  }, [ACTIVE_LAYER, CULTURE, dispatch]);
 
   return (
     <Grid container className="template-container__body diagnostic-container">

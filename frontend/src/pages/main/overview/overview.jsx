@@ -29,25 +29,26 @@ const Overview = () => {
     selectDrawerItem("Overview");
     dispatch(loadCollapseMenu(ItemLinkService.hierarchy));
     async function myFunc() {
-      $(".overview-tree-menu").hide();
-      $(".overview-container__horizontal-menu").hide();
-      let res = await ProfileService.loadProfileSettings();
-      if (res.data[0].overview_orientation === "horizontal") {
-        $(".overview-tree-menu").hide();
-        $(".overview-container__horizontal-menu").show();
-        setTimeout(() => {
-          $(".overview-container__tab-box").css({
-            height: "calc(100% - 44px)",
-          });
-        }, [1000]);
-      } else {
+      try {
+        let res = await ProfileService.loadProfileSettings();
+        if (res?.data?.[0]?.overview_orientation === "horizontal") {
+          $(".overview-tree-menu").hide();
+          $(".overview-container__horizontal-menu").show();
+          setTimeout(() => {
+            $(".overview-container__tab-box").css({
+              height: "calc(100% - 44px)",
+            });
+          }, [1000]);
+          return;
+        }
+      } catch {}
+
         $(".overview-tree-menu").show();
         $(".overview-container__horizontal-menu").hide();
         $(".overview-container__tab-box").css({ height: "100%" });
-      }
     }
     myFunc();
-  }, []);
+  }, [dispatch]);
   return (
     <React.Fragment>
       <Box className="overview-tree-menu">

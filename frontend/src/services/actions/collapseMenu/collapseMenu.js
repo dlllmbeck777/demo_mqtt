@@ -11,7 +11,29 @@ import TreeView from "../../api/couch/treeView"
 import ProfileService from "../../api/profile"
 import { loadHorizontalMenu } from "./horizontaMenu"
 import history from "../../../routers/history"
-import { loadTapsOverview } from "../overview/taps"
+import { cleanTabs, loadTapsOverview } from "../overview/taps"
+
+const findMenuItem = (items, selectedItem) => {
+    if (!selectedItem) {
+        return null
+    }
+
+    for (const item of items || []) {
+        if (
+            item?.FROM_ITEM_ID === selectedItem?.FROM_ITEM_ID ||
+            item?.path === selectedItem?.path
+        ) {
+            return item
+        }
+
+        const child = findMenuItem(item?.CHILD, selectedItem)
+        if (child) {
+            return child
+        }
+    }
+
+    return null
+}
 export const loadCollapseMenu = (path) => async dispatch => {
     try {
         let res = await path();
@@ -112,12 +134,33 @@ export const checkLastOpenItem = () => async (dispatch, getState) => {
         var pathSegments = path.split('/');
         var firstPathElement = pathSegments[1];
         if (firstPathElement === "overview") {
+            const savedSelectedItem = res.data?.overview_settings?.[`selectedItem`]
+            const selectedItem = findMenuItem(
+                getState().collapseMenu.menuItems,
+                savedSelectedItem
+            )
+
+            if (!selectedItem) {
+                dispatch(cleanTabs())
+                dispatch({
+                    type: SET_SELECTED_COLLAPSE_MENU_ITEM,
+                    payload: null
+                })
+                history.push(`/overview`)
+                return
+            }
+
             dispatch({
                 type: SET_SELECTED_COLLAPSE_MENU_ITEM,
-                payload: res.data?.overview_settings?.[`selectedItem`] === undefined ? 0 : res.data?.overview_settings?.[`selectedItem`]
+                payload: selectedItem
             })
-            dispatch(await loadTapsOverview());
-            res.data?.overview_settings?.[`selectedItem`] === undefined ? history.push(`/overview`) : history.push(`/${res.data?.overview_settings?.[`selectedItem`].path}`);
+            try {
+                await dispatch(loadTapsOverview());
+                history.push(`/${selectedItem.path}`);
+            } catch (err) {
+                dispatch(cleanTabs())
+                history.push(`/overview`)
+            }
         }
 
 
