@@ -49,6 +49,15 @@ For a plain SQL dump:
 ./scripts/restore-postgres.sh ~/transfer/ligeia.sql
 ```
 
+If you have a split setup with one dump for the main database and another for a layer database, use the dedicated helper:
+
+```bash
+chmod +x scripts/restore-demo-horasan.sh
+./scripts/restore-demo-horasan.sh ~/transfer/demo_dump.sql ~/transfer/horasan_dump.sql
+```
+
+This helper restores the dumps into `demo` and `horasan`, aligns the PostgreSQL password with the restored layer settings, and reminds you to keep `PG_DB=demo`.
+
 ## If you have no PostgreSQL dump
 
 You have two fallback options:
