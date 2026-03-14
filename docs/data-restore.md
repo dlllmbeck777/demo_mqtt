@@ -56,7 +56,7 @@ chmod +x scripts/restore-demo-horasan.sh
 ./scripts/restore-demo-horasan.sh ~/transfer/demo_dump.sql ~/transfer/horasan_dump.sql
 ```
 
-This helper restores the dumps into `demo` and `horasan`, aligns the PostgreSQL password with the restored layer settings, and reminds you to keep `PG_DB=demo`.
+This helper restores the dumps into `demo` and `horasan`, aligns the PostgreSQL password with the restored layer settings, and reminds you to keep `PG_DB=demo` and `PG_PASS=manager`.
 
 ## If you have no PostgreSQL dump
 
