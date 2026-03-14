@@ -49,19 +49,29 @@ export const configureDrawermenu = (prop) => {
 export const loadDrawerMenu = (CULTURE) => async (dispatch, getState) => {
     try {
         let res = await DrawerMenu.get(CULTURE)
-        let response = await ProfileService.getState({ "key": "drawer_settings" })
+        let drawerSettings = {}
+        try {
+            let response = await ProfileService.getState({ "key": "drawer_settings" })
+            drawerSettings = response.data?.drawer_settings || {}
+        } catch (err) {
+            console.log(err);
+        }
         await dispatch({
             type: LOAD_DRAWER_MENU,
-            payload: { data: res.data, openTabs: response.data?.drawer_settings?.openTabs, selectedItem: response.data?.drawer_settings?.selectedItem }
+            payload: {
+                data: res.data,
+                openTabs: drawerSettings?.openTabs,
+                selectedItem: drawerSettings?.selectedItem,
+            }
         })
         if (window.location.pathname === "/") {
             dispatch(setSelectedDrawerItem({ SHORT_NAME: "Home" }))
             selectDrawerItem("Home");
         } else {
-            selectDrawerItem(response.data?.drawer_settings?.selectedItem?.SHORT_LABEL);
+            selectDrawerItem(drawerSettings?.selectedItem?.SHORT_LABEL);
         }
-        configureSubMenu(response.data?.drawer_settings?.openTabs)
-        configureDrawermenu(response.data?.drawer_settings?.openTabs?.Drawer)
+        configureSubMenu(drawerSettings?.openTabs)
+        configureDrawermenu(drawerSettings?.openTabs?.Drawer)
 
     } catch (err) {
         console.log(err);

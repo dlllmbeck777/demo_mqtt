@@ -141,6 +141,7 @@ const AlertIcon = () => {
           onClose={handleClose}
           anchorOrigin={{
             vertical: "bottom",
+            horizontal: "center",
           }}
           classes={{ paper: "notification" }}
         >

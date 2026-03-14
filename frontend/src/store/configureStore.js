@@ -90,6 +90,7 @@ const rootReducer = combineReducers({
 
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
+const enableReduxLogger = process.env.REACT_APP_ENABLE_REDUX_LOGGER === "true";
 
 export const store = configureStore({
     reducer: persistedReducer,
@@ -97,8 +98,15 @@ export const store = configureStore({
         getDefaultMiddleware({
             serializableCheck: {
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+                ignoredPaths: [
+                    "confirmation.agreefunction",
+                    "confirmation.extrafunction",
+                    "historyConfirmation.okfunction",
+                    "historyConfirmation.gofunction",
+                ],
+                ignoredActionPaths: ["payload", "payload.agreefunction", "payload.extrafunction"],
             },
-        }).concat(logger),
+        }).concat(enableReduxLogger ? [logger] : []),
 });
 
 export const persistor = persistStore(store);

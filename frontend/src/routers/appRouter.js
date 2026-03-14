@@ -152,12 +152,18 @@ const AppRouter = () => {
       clearTimeout(timeoutId);
     };
   }, [connection])
-  history.listen((location, action) => {
-    console.log("---------------------");
-    console.log(location);
-    console.log(action);
-    console.log("---------------------");
-  });
+  React.useEffect(() => {
+    if (process.env.REACT_APP_ENABLE_ROUTER_DEBUG !== "true") {
+      return undefined;
+    }
+
+    return history.listen((location, action) => {
+      console.log("---------------------");
+      console.log(location);
+      console.log(action);
+      console.log("---------------------");
+    });
+  }, []);
   return (
     <HistoryRouter history={history}>
       <Box id="main-box" >

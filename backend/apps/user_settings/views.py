@@ -10,6 +10,15 @@ from services.logging.Handlers import KafkaLogger
 logger = KafkaLogger()
 
 
+def ensure_user_settings(user):
+    if not getattr(user, "is_authenticated", False):
+        return None
+
+    user_email = getattr(user, "email", None) or str(user)
+    settings_obj, _ = user_settings.objects.get_or_create(USER=user_email)
+    return settings_obj
+
+
 # Create your views here.
 class gelAllSettingsByUser(generics.ListAPIView):
     serializer_class = getAllSettingsSerializer
@@ -17,7 +26,12 @@ class gelAllSettingsByUser(generics.ListAPIView):
 
     def get(self, request, *args, **kwargs):
         try:
-            queryset = user_settings.objects.filter(USER=request.user)
+            settings_obj = ensure_user_settings(request.user)
+            queryset = (
+                user_settings.objects.filter(pk=settings_obj.pk)
+                if settings_obj
+                else user_settings.objects.none()
+            )
             serializer = getAllSettingsSerializer(queryset, many=True)
 
             return Response(serializer.data, status=status.HTTP_200_OK)
@@ -31,8 +45,9 @@ class updateSettingsByUser(generics.CreateAPIView):
 
     def post(self, request, *args, **kwargs):
         try:
-            queryset = user_settings.objects.filter(USER=request.user)
-            queryset.update(**request.data)
+            settings_obj = ensure_user_settings(request.user)
+            if settings_obj:
+                user_settings.objects.filter(pk=settings_obj.pk).update(**request.data)
             msg = get_info_message("PROFILE.UPDATE.SUCCESS")
             data = {"status_code": 200, "status_message": msg}
             return Response(data, status=status.HTTP_200_OK)
@@ -50,8 +65,13 @@ class getStateSettingsByUser(generics.CreateAPIView):
     def post(self, request, *args, **kwargs):
         try:
             key = request.data["key"]
-            queryset = user_settings.objects.filter(USER=request.user).values(key)
-            return Response(queryset[0], status=status.HTTP_200_OK)
+            settings_obj = ensure_user_settings(request.user)
+            queryset = (
+                user_settings.objects.filter(pk=settings_obj.pk).values(key).first()
+                if settings_obj
+                else None
+            )
+            return Response(queryset or {key: None}, status=status.HTTP_200_OK)
         except Exception as e:
             print(e)
             return Response({"message": "An error occurred:"}, status=400)
