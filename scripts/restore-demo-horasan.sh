@@ -10,6 +10,7 @@ fi
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DEFAULT_DUMP="$1"
 LAYER_DUMP="$2"
+ENV_FILE="${ROOT_DIR}/.env"
 
 if [[ ! -f "$DEFAULT_DUMP" ]]; then
   echo "Default dump not found: $DEFAULT_DUMP"
@@ -21,17 +22,24 @@ if [[ ! -f "$LAYER_DUMP" ]]; then
   exit 1
 fi
 
-if [[ -f "${ROOT_DIR}/.env" ]]; then
-  set -a
-  # shellcheck disable=SC1091
-  source "${ROOT_DIR}/.env"
-  set +a
-fi
+get_env_value() {
+  local key="$1"
 
-CONTAINER_NAME="${POSTGRES_CONTAINER_NAME:-ligeiaai-postgres-1}"
-PG_USER_NAME="${PG_USER:-postgres}"
+  if [[ ! -f "$ENV_FILE" ]]; then
+    return 0
+  fi
+
+  sed -n "s/^${key}=//p" "$ENV_FILE" | tail -n 1 | tr -d '\r'
+}
+
+CONTAINER_NAME="${POSTGRES_CONTAINER_NAME:-$(get_env_value POSTGRES_CONTAINER_NAME)}"
+CONTAINER_NAME="${CONTAINER_NAME:-ligeiaai-postgres-1}"
+PG_USER_NAME="${PG_USER:-$(get_env_value PG_USER)}"
+PG_USER_NAME="${PG_USER_NAME:-postgres}"
 TARGET_PASSWORD="${TARGET_POSTGRES_PASSWORD:-manager}"
+DEFAULT_DB_NAME="${DEFAULT_DB_NAME:-$(get_env_value DEFAULT_DB_NAME)}"
 DEFAULT_DB_NAME="${DEFAULT_DB_NAME:-demo}"
+LAYER_DB_NAME="${LAYER_DB_NAME:-$(get_env_value LAYER_DB_NAME)}"
 LAYER_DB_NAME="${LAYER_DB_NAME:-horasan}"
 
 docker compose up -d postgres >/dev/null
