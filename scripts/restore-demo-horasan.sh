@@ -11,6 +11,8 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DEFAULT_DUMP="$1"
 LAYER_DUMP="$2"
 ENV_FILE="${ROOT_DIR}/docker-compose/.env"
+DB_FILE="${ROOT_DIR}/docker-compose/db/docker-compose.yml"
+APP_FILE="${ROOT_DIR}/docker-compose/app/docker-compose.yml"
 
 if [[ ! -f "$ENV_FILE" ]]; then
   ENV_FILE="${ROOT_DIR}/.env"
@@ -59,7 +61,7 @@ DEFAULT_DB_NAME="${DEFAULT_DB_NAME:-demo}"
 LAYER_DB_NAME="${LAYER_DB_NAME:-$(get_env_value LAYER_DB_NAME)}"
 LAYER_DB_NAME="${LAYER_DB_NAME:-horasan}"
 
-docker compose up -d postgres >/dev/null
+docker compose --env-file "$ENV_FILE" -f "$DB_FILE" up -d postgres >/dev/null
 
 docker cp "$DEFAULT_DUMP" "${CONTAINER_NAME}:/tmp/default_restore.sql"
 docker cp "$LAYER_DUMP" "${CONTAINER_NAME}:/tmp/layer_restore.sql"
@@ -75,7 +77,7 @@ docker exec "$CONTAINER_NAME" psql -U "$PG_USER_NAME" -d "$DEFAULT_DB_NAME" -f /
 docker exec "$CONTAINER_NAME" psql -U "$PG_USER_NAME" -d "$LAYER_DB_NAME" -f /tmp/layer_restore.sql
 docker exec "$CONTAINER_NAME" rm -f /tmp/default_restore.sql /tmp/layer_restore.sql
 
-docker compose restart django >/dev/null
+docker compose --env-file "$ENV_FILE" -f "$APP_FILE" restart django >/dev/null 2>&1 || true
 
 cat <<EOF
 Restore completed.
@@ -86,5 +88,5 @@ PG_USER=${PG_USER_NAME}
 PG_PASS=${TARGET_PASSWORD}
 
 Then restart the app stack if needed:
-docker compose up -d django frontend client
+docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d django frontend client
 EOF
