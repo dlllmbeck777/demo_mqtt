@@ -1,6 +1,6 @@
 from rest_framework.authentication import TokenAuthentication
 from apps.users.models import User
-from apps.layer.helpers import change_db, to_layerDb
+from apps.layer.helpers import change_db, get_std_db_alias, to_layerDb
 from django.db import connection, connections
 from django.db import DEFAULT_DB_ALIAS
 
@@ -23,8 +23,13 @@ class ChangeDBMiddleware:
     def getActiveLayer(self, user):
         if not getattr(user, "is_authenticated", False):
             return "STD"
-        to_layerDb("STD")
-        layers = User.objects.filter(email=user).values("active_layer").first()
+        alias = get_std_db_alias()
+        layers = (
+            User.objects.using(alias)
+            .filter(email=str(user))
+            .values("active_layer")
+            .first()
+        )
         if layers:
             return layers.get("active_layer")
         else:

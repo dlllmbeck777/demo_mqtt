@@ -13,7 +13,7 @@ import { loadDrawerMenu } from "../../../services/actions/drawerMenu/drawerMenu"
 const Layer = ({ changeMenu, handleClose, menuItem }) => {
   const dispatch = useDispatch();
   const [enableLayers, setEnableLayers] = React.useState([]);
-  // const enableLayers = useSelector((state) => state.auth?.user?.layer_name);
+  const userLayers = useSelector((state) => state.auth?.user?.layer_name || []);
   const activeLayer = useSelector((state) => state.auth?.user?.active_layer);
   const culture = useSelector((state) => state.lang.cultur);
   const layerSelect = async (LAYER_NAME) => {
@@ -36,6 +36,23 @@ const Layer = ({ changeMenu, handleClose, menuItem }) => {
   };
   React.useEffect(() => {
     async function myFunc() {
+      if (userLayers?.length > 0) {
+        setEnableLayers(
+          [...userLayers].sort((left, right) => {
+            if (left === right) {
+              return 0;
+            }
+            if (left === "STD") {
+              return -1;
+            }
+            if (right === "STD") {
+              return 1;
+            }
+            return left.localeCompare(right);
+          })
+        );
+        return;
+      }
       let res = await Auth.userEnableLayer();
       setEnableLayers(
         [...(res.data || [])].sort((left, right) => {
@@ -53,7 +70,7 @@ const Layer = ({ changeMenu, handleClose, menuItem }) => {
       );
     }
     myFunc();
-  }, []);
+  }, [userLayers]);
   return (
     <>
       <MenuItem

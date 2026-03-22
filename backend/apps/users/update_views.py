@@ -4,7 +4,7 @@ from utils.validations import CustomValidationError400
 from .library import *
 import json
 from apps.user_settings.models import user_settings
-from apps.layer.helpers import change_db
+from apps.layer.helpers import change_db, get_std_db_alias
 from django.db import connections
 
 
@@ -47,16 +47,18 @@ class UserActiveLayerUpdateView(generics.GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         try:
-            to_layerDb("STD")
-            user = User.objects.filter(email=request.user).first()
-            find_layer = layer.objects.filter(
-                LAYER_NAME=request.data.get("LAYER_NAME")
-            ).first()
+            alias = get_std_db_alias()
+            user = User.objects.using(alias).filter(email=str(request.user)).first()
+            find_layer = (
+                layer.objects.using(alias)
+                .filter(LAYER_NAME=request.data.get("LAYER_NAME"))
+                .first()
+            )
             user.active_layer = find_layer
-            user.save()
+            user.save(using=alias)
             serializer = self.serializer_class(user)
             data = serializer.data
-            user = User.objects.filter(email=request.user)[0]
+            user = User.objects.using(alias).filter(email=str(request.user))[0]
             data["layer_name"] = list(
                 user.layer_name.values_list("LAYER_NAME", flat=True)
             )

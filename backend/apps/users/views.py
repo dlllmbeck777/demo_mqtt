@@ -1,6 +1,6 @@
 from .library import *
 
-from apps.layer.helpers import to_layerDb
+from apps.layer.helpers import get_std_db_alias, to_layerDb
 
 
 class UserCheckView(generics.GenericAPIView):
@@ -28,8 +28,8 @@ class UserLayersView(generics.ListAPIView):
 
     def get(self, request, *args, **kwargs):
         try:
-            to_layerDb("STD")
-            user = User.objects.filter(email=request.user).first()
+            alias = get_std_db_alias()
+            user = User.objects.using(alias).filter(email=str(request.user)).first()
             layers = user.layer_name.all().values_list("LAYER_NAME", flat=True)
             return Response(layers, status=status.HTTP_200_OK)
         except Exception as e:
@@ -68,12 +68,21 @@ class UserDetails(generics.ListAPIView):
                 serializer.data["role"]["PROPERTY_ID"] = request.role
 
             data = serializer.data
-            user = User.objects.filter(email=request.user)[0]
-            data["layer_name"] = list(
-                user.layer_name.values_list("LAYER_NAME", flat=True)
-            )
+            std_alias = get_std_db_alias()
+            std_user = User.objects.using(std_alias).filter(email=str(request.user)).first()
+            if std_user:
+                data["layer_name"] = list(
+                    std_user.layer_name.values_list("LAYER_NAME", flat=True)
+                )
+                data["active_layer"] = (
+                    std_user.active_layer.LAYER_NAME if std_user.active_layer else "STD"
+                )
+                return Response(data, status=status.HTTP_200_OK)
             try:
-                data["active_layer"] = user.active_layer.LAYER_NAME
+                data["layer_name"] = list(
+                    queryset.layer_name.values_list("LAYER_NAME", flat=True)
+                )
+                data["active_layer"] = queryset.active_layer.LAYER_NAME
             except:
                 # print(user)
                 to_layerDb("STD")

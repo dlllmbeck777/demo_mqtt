@@ -29,6 +29,13 @@ def getDefaultDBSettings():
     return settings.DATABASES["default"].copy()
 
 
+def get_std_db_alias():
+    alias = "std_db"
+    settings.DATABASES[alias] = getDefaultDBSettings()
+    connections[alias].settings_dict = settings.DATABASES[alias]
+    return alias
+
+
 def to_layerDb(layers):
     try:
         change_db("default")
