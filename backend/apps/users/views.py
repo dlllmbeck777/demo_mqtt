@@ -62,14 +62,24 @@ class UserDetails(generics.ListAPIView):
 
     def list(self, request):
         try:
-            queryset = User.objects.get(email=request.user)
-            serializer = self.serializer_class(queryset)
+            std_alias = get_std_db_alias()
+            std_user = (
+                User.objects.using(std_alias).filter(email=str(request.user)).first()
+            )
+            current_user = User.objects.filter(email=request.user).first()
+            source_user = current_user or std_user
+
+            if not source_user:
+                return Response(
+                    {"error": f"User not found: {request.user}"},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            serializer = self.serializer_class(source_user)
             if request.role:
                 serializer.data["role"]["PROPERTY_ID"] = request.role
 
             data = serializer.data
-            std_alias = get_std_db_alias()
-            std_user = User.objects.using(std_alias).filter(email=str(request.user)).first()
             if std_user:
                 data["layer_name"] = list(
                     std_user.layer_name.values_list("LAYER_NAME", flat=True)
@@ -80,9 +90,9 @@ class UserDetails(generics.ListAPIView):
                 return Response(data, status=status.HTTP_200_OK)
             try:
                 data["layer_name"] = list(
-                    queryset.layer_name.values_list("LAYER_NAME", flat=True)
+                    source_user.layer_name.values_list("LAYER_NAME", flat=True)
                 )
-                data["active_layer"] = queryset.active_layer.LAYER_NAME
+                data["active_layer"] = source_user.active_layer.LAYER_NAME
             except:
                 # print(user)
                 to_layerDb("STD")
