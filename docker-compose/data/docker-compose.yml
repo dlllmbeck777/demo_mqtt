@@ -150,6 +150,7 @@ services:
       NIFI_ELECTION_MAX_WAIT: "1 min"
       NIFI_ZK_ROOT_NODE: "/nifi"
       NIFI_SENSITIVE_PROPS_KEY: '12345678912345'
+      NIFI_BUNDLED_FLOW_MODE: ${NIFI_BUNDLED_FLOW_MODE:-replace}
     depends_on:
       - apache-kafka-broker1
       - zookeeper

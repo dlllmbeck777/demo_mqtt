@@ -85,4 +85,5 @@ Restore PostgreSQL first, then optional historical stores:
 
 - `docker-compose/db/data` is still used as the Mongo bind mount in the historical DB stack.
 - The historical stack now uses named volumes for InfluxDB instead of old host-specific `/mnt/data/...` paths.
+- NiFi now supports a bundled flow from git. See [nifi-bundled-flow-ru.md](d:/ligeaai_backup_2025-05-11/ligeia.ai/docs/nifi-bundled-flow-ru.md).
 - `elasticsearch` was restored into the split DB stack because Django configuration expects it.

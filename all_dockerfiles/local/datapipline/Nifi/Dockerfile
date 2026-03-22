@@ -28,5 +28,9 @@ RUN python3 -m pip install psycopg2-binary
 RUN apt update && apt install -y docker.io
 
 COPY ./all_dockerfiles/local/datapipline/Nifi/nifi-influx-database-nar-1.24.0.nar /opt/nifi/nifi-current/extensions
+COPY ./all_dockerfiles/local/datapipline/Nifi/bootstrap-flow/ /opt/nifi/bootstrap-flow/
+COPY ./all_dockerfiles/local/datapipline/Nifi/nifi-entrypoint-with-flow.sh /opt/nifi/scripts/nifi-entrypoint-with-flow.sh
 RUN sed -i 's/nifi.content.repository.archive.enabled=true/nifi.content.repository.archive.enabled=false/' /opt/nifi/nifi-current/conf/nifi.properties
+RUN chmod +x /opt/nifi/scripts/nifi-entrypoint-with-flow.sh
+CMD ["/opt/nifi/scripts/nifi-entrypoint-with-flow.sh"]
 # RUN pip3 install <additional library>
