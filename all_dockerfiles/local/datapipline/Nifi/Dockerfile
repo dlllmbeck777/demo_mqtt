@@ -32,5 +32,5 @@ COPY ./all_dockerfiles/local/datapipline/Nifi/bootstrap-flow/ /opt/nifi/bootstra
 COPY ./all_dockerfiles/local/datapipline/Nifi/nifi-entrypoint-with-flow.sh /opt/nifi/scripts/nifi-entrypoint-with-flow.sh
 RUN sed -i 's/nifi.content.repository.archive.enabled=true/nifi.content.repository.archive.enabled=false/' /opt/nifi/nifi-current/conf/nifi.properties
 RUN chmod +x /opt/nifi/scripts/nifi-entrypoint-with-flow.sh
-CMD ["/opt/nifi/scripts/nifi-entrypoint-with-flow.sh"]
+ENTRYPOINT ["/opt/nifi/scripts/nifi-entrypoint-with-flow.sh"]
 # RUN pip3 install <additional library>

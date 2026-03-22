@@ -5,6 +5,8 @@ CONF_DIR="/opt/nifi/nifi-current/conf"
 BUNDLED_FLOW_DIR="/opt/nifi/bootstrap-flow"
 FLOW_MODE="${NIFI_BUNDLED_FLOW_MODE:-replace}"
 
+echo "[nifi-flow] startup mode=${FLOW_MODE}"
+
 copy_flow() {
   local src="$1"
   local dst="$2"
