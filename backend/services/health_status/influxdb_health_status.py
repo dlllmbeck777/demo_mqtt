@@ -2,11 +2,11 @@ import requests
 import os
 from helper import send_alarm, get_health_status_messages
 
-INFLUXDB_URL = "192.168.1.88:8086"
+INFLUXDB_URL = os.environ.get("INFLUX_HOST", "http://influxdb1:8086").replace("/api/v1", "").rstrip("/")
 
 
 def check_influxdb_health():
-    influxdb_url = f"http://{INFLUXDB_URL}/ping"
+    influxdb_url = f"{INFLUXDB_URL}/ping"
 
     try:
         response = requests.get(influxdb_url)

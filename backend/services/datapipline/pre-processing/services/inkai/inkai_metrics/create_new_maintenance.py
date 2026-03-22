@@ -6,7 +6,7 @@ import uuid
 import random
 
 db_host = os.environ.get("PG_HOST")
-db_name = "inkai"
+db_name = str(os.environ.get("LEGACY_LAYER_DB_NAME") or os.environ.get("DIAGNOSTIC_LAYER_NAME") or os.environ.get("COMPANY_NAME") or "STD").strip().lower()
 db_user = os.environ.get("PG_USER")
 db_password = os.environ.get("PG_PASS")
 
@@ -67,7 +67,7 @@ def time_calc(start_datetime):
 # Postgre query to get ITEM_ID's uniquely.
 def postgre_query(event_type):
     db_host = os.environ.get("PG_HOST")
-    db_name = "inkai"
+    db_name = str(os.environ.get("LEGACY_LAYER_DB_NAME") or os.environ.get("DIAGNOSTIC_LAYER_NAME") or os.environ.get("COMPANY_NAME") or "STD").strip().lower()
     db_user = os.environ.get("PG_USER")
     db_password = os.environ.get("PG_PASS")
 
@@ -169,3 +169,4 @@ for item_id in item_ids:
 
 cursor.close()
 conn.close()
+

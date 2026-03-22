@@ -6,14 +6,22 @@ from send_alarm_out_of_range import send_alarm
 import datetime
 import pytz
 
+layer_name = str(
+    os.environ.get("DIAGNOSTIC_LAYER_NAME")
+    or os.environ.get("COMPANY_NAME")
+    or "STD"
+).strip().lower()
+predictive_db = os.environ.get("PREDICTIVE_MODELING_DB") or (
+    "horasan" if layer_name == "horasan" else os.environ.get("PG_DB", "demo")
+)
 
 # Connection details
 conn = psycopg2.connect(
-    host="ligeiaai-postgres-1",
-    port="5432",
-    database="horasan",
-    user="postgres",
-    password="manager"
+    host=os.environ.get("PG_HOST", "postgres"),
+    port=os.environ.get("PG_PORT", "5432"),
+    database=predictive_db,
+    user=os.environ.get("PG_USER", "postgres"),
+    password=os.environ.get("PG_PASS", "manager")
 )
 
 # Query the table
@@ -79,7 +87,6 @@ for line in sys.stdin:
 
 #processed_data=process_data(procdata3)
 #print('finished')
-
 
 
 

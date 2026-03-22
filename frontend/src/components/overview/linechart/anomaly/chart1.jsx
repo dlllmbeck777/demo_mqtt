@@ -20,7 +20,7 @@ import {
 } from "../../utils/updateYaxis";
 import { updateSeries } from "../../utils/updateSeries";
 import { useIsMount } from "../../../../hooks/useIsMount";
-import { wsBaseUrl } from "../../../../services/baseApi";
+import { layerName, wsBaseUrl } from "../../../../services/baseApi";
 import { uuidv4 } from "../../../../services/utils/uuidGenerator";
 exporting(Highcharts);
 accessibility(Highcharts);
@@ -73,7 +73,7 @@ const LineCharts = ({ highchartProps, width, height, updateUuid }) => {
           })
         );
         client = new W3CWebSocket(
-          `${wsBaseUrl}/ws/tags/measurement/anomaly/inkai/${uuidv4()}/`
+          `${wsBaseUrl}/ws/tags/measurement/anomaly/${layerName}/${uuidv4()}/`
         );
         client.onopen = function () {
           console.log("connected");

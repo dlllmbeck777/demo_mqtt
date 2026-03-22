@@ -4,7 +4,7 @@ from .base import *
 
 DEBUG = True
 # INSTALLED_APPS += ['django_extensions', ]
-ALLOWED_HOSTS += ["192.168.1.104:8000"]
+ALLOWED_HOSTS += [host for host in os.environ.get("DEV_EXTRA_ALLOWED_HOSTS", "").split(" ") if host]
 
 # database routing
 DATABASE_ROUTERS = ["core.router.DatabaseAppsRouter"]
@@ -48,5 +48,5 @@ DATABASES = {
     # },
 }
 
-CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://192.168.1.88:6379/0")
-CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://192.168.1.88:6379/0")
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://redis:6379/1")
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://redis:6379/1")

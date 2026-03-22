@@ -9,8 +9,8 @@ import accessibility from "highcharts/modules/accessibility";
 import { InfluxDB } from "@influxdata/influxdb-client";
 import { wsBaseUrl } from "../../../../services/baseApi";
 import {
+  anomalyBucket,
   influxUrl,
-  liveBucket,
   influxToken,
   influxOrg,
 } from "../../../../services/baseApi";
@@ -53,7 +53,7 @@ const LineCharts = ({
     async function myFunc() {
       if (series) {
         let dataList = {};
-        let query = `from(bucket: "inkai-test")
+        let query = `from(bucket: "${anomalyBucket}")
         |> range(start: -1d,stop: ${lastTime - 1})
         |> filter(fn: (r) => r["_field"] == "tag_value")
         |> filter(fn: (r) =>

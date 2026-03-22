@@ -133,7 +133,7 @@ services:
       context: ../../
       dockerfile: ./all_dockerfiles/local/datapipline/Nifi/Dockerfile
     restart: unless-stopped
-    image: 'nordal/nifi-linux'
+    image: 'nordal/nifi-linux:latest'
     container_name: apache_nifi
     env_file:
       - ../.env
@@ -157,6 +157,7 @@ services:
       - app_net
     logging: *default-logging
   connect:
+    image: data-connect:latest
     build:
       context: ../../
       dockerfile: ./all_dockerfiles/dev/datapipelines/Dockerfile

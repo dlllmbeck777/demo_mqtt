@@ -5,7 +5,7 @@ import os
 
 # PostgreSQL bağlantı bilgileri
 db_host = os.environ.get("PG_HOST")
-db_name = "inkai"
+db_name = str(os.environ.get("LEGACY_LAYER_DB_NAME") or os.environ.get("DIAGNOSTIC_LAYER_NAME") or os.environ.get("COMPANY_NAME") or "STD").strip().lower()
 db_user = os.environ.get("PG_USER")
 db_password = os.environ.get("PG_PASS")
 
@@ -45,3 +45,4 @@ for start, end, duration_second, id, code in downtime_values:
 
 cursor.close()
 conn.close()
+

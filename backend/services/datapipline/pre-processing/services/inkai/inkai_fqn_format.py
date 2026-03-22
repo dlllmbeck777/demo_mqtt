@@ -1,6 +1,14 @@
 import sys
 import json
 import datetime
+import os
+
+LAYER_NAME = str(
+    os.environ.get("LEGACY_LAYER_NAME")
+    or os.environ.get("DIAGNOSTIC_LAYER_NAME")
+    or os.environ.get("COMPANY_NAME")
+    or "STD"
+).strip()
 
 
 def convert_fqn_format(data):
@@ -19,7 +27,7 @@ def add_variable(data):
         "%Y-%m-%d %H:%M:%S.%f"
     )
     data["q"] = 192
-    data["layer"] = "Horasan"
+    data["layer"] = LAYER_NAME
     data["version"] = 1
     data["step-status"] = "fqn-format"
     data["createdTime"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")

@@ -6,11 +6,17 @@ import time
 import os
 import requests
 
-base_url = os.environ.get("BACKEND_BASE_URL")
+base_url = os.environ.get("BACKEND_BASE_URL", "http://localhost:8000")
+layer_name = str(
+    os.environ.get("LEGACY_LAYER_NAME")
+    or os.environ.get("DIAGNOSTIC_LAYER_NAME")
+    or os.environ.get("COMPANY_NAME")
+    or "STD"
+).strip()
 
 
 def get_tag_data(base_url):
-    url = base_url + "/api/v1/tags/get/shortname/Horasan/"
+    url = base_url + f"/api/v1/tags/get/shortname/{layer_name}/"
     response = requests.get(url)
     if response.status_code == 200:
         return response.json()

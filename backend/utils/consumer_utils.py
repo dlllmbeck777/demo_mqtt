@@ -4,7 +4,16 @@ import threading
 from influxdb_client import InfluxDBClient
 from pymongo import MongoClient, DESCENDING
 import os
-from utils.service_config import INFLUX_LIVE_BUCKET, INFLUX_ORG, INFLUX_TOKEN, INFLUX_URL
+from utils.service_config import (
+    INFLUX_ALARMS_BUCKET,
+    INFLUX_ANOMALY_BUCKET,
+    INFLUX_LIVE_BUCKET,
+    INFLUX_LOGS_BUCKET,
+    INFLUX_NOTIFICATIONS_BUCKET,
+    INFLUX_ORG,
+    INFLUX_TOKEN,
+    INFLUX_URL,
+)
 
 INFLUX_BUCKET = INFLUX_LIVE_BUCKET
 
@@ -95,7 +104,7 @@ def retive_influx_live_data(start_time="-", end_time="+", tag_names=""):
 
 
 def retive_influx_anomaly_live_data(start_time="-", end_time="+", tag_names=""):
-    my_bucket = "inkai-test"
+    my_bucket = INFLUX_ANOMALY_BUCKET
 
     with InfluxDBClient(
         url=INFLUX_URL, token=INFLUX_TOKEN, org=INFLUX_ORG, debug=False
@@ -155,15 +164,13 @@ def retive_influx_last_data(tag_name=""):
         print(str(e))
         #print('Daniyars error 2')
 
-def retrive_alarms(
-    category="system_health", my_bucket="inkai_alarms", start_time="-168h"
-):
+def retrive_alarms(category="system_health", my_bucket=INFLUX_ALARMS_BUCKET, start_time="-168h"):
     try:
         with InfluxDBClient(
             url=INFLUX_URL, token=INFLUX_TOKEN, org=INFLUX_ORG, debug=False
         ) as client:
             query = f"""from(bucket: "{my_bucket}")
-                        |> range(start: {start_time}
+                        |> range(start: {start_time})
                         |> filter(fn: (r) => r["category"] == "{category}")
                         """
 
@@ -228,7 +235,9 @@ def retrive_alarms(
 
 
 def retrive_live_notifications(
-    category="notifications", my_bucket="inkai_notifications", start_time="-1h"
+    category="notifications",
+    my_bucket=INFLUX_NOTIFICATIONS_BUCKET,
+    start_time="-1h",
 ):
     try:
         with InfluxDBClient(
@@ -253,7 +262,7 @@ def retrive_live_notifications(
         print(str(e))
 
 
-def retrive_logs(category="notifications", my_bucket="inkai_logs", start_time="-1h"):
+def retrive_logs(category="notifications", my_bucket=INFLUX_LOGS_BUCKET, start_time="-1h"):
     try:
         with InfluxDBClient(
             url=INFLUX_URL, token=INFLUX_TOKEN, org=INFLUX_ORG, debug=False
@@ -278,7 +287,9 @@ def retrive_logs(category="notifications", my_bucket="inkai_logs", start_time="-
 
 
 def retrive_total_notifications(
-    category="notifications", my_bucket="inkai_notifications", hours=(3)
+    category="notifications",
+    my_bucket=INFLUX_NOTIFICATIONS_BUCKET,
+    hours=(3),
 ):
     try:
         with InfluxDBClient(

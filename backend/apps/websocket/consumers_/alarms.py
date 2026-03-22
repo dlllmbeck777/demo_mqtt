@@ -29,8 +29,7 @@ class AlarmsConsumer(AsyncWebsocketConsumer):
             try:
                 query = {
                     "db_name": "",
-                    #"layer":"horasan"
-                    "layer": "inkai",
+                    "layer": self.kwargs["layer"],
                     "time": {"$gt": self.kwargs["start_time"]},
                 }
                 kwargs = {

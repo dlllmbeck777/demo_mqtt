@@ -1,6 +1,10 @@
 import axios from "axios";
 
-const defaultCouchUrl = "http://192.168.1.88:5984/";
+const browserHost =
+    typeof window !== "undefined" && window.location?.hostname
+        ? window.location.hostname
+        : "localhost";
+const defaultCouchUrl = `http://${browserHost}:5984/`;
 
 export const instance = axios.create({
     baseURL: process.env.REACT_APP_COUCHDB_URL || defaultCouchUrl

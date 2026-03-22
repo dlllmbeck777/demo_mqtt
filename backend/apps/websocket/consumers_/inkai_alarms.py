@@ -55,7 +55,7 @@ class WSInkaiAlarmsConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         await self.accept()
         db_name = "alarms"  # os.environ["MongoDb_alarms_Name"]
-        layer_name = "inkai"  #self.scope["url_route"]["kwargs"]["layer_name"]
+        layer_name = self.scope["url_route"]["kwargs"]["layer_name"]
         self.types = self.scope["url_route"]["kwargs"]["types"]
         self.is_active = True
         self.kwargs = {"db_name": db_name, "layer": layer_name}

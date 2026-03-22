@@ -3,8 +3,16 @@ import os
 from helper import send_alarm, get_warning_messages
 
 base_url = os.environ.get("NIFI_API_URL")
-
-process_group_name = "inkai_data_pipeline"
+layer_name = str(
+    os.environ.get("DIAGNOSTIC_LAYER_NAME")
+    or os.environ.get("COMPANY_NAME")
+    or "STD"
+).strip().lower()
+process_group_name = (
+    os.environ.get("NIFI_DIAGNOSTIC_PROCESS_GROUP_NAME")
+    or (os.environ.get("NIFI_PROCESS_GROUP_NAME") or "").split(",")[0].strip()
+    or f"{layer_name}_data_pipeline"
+)
 
 process_name = "ConsumeMQTT"
 

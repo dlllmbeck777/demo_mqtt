@@ -7,6 +7,7 @@
 services:
   frontend:
     restart: unless-stopped
+    image: app-frontend:latest
     build:
       context: ../../
       dockerfile: Dockerfile
@@ -35,6 +36,7 @@ services:
     logging: *default-logging
   django:
     restart: unless-stopped
+    image: app-django:latest
     build:
       context: ../../
       dockerfile: ./all_dockerfiles/local/django/Dockerfile
@@ -54,6 +56,7 @@ services:
     logging: *default-logging
   housekeeping:
     restart: unless-stopped
+    image: app-django:latest
     build:
       context: ../../
       dockerfile: ./all_dockerfiles/local/django/Dockerfile
@@ -67,6 +70,7 @@ services:
     logging: *default-logging
   diagnostic-probes:
     restart: unless-stopped
+    image: app-django:latest
     build:
       context: ../../
       dockerfile: ./all_dockerfiles/local/django/Dockerfile
@@ -80,6 +84,7 @@ services:
     logging: *default-logging
   diagnostic-notifications-consumer:
     restart: unless-stopped
+    image: app-django:latest
     build:
       context: ../../
       dockerfile: ./all_dockerfiles/local/django/Dockerfile
@@ -93,6 +98,7 @@ services:
     logging: *default-logging
   diagnostic-warnings-consumer:
     restart: unless-stopped
+    image: app-django:latest
     build:
       context: ../../
       dockerfile: ./all_dockerfiles/local/django/Dockerfile
@@ -106,6 +112,7 @@ services:
     logging: *default-logging
   diagnostic-logs-consumer:
     restart: unless-stopped
+    image: app-django:latest
     build:
       context: ../../
       dockerfile: ./all_dockerfiles/local/django/Dockerfile

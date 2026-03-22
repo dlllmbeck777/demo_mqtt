@@ -7,8 +7,19 @@ import math
 import os
 from kafka import KafkaProducer
 
+layer_slug = str(
+    os.environ.get("LEGACY_LAYER_NAME")
+    or os.environ.get("DIAGNOSTIC_LAYER_NAME")
+    or os.environ.get("COMPANY_NAME")
+    or "STD"
+).strip().lower()
+velocity_topic = os.environ.get("LEGACY_VELOCITY_TOPIC", f"{layer_slug}_velocity_data")
+
 producer = KafkaProducer(
-    bootstrap_servers="broker:29092",
+    bootstrap_servers=os.environ.get(
+        "KAFKA_BOOTSTRAP_SERVERS",
+        os.environ.get("Kafka_Host_DP", os.environ.get("Kafka_Host", "broker:29092")),
+    ),
     value_serializer=lambda v: json.dumps(v).encode('ascii'),
 )
 
@@ -27,7 +38,7 @@ def process_data(data):
         data[i]["measurement"] += "_vel" 
         data[i]["tag_value"] = 1000 * acceleration_to_velocity(data[i]["tag_value"], RPM, 9.81)
         data_list.append(data[i])
-        producer.send("inkai_velocity_data", value=data[i])
+        producer.send(velocity_topic, value=data[i])
         producer.flush()
     return data_list
 

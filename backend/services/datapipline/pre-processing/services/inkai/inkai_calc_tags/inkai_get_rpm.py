@@ -7,14 +7,26 @@ import math
 import os
 from kafka import KafkaProducer
 
+layer_name = str(
+    os.environ.get("LEGACY_LAYER_NAME")
+    or os.environ.get("DIAGNOSTIC_LAYER_NAME")
+    or os.environ.get("COMPANY_NAME")
+    or "STD"
+).strip()
+layer_slug = layer_name.lower()
+rpm_topic = os.environ.get("LEGACY_RPM_TOPIC", f"{layer_slug}_vibration_data")
+
 producer = KafkaProducer(
-    bootstrap_servers="broker:29092",
+    bootstrap_servers=os.environ.get(
+        "KAFKA_BOOTSTRAP_SERVERS",
+        os.environ.get("Kafka_Host_DP", os.environ.get("Kafka_Host", "broker:29092")),
+    ),
     value_serializer=lambda v: json.dumps(v).encode("ascii"),
 )
 
-base_url = os.environ["BACKEND_BASE_URL"]
+base_url = os.environ.get("BACKEND_BASE_URL", "http://localhost:8000")
 
-url = base_url + "/api/v1/item-property/get/rpm/Horasan/"
+url = base_url + f"/api/v1/item-property/get/rpm/{layer_name}/"
 
 data_list = []
 
@@ -29,7 +41,7 @@ def process_data(data):
             if asset_name in rpm_item:
                 RPM = rpm_item[asset_name]
                 data[i]["RPM"] = RPM
-                producer.send("inkai_vibration_data", value=data[i])
+                producer.send(rpm_topic, value=data[i])
                 producer.flush()
         data_list.append(data[i])
     return data_list

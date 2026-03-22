@@ -49,7 +49,7 @@ import environ
 import redis
 from apps.layer.helpers import to_layerDb
 from influxdb_client import InfluxDBClient
-from utils.service_config import INFLUX_ORG, INFLUX_TOKEN, INFLUX_URL
+from utils.service_config import INFLUX_LIVE_BUCKET, INFLUX_ORG, INFLUX_TOKEN, INFLUX_URL
 
 env = environ.Env(DEBUG=(bool, False))
 rds = redis.StrictRedis(env("REDIS_HOST"), port=6379, db=0)
@@ -710,13 +710,13 @@ class GetLiveDataView(generics.CreateAPIView):
         pass
 
     def post(self, request, *args, **kwargs):
-        my_bucket = "horasan_live"
+        my_bucket = INFLUX_LIVE_BUCKET
         data = []
         try:
             with InfluxDBClient(
                 url=INFLUX_URL, token=INFLUX_TOKEN, org=INFLUX_ORG, debug=False
             ) as client:
-                query = f"""from(bucket: "horasan_live")
+                query = f"""from(bucket: "{my_bucket}")
         |> range(start: -1d,stop: 1700306830)
         |> filter(fn: (r) => r["_field"] == "tag_value")
         |> filter(fn: (r) =>r["_measurement"] == "OPZ_IMX.IMX004.P-3B.VT-153_P-3B" or r["_measurement"] == "OPZ_IMX.IMX003.P-3B.VT-151_P-3B" or r["_measurement"] == "OPZ_IMX.IMX003.P-3B.VT-152_P-3B" or r["_measurement"] == "OPZ_IMX.IMX003.P-3B.VT-151_P-3B_vel")"""

@@ -11,6 +11,12 @@ producer = KafkaProducer(
     value_serializer=lambda v: json.dumps(v).encode("ascii"),
 )
 
+
+def resolve_layer_name(explicit_layer_name=None, layer=None):
+    value = explicit_layer_name or layer or os.environ.get("DIAGNOSTIC_LAYER_NAME") or os.environ.get("COMPANY_NAME") or "STD"
+    return str(value).strip().lower()
+
+
 def send_alarm(
     #source,
     #measurement,
@@ -24,8 +30,8 @@ def send_alarm(
     #short_name,
     #interval,
     alarms_type="Alarm",
-    error_message= "Value of Incoming Data is Out of Bounds",
-    layer_name="inkai",   #"Horasan",
+    error_message="Value of Incoming Data is Out of Bounds",
+    layer_name=None,
     category="alarms",
     #state="low quality",
     timestamp = int(time.time() * 1000),
@@ -39,13 +45,12 @@ def send_alarm(
     data = {
         "LOG_TYPE": alarms_type,
         "error_message": error_message,
-        "layer": layer_name,
+        "layer": resolve_layer_name(layer_name, layer),
         "priority": priority.get(alarms_type),
         #"short_name": short_name,
         #"interval": interval,
         #"source": source,
         #"measurement": measurement,
-        "layer": layer,
         #"tag_value": tag_value,
         #"tag_quality": tag_quality,
         #"time": time,

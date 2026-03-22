@@ -5,10 +5,7 @@ from helper import send_alarm, get_warning_messages
 
 broker_address = os.environ["MQTT_BROKER_ADDRESS"]
 broker_port = int(os.environ["MQTT_PORT"])
-topic_to_listen = os.environ["MQTT_TOPIC"]
-print(topic_to_listen)
-#topic_to_listen = 'horasan'
-topic_to_listen = 'inkai'
+topic_to_listen = os.environ.get("MQTT_TOPIC", "iot-std-raw")
 
 data_received = False
 timeout = 10

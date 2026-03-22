@@ -7,7 +7,7 @@ import os
 
 def applyktgf(event_type):
     db_host = os.environ.get("PG_HOST")
-    db_name = "inkai"
+    db_name = str(os.environ.get("LEGACY_LAYER_DB_NAME") or os.environ.get("DIAGNOSTIC_LAYER_NAME") or os.environ.get("COMPANY_NAME") or "STD").strip().lower()
     db_user = os.environ.get("PG_USER")
     db_password = os.environ.get("PG_PASS")
 
@@ -66,3 +66,4 @@ def applyktgf(event_type):
 
 applyktgf("COMP_READ")
 applyktgf("PUMP_READ")
+

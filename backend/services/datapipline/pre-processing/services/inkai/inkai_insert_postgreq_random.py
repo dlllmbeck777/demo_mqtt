@@ -5,6 +5,26 @@ import json
 import datetime
 from ast import literal_eval
 import time
+import os
+
+KAFKA_BOOTSTRAP_SERVERS = os.environ.get(
+    "KAFKA_BOOTSTRAP_SERVERS",
+    os.environ.get("Kafka_Host_DP", os.environ.get("Kafka_Host", "broker:29092")),
+)
+LEGACY_LAYER_NAME = str(
+    os.environ.get("LEGACY_LAYER_NAME")
+    or os.environ.get("DIAGNOSTIC_LAYER_NAME")
+    or os.environ.get("COMPANY_NAME")
+    or "STD"
+).strip()
+LEGACY_LAYER_DB_NAME = os.environ.get(
+    "LEGACY_LAYER_DB_NAME",
+    os.environ.get("DIAGNOSTIC_LAYER_NAME", os.environ.get("COMPANY_NAME", "STD")),
+)
+PG_USER = os.environ.get("PG_USER", "postgres")
+PG_PASS = os.environ.get("PG_PASS", "manager")
+PG_HOST = os.environ.get("PG_HOST", "localhost")
+PG_PORT = os.environ.get("PG_EXPOSE_PORT", os.environ.get("PG_PORT", "5434"))
 
 def tag_name_check(data_tag_name, incoming_tag_name):
     min_max_values = []
@@ -33,7 +53,7 @@ def data_range_check(data, min_max_values):
     return data
 
 producer = KafkaProducer(
-    bootstrap_servers="broker:29092",
+    bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
     value_serializer=lambda v: json.dumps(v).encode('ascii'),
 )
 sent_data_list = []
@@ -64,11 +84,11 @@ def insert_to_db(row):
 
     # Connect to your PostgreSQL database
     conn = psycopg2.connect(
-        dbname="horasan",
-        user="postgres",
-        password="manager",
-        host="192.168.1.88",  # or your database server's IP address
-        port="5434"  # default PostgreSQL port
+        dbname=LEGACY_LAYER_DB_NAME,
+        user=PG_USER,
+        password=PG_PASS,
+        host=PG_HOST,
+        port=PG_PORT
     )
 
     # Create a cursor object
@@ -107,3 +127,4 @@ for line in sys.stdin:
     print(processed_data)
 
     
+

@@ -23,7 +23,7 @@ SECRET_KEY = env("SECRET_KEY")
 
 BROKER_URL = os.environ.get(
     "CELERY_BROKER",
-    os.environ.get("BROKER_URL", "redis://192.168.1.88:6379"),
+    os.environ.get("BROKER_URL", "redis://redis:6379/1"),
 )
 CELERY_RESULT_BACKEND = os.environ.get(
     "CELERY_BACKEND",

@@ -65,6 +65,7 @@ cover/
 
 # Django stuff:
 *.log
+*.swp
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -115,7 +116,6 @@ celerybeat.pid
 # Environments
 .env
 frontend/.env
-!docker-compose/.env
 .venv
 env/
 venv/

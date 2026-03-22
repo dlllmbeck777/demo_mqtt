@@ -5,6 +5,26 @@ import json
 import datetime
 from ast import literal_eval
 import time
+import os
+
+KAFKA_BOOTSTRAP_SERVERS = os.environ.get(
+    "KAFKA_BOOTSTRAP_SERVERS",
+    os.environ.get("Kafka_Host_DP", os.environ.get("Kafka_Host", "broker:29092")),
+)
+LEGACY_LAYER_NAME = str(
+    os.environ.get("LEGACY_LAYER_NAME")
+    or os.environ.get("DIAGNOSTIC_LAYER_NAME")
+    or os.environ.get("COMPANY_NAME")
+    or "STD"
+).strip()
+LEGACY_LAYER_DB_NAME = os.environ.get(
+    "LEGACY_LAYER_DB_NAME",
+    os.environ.get("DIAGNOSTIC_LAYER_NAME", os.environ.get("COMPANY_NAME", "STD")),
+)
+PG_USER = os.environ.get("PG_USER", "postgres")
+PG_PASS = os.environ.get("PG_PASS", "manager")
+PG_HOST = os.environ.get("PG_HOST", "localhost")
+PG_PORT = os.environ.get("PG_EXPOSE_PORT", os.environ.get("PG_PORT", "5434"))
 import psycopg2
 
 def tag_name_check(data_tag_name, incoming_tag_name):
@@ -34,7 +54,7 @@ def data_range_check(data, min_max_values):
     return data
 
 producer = KafkaProducer(
-    bootstrap_servers="broker:29092",
+    bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
     value_serializer=lambda v: json.dumps(v).encode('ascii'),
 )
 sent_data_list = []
@@ -65,11 +85,11 @@ def insert_to_db(row):
 
     # Connect to your PostgreSQL database
     conn = psycopg2.connect(
-        dbname="horasan",
-        user="postgres",
-        password="manager",
-        host="192.168.1.88",  # or your database server's IP address
-        port="5434"  # default PostgreSQL port
+        dbname=LEGACY_LAYER_DB_NAME,
+        user=PG_USER,
+        password=PG_PASS,
+        host=PG_HOST,
+        port=PG_PORT
     )
 
     # Create a cursor object
@@ -115,11 +135,11 @@ def select_from_db():
     
     # Connect to your PostgreSQL database
     conn = psycopg2.connect(
-        dbname="horasan",
-        user="postgres",
-        password="manager",
-        host="192.168.1.88",  # or your database server's IP address
-        port="5434"  # default PostgreSQL port
+        dbname=LEGACY_LAYER_DB_NAME,
+        user=PG_USER,
+        password=PG_PASS,
+        host=PG_HOST,
+        port=PG_PORT
     )
 
     # Create a cursor object
@@ -138,7 +158,7 @@ def select_from_db():
         'measurement': 'AI_BigDATA/BIG_DATA_VT1_P1_2'
         ,'short_name': 'AI_BigDATA/BIG_DATA_VT1_P1_2'
         ,'asset': 'OpenPCS7'
-        ,'layer': 'Horasan'
+        ,'layer': LEGACY_LAYER_NAME
         ,'tag_value': 1.10164535
         ,'tag_quality': 192
         ,'time': 1725201202094
@@ -174,7 +194,7 @@ def updated_value_table(row_line_new):
         'measurement': 'hr_p1'
         , 'short_name': 'hr_p1'
         , 'asset': 'OpenPCS7'
-        , 'layer': 'Horasan'
+        , 'layer': LEGACY_LAYER_NAME
         , 'tag_value': 14650
         , 'tag_quality': 192
         , 'time': 1725201202094
@@ -184,11 +204,11 @@ def updated_value_table(row_line_new):
     for measure in row_line:
         print(measure)
         conn = psycopg2.connect(
-            dbname="horasan",
-            user="postgres",
-            password="manager",
-            host="192.168.1.88",  # or your database server's IP address
-            port="5434"  # default PostgreSQL port
+            dbname=LEGACY_LAYER_DB_NAME,
+            user=PG_USER,
+            password=PG_PASS,
+            host=PG_HOST,
+            port=PG_PORT
         )
         cur = conn.cursor()
 
@@ -235,3 +255,4 @@ for line in sys.stdin:
     print(processed_data)
 
     
+

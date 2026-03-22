@@ -24,11 +24,21 @@
 # create_to_couchdb()
 
 
+import os
 from kafka import KafkaProducer
 
 # Set up Kafka producer
-bootstrap_servers = "192.168.1.88:9092"  # Replace with your Kafka bootstrap servers
-topic_name = "inkai-anomaly"  # Replace with your Kafka topic name
+layer_slug = str(
+    os.environ.get("LEGACY_LAYER_NAME")
+    or os.environ.get("DIAGNOSTIC_LAYER_NAME")
+    or os.environ.get("COMPANY_NAME")
+    or "STD"
+).strip().lower()
+bootstrap_servers = os.environ.get(
+    "LEGACY_COUCH_KAFKA_BOOTSTRAP_SERVERS",
+    os.environ.get("KAFKA_BOOTSTRAP_SERVERS", os.environ.get("Kafka_Host_DP", os.environ.get("Kafka_Host", "broker:29092"))),
+)
+topic_name = os.environ.get("LEGACY_COUCH_KAFKA_TOPIC", f"{layer_slug}-anomaly")
 
 producer = KafkaProducer(
     bootstrap_servers=bootstrap_servers,
