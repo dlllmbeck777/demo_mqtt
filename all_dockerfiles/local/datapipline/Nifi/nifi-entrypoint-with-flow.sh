@@ -44,5 +44,13 @@ mkdir -p "$CONF_DIR"
 copy_flow "$BUNDLED_FLOW_DIR/flow.json.gz" "$CONF_DIR/flow.json.gz"
 copy_flow "$BUNDLED_FLOW_DIR/flow.xml.gz" "$CONF_DIR/flow.xml.gz"
 
-cd /opt/nifi/nifi-current/bin
-exec ../scripts/start.sh
+if [[ -x /opt/nifi/scripts/start.sh ]]; then
+  exec /opt/nifi/scripts/start.sh
+fi
+
+if [[ -x /opt/nifi/nifi-current/bin/nifi.sh ]]; then
+  exec /opt/nifi/nifi-current/bin/nifi.sh run
+fi
+
+echo "[nifi-flow] unable to find NiFi startup script"
+exit 1
