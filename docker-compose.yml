@@ -15,9 +15,13 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
     networks:
-      - net
+      net:
+        aliases:
+          - frontend
   client:
     image: nginx
+    depends_on:
+      - frontend
     ports:
       - 80:80
     volumes:
