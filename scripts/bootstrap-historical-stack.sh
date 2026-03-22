@@ -39,6 +39,20 @@ set_env() {
   fi
 }
 
+get_env_value() {
+  local key="$1"
+  local default_value="${2:-}"
+  local line
+
+  line="$(grep -E "^${key}=" "$ENV_FILE" | tail -n 1 || true)"
+  if [[ -z "$line" ]]; then
+    printf '%s' "$default_value"
+    return 0
+  fi
+
+  printf '%s' "${line#*=}"
+}
+
 assert_file_exists() {
   local path="$1"
   local label="$2"
@@ -59,23 +73,37 @@ assert_not_lfs_pointer() {
 }
 
 wait_for_couch() {
-  python3 - <<'PY'
+  python3 - "$COUCHDB_BOOTSTRAP_USER" "$COUCHDB_BOOTSTRAP_PASSWORD" <<'PY'
 import sys
 import time
+import urllib.error
 import urllib.request
 
-deadline = time.time() + 120
-url = "http://admin:change-me@127.0.0.1:5984/_up"
+user = sys.argv[1]
+password = sys.argv[2]
+deadline = time.time() + 180
+url = f"http://{user}:{password}@127.0.0.1:5984/_up"
+last_error = "unknown error"
 
 while time.time() < deadline:
     try:
         with urllib.request.urlopen(url, timeout=5) as response:
             if response.status == 200:
                 sys.exit(0)
-    except Exception:
+    except urllib.error.HTTPError as exc:
+        if exc.code == 401:
+            raise SystemExit(
+                "CouchDB is reachable but credentials were rejected. "
+                "Check COUCHDB_USER/COUCHDB_PASSWORD in docker-compose/.env "
+                "or reset the couch-data volume if it belongs to an older deployment."
+            )
+        last_error = f"HTTP {exc.code}"
+        time.sleep(2)
+    except Exception as exc:
+        last_error = str(exc)
         time.sleep(2)
 
-raise SystemExit("CouchDB did not become ready in time")
+raise SystemExit(f"CouchDB did not become ready in time: {last_error}")
 PY
 }
 
@@ -127,7 +155,7 @@ import_couch_db() {
   local db_name="$1"
   local path="$2"
 
-  python3 - "$db_name" "$path" <<'PY'
+  python3 - "$db_name" "$path" "$COUCHDB_BOOTSTRAP_USER" "$COUCHDB_BOOTSTRAP_PASSWORD" <<'PY'
 import base64
 import json
 import sys
@@ -136,7 +164,9 @@ import urllib.request
 
 db_name = sys.argv[1]
 path = sys.argv[2]
-auth = base64.b64encode(b"admin:change-me").decode()
+user = sys.argv[3]
+password = sys.argv[4]
+auth = base64.b64encode(f"{user}:{password}".encode()).decode()
 headers = {"Authorization": f"Basic {auth}", "Content-Type": "application/json"}
 
 req = urllib.request.Request(
@@ -183,8 +213,13 @@ set_env "NIFI_API_URL" "http://${SERVER_IP}:8082/nifi-api/"
 set_env "MQTT_BROKER_ADDRESS" "${SERVER_IP}"
 set_env "DIAGNOSTIC_LAYER_NAME" "${TARGET_LAYER}"
 set_env "REACT_APP_LAYER_NAME" "${TARGET_LAYER}"
+set_env "COUCHDB_USER" "$(get_env_value "COUCHDB_USER" "admin")"
+set_env "COUCHDB_PASSWORD" "$(get_env_value "COUCHDB_PASSWORD" "change-me")"
 set_env "DIAGNOSTIC_DJANGO_HEALTH_URL" "http://django:8000/api/v1/health/"
 set_env "DIAGNOSTIC_PROBE_INTERVAL_SECONDS" "60"
+
+COUCHDB_BOOTSTRAP_USER="$(get_env_value "COUCHDB_USER" "admin")"
+COUCHDB_BOOTSTRAP_PASSWORD="$(get_env_value "COUCHDB_PASSWORD" "change-me")"
 
 OFFLINE_MODE=0
 if load_offline_images; then
