@@ -106,7 +106,7 @@ def publisher_items() -> List[Dict[str, str]]:
     return parse_pumps()
 
 
-HOST = os.environ.get("MQTT_PUBLISHER_HOST", "mosquitto").strip() or "mosquitto"
+HOST = os.environ.get("MQTT_PUBLISHER_HOST", "65.109.174.58").strip() or "65.109.174.58"
 PORT = env_int("MQTT_PUBLISHER_PORT", 1883)
 TOPIC = os.environ.get("MQTT_PUBLISHER_TOPIC", "iot-inkai-raw").strip() or "iot-inkai-raw"
 INTERVAL_SECONDS = env_float("MQTT_PUBLISHER_INTERVAL_SECONDS", 5.0)

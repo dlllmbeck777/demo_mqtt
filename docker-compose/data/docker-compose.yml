@@ -134,8 +134,8 @@ services:
     restart: unless-stopped
     image: mqtt-publisher:latest
     build:
-      context: ../../
-      dockerfile: ./all_dockerfiles/local/mqtt-publisher/Dockerfile
+      context: ../../mqtt-publisher
+      dockerfile: Dockerfile
     depends_on:
       - mosquitto
     env_file:
