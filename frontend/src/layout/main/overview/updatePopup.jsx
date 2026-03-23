@@ -1,18 +1,20 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Button, Grid, Box, Typography } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 
 import { LoadingComponent } from "../../../components";
 import {
-  changeValeus,
   updateChart,
   fillTypeValues,
 } from "../../../services/actions/overview/overviewDialog";
 import CodelistService from "../../../services/api/codeList";
 import * as PopUps from "../../../components/overview/updatePopUp";
 import resourceList from "../../../services/api/resourceList";
-import UpdatePopUp from "../../../components/overview/form/updatePopUps";
 import "../../../assets/styles/page/overview/updateContainer.scss";
+
+const buttonTextCache = new Map();
+const widgetCodeDetailCache = new Map();
+
 const DialogContent = ({ highchartProps, chartId, refresh, ...rest }) => {
   const dispatch = useDispatch();
   const CULTURE = useSelector((state) => state.lang.cultur);
@@ -20,52 +22,93 @@ const DialogContent = ({ highchartProps, chartId, refresh, ...rest }) => {
   const [selectedItem, setSelectedItem] = React.useState(null);
   const [btnText, setBtnText] = React.useState([]);
   const { [selectedItem?.CHAR1]: Element } = PopUps;
-  const myAsyncLoadingFunction = async () => {
-    setLoading(true);
-    await dispatch(await fillTypeValues(highchartProps?.Type));
-    setLoading(false);
-  };
-  React.useEffect(() => {
-    myAsyncLoadingFunction();
-  }, []);
-  React.useEffect(() => {
-    async function myFunc() {
-      if (!highchartProps?.CHAR1) {
-        let res = await CodelistService.getCodelistDetail({
-          CODE: highchartProps.Type,
-          CULTURE,
-        });
-        console.log(res);
-        setSelectedItem(res?.data?.[0]);
-      } else {
-        setSelectedItem(highchartProps);
-      }
-      dispatch({
-        type: "SET_HIGHCHART_PROPERTY_OVERVIEW_DIALOG",
-        payload: {},
-      });
-      Object.keys(highchartProps).map((e) => {
-        dispatch(changeValeus(e, highchartProps[e]));
-      });
-    }
-    myFunc();
-  }, []);
-  async function asyncGetBtnText() {
-    try {
-      let res = await resourceList.getResourcelist({
-        CULTURE,
-        PARENT: "BUTTON_TEXT",
-      });
-      console.log(res);
-      setBtnText(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  const cancelLabel =
+    btnText?.find((e) => e.ID === "BUTTON_TEXT_CANCEL")?.SHORT_LABEL || "Cancel";
+  const saveLabel =
+    btnText?.find((e) => e.ID === "BUTTON_TEXT_SAVE")?.SHORT_LABEL || "Save";
 
   React.useEffect(() => {
-    asyncGetBtnText();
-  }, [CULTURE]);
+    let isActive = true;
+
+    async function loadDialogData() {
+      if (!highchartProps?.Type) {
+        setLoading(false);
+        return;
+      }
+
+      setLoading(true);
+      dispatch({
+        type: "SET_HIGHCHART_PROPERTY_OVERVIEW_DIALOG",
+        payload: { ...highchartProps },
+      });
+
+      const widgetTypeKey = `${CULTURE}:${highchartProps.Type}`;
+      const buttonTextKey = `${CULTURE}:BUTTON_TEXT`;
+
+      const selectedItemPromise = highchartProps?.CHAR1
+        ? Promise.resolve(highchartProps)
+        : widgetCodeDetailCache.has(widgetTypeKey)
+        ? Promise.resolve(widgetCodeDetailCache.get(widgetTypeKey))
+        : CodelistService.getCodelistDetail({
+            CODE: highchartProps.Type,
+            CULTURE,
+          }).then((res) => {
+            const value = res?.data?.[0] || null;
+            widgetCodeDetailCache.set(widgetTypeKey, value);
+            return value;
+          });
+
+      const typeValuesPromise = dispatch(fillTypeValues(highchartProps.Type));
+
+      if (buttonTextCache.has(buttonTextKey)) {
+        setBtnText(buttonTextCache.get(buttonTextKey));
+      } else {
+        resourceList
+          .getResourcelist({
+            CULTURE,
+            PARENT: "BUTTON_TEXT",
+          })
+          .then((res) => {
+            const value = res?.data || [];
+            buttonTextCache.set(buttonTextKey, value);
+            if (isActive) {
+              setBtnText(value);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+
+      try {
+        const [nextSelectedItem] = await Promise.all([
+          selectedItemPromise,
+          typeValuesPromise,
+        ]);
+
+        if (!isActive) {
+          return;
+        }
+
+        setSelectedItem(nextSelectedItem);
+      } catch (err) {
+        if (!isActive) {
+          return;
+        }
+        console.log(err);
+      } finally {
+        if (isActive) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadDialogData();
+
+    return () => {
+      isActive = false;
+    };
+  }, [CULTURE, dispatch, highchartProps]);
 
   return (
     <Grid container className="overview-update-pop-up">
@@ -90,10 +133,7 @@ const DialogContent = ({ highchartProps, chartId, refresh, ...rest }) => {
             }}
             variant="outlined"
           >
-            {
-              btnText?.filter((e) => e.ID === "BUTTON_TEXT_CANCEL")?.[0]
-                ?.SHORT_LABEL
-            }
+            {cancelLabel}
           </Button>
         </Grid>
         <Grid item>
@@ -105,10 +145,7 @@ const DialogContent = ({ highchartProps, chartId, refresh, ...rest }) => {
             }}
             variant="outlined"
           >
-            {
-              btnText?.filter((e) => e.ID === "BUTTON_TEXT_SAVE")?.[0]
-                ?.SHORT_LABEL
-            }
+            {saveLabel}
           </Button>
         </Grid>
       </Grid>
