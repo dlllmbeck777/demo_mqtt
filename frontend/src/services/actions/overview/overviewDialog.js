@@ -12,24 +12,36 @@ import Overview from "../../api/overview"
 import { add_error } from "../error"
 import TypeService from "../../api/type"
 
+const widgetTypeResponseCache = new Map();
+
+const buildTypeLabels = (properties, culture) => {
+    const typeProp = {}
+    Object.keys(properties || {}).forEach((key) => {
+        typeProp[key] = properties[key]?.[culture]
+    })
+    return typeProp
+}
+
 export const fillTypeValues = async (WIDGET_TYPE) => async (dispatch, getState) => {
     try {
         const culture = getState().lang.cultur
-        const body = JSON.stringify({ WIDGET_TYPE })
-        let res = await Overview.getWidgetProps(body)
-        let typeProp = {}
-        const properties = res.data[0].properties
-        Promise.all(
-            Object.keys(properties).map(e => {
-                typeProp[e] = properties[e]?.[culture]
-            })
-        )
+        let responseData = widgetTypeResponseCache.get(WIDGET_TYPE)
+
+        if (!responseData) {
+            const body = JSON.stringify({ WIDGET_TYPE })
+            let res = await Overview.getWidgetProps(body)
+            responseData = res.data
+            widgetTypeResponseCache.set(WIDGET_TYPE, responseData)
+        }
+
+        const properties = responseData?.[0]?.properties || {}
+        const typeProp = buildTypeLabels(properties, culture)
         dispatch({
             type: FILL_VALUES_OVERVIEW_DIALOG,
             payload: typeProp
         })
 
-        return Promise.resolve(res.data)
+        return Promise.resolve(responseData)
     } catch (err) {
         console.log(err);
         return Promise.reject(err)
@@ -39,17 +51,21 @@ export const fillTypeValues = async (WIDGET_TYPE) => async (dispatch, getState) 
 export const fillProperties = async (WIDGET_TYPE) => async (dispatch, getState) => {
     try {
         const culture = getState().lang.cultur
-        const body = JSON.stringify({ WIDGET_TYPE })
-        let res = await Overview.getWidgetProps(body)
+        let responseData = widgetTypeResponseCache.get(WIDGET_TYPE)
+
+        if (!responseData) {
+            const body = JSON.stringify({ WIDGET_TYPE })
+            let res = await Overview.getWidgetProps(body)
+            responseData = res.data
+            widgetTypeResponseCache.set(WIDGET_TYPE, responseData)
+        }
+
         let chartProp = {}
-        let typeProp = {}
-        const properties = res.data[0].properties
-        Promise.all(
-            Object.keys(properties).map(e => {
-                chartProp[e] = properties[e].value
-                typeProp[e] = properties[e]?.[culture]
-            })
-        )
+        const properties = responseData?.[0]?.properties || {}
+        Object.keys(properties).forEach((key) => {
+            chartProp[key] = properties[key]?.value
+        })
+        const typeProp = buildTypeLabels(properties, culture)
         dispatch({
             type: FILL_VALUES_OVERVIEW_DIALOG,
             payload: typeProp
@@ -58,7 +74,7 @@ export const fillProperties = async (WIDGET_TYPE) => async (dispatch, getState) 
             type: SET_HIGHCHART_PROPERTY_OVERVIEW_DIALOG,
             payload: chartProp
         })
-        return Promise.resolve(res.data)
+        return Promise.resolve(responseData)
     } catch (err) {
         console.log(err);
     }
