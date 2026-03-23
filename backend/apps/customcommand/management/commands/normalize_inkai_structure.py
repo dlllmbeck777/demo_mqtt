@@ -294,10 +294,7 @@ class Command(BaseCommand):
                 self._rename_item(child_id, new_name)
                 existing_child_map[self._normalize_key(new_name)] = child_id
 
-        template_child_id = None
-        refreshed_children = self._get_children_links(section_id)
-        if refreshed_children:
-            template_child_id = refreshed_children[0].FROM_ITEM_ID
+        template_child_id = self._resolve_template_child(section_id)
 
         for required_name in spec["required_children"]:
             existing_id = self._find_child(section_id, {required_name})
@@ -313,11 +310,36 @@ class Command(BaseCommand):
                     f"'{spec['name']}' without a template item."
                 )
 
-            self._create_child_item(
+            template_child_id = self._create_child_item(
                 parent_id=section_id,
                 template_item_id=template_child_id,
                 new_name=required_name,
             )
+
+    def _resolve_template_child(self, section_id):
+        refreshed_children = self._get_children_links(section_id)
+        if refreshed_children:
+            return refreshed_children[0].FROM_ITEM_ID
+
+        parent_link = (
+            item_link.objects.filter(FROM_ITEM_ID=section_id)
+            .exclude(LINK_TYPE="TAG_ITEM")
+            .order_by("START_DATETIME", "id")
+            .first()
+        )
+        if not parent_link:
+            return None
+
+        for sibling_link in self._get_children_links(parent_link.TO_ITEM_ID):
+            sibling_id = sibling_link.FROM_ITEM_ID
+            if sibling_id == section_id:
+                continue
+
+            sibling_children = self._get_children_links(sibling_id)
+            if sibling_children:
+                return sibling_children[0].FROM_ITEM_ID
+
+        return None
 
     def _clone_property(self, template_prop, item_id, property_string=None):
         if not template_prop:
