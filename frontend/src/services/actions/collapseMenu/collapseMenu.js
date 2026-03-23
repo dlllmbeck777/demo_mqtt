@@ -13,6 +13,9 @@ import history from "../../../routers/history"
 import { cleanTabs, loadTapsOverview } from "../overview/taps"
 import { persistTreeViewDocument } from "../treeview/treeview"
 
+const OVERVIEW_HIERARCHY_PERSIST_DELAY_MS = 300
+let overviewHierarchyPersistTimer = null
+
 const findMenuItem = (items, selectedItem) => {
     if (!selectedItem) {
         return null
@@ -65,6 +68,31 @@ const persistOverviewHierarchyProfile = async (nextExpanded, getState) => {
         console.log(err);
     }
 }
+
+const persistOverviewHierarchyState = async (dispatch, getState, nextExpanded) => {
+    const userId = getState()?.auth?.user?.id
+    await persistOverviewHierarchyProfile(nextExpanded, getState)
+
+    if (!userId) {
+        return
+    }
+
+    const treeViewWidth = getState().treeview.width
+    const nextValues = {
+        ...(treeViewWidth?.values || {}),
+        overviewHierarchy: nextExpanded,
+    }
+
+    try {
+        const savedDoc = await persistTreeViewDocument(userId, nextValues, treeViewWidth)
+        dispatch({
+            type: LOAD_TREE_VIEW_WIDTH,
+            payload: savedDoc
+        })
+    } catch (err) {
+        console.log(err);
+    }
+}
 export const loadCollapseMenu = (path) => async dispatch => {
     try {
         let res = await path();
@@ -105,31 +133,20 @@ export const setSelectedCollapseMenu = async (value) => async (dispatch, getStat
 }
 
 export const updateCollapseMenuCouch = (value) => async (dispatch, getState) => {
-    const userId = getState()?.auth?.user?.id
     const nextExpanded = (value || []).map((item) => String(item))
     dispatch({
         type: UPDATE_TREE_VIEW_WIDTH_HIERARCHY,
         payload: nextExpanded
     })
-    await persistOverviewHierarchyProfile(nextExpanded, getState)
-    const treeViewWidth = getState().treeview.width
-    const nextValues = {
-        ...(treeViewWidth?.values || {}),
-        overviewHierarchy: nextExpanded,
-    }
-    if (!userId) {
-        return
-    }
-    try {
-        const savedDoc = await persistTreeViewDocument(userId, nextValues, treeViewWidth)
-        dispatch({
-            type: LOAD_TREE_VIEW_WIDTH,
-            payload: savedDoc
-        })
 
-    } catch (err) {
-        console.log(err);
+    if (overviewHierarchyPersistTimer) {
+        clearTimeout(overviewHierarchyPersistTimer)
     }
+
+    overviewHierarchyPersistTimer = setTimeout(() => {
+        overviewHierarchyPersistTimer = null
+        persistOverviewHierarchyState(dispatch, getState, nextExpanded)
+    }, OVERVIEW_HIERARCHY_PERSIST_DELAY_MS)
 }
 
 export const overviewBreadcrumpGo = (items, path) => {
