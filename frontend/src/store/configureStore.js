@@ -15,6 +15,12 @@ import {
     PURGE,
     REGISTER,
 } from 'redux-persist'
+import {
+    SET_ALARM_HISTORY_DIAGNOSTIC,
+    SET_COMMUNICATIONS_STATUS_DIAGNOSTIC,
+    SET_LOGS_DIAGNOSTIC,
+    SET_SYSTEM_HEALTH_DIAGNOSTIC,
+} from '../services/actions/types'
 
 import {
     alarms,
@@ -97,14 +103,34 @@ export const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
-                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
                 ignoredPaths: [
                     "confirmation.agreefunction",
                     "confirmation.extrafunction",
                     "historyConfirmation.okfunction",
                     "historyConfirmation.gofunction",
+                    "diagnostic.systemHealth.column",
+                    "diagnostic.communicationsStatus.column",
+                    "diagnostic.logs.column",
+                    "diagnostic.alarmHistory.column",
                 ],
-                ignoredActionPaths: ["payload", "payload.agreefunction", "payload.extrafunction"],
+                ignoredActionPaths: [
+                    "payload",
+                    "payload.agreefunction",
+                    "payload.extrafunction",
+                    "payload.column",
+                ],
+                ignoredActions: [
+                    FLUSH,
+                    REHYDRATE,
+                    PAUSE,
+                    PERSIST,
+                    PURGE,
+                    REGISTER,
+                    SET_SYSTEM_HEALTH_DIAGNOSTIC,
+                    SET_COMMUNICATIONS_STATUS_DIAGNOSTIC,
+                    SET_LOGS_DIAGNOSTIC,
+                    SET_ALARM_HISTORY_DIAGNOSTIC,
+                ],
             },
         }).concat(enableReduxLogger ? [logger] : []),
 });
