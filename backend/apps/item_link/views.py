@@ -412,6 +412,7 @@ class ItemLinkHierarchyView(generics.ListAPIView):
                 return Response(serializer.data)
             else:
                 return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response([], status=status.HTTP_200_OK)
 
     def _getChild(self, data):
         for index in range(len(data)):
