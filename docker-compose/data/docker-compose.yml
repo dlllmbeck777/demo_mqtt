@@ -151,6 +151,10 @@ services:
       NIFI_ZK_ROOT_NODE: "/nifi"
       NIFI_SENSITIVE_PROPS_KEY: '12345678912345'
       NIFI_BUNDLED_FLOW_MODE: ${NIFI_BUNDLED_FLOW_MODE:-replace}
+      NIFI_MQTT_BROKER_URI: ${NIFI_MQTT_BROKER_URI:-tcp://mosquitto:1883}
+      NIFI_MQTT_TOPIC: ${MQTT_TOPIC:-iot-inkai-raw}
+      NIFI_MQTT_USERNAME: ${NIFI_MQTT_USERNAME:-}
+      NIFI_MQTT_PASSWORD: ${NIFI_MQTT_PASSWORD:-}
     depends_on:
       - apache-kafka-broker1
       - zookeeper

@@ -1591,7 +1591,7 @@
                         <properties>
                             <entry>
 <key>Broker URI</key>
-<value>tcp://20.230.239.209:1883</value>
+<value>tcp://mosquitto:1883</value>
                             </entry>
                             <entry>
 <key>MQTT Specification Version</key>
@@ -1599,7 +1599,7 @@
                             </entry>
                             <entry>
 <key>Username</key>
-<value>admin</value>
+<value></value>
                             </entry>
                             <entry>
 <key>Password</key>
@@ -4816,7 +4816,7 @@
                         <properties>
                             <entry>
 <key>Broker URI</key>
-<value>tcp://20.230.239.209:1883</value>
+<value>tcp://mosquitto:1883</value>
                             </entry>
                             <entry>
 <key>MQTT Specification Version</key>
@@ -4824,7 +4824,7 @@
                             </entry>
                             <entry>
 <key>Username</key>
-<value>admin</value>
+<value></value>
                             </entry>
                             <entry>
 <key>Password</key>

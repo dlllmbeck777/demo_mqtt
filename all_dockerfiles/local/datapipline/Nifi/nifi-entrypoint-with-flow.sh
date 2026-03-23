@@ -7,6 +7,10 @@ FLOW_MODE="${NIFI_BUNDLED_FLOW_MODE:-replace}"
 
 echo "[nifi-flow] startup mode=${FLOW_MODE}"
 
+if [[ -f /opt/nifi/scripts/normalize_bundled_flow.py ]]; then
+  python3 /opt/nifi/scripts/normalize_bundled_flow.py
+fi
+
 copy_flow() {
   local src="$1"
   local dst="$2"
