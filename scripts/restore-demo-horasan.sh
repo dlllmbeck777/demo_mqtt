@@ -63,6 +63,126 @@ LAYER_DB_NAME="${LAYER_DB_NAME:-$(get_env_value LEGACY_LAYER_DB_NAME)}"
 LAYER_DB_NAME="${LAYER_DB_NAME:-$(get_env_value DIAGNOSTIC_LAYER_NAME)}"
 LAYER_DB_NAME="${LAYER_DB_NAME:-inkai}"
 LAYER_DB_NAME="$(printf '%s' "$LAYER_DB_NAME" | tr '[:upper:]' '[:lower:]')"
+TARGET_LAYER_NAME="${TARGET_LAYER_NAME:-$(get_env_value DIAGNOSTIC_LAYER_NAME)}"
+TARGET_LAYER_NAME="${TARGET_LAYER_NAME:-$(get_env_value COMPANY_NAME)}"
+TARGET_LAYER_NAME="${TARGET_LAYER_NAME:-Inkai}"
+
+normalize_layer_metadata() {
+  docker exec -i "$CONTAINER_NAME" psql -v ON_ERROR_STOP=1 -U "$PG_USER_NAME" -d "$DEFAULT_DB_NAME" <<SQL
+BEGIN;
+
+UPDATE public.layer_layer
+SET "DB_SETTINGS" = jsonb_set(
+      COALESCE("DB_SETTINGS", '{}'::jsonb),
+      '{NAME}',
+      to_jsonb('${DEFAULT_DB_NAME}'::text),
+      true
+    )
+WHERE "LAYER_NAME" = 'STD';
+
+INSERT INTO public.layer_layer (
+  "LAYER_NAME","DATA_SOURCE","LAYER_LEVEL","DB_SETTINGS","LAST_UPDT_USER",
+  "LAST_UPDT_DATE","VERSION","DB_ID","ROW_ID","STATUS","REV_GRP_ID"
+)
+SELECT
+  '${TARGET_LAYER_NAME}',
+  "DATA_SOURCE",
+  "LAYER_LEVEL",
+  jsonb_set(COALESCE("DB_SETTINGS", '{}'::jsonb), '{NAME}', to_jsonb('${LAYER_DB_NAME}'::text), true),
+  "LAST_UPDT_USER",
+  "LAST_UPDT_DATE",
+  md5(random()::text || clock_timestamp()::text),
+  "DB_ID",
+  md5(random()::text || clock_timestamp()::text),
+  "STATUS",
+  md5(random()::text || clock_timestamp()::text)
+FROM public.layer_layer
+WHERE "LAYER_NAME" = 'Horasan'
+  AND '${TARGET_LAYER_NAME}' <> 'Horasan'
+  AND NOT EXISTS (
+    SELECT 1
+    FROM public.layer_layer existing
+    WHERE existing."LAYER_NAME" = '${TARGET_LAYER_NAME}'
+  );
+
+UPDATE public.layer_layer
+SET "DB_SETTINGS" = jsonb_set(
+      COALESCE("DB_SETTINGS", '{}'::jsonb),
+      '{NAME}',
+      to_jsonb('${LAYER_DB_NAME}'::text),
+      true
+    )
+WHERE "LAYER_NAME" = '${TARGET_LAYER_NAME}';
+
+DELETE FROM public.users_user_layer_name old_link
+USING public.users_user_layer_name new_link
+WHERE old_link.user_id = new_link.user_id
+  AND old_link.layer_id = 'Horasan'
+  AND new_link.layer_id = '${TARGET_LAYER_NAME}'
+  AND '${TARGET_LAYER_NAME}' <> 'Horasan';
+
+UPDATE public.users_user_layer_name
+SET layer_id = '${TARGET_LAYER_NAME}'
+WHERE layer_id = 'Horasan'
+  AND '${TARGET_LAYER_NAME}' <> 'Horasan';
+
+UPDATE public.users_user
+SET active_layer_id = '${TARGET_LAYER_NAME}'
+WHERE active_layer_id = 'Horasan'
+  AND '${TARGET_LAYER_NAME}' <> 'Horasan';
+
+COMMIT;
+SQL
+
+  docker exec -i "$CONTAINER_NAME" psql -v ON_ERROR_STOP=1 -U "$PG_USER_NAME" -d "$LAYER_DB_NAME" <<SQL
+BEGIN;
+
+UPDATE public.layer_layer
+SET "DB_SETTINGS" = jsonb_set(
+      COALESCE("DB_SETTINGS", '{}'::jsonb),
+      '{NAME}',
+      to_jsonb('${DEFAULT_DB_NAME}'::text),
+      true
+    )
+WHERE "LAYER_NAME" = 'STD';
+
+INSERT INTO public.layer_layer (
+  "LAYER_NAME","DATA_SOURCE","LAYER_LEVEL","DB_SETTINGS","LAST_UPDT_USER",
+  "LAST_UPDT_DATE","VERSION","DB_ID","ROW_ID","STATUS","REV_GRP_ID"
+)
+SELECT
+  '${TARGET_LAYER_NAME}',
+  "DATA_SOURCE",
+  "LAYER_LEVEL",
+  jsonb_set(COALESCE("DB_SETTINGS", '{}'::jsonb), '{NAME}', to_jsonb('${LAYER_DB_NAME}'::text), true),
+  "LAST_UPDT_USER",
+  "LAST_UPDT_DATE",
+  md5(random()::text || clock_timestamp()::text),
+  "DB_ID",
+  md5(random()::text || clock_timestamp()::text),
+  "STATUS",
+  md5(random()::text || clock_timestamp()::text)
+FROM public.layer_layer
+WHERE "LAYER_NAME" = 'Horasan'
+  AND '${TARGET_LAYER_NAME}' <> 'Horasan'
+  AND NOT EXISTS (
+    SELECT 1
+    FROM public.layer_layer existing
+    WHERE existing."LAYER_NAME" = '${TARGET_LAYER_NAME}'
+  );
+
+UPDATE public.layer_layer
+SET "DB_SETTINGS" = jsonb_set(
+      COALESCE("DB_SETTINGS", '{}'::jsonb),
+      '{NAME}',
+      to_jsonb('${LAYER_DB_NAME}'::text),
+      true
+    )
+WHERE "LAYER_NAME" = '${TARGET_LAYER_NAME}';
+
+COMMIT;
+SQL
+}
 
 docker compose --env-file "$ENV_FILE" -f "$DB_FILE" up -d postgres >/dev/null
 
@@ -79,6 +199,8 @@ docker exec "$CONTAINER_NAME" createdb -U "$PG_USER_NAME" "$LAYER_DB_NAME"
 docker exec "$CONTAINER_NAME" psql -U "$PG_USER_NAME" -d "$DEFAULT_DB_NAME" -f /tmp/default_restore.sql
 docker exec "$CONTAINER_NAME" psql -U "$PG_USER_NAME" -d "$LAYER_DB_NAME" -f /tmp/layer_restore.sql
 docker exec "$CONTAINER_NAME" rm -f /tmp/default_restore.sql /tmp/layer_restore.sql
+
+normalize_layer_metadata
 
 docker compose --env-file "$ENV_FILE" -f "$APP_FILE" restart django >/dev/null 2>&1 || true
 

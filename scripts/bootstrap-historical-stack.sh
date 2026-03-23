@@ -314,7 +314,7 @@ assert_file_exists "$HORASAN_DUMP" "Horasan dump"
 assert_not_lfs_pointer "$DEMO_DUMP"
 assert_not_lfs_pointer "$HORASAN_DUMP"
 
-set_env "ALLOWED_HOSTS" "${SERVER_IP} localhost 127.0.0.1"
+set_env "ALLOWED_HOSTS" "${SERVER_IP} localhost 127.0.0.1 django frontend client"
 set_env "APP_API_BASE_URL" "http://${SERVER_IP}:8000"
 set_env "BACKEND_BASE_URL" "http://${SERVER_IP}:8000"
 set_env "BASE_URL" "http://${SERVER_IP}"
