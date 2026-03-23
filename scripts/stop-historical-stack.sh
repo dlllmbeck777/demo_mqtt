@@ -6,7 +6,7 @@ set -o nounset
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ENV_FILE="${ENV_FILE:-$ROOT_DIR/docker-compose/.env}"
-APP_FILE="$ROOT_DIR/docker-compose/app/docker-compose.yml"
+APP_FILE="${APP_FILE:-$ROOT_DIR/docker-compose/app/docker-compose.production.yml}"
 DB_FILE="$ROOT_DIR/docker-compose/db/docker-compose.yml"
 DATA_FILE="$ROOT_DIR/docker-compose/data/docker-compose.yml"
 

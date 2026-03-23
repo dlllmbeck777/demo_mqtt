@@ -6,7 +6,7 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 MODE="${1:-${BUNDLE_MODE:-pipeline}}"
 BUNDLE_DIR="${BUNDLE_DIR:-$ROOT_DIR/offline_bundle}"
 ENV_FILE="$ROOT_DIR/docker-compose/.env"
-APP_FILE="$ROOT_DIR/docker-compose/app/docker-compose.yml"
+APP_FILE="${APP_FILE:-$ROOT_DIR/docker-compose/app/docker-compose.production.yml}"
 DATA_FILE="$ROOT_DIR/docker-compose/data/docker-compose.yml"
 PROJECT_ARCHIVE="$BUNDLE_DIR/demo_mqtt-project.tar.gz"
 
@@ -31,12 +31,11 @@ light_images=(
   "postgres:11.20-alpine"
   "redis:latest"
   "redislabs/redistimeseries:latest"
-  "couchdb:latest"
+  "couchdb:3.5.1"
   "mongo:4.2"
   "influxdb:latest"
-  "nginx:latest"
   "app-django:latest"
-  "app-frontend:latest"
+  "app-client-prod:latest"
 )
 
 pipeline_images=(
@@ -66,7 +65,7 @@ docker_pull_if_missing() {
 
 build_local_images() {
   echo "Building local app images"
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" build django frontend
+  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" build django client
 
   if [[ "$MODE" == "pipeline" || "$MODE" == "full" ]]; then
     echo "Building pipeline simulation images"

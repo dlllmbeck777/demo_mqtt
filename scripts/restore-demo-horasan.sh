@@ -12,7 +12,7 @@ DEFAULT_DUMP="$1"
 LAYER_DUMP="$2"
 ENV_FILE="${ROOT_DIR}/docker-compose/.env"
 DB_FILE="${ROOT_DIR}/docker-compose/db/docker-compose.yml"
-APP_FILE="${ROOT_DIR}/docker-compose/app/docker-compose.yml"
+APP_FILE="${APP_FILE:-${ROOT_DIR}/docker-compose/app/docker-compose.production.yml}"
 
 if [[ ! -f "$ENV_FILE" ]]; then
   ENV_FILE="${ROOT_DIR}/.env"
@@ -213,5 +213,5 @@ PG_USER=${PG_USER_NAME}
 PG_PASS=${TARGET_PASSWORD}
 
 Then restart the app stack if needed:
-docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d django frontend client
+docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d django client
 EOF

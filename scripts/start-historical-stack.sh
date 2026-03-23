@@ -6,7 +6,7 @@ set -o nounset
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 ENV_FILE="${ENV_FILE:-$ROOT_DIR/docker-compose/.env}"
-APP_FILE="$ROOT_DIR/docker-compose/app/docker-compose.yml"
+APP_FILE="${APP_FILE:-$ROOT_DIR/docker-compose/app/docker-compose.production.yml}"
 DB_FILE="$ROOT_DIR/docker-compose/db/docker-compose.yml"
 DATA_FILE="$ROOT_DIR/docker-compose/data/docker-compose.yml"
 
@@ -20,6 +20,6 @@ docker network inspect app_net >/dev/null 2>&1 || docker network create app_net 
 
 docker compose --env-file "$ENV_FILE" -f "$DB_FILE" up -d
 docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" up -d
-docker compose --env-file "$ENV_FILE" -f "$APP_FILE" build django frontend
+docker compose --env-file "$ENV_FILE" -f "$APP_FILE" build django client
 docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm django bash -lc "cd backend && python manage.py migrate"
 docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d

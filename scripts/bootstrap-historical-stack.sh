@@ -20,7 +20,7 @@ TARGET_LAYER="${TARGET_LAYER:-${DIAGNOSTIC_LAYER_NAME:-${COMPANY_NAME:-Inkai}}}"
 STACK_MODE="${STACK_MODE:-${BUNDLE_MODE:-pipeline}}"
 
 ENV_FILE="$ROOT_DIR/docker-compose/.env"
-APP_FILE="$ROOT_DIR/docker-compose/app/docker-compose.yml"
+APP_FILE="${APP_FILE:-$ROOT_DIR/docker-compose/app/docker-compose.production.yml}"
 DB_FILE="$ROOT_DIR/docker-compose/db/docker-compose.yml"
 DATA_FILE="$ROOT_DIR/docker-compose/data/docker-compose.yml"
 RESTORE_SCRIPT="$ROOT_DIR/scripts/restore-demo-horasan.sh"
@@ -235,7 +235,11 @@ data_build_services() {
 }
 
 app_core_services() {
-  printf '%s\n' django frontend client housekeeping
+  printf '%s\n' django client housekeeping
+}
+
+app_build_services() {
+  printf '%s\n' django client
 }
 
 app_diagnostic_services() {
@@ -244,7 +248,7 @@ app_diagnostic_services() {
       return 0
       ;;
     pipeline|full)
-      printf '%s\n' diagnostic-probes diagnostic-notifications-consumer diagnostic-warnings-consumer diagnostic-logs-consumer
+      printf '%s\n' diagnostic-runtime
       ;;
   esac
 }
@@ -359,6 +363,7 @@ mapfile -t DB_SERVICES < <(db_services)
 mapfile -t DATA_SERVICES < <(data_services)
 mapfile -t DATA_BUILD_SERVICES < <(data_build_services || true)
 mapfile -t APP_CORE_SERVICES < <(app_core_services)
+mapfile -t APP_BUILD_SERVICES < <(app_build_services)
 mapfile -t APP_DIAGNOSTIC_SERVICES < <(app_diagnostic_services || true)
 
 docker network inspect app_net >/dev/null 2>&1 || docker network create app_net >/dev/null
@@ -404,7 +409,7 @@ if [[ "$OFFLINE_MODE" == "1" ]]; then
     docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d --no-build "${APP_DIAGNOSTIC_SERVICES[@]}"
   fi
 else
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" build django frontend
+  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" build "${APP_BUILD_SERVICES[@]}"
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm django bash -lc "cd backend && python manage.py migrate"
   run_optional_layer_normalizers
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d "${APP_CORE_SERVICES[@]}"

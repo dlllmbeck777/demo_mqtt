@@ -48,8 +48,6 @@ services:
     container_name: ligeiaai-django-1
     env_file:
       - ../.env
-    volumes:
-      - ../../:/django
     environment:
       - CELERY_BROKER=${CELERY_BROKER:-redis://redis:6379/1}
       - CELERY_BACKEND=${CELERY_BACKEND:-redis://redis:6379/1}
@@ -71,13 +69,28 @@ services:
     command: /bin/sh -c "while true; do cd /django && python scripts/prune-runtime-data.py; sleep ${PRUNE_INTERVAL_SECONDS:-21600}; done"
     env_file:
       - ../.env
-    volumes:
-      - ../../:/django
+    networks:
+      - app_net
+    logging: *default-logging
+
+  diagnostic-runtime:
+    restart: unless-stopped
+    image: app-django:latest
+    build:
+      context: ../../
+      dockerfile: ./all_dockerfiles/local/django/Dockerfile
+      args:
+        DJANGO_REQUIREMENTS_FILE: ${DJANGO_REQUIREMENTS_FILE:-deploy.txt}
+    command: python /django/scripts/run-diagnostic-runtime.py
+    env_file:
+      - ../.env
     networks:
       - app_net
     logging: *default-logging
 
   diagnostic-probes:
+    profiles:
+      - legacy-diagnostics
     restart: unless-stopped
     image: app-django:latest
     build:
@@ -88,13 +101,13 @@ services:
     command: python /django/scripts/run-diagnostic-probes.py
     env_file:
       - ../.env
-    volumes:
-      - ../../:/django
     networks:
       - app_net
     logging: *default-logging
 
   diagnostic-notifications-consumer:
+    profiles:
+      - legacy-diagnostics
     restart: unless-stopped
     image: app-django:latest
     build:
@@ -105,13 +118,13 @@ services:
     command: python /django/scripts/consume-diagnostic-topic.py --topic notifications
     env_file:
       - ../.env
-    volumes:
-      - ../../:/django
     networks:
       - app_net
     logging: *default-logging
 
   diagnostic-warnings-consumer:
+    profiles:
+      - legacy-diagnostics
     restart: unless-stopped
     image: app-django:latest
     build:
@@ -122,13 +135,13 @@ services:
     command: python /django/scripts/consume-diagnostic-topic.py --topic warnings
     env_file:
       - ../.env
-    volumes:
-      - ../../:/django
     networks:
       - app_net
     logging: *default-logging
 
   diagnostic-logs-consumer:
+    profiles:
+      - legacy-diagnostics
     restart: unless-stopped
     image: app-django:latest
     build:
@@ -139,8 +152,6 @@ services:
     command: python /django/scripts/consume-diagnostic-topic.py --topic logs
     env_file:
       - ../.env
-    volumes:
-      - ../../:/django
     networks:
       - app_net
     logging: *default-logging

@@ -94,6 +94,8 @@ services:
       - app_net
     logging: *default-logging
   rabbitmq:
+    profiles:
+      - ops
     restart: unless-stopped
     image: rabbitmq:3-management
     hostname: rabbitmq
@@ -161,6 +163,8 @@ services:
       - app_net
     logging: *default-logging
   connect:
+    profiles:
+      - ops
     image: data-connect:latest
     build:
       context: ../../

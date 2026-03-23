@@ -13,6 +13,11 @@
 # Docker
 docker-compose.yml
 .docker
+offline_bundle/
+docker-compose/.env
+docker-compose/db/data/
+docker-compose/data/log/
+transfer/*.sql
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

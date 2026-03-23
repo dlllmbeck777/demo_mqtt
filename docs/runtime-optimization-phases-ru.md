@@ -2,46 +2,55 @@
 
 ## Phase 1
 
-Быстрые оптимизации без ломки текущей схемы запуска:
+Быстрые улучшения без ломки рабочего Inkai pipeline:
 
-- frontend polling выключен по умолчанию через `CHOKIDAR_USEPOLLING=false` и `WATCHPACK_POLLING=false`
-- frontend install переведен на `npm ci`, когда есть `package-lock.json`
-- из Django middleware убраны дублирующиеся `CommonMiddleware` и `UserRoleMiddleware`
-- `pgadmin`, `mongo-express`, `control-center`, `kafdrop` переведены в профиль `ops`
+- frontend polling по умолчанию выключен
+- frontend install использует `npm ci`, когда доступен `package-lock.json`
+- дубли middleware в Django убраны
+- ops-сервисы вынесены в отдельные профили
+- diagnostics можно запускать одним сервисом `diagnostic-runtime`
+- `rabbitmq` и `connect` больше не входят в default startup data-stack
 
-Текущий запуск сохраняется:
+Текущий рекомендуемый запуск:
 
 ```bash
-docker compose --env-file docker-compose/.env -f docker-compose/app/docker-compose.yml up -d
 docker compose --env-file docker-compose/.env -f docker-compose/db/docker-compose.yml up -d
 docker compose --env-file docker-compose/.env -f docker-compose/data/docker-compose.yml up -d
+docker compose --env-file docker-compose/.env -f docker-compose/app/docker-compose.production.yml up -d
 ```
 
 Если нужны ops-сервисы:
 
 ```bash
 docker compose --profile ops --env-file docker-compose/.env -f docker-compose/db/docker-compose.yml up -d pgadmin mongo-express
-docker compose --profile ops --env-file docker-compose/.env -f docker-compose/data/docker-compose.yml up -d control-center kafdrop
+docker compose --profile ops --env-file docker-compose/.env -f docker-compose/data/docker-compose.yml up -d control-center kafdrop rabbitmq connect
+```
+
+Если нужны старые split diagnostics containers:
+
+```bash
+docker compose --profile legacy-diagnostics --env-file docker-compose/.env -f docker-compose/app/docker-compose.production.yml up -d diagnostic-probes diagnostic-notifications-consumer diagnostic-warnings-consumer diagnostic-logs-consumer
 ```
 
 ## Phase 2
 
-Правильный прод-путь запуска:
+Правильный production app path:
 
-- Django image может собираться с `deploy.txt`
-- Django по умолчанию запускается как ASGI через `daphne`
-- добавлен отдельный production compose для фронта со статической сборкой:
-  - `docker-compose/app/docker-compose.production.yml`
-  - `all_dockerfiles/local/frontend-prod/Dockerfile`
+- bootstrap и historical scripts по умолчанию используют `docker-compose/app/docker-compose.production.yml`
+- production `client` собирается как статический frontend и отдаётся через nginx
+- production Django контейнеры больше не зависят от bind mount исходников
+- Django image собирается с кодом проекта внутри контейнера
+- diagnostics, housekeeping и django используют один и тот же собранный image
 
 Рекомендуемые env-параметры:
 
 ```env
 DJANGO_REQUIREMENTS_FILE=deploy.txt
 DJANGO_RUN_MODE=asgi
+DIAGNOSTIC_ENABLE_RABBITMQ_PROBE=false
 ```
 
-Прод-запуск app stack:
+Production app stack:
 
 ```bash
 docker compose --env-file docker-compose/.env -f docker-compose/app/docker-compose.production.yml build
@@ -50,6 +59,7 @@ docker compose --env-file docker-compose/.env -f docker-compose/app/docker-compo
 
 В таком режиме:
 
-- `client` отдает собранный frontend как статические файлы
-- `django` не использует `runserver`
-- startup становится стабильнее и заметно легче по CPU/RAM
+- `client` отдаёт собранный frontend как статику
+- `django` запускается через `daphne`, а не через `runserver`
+- startup становится стабильнее и легче по CPU/RAM
+- default runtime не тянет лишние сервисы без явного запроса

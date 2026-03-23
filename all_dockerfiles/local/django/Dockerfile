@@ -44,6 +44,8 @@ COPY ./all_dockerfiles/local/django/start /start
 RUN sed -i 's/\r$//g' /start
 RUN chmod +x /start
 
+COPY . /django
+
 RUN pip install watchdog
 RUN pip install influxdb_client
 

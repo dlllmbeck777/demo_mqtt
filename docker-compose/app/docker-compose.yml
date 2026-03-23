@@ -78,7 +78,25 @@ services:
     networks:
       - app_net
     logging: *default-logging
+  diagnostic-runtime:
+    restart: unless-stopped
+    image: app-django:latest
+    build:
+      context: ../../
+      dockerfile: ./all_dockerfiles/local/django/Dockerfile
+      args:
+        DJANGO_REQUIREMENTS_FILE: ${DJANGO_REQUIREMENTS_FILE:-deploy.txt}
+    command: python /django/scripts/run-diagnostic-runtime.py
+    env_file:
+      - ../.env
+    volumes:
+      - ../../:/django
+    networks:
+      - app_net
+    logging: *default-logging
   diagnostic-probes:
+    profiles:
+      - legacy-diagnostics
     restart: unless-stopped
     image: app-django:latest
     build:
@@ -95,6 +113,8 @@ services:
       - app_net
     logging: *default-logging
   diagnostic-notifications-consumer:
+    profiles:
+      - legacy-diagnostics
     restart: unless-stopped
     image: app-django:latest
     build:
@@ -111,6 +131,8 @@ services:
       - app_net
     logging: *default-logging
   diagnostic-warnings-consumer:
+    profiles:
+      - legacy-diagnostics
     restart: unless-stopped
     image: app-django:latest
     build:
@@ -127,6 +149,8 @@ services:
       - app_net
     logging: *default-logging
   diagnostic-logs-consumer:
+    profiles:
+      - legacy-diagnostics
     restart: unless-stopped
     image: app-django:latest
     build:
