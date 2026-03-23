@@ -1,6 +1,7 @@
 import json
 import re
 import uuid
+from copy import deepcopy
 
 from django.core.management.base import BaseCommand, CommandError
 from django.core.management.color import no_style
@@ -8,12 +9,15 @@ from django.db import connection, transaction
 from django.utils import timezone
 
 from apps.bi_dashbord.models import bi_dashboard
+from apps.bi_layouts.models import bi_layout
 from apps.bi_widget_property.models import bi_widget_property
 from apps.bi_widgets.models import bi_widget
 from apps.item.models import item
 from apps.item_link.models import item_link
 from apps.item_property.models import item_property
 from apps.layer.helpers import change_db, to_layerDb
+from apps.tags.models import tags
+from apps.tags_calculated.models import tags_calculated
 
 
 LOOKALIKE_MAP = str.maketrans(
@@ -136,6 +140,16 @@ class Command(BaseCommand):
         self.now_date = timezone.now().date()
         self.now_ts = int(timezone.now().timestamp() * 1000)
         self.renamed_items = {}
+        self.dashboard_copy_stats = {
+            "dashboards": 0,
+            "widgets": 0,
+            "live_tags_created": 0,
+            "tag_links_created": 0,
+            "tag_mappings": 0,
+            "tag_cal_mappings": 0,
+            "items_seeded": 0,
+            "items_skipped": 0,
+        }
 
         try:
             with transaction.atomic():
@@ -150,6 +164,7 @@ class Command(BaseCommand):
                     existing_sections[spec["name"]] = section_id
                     self._apply_children(section_id, spec)
 
+                self._seed_missing_dashboards(root_id, existing_sections)
                 self._sync_asset_labels()
         finally:
             change_db("default")
@@ -159,11 +174,29 @@ class Command(BaseCommand):
                 f"Inkai structure normalized. Renamed items: {len(self.renamed_items)}"
             )
         )
+        self.stdout.write(
+            "Dashboard seeding summary: "
+            f"items_seeded={self.dashboard_copy_stats['items_seeded']} "
+            f"items_skipped={self.dashboard_copy_stats['items_skipped']} "
+            f"dashboards={self.dashboard_copy_stats['dashboards']} "
+            f"widgets={self.dashboard_copy_stats['widgets']} "
+            f"live_tags_created={self.dashboard_copy_stats['live_tags_created']} "
+            f"tag_links_created={self.dashboard_copy_stats['tag_links_created']} "
+            f"tag_mappings={self.dashboard_copy_stats['tag_mappings']} "
+            f"tag_cal_mappings={self.dashboard_copy_stats['tag_cal_mappings']}"
+        )
 
     def _reset_model_sequences(self):
         statements = connection.ops.sequence_reset_sql(
             no_style(),
-            [item_property, item_link],
+            [
+                item_property,
+                item_link,
+                bi_dashboard,
+                bi_layout,
+                bi_widget_property,
+                tags_calculated,
+            ],
         )
         if not statements:
             return
@@ -447,6 +480,442 @@ class Command(BaseCommand):
 
         self.renamed_items[new_item_id] = new_name
         return new_item_id
+
+    def _seed_missing_dashboards(self, root_id, existing_sections):
+        for spec in SECTION_SPECS:
+            section_id = existing_sections.get(spec["name"])
+            if not section_id:
+                continue
+
+            for child_id, child_name in self._ordered_section_children(section_id, spec):
+                if bi_dashboard.objects.filter(ITEM_ID=child_id).exists():
+                    self.dashboard_copy_stats["items_skipped"] += 1
+                    continue
+
+                source_item_id = self._resolve_dashboard_source_item(
+                    root_id=root_id,
+                    section_id=section_id,
+                    target_item_id=child_id,
+                    existing_sections=existing_sections,
+                )
+                if not source_item_id:
+                    self.stdout.write(
+                        self.style.WARNING(
+                            f"Skipped dashboard seed for '{child_name}': no template dashboard item found."
+                        )
+                    )
+                    continue
+
+                copied = self._copy_dashboards_to_item(
+                    source_item_id=source_item_id,
+                    target_item_id=child_id,
+                    section_name=spec["name"],
+                    target_item_name=child_name,
+                )
+                if copied:
+                    self.dashboard_copy_stats["items_seeded"] += 1
+                else:
+                    self.stdout.write(
+                        self.style.WARNING(
+                            f"Skipped dashboard seed for '{child_name}': source item has no dashboards."
+                        )
+                    )
+
+    def _ordered_section_children(self, section_id, spec):
+        children = []
+        seen = set()
+
+        for child_name in spec["required_children"]:
+            child_id = self._find_child(section_id, {child_name})
+            if child_id and child_id not in seen:
+                children.append((child_id, child_name))
+                seen.add(child_id)
+
+        for link in self._get_children_links(section_id):
+            child_id = link.FROM_ITEM_ID
+            if child_id in seen:
+                continue
+            child_name = self._get_item_name(child_id)
+            children.append((child_id, child_name))
+            seen.add(child_id)
+
+        return children
+
+    def _resolve_dashboard_source_item(
+        self, root_id, section_id, target_item_id, existing_sections
+    ):
+        for link in self._get_children_links(section_id):
+            source_item_id = link.FROM_ITEM_ID
+            if source_item_id == target_item_id:
+                continue
+            if bi_dashboard.objects.filter(ITEM_ID=source_item_id).exists():
+                return source_item_id
+
+        for sibling_section_id in existing_sections.values():
+            if sibling_section_id == section_id:
+                continue
+            for link in self._get_children_links(sibling_section_id):
+                source_item_id = link.FROM_ITEM_ID
+                if bi_dashboard.objects.filter(ITEM_ID=source_item_id).exists():
+                    return source_item_id
+
+        for link in self._get_children_links(root_id):
+            source_item_id = link.FROM_ITEM_ID
+            if source_item_id in {section_id, target_item_id}:
+                continue
+            if bi_dashboard.objects.filter(ITEM_ID=source_item_id).exists():
+                return source_item_id
+
+        return None
+
+    def _copy_dashboards_to_item(
+        self, source_item_id, target_item_id, section_name, target_item_name
+    ):
+        source_dashboards = list(
+            bi_dashboard.objects.filter(ITEM_ID=source_item_id).prefetch_related("WIDGETS")
+        )
+        if not source_dashboards:
+            return False
+
+        target_item = item.objects.get(ITEM_ID=target_item_id)
+        default_live_tag = None
+
+        for source_dashboard in source_dashboards:
+            new_dashboard = bi_dashboard.objects.create(
+                NAME=source_dashboard.NAME,
+                CULTURE=source_dashboard.CULTURE,
+                LAYER_NAME=self.layer_name,
+                DASHBOARD_USER=deepcopy(source_dashboard.DASHBOARD_USER),
+                START_DATETIME=source_dashboard.START_DATETIME,
+                ITEM_ID=target_item,
+                ROW_ID=self._new_hex(),
+            )
+            self.dashboard_copy_stats["dashboards"] += 1
+
+            new_widgets = []
+            for source_widget in source_dashboard.WIDGETS.all():
+                new_widget = bi_widget.objects.create(
+                    WIDGET_ID=self._new_hex(),
+                    WIDGET_TYPE=source_widget.WIDGET_TYPE,
+                    START_DATETIME=source_widget.START_DATETIME,
+                    END_DATETIME=source_widget.END_DATETIME,
+                    LAST_UPDT_USER=source_widget.LAST_UPDT_USER,
+                    LAST_UPDT_DATE=source_widget.LAST_UPDT_DATE,
+                    VERSION=self._new_hex(),
+                    DB_ID=source_widget.DB_ID,
+                    ROW_ID=self._new_hex(),
+                    STATUS=source_widget.STATUS,
+                    LAYER_NAME=self.layer_name,
+                    REV_GRP_ID=self._new_hex(),
+                    UPDATE_SOURCE=source_widget.UPDATE_SOURCE,
+                    CREATE_SOURCE=source_widget.CREATE_SOURCE,
+                )
+                self.dashboard_copy_stats["widgets"] += 1
+                new_widgets.append(new_widget)
+
+                for source_layout in source_widget.layouts.all():
+                    bi_layout.objects.create(
+                        static=source_layout.static,
+                        w=source_layout.w,
+                        moved=source_layout.moved,
+                        h=source_layout.h,
+                        x=source_layout.x,
+                        y=source_layout.y,
+                        l_type=source_layout.l_type,
+                        i=new_widget,
+                        ROW_ID=self._new_hex(),
+                    )
+
+                for source_prop in bi_widget_property.objects.filter(
+                    WIDGET_ID=source_widget.WIDGET_ID
+                ):
+                    new_prop = bi_widget_property.objects.create(
+                        WIDGET_TYPE=source_prop.WIDGET_TYPE,
+                        PROPERTY_NAME=source_prop.PROPERTY_NAME,
+                        LAYER_NAME=self.layer_name,
+                        START_DATETIME=source_prop.START_DATETIME,
+                        END_DATETIME=source_prop.END_DATETIME,
+                        PROPERTY_TYPE=source_prop.PROPERTY_TYPE,
+                        PROPERTY_INFO=source_prop.PROPERTY_INFO,
+                        PROPERTY_VALUE=source_prop.PROPERTY_VALUE,
+                        PROPERTY_STRING=source_prop.PROPERTY_STRING,
+                        PROPERTY_JSON=self._resolve_property_json(
+                            source_prop=source_prop,
+                            target_item_id=target_item_id,
+                            target_item_name=target_item_name,
+                        ),
+                        PROPERTY_BINARY=source_prop.PROPERTY_BINARY,
+                        PROPERTY_BOOLEAN=source_prop.PROPERTY_BOOLEAN,
+                        LAST_UPDT_USER=source_prop.LAST_UPDT_USER,
+                        LAST_UPDT_DATE=source_prop.LAST_UPDT_DATE,
+                        VERSION=self._new_hex(),
+                        DB_ID=source_prop.DB_ID,
+                        ROW_ID=self._new_hex(),
+                        STATUS=source_prop.STATUS,
+                        REV_GRP_ID=self._new_hex(),
+                        UPDATE_SOURCE=source_prop.UPDATE_SOURCE,
+                        CREATE_SOURCE=source_prop.CREATE_SOURCE,
+                    )
+                    new_prop.WIDGET_ID.set([new_widget])
+
+                    mapped_tags, default_live_tag = self._resolve_tag_bindings(
+                        source_tags=list(source_prop.PROPERTY_TAG.all()),
+                        target_item=target_item,
+                        section_name=section_name,
+                        target_item_name=target_item_name,
+                        default_live_tag=default_live_tag,
+                    )
+                    mapped_cal_tags = self._resolve_calculated_tag_bindings(
+                        source_tags=list(source_prop.PROPERTY_TAG_CAL.all()),
+                        target_item_id=target_item_id,
+                        target_item_name=target_item_name,
+                    )
+
+                    new_prop.PROPERTY_TAG.set(mapped_tags)
+                    new_prop.PROPERTY_TAG_CAL.set(mapped_cal_tags)
+
+            new_dashboard.WIDGETS.set(new_widgets)
+
+        return True
+
+    def _resolve_property_json(self, source_prop, target_item_id, target_item_name):
+        value = deepcopy(source_prop.PROPERTY_JSON)
+        if source_prop.PROPERTY_NAME != "Assets":
+            return value
+
+        return [[target_item_id, target_item_name]]
+
+    def _resolve_tag_bindings(
+        self, source_tags, target_item, section_name, target_item_name, default_live_tag
+    ):
+        if not source_tags:
+            return [], default_live_tag
+
+        existing_tags = list(
+            tags.objects.filter(ITEM_ID=target_item.ITEM_ID, LAYER_NAME=self.layer_name)
+        )
+        resolved = []
+        seen = set()
+
+        for index, source_tag in enumerate(source_tags):
+            mapped_tag = self._find_target_tag_by_metric(
+                source_tag=source_tag,
+                target_tags=existing_tags,
+                target_item_name=target_item_name,
+            )
+
+            metric_key = self._metric_key(
+                value=source_tag.SHORT_NAME or source_tag.NAME,
+                asset_name=source_tag.TRANSACTION_PROPERTY,
+            )
+            if not mapped_tag and (index == 0 or metric_key in {"", "CURRENT"}):
+                default_live_tag = default_live_tag or self._ensure_live_tag(
+                    target_item=target_item,
+                    section_name=section_name,
+                    target_item_name=target_item_name,
+                    source_tag=source_tag,
+                )
+                if default_live_tag:
+                    mapped_tag = default_live_tag
+                    existing_tags.append(default_live_tag)
+
+            if mapped_tag and mapped_tag.TAG_ID not in seen:
+                resolved.append(mapped_tag)
+                seen.add(mapped_tag.TAG_ID)
+                self.dashboard_copy_stats["tag_mappings"] += 1
+
+        return resolved, default_live_tag
+
+    def _resolve_calculated_tag_bindings(
+        self, source_tags, target_item_id, target_item_name
+    ):
+        if not source_tags:
+            return []
+
+        target_tags = list(
+            tags_calculated.objects.filter(
+                ITEM_ID=target_item_id,
+                LAYER_NAME=self.layer_name,
+            )
+        )
+        resolved = []
+        seen = set()
+
+        for source_tag in source_tags:
+            mapped_tag = self._find_target_calculated_tag_by_metric(
+                source_tag=source_tag,
+                target_tags=target_tags,
+                target_item_name=target_item_name,
+            )
+            if mapped_tag and mapped_tag.TAG_ID not in seen:
+                resolved.append(mapped_tag)
+                seen.add(mapped_tag.TAG_ID)
+                self.dashboard_copy_stats["tag_cal_mappings"] += 1
+
+        return resolved
+
+    def _find_target_tag_by_metric(self, source_tag, target_tags, target_item_name):
+        source_metric = self._metric_key(
+            value=source_tag.SHORT_NAME or source_tag.NAME,
+            asset_name=source_tag.TRANSACTION_PROPERTY,
+        )
+        if not source_metric:
+            return None
+
+        for target_tag in target_tags:
+            target_metric = self._metric_key(
+                value=target_tag.SHORT_NAME or target_tag.NAME,
+                asset_name=target_item_name,
+            )
+            if target_metric == source_metric:
+                return target_tag
+
+        return None
+
+    def _find_target_calculated_tag_by_metric(
+        self, source_tag, target_tags, target_item_name
+    ):
+        source_metric = self._metric_key(
+            value=source_tag.SHORT_NAME or source_tag.NAME,
+            asset_name=source_tag.TRANSACTION_PROPERTY,
+        )
+        if not source_metric:
+            return None
+
+        for target_tag in target_tags:
+            target_metric = self._metric_key(
+                value=target_tag.SHORT_NAME or target_tag.NAME,
+                asset_name=target_item_name,
+            )
+            if target_metric == source_metric:
+                return target_tag
+
+        return None
+
+    def _ensure_live_tag(self, target_item, section_name, target_item_name, source_tag):
+        tag_name = self._default_live_tag_name(section_name, target_item_name)
+        existing_tag = (
+            tags.objects.filter(ITEM_ID=target_item.ITEM_ID, NAME=tag_name).first()
+            or tags.objects.filter(NAME=tag_name, LAYER_NAME=self.layer_name).first()
+        )
+        if existing_tag:
+            return existing_tag
+
+        short_name_suffix = self._metric_key(
+            value=source_tag.SHORT_NAME or source_tag.NAME,
+            asset_name=source_tag.TRANSACTION_PROPERTY,
+        )
+        if short_name_suffix and short_name_suffix != "CURRENT":
+            short_name = f"{target_item_name} {short_name_suffix.title()}"
+        else:
+            short_name = f"{target_item_name} Current"
+
+        live_tag = tags.objects.create(
+            ITEM_ID=target_item.ITEM_ID,
+            EVENT_TYPE=source_tag.EVENT_TYPE,
+            TAG_ID=self._new_hex(),
+            START_DATETIME=source_tag.START_DATETIME or self.now_ts,
+            PARENT_TAG_ID=source_tag.PARENT_TAG_ID,
+            NAME=tag_name,
+            DESCRIPTION=source_tag.DESCRIPTION or f"{target_item_name} current",
+            UOM_CODE=source_tag.UOM_CODE,
+            SHORT_NAME=short_name,
+            DATA_TYPE=source_tag.DATA_TYPE,
+            DERIVE_EQUATION=source_tag.DERIVE_EQUATION,
+            EXCEPTION_DEV=source_tag.EXCEPTION_DEV,
+            EXCEPTION_DEV_TYPE=source_tag.EXCEPTION_DEV_TYPE,
+            NODE_NAME=source_tag.NODE_NAME,
+            PROCESS_NAME=source_tag.PROCESS_NAME,
+            SOURCE_NAME=source_tag.SOURCE_NAME,
+            STEPPED=source_tag.STEPPED,
+            DATA_ACCESS_TYPE=source_tag.DATA_ACCESS_TYPE,
+            LAYER_NAME=self.layer_name,
+            NODE_DUMP=source_tag.NODE_DUMP,
+            NORMAL_MAXIMUM=source_tag.NORMAL_MAXIMUM,
+            NORMAL_MINIMUM=source_tag.NORMAL_MINIMUM,
+            LIMIT_LOLO=source_tag.LIMIT_LOLO,
+            LIMIT_HIHI=source_tag.LIMIT_HIHI,
+            EVENT_NOTIFIER=source_tag.EVENT_NOTIFIER,
+            NODE_CLASS=source_tag.NODE_CLASS,
+            HISTORIZING=source_tag.HISTORIZING,
+            MINIMUM_SAMPLING_INTERVAL=source_tag.MINIMUM_SAMPLING_INTERVAL,
+            PERIOD=source_tag.PERIOD,
+            END_DATETIME=source_tag.END_DATETIME,
+            LAST_UPDT_USER=source_tag.LAST_UPDT_USER or "system",
+            LAST_UPDT_DATE=self.now_ts,
+            VERSION=self._new_hex(),
+            DB_ID=source_tag.DB_ID,
+            ROW_ID=self._new_hex(),
+            STATUS=source_tag.STATUS or "A",
+            REV_GRP_ID=self._new_hex(),
+            TRANSACTION_TYPE=source_tag.TRANSACTION_TYPE or target_item.ITEM_TYPE,
+            TRANSACTION_PROPERTY=target_item_name,
+            UPDATE_SOURCE=source_tag.UPDATE_SOURCE or "x",
+            CREATE_SOURCE=source_tag.CREATE_SOURCE or "x",
+        )
+        self.dashboard_copy_stats["live_tags_created"] += 1
+        self._ensure_tag_link(target_item=target_item, tag_id=live_tag.TAG_ID)
+        return live_tag
+
+    def _ensure_tag_link(self, target_item, tag_id):
+        if item_link.objects.filter(
+            LINK_TYPE="TAG_ITEM",
+            FROM_ITEM_ID=tag_id,
+            TO_ITEM_ID=target_item.ITEM_ID,
+        ).exists():
+            return
+
+        item_link.objects.create(
+            LINK_ID=self._new_hex(),
+            LINK_TYPE="TAG_ITEM",
+            START_DATETIME=self.now_ts,
+            END_DATETIME=9999999999999,
+            FROM_ITEM_ID=tag_id,
+            FROM_ITEM_TYPE="TAG_CACHE",
+            TO_ITEM_ID=target_item.ITEM_ID,
+            TO_ITEM_TYPE=target_item.ITEM_TYPE,
+            COLL_ITEM_ID=None,
+            COLL_ITEM_TYPE=None,
+            LAST_UPDT_USER="system",
+            LAST_UPDT_DATE=self.now_ts,
+            LAYER_NAME=self.layer_name,
+            VERSION=self._new_hex(),
+            DB_ID=None,
+            ROW_ID=self._new_hex(),
+            STATUS="A",
+            REV_GRP_ID=self._new_hex(),
+            UPDATE_SOURCE="x",
+            CREATE_SOURCE="x",
+        )
+        self.dashboard_copy_stats["tag_links_created"] += 1
+
+    def _default_live_tag_name(self, section_name, position_name):
+        return (
+            f"plant.{self._slugify(self.layer_name)}."
+            f"{self._slugify(section_name)}."
+            f"{self._slugify(self._publisher_position_name(position_name))}.current"
+        )
+
+    def _publisher_position_name(self, position_name):
+        return str(position_name).replace(POZ, "POS").replace("Поз.", "POS")
+
+    def _slugify(self, value):
+        value = str(value or "").translate(LOOKALIKE_MAP)
+        return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+    def _metric_key(self, value, asset_name):
+        normalized = self._normalize_key(value)
+        if asset_name:
+            asset_keys = {
+                self._normalize_key(asset_name),
+                self._normalize_key(self._publisher_position_name(asset_name)),
+            }
+            for asset_key in asset_keys:
+                if asset_key:
+                    normalized = normalized.replace(asset_key, "")
+
+        normalized = normalized.strip("-_/ ")
+        return normalized or ""
 
     def _sync_asset_labels(self):
         if not self.renamed_items:
