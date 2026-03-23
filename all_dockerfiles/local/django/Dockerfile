@@ -31,7 +31,9 @@ RUN apt-get update \
 
 COPY ./py-requirements /django/py-requirements
 
-RUN pip --disable-pip-version-check --no-cache-dir install -r /django/py-requirements/dev.txt \
+ARG DJANGO_REQUIREMENTS_FILE=deploy.txt
+
+RUN pip --disable-pip-version-check --no-cache-dir install -r /django/py-requirements/${DJANGO_REQUIREMENTS_FILE} \
   && rm -rf /django/py-requirements
 
 COPY ./all_dockerfiles/local/django/entrypoint /entrypoint
