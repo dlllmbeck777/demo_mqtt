@@ -47,7 +47,6 @@ services:
     depends_on:
       - redis
       - postgres
-      - elasticsearch
     ports:
       - "8000:8000"
     networks:
@@ -66,6 +65,8 @@ services:
     networks:
       - net
   elasticsearch:
+    profiles:
+      - search
     image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
     container_name: elasticsearch
     environment:

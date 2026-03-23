@@ -90,12 +90,15 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.facebook",
     "allauth.socialaccount.providers.github",
-    "django_elasticsearch_dsl",
     "celery",
 ]
-ELASTICSEARCH_DSL = {
-    "default": {"hosts": os.environ["Elastic_Search_Host"]},
-}
+ELASTICSEARCH_DSL = {}
+ELASTICSEARCH_HOST = os.environ.get("Elastic_Search_Host", "").strip()
+if ELASTICSEARCH_HOST:
+    THIRD_PARTY_APPS.append("django_elasticsearch_dsl")
+    ELASTICSEARCH_DSL = {
+        "default": {"hosts": ELASTICSEARCH_HOST},
+    }
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 LOCAL_APPS = [
     # "apps.base",

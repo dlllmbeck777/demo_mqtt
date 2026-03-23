@@ -19,6 +19,8 @@ from rest_framework.response import Response
 from apps.users.models import User
 from apps.roles.models import roles
 from django.db import transaction
+from django.db.models import Q
+from apps.layer.helpers import get_std_db_alias
 
 
 class DashBoardsGetUserView(generics.CreateAPIView):
@@ -90,32 +92,56 @@ class DashBoardsView(generics.CreateAPIView):
     def get_queryset(self):
         pass
 
+    def _get_role_name(self):
+        user_email = str(self.request.user)
+        role_name = (
+            roles.objects.filter(
+                ROLES_ID__in=User.objects.filter(email=user_email).values_list(
+                    "role_id", flat=True
+                )
+            )
+            .values_list("ROLES_NAME", flat=True)
+            .first()
+        )
+        if role_name:
+            return role_name
+
+        alias = get_std_db_alias()
+        std_role_id = (
+            User.objects.using(alias)
+            .filter(email=user_email)
+            .values_list("role_id", flat=True)
+            .first()
+        )
+        if not std_role_id:
+            return None
+
+        return (
+            roles.objects.using(alias)
+            .filter(ROLES_ID=std_role_id)
+            .values_list("ROLES_NAME", flat=True)
+            .first()
+        )
+
     def post(self, request):
         # layouts_type = ["lg", "md", "xs", "xss"]
 
         return Response(self.return_result(), status=status.HTTP_200_OK)
 
     def get_query(self):
-        role_name = (
-            roles.objects.filter(
-                ROLES_ID__in=(
-                    User.objects.filter(email=str(self.request.user)).values_list(
-                        "role_id", flat=True
-                    )
-                )
-            )
-            .values_list("ROLES_NAME", flat=True)
-            .first()
+        item_id = self.request.data.get("ITEM_ID")
+        base_query = bi_dashboard.objects.filter(ITEM_ID=item_id).order_by("NAME")
+        role_name = self._get_role_name()
+
+        if role_name == "Admin" or getattr(self.request.user, "is_superuser", False):
+            return base_query
+
+        user_email = str(self.request.user)
+        return base_query.filter(
+            Q(DASHBOARD_USER__contains=user_email)
+            | Q(DASHBOARD_USER__isnull=True)
+            | Q(DASHBOARD_USER=[])
         )
-        if role_name == "Admin":
-            return bi_dashboard.objects.filter(
-                ITEM_ID=self.request.data.get("ITEM_ID")
-            ).order_by("NAME")
-        else:
-            return bi_dashboard.objects.filter(
-                ITEM_ID=self.request.data.get("ITEM_ID"),
-                DASHBOARD_USER__contains=str(self.request.user),
-            ).order_by("NAME")
 
     def return_result(self):
         layouts_type = (
@@ -125,14 +151,14 @@ class DashBoardsView(generics.CreateAPIView):
         dashboards = self.get_query()
         result = {}
         for dashboard in dashboards:
+            dashboard_data = DashBoardsAllFieldSerializer(dashboard).data
+            widget_ids = dashboard_data["WIDGETS"]
             tempt = {
-                **DashBoardsAllFieldSerializer(dashboard).data,
+                **dashboard_data,
                 "layouts": {
                     item: LayoutsSerializer(
                         bi_layout.objects.filter(
-                            i__in=DashBoardsAllFieldSerializer(dashboard).data[
-                                "WIDGETS"
-                            ],
+                            i__in=widget_ids,
                             l_type=item,
                         ),
                         many=True,

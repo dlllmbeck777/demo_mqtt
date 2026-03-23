@@ -44,7 +44,6 @@ For the split historical stack, keep these internal service names:
 - Redis: `redis`
 - RedisTimeSeries: `redis-ts`
 - CouchDB: `couchserver`
-- Elasticsearch: `elasticsearch`
 - MongoDB: `mongo-dev`
 - InfluxDB: `influxdb1`
 - Kafka broker: `broker`
@@ -86,4 +85,4 @@ Restore PostgreSQL first, then optional historical stores:
 - `docker-compose/db/data` is still used as the Mongo bind mount in the historical DB stack.
 - The historical stack now uses named volumes for InfluxDB instead of old host-specific `/mnt/data/...` paths.
 - NiFi now supports a bundled flow from git. See [nifi-bundled-flow-ru.md](d:/ligeaai_backup_2025-05-11/ligeia.ai/docs/nifi-bundled-flow-ru.md).
-- `elasticsearch` was restored into the split DB stack because Django configuration expects it.
+- `elasticsearch` is now optional. It is behind the compose `search` profile and is not required for Django startup or hierarchy search.

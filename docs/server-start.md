@@ -21,7 +21,6 @@ PG_PORT=5432
 REDIS_HOST=redis
 REDIS_URI=redis:6379/1
 REDIS_TS_HOST=redis-ts
-Elastic_Search_Host=http://elasticsearch:9200
 COUCHDB_HOST=couchserver
 COUCHDB_PORT=5984
 COUCHDB_URL=http://admin:change-me@couchserver:5984/
@@ -42,12 +41,18 @@ If InfluxDB runs in the same server from the separate stack, use `http://YOUR_SE
 From the project root:
 
 ```bash
-docker compose up -d --build postgres redis redis-ts couchserver elasticsearch mongodb-timescale
+docker compose up -d --build postgres redis redis-ts couchserver mongodb-timescale
 docker compose run --rm django bash -lc "cd backend && python manage.py migrate"
 docker compose up -d --build django frontend client
 ```
 
 Do not start the whole file with bare `docker compose up` for the first boot. The compose file also contains optional Kafka/NiFi services, and they are not required to bring up the UI and API.
+
+If you explicitly need the legacy Elasticsearch container, start it through the optional compose profile:
+
+```bash
+docker compose --profile search up -d elasticsearch
+```
 
 If PostgreSQL was already started before with `postgres:latest` and now fails on a data-directory format error, remove the old bootstrap volume on a fresh server and recreate it:
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from collections import defaultdict
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from .models import item_link
@@ -20,7 +21,6 @@ from apps.tags.serializers import TagsFieldsSerializer
 import threading
 import json
 import os
-from elasticsearch import Elasticsearch
 from django.db.models import F, Value
 from django.db.models.functions import Concat
 from django.db.models import Subquery, OuterRef
@@ -384,34 +384,125 @@ class ItemLinkHierarchyView(generics.ListAPIView):
     def get_queryset(self):
         pass
 
+    def _get_first_property_map(self, item_ids, property_type):
+        property_map = {}
+        queryset = (
+            item_property.objects.filter(
+                ITEM_ID__in=item_ids,
+                PROPERTY_TYPE=property_type,
+            )
+            .order_by("ITEM_ID", "START_DATETIME")
+            .values("ITEM_ID", "PROPERTY_STRING")
+        )
+
+        for prop in queryset:
+            item_id = prop.get("ITEM_ID")
+            if item_id and item_id not in property_map:
+                property_map[item_id] = prop.get("PROPERTY_STRING")
+
+        return property_map
+
+    def _create_link_node(self, link, name_map, active_map):
+        from_item_id = link["FROM_ITEM_ID"]
+        to_item_id = link["TO_ITEM_ID"]
+        node = {
+            "LINK_ID": link["LINK_ID"],
+            "LINK_TYPE": link["LINK_TYPE"],
+            "FROM_ITEM_ID": from_item_id,
+            "FROM_ITEM_TYPE": link["FROM_ITEM_TYPE"],
+            "TO_ITEM_ID": to_item_id,
+            "TO_ITEM_TYPE": link["TO_ITEM_TYPE"],
+            "START_DATETIME": link["START_DATETIME"],
+            "END_DATETIME": link["END_DATETIME"],
+            "ACTIVE": active_map.get(from_item_id)
+            if link["LINK_TYPE"] == "BATTERY_ITEM"
+            else None,
+        }
+
+        from_item_name = name_map.get(from_item_id)
+        to_item_name = name_map.get(to_item_id)
+        if from_item_name is not None:
+            node["FROM_ITEM_NAME"] = from_item_name
+        if to_item_name is not None:
+            node["TO_ITEM_NAME"] = to_item_name
+
+        return node
+
+    def _attach_children(self, parent_id, children_by_parent):
+        children = [
+            dict(child)
+            for child in children_by_parent.get(parent_id, [])
+            if child.get("FROM_ITEM_NAME") is not None
+        ]
+        children.sort(key=lambda child: child["FROM_ITEM_NAME"])
+
+        for child in children:
+            nested_children = self._attach_children(
+                child["FROM_ITEM_ID"], children_by_parent
+            )
+            if nested_children:
+                child["CHILD"] = nested_children
+
+        return children
+
+    def _build_hierarchy(self):
+        company_ids = list(
+            item.objects.filter(ITEM_TYPE="COMPANY").values_list("ITEM_ID", flat=True)
+        )
+        if not company_ids:
+            return []
+
+        links = list(
+            item_link.objects.exclude(LINK_TYPE="TAG_ITEM").values(
+                "LINK_ID",
+                "LINK_TYPE",
+                "FROM_ITEM_ID",
+                "FROM_ITEM_TYPE",
+                "TO_ITEM_ID",
+                "TO_ITEM_TYPE",
+                "START_DATETIME",
+                "END_DATETIME",
+            )
+        )
+
+        item_ids = set(company_ids)
+        for link in links:
+            item_ids.add(link["FROM_ITEM_ID"])
+            item_ids.add(link["TO_ITEM_ID"])
+
+        name_map = self._get_first_property_map(item_ids, "NAME")
+        active_map = self._get_first_property_map(item_ids, "ACTIVE")
+        children_by_parent = defaultdict(list)
+
+        for link in links:
+            children_by_parent[link["TO_ITEM_ID"]].append(
+                self._create_link_node(link, name_map, active_map)
+            )
+
+        hierarchy = []
+        for company_id in company_ids:
+            company_node = {
+                "ITEM_ID": company_id,
+                "FROM_ITEM_ID": company_id,
+                "LINK_ID": company_id,
+                "LINK_TYPE": "COMPANY",
+            }
+            company_name = name_map.get(company_id)
+            if company_name is not None:
+                company_node["FROM_ITEM_NAME"] = company_name
+
+            children = self._attach_children(company_id, children_by_parent)
+            if children:
+                company_node["CHILD"] = children
+
+            hierarchy.append(company_node)
+
+        return hierarchy
+
     def get(self, request, *args, **kwargs):
-        # self.es = Elasticsearch(
-        #     [{"host": os.environ["Elastic_Search_Host"], "port": 9200}]
-        # )
-        itemqs = item.objects.filter(ITEM_TYPE="COMPANY")
-        # self.threads = []
-        if itemqs:
-            # self._add_elasticsearch(self, is_first=True)
-            # return Response(data[index])
-            tempt = {}
-            serializer = ItemDetailsSerializer(itemqs, many=True)
-            for index in range(len(serializer.data)):
-                item_id = serializer.data[index].get("ITEM_ID")
-                serializer.data[index]["FROM_ITEM_ID"] = item_id
-                serializer.data[index]["LINK_ID"] = item_id
-                serializer.data[index]["LINK_TYPE"] = "COMPANY"
-            self._getName(serializer.data)
-            kwargs = {"data": serializer.data, "is_first": False}
-            # t = threading.Thread(target=self._add_elasticsearch, kwargs=kwargs)
-            # t.start()
-            # self.threads.append(t)
-            self._getChild(serializer.data)
-            # for thread in self.threads:
-            #     thread.join()
-            if serializer.data:
-                return Response(serializer.data)
-            else:
-                return Response(status=status.HTTP_204_NO_CONTENT)
+        hierarchy = self._build_hierarchy()
+        if hierarchy:
+            return Response(hierarchy)
         return Response([], status=status.HTTP_200_OK)
 
     def _getChild(self, data):
@@ -431,10 +522,6 @@ class ItemLinkHierarchyView(generics.ListAPIView):
                     key=lambda x: x["FROM_ITEM_NAME"],
                 )
                 data[index]["CHILD"] = sorted_data
-                kwargs = {"data": serializer.data, "is_first": False}
-                # t = threading.Thread(target=self._add_elasticsearch, kwargs=kwargs)
-                # t.start()
-                # self.threads.append(t)
                 self._getChild(sorted_data)
 
     def _getName(self, data):
@@ -510,22 +597,39 @@ class TagCalAndTagsLinksSelectedView(generics.CreateAPIView):
         return Response(sum(liste, []))
 
 
-class ItemLinkHierarchySearchView(generics.CreateAPIView):
+class ItemLinkHierarchySearchView(ItemLinkHierarchyView):
     permission_classes = [permissions.AllowAny]
 
-    def post(self, request, *args, **kwargs):
-        es = Elasticsearch([{"host": "elasticsearch", "port": 9200}])
-        item_name = request.data.get("FROM_ITEM_NAME")
-        query = {
-            "query": {
-                "bool": {
-                    "must": [{"match_phrase_prefix": {"FROM_ITEM_NAME": item_name}}]
-                }
-            }
-        }
-        results = es.search(index="hierarchy", body=query)
-        items = []
-        for hit in results["hits"]["hits"]:
-            items.append(hit["_source"])
+    def _filter_hierarchy(self, items, query):
+        query = query.lower()
+        filtered = []
 
-        return Response(items)
+        for item_data in items:
+            item_name = (item_data.get("FROM_ITEM_NAME") or "").lower()
+            children = item_data.get("CHILD") or []
+            filtered_children = self._filter_hierarchy(children, query)
+            is_match = query in item_name
+
+            if not is_match and not filtered_children:
+                continue
+
+            filtered_item = dict(item_data)
+            if is_match:
+                if children:
+                    filtered_item["CHILD"] = children
+            elif filtered_children:
+                filtered_item["CHILD"] = filtered_children
+            else:
+                filtered_item.pop("CHILD", None)
+
+            filtered.append(filtered_item)
+
+        return filtered
+
+    def post(self, request, *args, **kwargs):
+        item_name = (request.data.get("FROM_ITEM_NAME") or "").strip()
+        if not item_name:
+            return Response([], status=status.HTTP_200_OK)
+
+        hierarchy = self._build_hierarchy()
+        return Response(self._filter_hierarchy(hierarchy, item_name))
