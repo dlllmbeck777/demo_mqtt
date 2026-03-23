@@ -121,7 +121,7 @@ const StyledTreeItem = styled(({ status, ...props }) => {
       <TreeItem
         {...props}
         TransitionComponent={TransitionComponent}
-        id={`${uuidv4()}`}
+        id={`tree-item-${String(props.nodeId)}`}
         sx={{
           [`& > div > div > .collapseMenuStatus`]: {
             display: status ? "inline-block" : "none",
@@ -248,8 +248,8 @@ const MyStyledTreeItem = React.memo(({ myItems, path, location }) => {
     if (e.CHILD)
       return (
         <StyledTreeItem
-          key={i}
-          nodeId={e.LINK_ID}
+          key={String(e.LINK_ID)}
+          nodeId={String(e.LINK_ID)}
           label={e.FROM_ITEM_NAME}
           onClick={async () => {
             onHandleClick(path, e);
@@ -272,8 +272,8 @@ const MyStyledTreeItem = React.memo(({ myItems, path, location }) => {
       );
     return (
       <StyledTreeItem
-        key={i}
-        nodeId={e.LINK_ID}
+        key={String(e.LINK_ID)}
+        nodeId={String(e.LINK_ID)}
         label={e.FROM_ITEM_NAME}
         itemId={e.FROM_ITEM_ID}
         itemType={e.FROM_ITEM_TYPE}
@@ -296,8 +296,10 @@ function CustomizedTreeView({ onOpen, setWidthTrue }) {
   const isMount = useIsMount();
   const dispatch = useDispatch();
   const items = useSelector((state) => state.collapseMenu.filerMenu);
-  const expandedItems = useSelector(
-    (state) => state.treeview.width.values.overviewHierarchy
+  const expandedItems = useSelector((state) =>
+    (state.treeview.width.values.overviewHierarchy || []).map((item) =>
+      String(item)
+    )
   );
   const text = useSelector((state) => state.searchBar.text);
   const location = useLocation();
@@ -318,18 +320,12 @@ function CustomizedTreeView({ onOpen, setWidthTrue }) {
       dispatch(updateTreeViewCouch("overview", width + 10));
     }
   };
-  const onNodeSelect = (event, nodeId) => {
-    if (event.target.tagName === "svg" || event.target.tagName === "path") {
-      const index = expandedItems.indexOf(nodeId);
-      const copyExpanded = [...expandedItems];
-      if (index === -1) {
-        copyExpanded.push(nodeId);
-        setTimeout(timerOnOpen, 400);
-      } else {
-        copyExpanded.splice(index, 1);
-      }
-      dispatch(updateCollapseMenuCouch(copyExpanded));
+  const onNodeToggle = (event, nodeIds) => {
+    const nextExpanded = (nodeIds || []).map((item) => String(item));
+    if (nextExpanded.length > expandedItems.length) {
+      setTimeout(timerOnOpen, 400);
     }
+    dispatch(updateCollapseMenuCouch(nextExpanded));
   };
   React.useEffect(() => {
     applyFontWeight();
@@ -353,14 +349,13 @@ function CustomizedTreeView({ onOpen, setWidthTrue }) {
         defaultCollapseIcon={<MinusSquare />}
         defaultExpandIcon={<PlusSquare />}
         defaultEndIcon={<CloseSquare />}
-        onNodeSelect={onNodeSelect}
+        onNodeToggle={onNodeToggle}
         ref={ref}
       >
         <MyStyledTreeItem
           myItems={items}
           path={"overview"}
           location={location.pathname}
-          onNodeSelect={onNodeSelect}
         ></MyStyledTreeItem>
       </TreeView>
     </div>
