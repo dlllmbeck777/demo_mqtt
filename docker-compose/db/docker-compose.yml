@@ -6,7 +6,7 @@
 
 services:
   couchserver:
-    image: couchdb:latest
+    image: couchdb:3.5.1
     restart: always
     container_name: ligeiaai-couchserver-1
     ports:
