@@ -34,6 +34,11 @@ const findMenuItem = (items, selectedItem) => {
 
     return null
 }
+
+const getOverviewSelectedItemKey = (getState) => {
+    const layer = String(getState()?.auth?.user?.active_layer || "STD").trim() || "STD"
+    return `selectedItem:${layer}`
+}
 export const loadCollapseMenu = (path) => async dispatch => {
     try {
         let res = await path();
@@ -60,7 +65,14 @@ export const setSelectedCollapseMenu = async (value) => async (dispatch, getStat
     })
     try {
         let res = await ProfileService.getState({ "key": "overview_settings" })
-        ProfileService.updateProfileSettings({ overview_settings: { ...res.data?.overview_settings, [`selectedItem`]: value } })
+        const selectedItemKey = getOverviewSelectedItemKey(getState)
+        ProfileService.updateProfileSettings({
+            overview_settings: {
+                ...res.data?.overview_settings,
+                [selectedItemKey]: value,
+                selectedItem: value
+            }
+        })
     } catch (err) {
         console.log(err);
     }
@@ -134,7 +146,10 @@ export const checkLastOpenItem = () => async (dispatch, getState) => {
         var pathSegments = path.split('/');
         var firstPathElement = pathSegments[1];
         if (firstPathElement === "overview") {
-            const savedSelectedItem = res.data?.overview_settings?.[`selectedItem`]
+            const selectedItemKey = getOverviewSelectedItemKey(getState)
+            const savedSelectedItem =
+                res.data?.overview_settings?.[selectedItemKey] ??
+                res.data?.overview_settings?.[`selectedItem`]
             const selectedItem = findMenuItem(
                 getState().collapseMenu.menuItems,
                 savedSelectedItem

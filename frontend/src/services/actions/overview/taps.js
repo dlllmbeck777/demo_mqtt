@@ -15,6 +15,29 @@ import axios from "axios";
 import { uuidv4 } from "../../utils/uuidGenerator";
 import { add_error } from "../error";
 
+const getOverviewScope = (getState, linkId) => {
+  const layer = String(getState()?.auth?.user?.active_layer || "STD").trim() || "STD";
+  return {
+    tabListKey: `${layer}:${linkId}:tablist`,
+    selectedTabKey: `${layer}:${linkId}:selectedTab`,
+    legacyTabListKey: `${linkId}tablist`,
+    legacySelectedTabKey: `${linkId}selectedTab`,
+  };
+};
+
+const clampSelectedIndex = (value, titles) => {
+  if (!Array.isArray(titles) || titles.length === 0) {
+    return 0;
+  }
+
+  const parsed = Number.isInteger(value) ? value : parseInt(value, 10);
+  if (Number.isNaN(parsed) || parsed < 0) {
+    return 0;
+  }
+
+  return Math.min(parsed, titles.length - 1);
+};
+
 const _setLinkedItem = () => (dispatch, getState) => {
   const selectedItem = getState().collapseMenu.selectedItem;
   let list = []
@@ -53,12 +76,17 @@ export const loadTapsOverview = () => async (dispatch, getState) => {
     var widgets = res.data;
     var data = {}
     let setting = await ProfileService.getState({ "key": "overview_settings" })
+    const { tabListKey, selectedTabKey, legacyTabListKey, legacySelectedTabKey } =
+      getOverviewScope(getState, linkId);
+    const savedTabList =
+      setting?.data?.overview_settings?.[tabListKey] ??
+      setting?.data?.overview_settings?.[legacyTabListKey];
 
-    if (setting?.data?.overview_settings?.[`${linkId}tablist`]) {
+    if (savedTabList) {
       titles = Object.keys(res.data);
       let tempList = []
       Promise.all(
-        tempList = setting?.data?.overview_settings?.[`${linkId}tablist`].filter((item) => titles.includes(item))
+        tempList = savedTabList.filter((item) => titles.includes(item))
       )
       let difference = []
       Promise.all(
@@ -72,13 +100,23 @@ export const loadTapsOverview = () => async (dispatch, getState) => {
     } else {
       titles = Object.keys(res.data);
     }
+    const savedSelectedIndex =
+      setting?.data?.overview_settings?.[selectedTabKey] ??
+      setting?.data?.overview_settings?.[legacySelectedTabKey] ??
+      0;
+    const selectedIndex = clampSelectedIndex(savedSelectedIndex, titles);
 
     await dispatch({
       type: FILL_TAPS_OVERVIEW,
-      payload: { titles, widgets: widgets, data: data, selectedIndex: setting.data?.overview_settings?.[`${linkId}selectedTab`] === undefined ? 0 : setting.data?.overview_settings?.[`${linkId}selectedTab`] },
+      payload: { titles, widgets: widgets, data: data, selectedIndex },
     });
     dispatch(_setLinkedItem())
-    await ProfileService.updateProfileSettings({ overview_settings: { ...setting.data?.overview_settings, [`${linkId}tablist`]: titles } })
+    await ProfileService.updateProfileSettings({
+      overview_settings: {
+        ...setting.data?.overview_settings,
+        [tabListKey]: titles,
+      }
+    })
     dispatch(setTapsLoaderFalse());
     return Promise.resolve(titles)
   } catch (err) {
@@ -91,13 +129,19 @@ export const loadTapsOverview = () => async (dispatch, getState) => {
 
 export const selectTab = (payload) => async (dispatch, getState) => {
   const selectedItem = getState().collapseMenu.selectedItem.FROM_ITEM_ID
+  const { selectedTabKey } = getOverviewScope(getState, selectedItem);
   dispatch({
     type: SET_SELECT_TAB_ITEM_INDEX,
     payload: payload,
   });
   try {
     let res = await ProfileService.getState({ "key": "overview_settings" })
-    let ok = await ProfileService.updateProfileSettings({ overview_settings: { ...res.data?.overview_settings, [`${selectedItem}selectedTab`]: payload } })
+    let ok = await ProfileService.updateProfileSettings({
+      overview_settings: {
+        ...res.data?.overview_settings,
+        [selectedTabKey]: payload
+      }
+    })
     return ok
   } catch (err) {
     console.log(err);
@@ -187,6 +231,7 @@ const _checkHeader = (oldHeader, newHeader, keys) => {
 export const updateTabHeader =
   (oldHeader, newHeader) => async (dispatch, getState) => {
     const linkId = getState().collapseMenu.selectedItem.FROM_ITEM_ID;
+    const { tabListKey } = getOverviewScope(getState, linkId);
     const titles = getState().tapsOverview.titles
     const widget = getState().tapsOverview.widgets[oldHeader]
     const culture = getState().lang.cultur
@@ -206,7 +251,12 @@ export const updateTabHeader =
         }
 
         let setting = await ProfileService.getState({ "key": "overview_settings" })
-        await ProfileService.updateProfileSettings({ overview_settings: { ...setting.data?.overview_settings, [`${linkId}tablist`]: titles } })
+        await ProfileService.updateProfileSettings({
+          overview_settings: {
+            ...setting.data?.overview_settings,
+            [tabListKey]: titles
+          }
+        })
         const response = await dispatch(loadTapsOverview());
         dispatch(add_error(message.data?.status_message?.SHORT_LABEL, message.data?.status_code));
         let res = 0
@@ -228,6 +278,7 @@ export const deleteTapHeader = (header) => async (dispatch, getState) => {
   const titles = getState().tapsOverview.titles;
   const selectedIndex = getState().tapsOverview.selectedIndex;
   const selectedItem = getState().collapseMenu.selectedItem.FROM_ITEM_ID
+  const { selectedTabKey } = getOverviewScope(getState, selectedItem);
   try {
     dispatch(updateLayouts())
     const body = JSON.stringify({ ROW_ID: dashboard.ROW_ID })
@@ -251,7 +302,12 @@ export const deleteTapHeader = (header) => async (dispatch, getState) => {
     }
     try {
       let res = await ProfileService.getState({ "key": "overview_settings" })
-      await ProfileService.updateProfileSettings({ overview_settings: { ...res.data?.overview_settings, [`${selectedItem}selectedTab`]: newIndex } })
+      await ProfileService.updateProfileSettings({
+        overview_settings: {
+          ...res.data?.overview_settings,
+          [selectedTabKey]: newIndex
+        }
+      })
     } catch (err) {
       console.log(err);
     }
@@ -337,6 +393,7 @@ export const chageTabsSort = (prevIndex, nextIndex) => async (dispatch, getState
   const titles = getState().tapsOverview.titles
   const selectedIndex = getState().tapsOverview.selectedIndex
   const selectedItem = getState().collapseMenu.selectedItem.FROM_ITEM_ID
+  const { tabListKey } = getOverviewScope(getState, selectedItem);
   const newTabs = Array.from(titles);
   const draggedTab = newTabs.splice(prevIndex, 1)[0];
   newTabs.splice(nextIndex, 0, draggedTab);
@@ -361,7 +418,12 @@ export const chageTabsSort = (prevIndex, nextIndex) => async (dispatch, getState
   }
   try {
     let res = await ProfileService.getState({ "key": "overview_settings" })
-    let aa = await ProfileService.updateProfileSettings({ overview_settings: { ...res.data?.overview_settings, [`${selectedItem}tablist`]: newTabs } })
+    let aa = await ProfileService.updateProfileSettings({
+      overview_settings: {
+        ...res.data?.overview_settings,
+        [tabListKey]: newTabs
+      }
+    })
     console.log(aa);
   } catch (err) {
     console.log(err);

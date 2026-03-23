@@ -7,15 +7,12 @@ import DoneIcon from "@mui/icons-material/Done";
 
 import MenuItems from "./menuItem";
 import Auth from "../../../services/api/auth";
-import history from "../../../routers/history";
-import { loadUser } from "../../../services/actions/auth";
-import { loadDrawerMenu } from "../../../services/actions/drawerMenu/drawerMenu";
+import { USER_LOADED_SUCCESS } from "../../../services/actions/types";
 const Layer = ({ changeMenu, handleClose, menuItem }) => {
   const dispatch = useDispatch();
   const [enableLayers, setEnableLayers] = React.useState([]);
   const userLayers = useSelector((state) => state.auth?.user?.layer_name || []);
   const activeLayer = useSelector((state) => state.auth?.user?.active_layer);
-  const culture = useSelector((state) => state.lang.cultur);
   const layerSelect = async (LAYER_NAME) => {
     try {
       if (!LAYER_NAME || LAYER_NAME === activeLayer) {
@@ -24,14 +21,21 @@ const Layer = ({ changeMenu, handleClose, menuItem }) => {
       }
       const body = JSON.stringify({ LAYER_NAME });
       try {
-        await Auth.activeLayerUpdate(body);
-        await dispatch(loadUser());
-        await dispatch(loadDrawerMenu(culture));
+        const response = await Auth.activeLayerUpdate(body);
+        if (response?.data) {
+          dispatch({
+            type: USER_LOADED_SUCCESS,
+            payload: response.data,
+          });
+        }
       } catch (err) {
         console.log(err);
+        return;
       }
       handleClose();
-      history.push("/");
+      // Layer switch affects most screens, so a hard reload avoids stale
+      // cross-layer state lingering in Redux/router caches.
+      window.location.assign("/");
     } catch {}
   };
   React.useEffect(() => {

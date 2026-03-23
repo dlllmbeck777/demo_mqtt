@@ -16,6 +16,7 @@ import DrawerMenu from "../../../layout/main/asset/treeViewMenu";
 import Tabs from "./tabs";
 import { loadCollapseMenu } from "../../../services/actions/collapseMenu/collapseMenu";
 import ItemLinkService from "../../../services/api/itemLink";
+import { cleanTabs } from "../../../services/actions/overview/taps";
 import { selectDrawerItem } from "../../../services/actions/drawerMenu/drawerMenu";
 import HorizontalMenu from "./horizontalMenu";
 import ProfileService from "../../../services/api/profile";
@@ -24,9 +25,11 @@ import "../../../assets/styles/layouts/template.scss";
 const Overview = () => {
   const dispatch = useDispatch();
   const isActiveTabs = useSelector((state) => state.tapsOverview.isActive);
+  const activeLayer = useSelector((state) => state.auth?.user?.active_layer);
   React.useEffect(() => {
     document.title = "Ligeia.ai | Overview";
     selectDrawerItem("Overview");
+    dispatch(cleanTabs());
     dispatch(loadCollapseMenu(ItemLinkService.hierarchy));
     async function myFunc() {
       try {
@@ -48,7 +51,7 @@ const Overview = () => {
         $(".overview-container__tab-box").css({ height: "100%" });
     }
     myFunc();
-  }, [dispatch]);
+  }, [dispatch, activeLayer]);
   return (
     <React.Fragment>
       <Box className="overview-tree-menu">
