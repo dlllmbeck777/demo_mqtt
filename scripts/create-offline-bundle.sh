@@ -44,7 +44,6 @@ pipeline_images=(
   "confluentinc/cp-zookeeper:6.1.1"
   "confluentinc/cp-enterprise-kafka:5.3.1"
   "nordal/nifi-linux:latest"
-  "mqtt-publisher:latest"
 )
 
 full_images=(
@@ -71,7 +70,7 @@ build_local_images() {
 
   if [[ "$MODE" == "pipeline" || "$MODE" == "full" ]]; then
     echo "Building pipeline simulation images"
-    docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" build nifi mqtt-publisher
+    docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" build nifi
   fi
 
   if [[ "$MODE" == "full" ]]; then

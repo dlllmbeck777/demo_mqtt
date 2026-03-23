@@ -225,10 +225,10 @@ data_build_services() {
       return 0
       ;;
     pipeline)
-      printf '%s\n' nifi mqtt-publisher
+      printf '%s\n' nifi
       ;;
     full)
-      printf '%s\n' nifi mqtt-publisher connect
+      printf '%s\n' nifi connect
       ;;
   esac
 }

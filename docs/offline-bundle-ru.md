@@ -97,11 +97,4 @@ SERVER_IP=65.109.174.58 TARGET_LAYER=Inkai STACK_MODE=light bash offline_bundle/
 
 - если `transfer/*.sql` остались Git LFS pointer-файлами, bundle будет неполным для полноценного restore
 - для reproducible deploy лучше собирать bundle после `git pull` и после успешной локальной/серверной проверки image build
-- если нужен MQTT simulation service, он теперь есть как optional compose profile `sim`
 - `deploy-from-bundle.sh` по умолчанию поднимает тот же `STACK_MODE`, в котором bundle был собран
-
-Запуск:
-
-```bash
-docker compose --env-file docker-compose/.env -f docker-compose/data/docker-compose.yml --profile sim up -d mqtt-publisher
-```
