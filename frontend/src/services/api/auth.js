@@ -1,13 +1,18 @@
 import { instance, config, unAuthConfig } from "../baseApi"
 
+const AUTH_REQUEST_TIMEOUT = 10000;
+
 const get = () => {
-    return instance.get("/auth/user-detail/", { ...config(), timeout: 3000 });
+    return instance.get("/auth/user-detail/", {
+        ...config(),
+        timeout: AUTH_REQUEST_TIMEOUT,
+    });
 };
 
 const login = (body) => {
     return instance.post("/auth/login/", body, {
         ...unAuthConfig,
-        timeout: 3000
+        timeout: AUTH_REQUEST_TIMEOUT,
     });
 };
 
@@ -73,4 +78,3 @@ const Auth = {
 
 
 export default Auth;
-

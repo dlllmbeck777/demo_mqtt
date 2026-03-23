@@ -23,28 +23,58 @@ import { createTreeViewCouch } from './treeview/treeview';
 import history from '../../routers/history';
 import Auth from "../api/auth"
 
+const isNetworkError = (err) =>
+    err?.code === "ERR_NETWORK" ||
+    err?.code === "ECONNABORTED" ||
+    !err?.response;
+
+const isUnauthorizedError = (err) =>
+    err?.response?.status === 401 || err?.response?.status === 403;
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export const loadUser = () => async dispatch => {
     if (localStorage.getItem('token')) {
-        try {
-            const res = await Auth.get()
-            dispatch({
-                type: USER_LOADED_SUCCESS,
-                payload: res.data
-            });
-        } catch (err) {
-            localStorage.removeItem('token');
-            dispatch({
-                type: USER_LOADED_FAIL
-            });
-            if (err.code = "ERR_NETWORK") {
-                dispatch(add_error("", 500));
+        for (let attempt = 0; attempt < 2; attempt += 1) {
+            try {
+                const res = await Auth.get()
+                dispatch({
+                    type: USER_LOADED_SUCCESS,
+                    payload: res.data
+                });
+                return true
+            } catch (err) {
+                if (isNetworkError(err) && attempt === 0) {
+                    await sleep(750)
+                    continue
+                }
 
+                if (isUnauthorizedError(err)) {
+                    localStorage.removeItem('token');
+                    dispatch({
+                        type: USER_LOADED_FAIL
+                    });
+                    return false
+                }
+
+                if (isNetworkError(err)) {
+                    dispatch(add_error("", 500));
+                } else {
+                    dispatch(add_error(err?.response?.data?.status_message?.SHORT_LABEL, err?.response?.status));
+                }
+
+                localStorage.removeItem('token');
+                dispatch({
+                    type: USER_LOADED_FAIL
+                });
+                return false
             }
         }
     } else {
         dispatch({
             type: USER_LOADED_FAIL
         });
+        return false
     }
 };
 
@@ -57,8 +87,12 @@ export const login = (email, password) => async dispatch => {
             payload: res.data.token
         });
         await dispatch(setLoaderFalse());
-        await dispatch(loadUser());
+        const userLoaded = await dispatch(loadUser());
+        if (userLoaded === false) {
+            return false
+        }
         history.push(`/`);
+        return true
     } catch (err) {
         console.log(err);
         dispatch({
@@ -66,15 +100,16 @@ export const login = (email, password) => async dispatch => {
         })
 
         dispatch(setLoaderFalse());
-        if (err.code = "ERR_NETWORK") {
+        if (isNetworkError(err)) {
             dispatch(add_error("", 500));
 
         } else {
             dispatch(add_error(err?.response?.data?.status_message?.SHORT_LABEL, err?.response?.status));
         }
-        if (err?.response.status === 404) { //
+        if (err?.response?.status === 404) { //
             history.push("signup")
         }
+        return false
     }
 };
 
