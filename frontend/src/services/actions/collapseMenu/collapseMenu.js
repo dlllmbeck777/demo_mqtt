@@ -7,11 +7,11 @@ import {
 } from "../types"
 
 import axios from "axios"
-import TreeView from "../../api/couch/treeView"
 import ProfileService from "../../api/profile"
 import { loadHorizontalMenu } from "./horizontaMenu"
 import history from "../../../routers/history"
 import { cleanTabs, loadTapsOverview } from "../overview/taps"
+import { persistTreeViewDocument } from "../treeview/treeview"
 
 const findMenuItem = (items, selectedItem) => {
     if (!selectedItem) {
@@ -85,14 +85,15 @@ export const updateCollapseMenuCouch = (value) => async (dispatch, getState) => 
         payload: value
     })
     const treeViewWidth = getState().treeview.width
-    const body = JSON.stringify({ ...treeViewWidth })
+    const nextValues = {
+        ...(treeViewWidth?.values || {}),
+        overviewHierarchy: value,
+    }
     try {
-        let res = await TreeView.update(userId, body)
-
-        treeViewWidth._rev = res.data.rev
+        const savedDoc = await persistTreeViewDocument(userId, nextValues, treeViewWidth)
         dispatch({
             type: LOAD_TREE_VIEW_WIDTH,
-            payload: treeViewWidth
+            payload: savedDoc
         })
 
     } catch (err) {
