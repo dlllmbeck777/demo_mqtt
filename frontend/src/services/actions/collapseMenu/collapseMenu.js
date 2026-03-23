@@ -43,6 +43,16 @@ const getOverviewSelectedItemKey = (getState) => {
     return `selectedItem:${layer}`
 }
 
+const getOverviewSelectedPathKey = (getState) => {
+    const layer = String(getState()?.auth?.user?.active_layer || "Inkai").trim() || "Inkai"
+    return `selectedPath:${layer}`
+}
+
+const normalizeOverviewPath = (path = "") =>
+    decodeURIComponent(String(path || ""))
+        .replace(/^\/+/, "")
+        .replace(/\/+$/, "")
+
 const getOverviewHierarchyKeys = (getState) => {
     const layer = String(getState()?.auth?.user?.active_layer || "Inkai").trim() || "Inkai"
     return {
@@ -120,10 +130,12 @@ export const setSelectedCollapseMenu = async (value) => async (dispatch, getStat
     try {
         let res = await ProfileService.getState({ "key": "overview_settings" })
         const selectedItemKey = getOverviewSelectedItemKey(getState)
-        ProfileService.updateProfileSettings({
+        const selectedPathKey = getOverviewSelectedPathKey(getState)
+        await ProfileService.updateProfileSettings({
             overview_settings: {
                 ...res.data?.overview_settings,
                 [selectedItemKey]: value,
+                [selectedPathKey]: value?.path,
                 selectedItem: value
             }
         })
@@ -196,13 +208,30 @@ export const checkLastOpenItem = () => async (dispatch, getState) => {
         var firstPathElement = pathSegments[1];
         if (firstPathElement === "overview") {
             const selectedItemKey = getOverviewSelectedItemKey(getState)
+            const selectedPathKey = getOverviewSelectedPathKey(getState)
+            const currentOverviewPath = normalizeOverviewPath(path)
+            const savedPath =
+                res.data?.overview_settings?.[selectedPathKey] ??
+                res.data?.overview_settings?.selectedItem?.path
+            const selectedItemFromPath =
+                currentOverviewPath !== "overview"
+                    ? findMenuItem(getState().collapseMenu.menuItems, { path: currentOverviewPath })
+                    : null
             const savedSelectedItem =
                 res.data?.overview_settings?.[selectedItemKey] ??
                 res.data?.overview_settings?.[`selectedItem`]
-            const selectedItem = findMenuItem(
-                getState().collapseMenu.menuItems,
-                savedSelectedItem
-            )
+            const selectedItem =
+                selectedItemFromPath ||
+                findMenuItem(
+                    getState().collapseMenu.menuItems,
+                    savedSelectedItem
+                ) ||
+                (savedPath
+                    ? findMenuItem(
+                        getState().collapseMenu.menuItems,
+                        { path: normalizeOverviewPath(savedPath) }
+                    )
+                    : null)
 
             if (!selectedItem) {
                 dispatch(cleanTabs())
