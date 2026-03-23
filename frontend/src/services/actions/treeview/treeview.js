@@ -15,19 +15,97 @@ import { confirmationPushHistory, myHistoryPush } from "../../utils/historyPush"
 import { setGoFunctionConfirmation } from "../confirmation/historyConfirmation"
 import TreeView from "../../api/couch/treeView"
 
+const DEFAULT_TREE_VIEW_VALUES = {
+    overview: 250,
+    codelist: 250,
+    item: 250,
+    resources: 250,
+    types: 250,
+    tags: 250,
+    overviewHierarchy: ["1"],
+}
+
+const buildTreeViewDocument = (userId, baseDoc = {}, nextValues = {}) => ({
+    _id: userId.toString(),
+    ...(baseDoc?._rev ? { _rev: baseDoc._rev } : {}),
+    values: {
+        ...DEFAULT_TREE_VIEW_VALUES,
+        ...(baseDoc?.values || {}),
+        ...nextValues,
+    },
+})
+
+const createTreeViewDocument = async (userId, nextValues = {}) => {
+    const payload = buildTreeViewDocument(userId, {}, nextValues)
+    try {
+        const res = await TreeView.create(JSON.stringify(payload))
+        return {
+            ...payload,
+            _rev: res?.data?.rev,
+        }
+    } catch (err) {
+        if (err?.response?.status === 409) {
+            const latest = await TreeView.get(userId)
+            return latest.data
+        }
+        throw err
+    }
+}
+
+export const ensureTreeViewDocument = async (userId) => {
+    try {
+        const res = await TreeView.get(userId)
+        return buildTreeViewDocument(userId, res.data)
+    } catch (err) {
+        if (err?.response?.status === 404) {
+            return createTreeViewDocument(userId)
+        }
+        throw err
+    }
+}
+
+export const persistTreeViewDocument = async (userId, nextValues = {}, currentDoc = {}) => {
+    const payload = buildTreeViewDocument(userId, currentDoc, nextValues)
+    try {
+        const res = await TreeView.update(userId, JSON.stringify(payload))
+        return {
+            ...payload,
+            _rev: res?.data?.rev,
+        }
+    } catch (err) {
+        if (err?.response?.status === 404) {
+            return createTreeViewDocument(userId, nextValues)
+        }
+        if (err?.response?.status === 409) {
+            const latest = await ensureTreeViewDocument(userId)
+            const retryPayload = buildTreeViewDocument(userId, latest, nextValues)
+            const res = await TreeView.update(userId, JSON.stringify(retryPayload))
+            return {
+                ...retryPayload,
+                _rev: res?.data?.rev,
+            }
+        }
+        throw err
+    }
+}
+
 export const loadTreeViewWidth = async (path) => async (dispatch, getState) => {
     const userId = getState().auth.user.id
     try {
-        let res = await TreeView.get(userId)
+        const res = await ensureTreeViewDocument(userId)
         dispatch({
             type: LOAD_TREE_VIEW_WIDTH,
-            payload: res.data
+            payload: res
         })
-        return Promise.resolve(res.data.values)
+        return Promise.resolve(res.values)
     } catch (err) {
-        if (err.response.status === 404) {
-            dispatch(createTreeViewCouch())
-        }
+        console.log(err);
+        const fallback = buildTreeViewDocument(userId)
+        dispatch({
+            type: LOAD_TREE_VIEW_WIDTH,
+            payload: fallback
+        })
+        return Promise.resolve(fallback.values)
     }
 }
 
@@ -138,14 +216,15 @@ export const cleanTreeview = async () => async dispatch => {
 export const updateTreeViewCouch = (path, value) => async (dispatch, getState) => {
     const userId = getState().auth.user.id
     const width = getState().treeview.width
-    width.values[path] = value
-    const body = JSON.stringify({ ...width })
+    const nextValues = {
+        ...(width?.values || {}),
+        [path]: value,
+    }
     try {
-        let res = await TreeView.update(userId, body)
-        width._rev = res.data.rev
+        const savedDoc = await persistTreeViewDocument(userId, nextValues, width)
         dispatch({
             type: LOAD_TREE_VIEW_WIDTH,
-            payload: width
+            payload: savedDoc
         })
     } catch (err) {
         console.log(err);
@@ -153,21 +232,16 @@ export const updateTreeViewCouch = (path, value) => async (dispatch, getState) =
 }
 export const createTreeViewCouch = () => async (dispatch, getState) => {
     const userId = getState().auth.user.id
-    const body = JSON.stringify({
-        _id: userId.toString(),
-        values: {
-            overview: 250,
-            codelist: 250,
-            item: 250,
-            resources: 250,
-            types: 250,
-            tags: 250,
-            overviewHierarchy: ["1"]
-        }
-    })
     try {
-        await TreeView.create(body)
-    } catch (err) { }
+        const savedDoc = await createTreeViewDocument(userId)
+        dispatch({
+            type: LOAD_TREE_VIEW_WIDTH,
+            payload: savedDoc
+        })
+        return savedDoc
+    } catch (err) {
+        console.log(err);
+    }
 }
 let cancelTokenFiler;
 export const filterMenu = (text, path, body) => async (dispatch, getState) => {
