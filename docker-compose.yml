@@ -62,6 +62,7 @@ services:
       - COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-change-me}
     volumes:
       - couch-data:/opt/couchdb/data
+      - ./docker-compose/db/couchdb/local.d/99-cors.ini:/opt/couchdb/etc/local.d/99-cors.ini:ro
     networks:
       - net
   elasticsearch:
