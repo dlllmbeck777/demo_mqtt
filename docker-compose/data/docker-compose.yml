@@ -112,12 +112,9 @@ services:
       - type: bind
         source: ./config/
         target: /mosquitto/config/
-      - type: bind
-        source: ./log/
-        target: /mosquitto/log/
       - type: volume
         source: data
-        target: /mosquitto/data1/
+        target: /mosquitto/data/
     ports:
       - target: 1883
         published: 1883
