@@ -182,6 +182,7 @@ function DiagnosticEditor() {
           {tabs.map((e, i) => {
             return (
               <Tab
+                key={e?.CODE || e?.CODE_TEXT || i}
                 label={e?.CODE_TEXT}
                 {...a11yProps(i)}
                 sx={{ textTransform: "capitalize" }}
