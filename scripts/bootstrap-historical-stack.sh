@@ -85,6 +85,7 @@ assert_not_lfs_pointer() {
 
 wait_for_couch() {
   python3 - "$COUCHDB_BOOTSTRAP_USER" "$COUCHDB_BOOTSTRAP_PASSWORD" <<'PY'
+import base64
 import sys
 import time
 import urllib.error
@@ -93,12 +94,16 @@ import urllib.request
 user = sys.argv[1]
 password = sys.argv[2]
 deadline = time.time() + 180
-url = f"http://{user}:{password}@127.0.0.1:5984/_up"
+auth = base64.b64encode(f"{user}:{password}".encode()).decode()
+request = urllib.request.Request(
+    "http://127.0.0.1:5984/_up",
+    headers={"Authorization": f"Basic {auth}"},
+)
 last_error = "unknown error"
 
 while time.time() < deadline:
     try:
-        with urllib.request.urlopen(url, timeout=5) as response:
+        with urllib.request.urlopen(request, timeout=5) as response:
             if response.status == 200:
                 sys.exit(0)
     except urllib.error.HTTPError as exc:
@@ -116,6 +121,49 @@ while time.time() < deadline:
 
 raise SystemExit(f"CouchDB did not become ready in time: {last_error}")
 PY
+}
+
+should_reset_couch_volume() {
+  local value
+  value="$(printf '%s' "${RESET_COUCHDB_ON_BOOTSTRAP:-$(get_env_value RESET_COUCHDB_ON_BOOTSTRAP 1)}" | tr '[:upper:]' '[:lower:]')"
+
+  case "$value" in
+    1|true|yes)
+      return 0
+      ;;
+    0|false|no)
+      return 1
+      ;;
+    *)
+      echo "Unsupported RESET_COUCHDB_ON_BOOTSTRAP value: $value"
+      echo "Use one of: 1, true, yes, 0, false, no"
+      exit 1
+      ;;
+  esac
+}
+
+recreate_couch_volume() {
+  local container_id=""
+  local volume_name=""
+
+  container_id="$(docker compose --env-file "$ENV_FILE" -f "$DB_FILE" ps -q couchserver 2>/dev/null || true)"
+
+  if [[ -n "$container_id" ]]; then
+    volume_name="$(docker inspect --format '{{range .Mounts}}{{if and (eq .Type "volume") (eq .Destination "/opt/couchdb/data")}}{{.Name}}{{end}}{{end}}' "$container_id" 2>/dev/null || true)"
+  fi
+
+  docker compose --env-file "$ENV_FILE" -f "$DB_FILE" stop couchserver >/dev/null 2>&1 || true
+
+  if [[ -n "$container_id" ]]; then
+    docker rm -f "$container_id" >/dev/null 2>&1 || true
+  fi
+
+  if [[ -n "$volume_name" ]]; then
+    echo "Resetting CouchDB volume: $volume_name"
+    docker volume rm -f "$volume_name" >/dev/null 2>&1 || true
+  fi
+
+  docker compose --env-file "$ENV_FILE" -f "$DB_FILE" up -d couchserver >/dev/null
 }
 
 load_offline_images() {
@@ -316,6 +364,10 @@ chmod +x "$RESTORE_SCRIPT"
 "$RESTORE_SCRIPT" "$DEMO_DUMP" "$HORASAN_DUMP"
 
 if [[ -f "$DEMO_COUCH_JSON" || -f "$TREEVIEW_COUCH_JSON" ]]; then
+  if should_reset_couch_volume; then
+    recreate_couch_volume
+  fi
+
   wait_for_couch
 
   if [[ -f "$DEMO_COUCH_JSON" ]]; then

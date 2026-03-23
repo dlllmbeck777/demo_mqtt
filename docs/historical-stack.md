@@ -68,6 +68,8 @@ Restore PostgreSQL first, then optional historical stores:
 - MongoDB only if you need historical documents
 - InfluxDB only if you need historical trends and backfill
 
+For `bootstrap-historical-stack.sh`, CouchDB JSON restore now resets the historical CouchDB volume by default before import. This avoids stale credentials or leftover data from older deployments. To keep the existing volume, set `RESET_COUCHDB_ON_BOOTSTRAP=0` in `docker-compose/.env`.
+
 ## Access
 
 - UI through nginx: `http://SERVER_IP/`
