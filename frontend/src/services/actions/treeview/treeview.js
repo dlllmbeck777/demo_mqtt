@@ -14,6 +14,7 @@ import axios from "axios"
 import { confirmationPushHistory, myHistoryPush } from "../../utils/historyPush"
 import { setGoFunctionConfirmation } from "../confirmation/historyConfirmation"
 import TreeView from "../../api/couch/treeView"
+import ProfileService from "../../api/profile"
 
 const DEFAULT_TREE_VIEW_VALUES = {
     overview: 250,
@@ -25,6 +26,18 @@ const DEFAULT_TREE_VIEW_VALUES = {
     overviewHierarchy: ["1"],
 }
 
+const getStateSnapshot = (getState) =>
+    typeof getState === "function" ? getState() : {}
+
+const getOverviewHierarchyKeys = (getState) => {
+    const state = getStateSnapshot(getState)
+    const layer = String(state?.auth?.user?.active_layer || "Inkai").trim() || "Inkai"
+    return {
+        overviewHierarchyKey: `${layer}:overviewHierarchy`,
+        legacyOverviewHierarchyKey: "overviewHierarchy",
+    }
+}
+
 const buildTreeViewDocument = (userId, baseDoc = {}, nextValues = {}) => ({
     _id: userId.toString(),
     ...(baseDoc?._rev ? { _rev: baseDoc._rev } : {}),
@@ -34,6 +47,32 @@ const buildTreeViewDocument = (userId, baseDoc = {}, nextValues = {}) => ({
         ...nextValues,
     },
 })
+
+const applyOverviewHierarchy = (userId, baseDoc = {}, overviewHierarchy = []) => {
+    if (!Array.isArray(overviewHierarchy)) {
+        return buildTreeViewDocument(userId, baseDoc)
+    }
+
+    return buildTreeViewDocument(userId, baseDoc, {
+        overviewHierarchy: overviewHierarchy.map((item) => String(item)),
+    })
+}
+
+const loadOverviewHierarchyFromProfile = async (getState) => {
+    try {
+        const res = await ProfileService.getState({ key: "overview_settings" })
+        const { overviewHierarchyKey, legacyOverviewHierarchyKey } =
+            getOverviewHierarchyKeys(getState)
+
+        return (
+            res?.data?.overview_settings?.[overviewHierarchyKey] ??
+            res?.data?.overview_settings?.[legacyOverviewHierarchyKey]
+        )
+    } catch (err) {
+        console.log(err);
+        return null
+    }
+}
 
 const createTreeViewDocument = async (userId, nextValues = {}) => {
     const payload = buildTreeViewDocument(userId, {}, nextValues)
@@ -90,9 +129,12 @@ export const persistTreeViewDocument = async (userId, nextValues = {}, currentDo
 }
 
 export const loadTreeViewWidth = async (path) => async (dispatch, getState) => {
-    const userId = getState().auth.user.id
+    const state = getStateSnapshot(getState)
+    const userId = state?.auth?.user?.id || "anonymous"
     try {
-        const res = await ensureTreeViewDocument(userId)
+        let res = await ensureTreeViewDocument(userId)
+        const savedOverviewHierarchy = await loadOverviewHierarchyFromProfile(getState)
+        res = applyOverviewHierarchy(userId, res, savedOverviewHierarchy)
         dispatch({
             type: LOAD_TREE_VIEW_WIDTH,
             payload: res
@@ -100,7 +142,12 @@ export const loadTreeViewWidth = async (path) => async (dispatch, getState) => {
         return Promise.resolve(res.values)
     } catch (err) {
         console.log(err);
-        const fallback = buildTreeViewDocument(userId)
+        const savedOverviewHierarchy = await loadOverviewHierarchyFromProfile(getState)
+        const fallback = applyOverviewHierarchy(
+            userId,
+            buildTreeViewDocument(userId),
+            savedOverviewHierarchy
+        )
         dispatch({
             type: LOAD_TREE_VIEW_WIDTH,
             payload: fallback

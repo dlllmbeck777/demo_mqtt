@@ -39,6 +39,32 @@ const getOverviewSelectedItemKey = (getState) => {
     const layer = String(getState()?.auth?.user?.active_layer || "Inkai").trim() || "Inkai"
     return `selectedItem:${layer}`
 }
+
+const getOverviewHierarchyKeys = (getState) => {
+    const layer = String(getState()?.auth?.user?.active_layer || "Inkai").trim() || "Inkai"
+    return {
+        overviewHierarchyKey: `${layer}:overviewHierarchy`,
+        legacyOverviewHierarchyKey: "overviewHierarchy",
+    }
+}
+
+const persistOverviewHierarchyProfile = async (nextExpanded, getState) => {
+    try {
+        const res = await ProfileService.getState({ key: "overview_settings" })
+        const { overviewHierarchyKey, legacyOverviewHierarchyKey } =
+            getOverviewHierarchyKeys(getState)
+
+        await ProfileService.updateProfileSettings({
+            overview_settings: {
+                ...res.data?.overview_settings,
+                [overviewHierarchyKey]: nextExpanded,
+                [legacyOverviewHierarchyKey]: nextExpanded,
+            }
+        })
+    } catch (err) {
+        console.log(err);
+    }
+}
 export const loadCollapseMenu = (path) => async dispatch => {
     try {
         let res = await path();
@@ -79,15 +105,20 @@ export const setSelectedCollapseMenu = async (value) => async (dispatch, getStat
 }
 
 export const updateCollapseMenuCouch = (value) => async (dispatch, getState) => {
-    const userId = getState().auth.user.id
+    const userId = getState()?.auth?.user?.id
+    const nextExpanded = (value || []).map((item) => String(item))
     dispatch({
         type: UPDATE_TREE_VIEW_WIDTH_HIERARCHY,
-        payload: value
+        payload: nextExpanded
     })
+    await persistOverviewHierarchyProfile(nextExpanded, getState)
     const treeViewWidth = getState().treeview.width
     const nextValues = {
         ...(treeViewWidth?.values || {}),
-        overviewHierarchy: value,
+        overviewHierarchy: nextExpanded,
+    }
+    if (!userId) {
+        return
     }
     try {
         const savedDoc = await persistTreeViewDocument(userId, nextValues, treeViewWidth)
