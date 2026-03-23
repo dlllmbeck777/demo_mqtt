@@ -248,6 +248,18 @@ app_diagnostic_services() {
   esac
 }
 
+run_optional_layer_normalizers() {
+  local normalized_layer
+  normalized_layer="$(printf '%s' "$TARGET_LAYER" | tr '[:upper:]' '[:lower:]')"
+
+  if [[ "$normalized_layer" != "inkai" ]]; then
+    return 0
+  fi
+
+  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm --no-deps django \
+    bash -lc "cd backend && python manage.py normalize_inkai_structure --layer \"$TARGET_LAYER\""
+}
+
 if [[ ! -f "$DEMO_DUMP" && -n "$BUNDLE_DIR" && -f "$BUNDLE_DIR/transfer/demo_dump.sql" ]]; then
   DEMO_DUMP="$BUNDLE_DIR/transfer/demo_dump.sql"
 fi
@@ -381,6 +393,7 @@ fi
 
 if [[ "$OFFLINE_MODE" == "1" ]]; then
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm --no-deps django bash -lc "cd backend && python manage.py migrate"
+  run_optional_layer_normalizers
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d --no-build "${APP_CORE_SERVICES[@]}"
   if (( ${#APP_DIAGNOSTIC_SERVICES[@]} > 0 )); then
     docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d --no-build "${APP_DIAGNOSTIC_SERVICES[@]}"
@@ -388,6 +401,7 @@ if [[ "$OFFLINE_MODE" == "1" ]]; then
 else
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" build django frontend
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm django bash -lc "cd backend && python manage.py migrate"
+  run_optional_layer_normalizers
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d "${APP_CORE_SERVICES[@]}"
   if (( ${#APP_DIAGNOSTIC_SERVICES[@]} > 0 )); then
     docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d "${APP_DIAGNOSTIC_SERVICES[@]}"
