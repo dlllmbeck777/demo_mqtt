@@ -24,6 +24,7 @@ APP_FILE="$ROOT_DIR/docker-compose/app/docker-compose.yml"
 DB_FILE="$ROOT_DIR/docker-compose/db/docker-compose.yml"
 DATA_FILE="$ROOT_DIR/docker-compose/data/docker-compose.yml"
 RESTORE_SCRIPT="$ROOT_DIR/scripts/restore-demo-horasan.sh"
+COUCH_CORS_SCRIPT="$ROOT_DIR/scripts/configure-couchdb-cors.sh"
 
 case "$STACK_MODE" in
   light|pipeline|full)
@@ -375,12 +376,16 @@ fi
 chmod +x "$RESTORE_SCRIPT"
 "$RESTORE_SCRIPT" "$DEMO_DUMP" "$HORASAN_DUMP"
 
+wait_for_couch
+chmod +x "$COUCH_CORS_SCRIPT"
+"$COUCH_CORS_SCRIPT" "$ENV_FILE"
+
 if [[ -f "$DEMO_COUCH_JSON" || -f "$TREEVIEW_COUCH_JSON" ]]; then
   if should_reset_couch_volume; then
     recreate_couch_volume
+    wait_for_couch
+    "$COUCH_CORS_SCRIPT" "$ENV_FILE"
   fi
-
-  wait_for_couch
 
   if [[ -f "$DEMO_COUCH_JSON" ]]; then
     import_couch_db "demo" "$DEMO_COUCH_JSON"
