@@ -17,12 +17,23 @@ BUNDLE_DIR="${BUNDLE_DIR:-${OFFLINE_BUNDLE_DIR:-}}"
 DEMO_COUCH_JSON="${DEMO_COUCH_JSON:-$ROOT_DIR/transfer/demo_db.json}"
 TREEVIEW_COUCH_JSON="${TREEVIEW_COUCH_JSON:-$ROOT_DIR/transfer/treeviewstate_db.json}"
 TARGET_LAYER="${TARGET_LAYER:-${DIAGNOSTIC_LAYER_NAME:-STD}}"
+STACK_MODE="${STACK_MODE:-${BUNDLE_MODE:-pipeline}}"
 
 ENV_FILE="$ROOT_DIR/docker-compose/.env"
 APP_FILE="$ROOT_DIR/docker-compose/app/docker-compose.yml"
 DB_FILE="$ROOT_DIR/docker-compose/db/docker-compose.yml"
 DATA_FILE="$ROOT_DIR/docker-compose/data/docker-compose.yml"
 RESTORE_SCRIPT="$ROOT_DIR/scripts/restore-demo-horasan.sh"
+
+case "$STACK_MODE" in
+  light|pipeline|full)
+    ;;
+  *)
+    echo "Unsupported STACK_MODE: $STACK_MODE"
+    echo "Use one of: light, pipeline, full"
+    exit 1
+    ;;
+esac
 
 if [[ ! -f "$ENV_FILE" ]]; then
   cp "$ROOT_DIR/docker-compose/.env.example" "$ENV_FILE"
@@ -135,6 +146,60 @@ load_offline_images() {
   return 0
 }
 
+db_services() {
+  case "$STACK_MODE" in
+    light|pipeline)
+      printf '%s\n' couchserver postgres redis redis-ts mongo-dev
+      ;;
+    full)
+      printf '%s\n' couchserver postgres pgadmin redis redis-ts mongo-dev mongo-express
+      ;;
+  esac
+}
+
+data_services() {
+  case "$STACK_MODE" in
+    light)
+      printf '%s\n' influxdb1
+      ;;
+    pipeline)
+      printf '%s\n' influxdb1 zookeeper apache-kafka-broker1 mosquitto nifi
+      ;;
+    full)
+      printf '%s\n' influxdb1 zookeeper apache-kafka-broker1 control-center rabbitmq mosquitto nifi connect kafdrop
+      ;;
+  esac
+}
+
+data_build_services() {
+  case "$STACK_MODE" in
+    light)
+      return 0
+      ;;
+    pipeline)
+      printf '%s\n' nifi mqtt-publisher
+      ;;
+    full)
+      printf '%s\n' nifi mqtt-publisher connect
+      ;;
+  esac
+}
+
+app_core_services() {
+  printf '%s\n' django frontend client housekeeping
+}
+
+app_diagnostic_services() {
+  case "$STACK_MODE" in
+    light)
+      return 0
+      ;;
+    pipeline|full)
+      printf '%s\n' diagnostic-probes diagnostic-notifications-consumer diagnostic-warnings-consumer diagnostic-logs-consumer
+      ;;
+  esac
+}
+
 if [[ ! -f "$DEMO_DUMP" && -n "$BUNDLE_DIR" && -f "$BUNDLE_DIR/transfer/demo_dump.sql" ]]; then
   DEMO_DUMP="$BUNDLE_DIR/transfer/demo_dump.sql"
 fi
@@ -226,14 +291,22 @@ if load_offline_images; then
   OFFLINE_MODE=1
 fi
 
+mapfile -t DB_SERVICES < <(db_services)
+mapfile -t DATA_SERVICES < <(data_services)
+mapfile -t DATA_BUILD_SERVICES < <(data_build_services || true)
+mapfile -t APP_CORE_SERVICES < <(app_core_services)
+mapfile -t APP_DIAGNOSTIC_SERVICES < <(app_diagnostic_services || true)
+
 docker network inspect app_net >/dev/null 2>&1 || docker network create app_net >/dev/null
 
-docker compose --env-file "$ENV_FILE" -f "$DB_FILE" up -d
+docker compose --env-file "$ENV_FILE" -f "$DB_FILE" up -d "${DB_SERVICES[@]}"
 if [[ "$OFFLINE_MODE" == "1" ]]; then
-  docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" up -d --no-build
+  docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" up -d --no-build "${DATA_SERVICES[@]}"
 else
-  docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" build nifi connect
-  docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" up -d
+  if (( ${#DATA_BUILD_SERVICES[@]} > 0 )); then
+    docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" build "${DATA_BUILD_SERVICES[@]}"
+  fi
+  docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" up -d "${DATA_SERVICES[@]}"
 fi
 
 chmod +x "$RESTORE_SCRIPT"
@@ -253,20 +326,25 @@ fi
 
 if [[ "$OFFLINE_MODE" == "1" ]]; then
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm --no-deps django bash -lc "cd backend && python manage.py migrate"
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d --no-build
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d --no-build diagnostic-probes diagnostic-notifications-consumer diagnostic-warnings-consumer diagnostic-logs-consumer housekeeping
+  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d --no-build "${APP_CORE_SERVICES[@]}"
+  if (( ${#APP_DIAGNOSTIC_SERVICES[@]} > 0 )); then
+    docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d --no-build "${APP_DIAGNOSTIC_SERVICES[@]}"
+  fi
 else
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" build django frontend
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm django bash -lc "cd backend && python manage.py migrate"
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d diagnostic-probes diagnostic-notifications-consumer diagnostic-warnings-consumer diagnostic-logs-consumer housekeeping
+  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d "${APP_CORE_SERVICES[@]}"
+  if (( ${#APP_DIAGNOSTIC_SERVICES[@]} > 0 )); then
+    docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d "${APP_DIAGNOSTIC_SERVICES[@]}"
+  fi
 fi
 
 cat <<EOF
 Bootstrap completed for ${SERVER_IP}.
 
+Stack mode: ${STACK_MODE}
+
 Expected endpoints:
   http://${SERVER_IP}/
   http://${SERVER_IP}:8000/api/v1/health/
-  http://${SERVER_IP}:9000/
 EOF

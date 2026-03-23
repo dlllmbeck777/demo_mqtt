@@ -128,6 +128,32 @@ services:
     networks:
       - app_net
     logging: *default-logging
+  mqtt-publisher:
+    profiles:
+      - sim
+    restart: unless-stopped
+    image: mqtt-publisher:latest
+    build:
+      context: ../../
+      dockerfile: ./all_dockerfiles/local/mqtt-publisher/Dockerfile
+    depends_on:
+      - mosquitto
+    env_file:
+      - ../.env
+    environment:
+      MQTT_PUBLISHER_HOST: ${MQTT_PUBLISHER_HOST:-mosquitto}
+      MQTT_PUBLISHER_PORT: ${MQTT_PUBLISHER_PORT:-1883}
+      MQTT_PUBLISHER_TOPIC: ${MQTT_PUBLISHER_TOPIC:-iot-horasan-raw}
+      MQTT_PUBLISHER_TAG_IDS: ${MQTT_PUBLISHER_TAG_IDS:-plant.horasan.125.THC_2_BP1_CURRENT,plant.horasan.125.THC_2_BP2_CURRENT}
+      MQTT_PUBLISHER_INTERVAL_SECONDS: ${MQTT_PUBLISHER_INTERVAL_SECONDS:-5}
+      MQTT_PUBLISHER_BASE_VALUE: ${MQTT_PUBLISHER_BASE_VALUE:-320}
+      MQTT_PUBLISHER_JITTER: ${MQTT_PUBLISHER_JITTER:-10}
+      MQTT_PUBLISHER_QOS: ${MQTT_PUBLISHER_QOS:-0}
+      MQTT_PUBLISHER_USERNAME: ${MQTT_PUBLISHER_USERNAME:-}
+      MQTT_PUBLISHER_PASSWORD: ${MQTT_PUBLISHER_PASSWORD:-}
+    networks:
+      - app_net
+    logging: *default-logging
   nifi:
     build:
       context: ../../
