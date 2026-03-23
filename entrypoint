@@ -21,7 +21,11 @@ if [[ ! -x node_modules/.bin/react-scripts ]] \
   || [[ package-lock.json -nt node_modules/.package-lock.json ]]; then
   mkdir -p node_modules
   npm config set legacy-peer-deps true
-  npm install
+  if [[ -f package-lock.json ]]; then
+    npm ci --no-audit --no-fund
+  else
+    npm install --no-audit --no-fund
+  fi
 fi
 
 exec npm run start -- --host 0.0.0.0 --port "${PORT:-3000}"

@@ -51,6 +51,8 @@ services:
       - app_net
     logging: *default-logging
   pgadmin:
+    profiles:
+      - ops
     restart: on-failure
     image: dpage/pgadmin4:latest
     container_name: ligeiaai-pgadmin-1
@@ -103,6 +105,8 @@ services:
     logging: *default-logging
 
   mongo-express:
+    profiles:
+      - ops
     restart: on-failure
     container_name: mongo-express
     image: mongo-express

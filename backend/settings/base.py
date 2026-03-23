@@ -117,7 +117,6 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    "django.middleware.common.CommonMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -126,7 +125,6 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "apps.middleware.user_role.UserRoleMiddleware",
     "apps.middleware.change_db.ChangeDBMiddleware",
-    "apps.middleware.user_role.UserRoleMiddleware",
     "apps.middleware.logging.LoggingMiddleware",
     # "social_django.middleware.SocialAuthExceptionMiddleware",
 ]
