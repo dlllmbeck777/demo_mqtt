@@ -1,8 +1,9 @@
 import json
 import os
 import random
+import re
 import time
-from typing import List
+from typing import Dict, List
 
 import paho.mqtt.client as mqtt
 
@@ -17,15 +18,92 @@ def env_int(name: str, default: int) -> int:
     return int(value) if value else default
 
 
-def tag_ids() -> List[str]:
-    raw = os.environ.get(
-        "MQTT_PUBLISHER_TAG_IDS",
-        "plant.inkai.125.THC_2_BP1_CURRENT,plant.inkai.125.THC_2_BP2_CURRENT",
-    )
-    tags = [item.strip() for item in raw.split(",") if item.strip()]
-    if not tags:
-        raise RuntimeError("MQTT_PUBLISHER_TAG_IDS is empty")
-    return tags
+DEFAULT_PUMPS = [
+    ("OPZ", "P-2A"),
+    ("OPZ", "P-2B"),
+    ("OPZ", "P-2C"),
+    ("OPZ", "P-3A"),
+    ("OPZ", "P-3B"),
+    ("OPZ", "P-3C"),
+    ("OPZ", "P-85A"),
+    ("OPZ", "P-85B"),
+    ("OPZ", "P-85C"),
+    ("SAT-1", "POS 151/1"),
+    ("SAT-1", "POS 151/2"),
+    ("SAT-1", "POS 151/3"),
+    ("SAT-1", "POS 151/4"),
+    ("SAT-1", "POS 161/1"),
+    ("SAT-1", "POS 161/2"),
+    ("SAT-1", "POS 161/3"),
+    ("SAT-1", "POS 161/4"),
+    ("SAT-2", "P3-P-101A"),
+    ("SAT-2", "P3-P-101B"),
+    ("SAT-2", "P3-P-101C"),
+    ("SAT-2", "P3-P-111A"),
+    ("SAT-2", "P3-P-111B"),
+    ("SAT-2", "P3-P-111C"),
+]
+
+
+def slugify(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+
+def default_tag_id(layer: str, section: str, position: str) -> str:
+    return f"plant.{slugify(layer)}.{slugify(section)}.{slugify(position)}.current"
+
+
+def parse_pumps() -> List[Dict[str, str]]:
+    layer_name = os.environ.get("MQTT_PUBLISHER_LAYER", "Inkai").strip() or "Inkai"
+    raw = os.environ.get("MQTT_PUBLISHER_PUMPS", "").strip()
+    items = raw.split(";") if raw else []
+    pumps: List[Dict[str, str]] = []
+
+    if not items:
+        for section, position in DEFAULT_PUMPS:
+            pumps.append(
+                {
+                    "section": section,
+                    "position": position,
+                    "id": default_tag_id(layer_name, section, position),
+                }
+            )
+        return pumps
+
+    for item in items:
+        item = item.strip()
+        if not item:
+            continue
+
+        parts = [part.strip() for part in item.split("|")]
+        if len(parts) == 2:
+            section, position = parts
+            tag_id = default_tag_id(layer_name, section, position)
+        elif len(parts) == 3:
+            section, position, tag_id = parts
+            tag_id = tag_id or default_tag_id(layer_name, section, position)
+        else:
+            raise RuntimeError(
+                "MQTT_PUBLISHER_PUMPS item must be 'SECTION|POSITION' or 'SECTION|POSITION|TAG_ID'"
+            )
+
+        pumps.append({"section": section, "position": position, "id": tag_id})
+
+    if not pumps:
+        raise RuntimeError("MQTT_PUBLISHER_PUMPS is empty")
+
+    return pumps
+
+
+def publisher_items() -> List[Dict[str, str]]:
+    raw = os.environ.get("MQTT_PUBLISHER_TAG_IDS", "").strip()
+    if raw:
+        tags = [item.strip() for item in raw.split(",") if item.strip()]
+        if not tags:
+            raise RuntimeError("MQTT_PUBLISHER_TAG_IDS is empty")
+        return [{"section": "CUSTOM", "position": tag_id, "id": tag_id} for tag_id in tags]
+
+    return parse_pumps()
 
 
 HOST = os.environ.get("MQTT_PUBLISHER_HOST", "mosquitto").strip() or "mosquitto"
@@ -38,18 +116,18 @@ QOS = env_int("MQTT_PUBLISHER_QOS", 0)
 USERNAME = os.environ.get("MQTT_PUBLISHER_USERNAME", "").strip()
 PASSWORD = os.environ.get("MQTT_PUBLISHER_PASSWORD", "").strip()
 CLIENT_ID = os.environ.get("MQTT_PUBLISHER_CLIENT_ID", "mqtt-publisher-sim").strip() or "mqtt-publisher-sim"
-TAG_IDS = tag_ids()
+PUBLISH_ITEMS = publisher_items()
 
 
 def build_payload() -> dict:
     ts = int(time.time() * 1000)
     values = []
 
-    for index, tag_id in enumerate(TAG_IDS):
+    for index, item in enumerate(PUBLISH_ITEMS):
         offset = index * 5.0
         values.append(
             {
-                "id": tag_id,
+                "id": item["id"],
                 "v": round(BASE_VALUE + offset + random.uniform(-JITTER, JITTER), 2),
                 "t": ts,
             }
@@ -75,8 +153,11 @@ def connect() -> mqtt.Client:
 
 def main() -> None:
     client = connect()
+    item_descriptions = ",".join(
+        f"{item['section']}:{item['position']}={item['id']}" for item in PUBLISH_ITEMS
+    )
     print(
-        f"[mqtt-publisher] started host={HOST} port={PORT} topic={TOPIC} tags={','.join(TAG_IDS)}",
+        f"[mqtt-publisher] started host={HOST} port={PORT} topic={TOPIC} items={item_descriptions}",
         flush=True,
     )
 
