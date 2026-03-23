@@ -3,7 +3,8 @@ import re
 import uuid
 
 from django.core.management.base import BaseCommand, CommandError
-from django.db import transaction
+from django.core.management.color import no_style
+from django.db import connection, transaction
 from django.utils import timezone
 
 from apps.bi_dashbord.models import bi_dashboard
@@ -138,6 +139,7 @@ class Command(BaseCommand):
 
         try:
             with transaction.atomic():
+                self._reset_model_sequences()
                 self._normalize_dashboard_layers()
                 _company_id, root_id = self._resolve_company_and_root()
                 self._rename_item(root_id, "Inkai")
@@ -157,6 +159,18 @@ class Command(BaseCommand):
                 f"Inkai structure normalized. Renamed items: {len(self.renamed_items)}"
             )
         )
+
+    def _reset_model_sequences(self):
+        statements = connection.ops.sequence_reset_sql(
+            no_style(),
+            [item_property, item_link],
+        )
+        if not statements:
+            return
+
+        with connection.cursor() as cursor:
+            for statement in statements:
+                cursor.execute(statement)
 
     def _normalize_dashboard_layers(self):
         bi_dashboard.objects.filter(LAYER_NAME="Horasan").update(
