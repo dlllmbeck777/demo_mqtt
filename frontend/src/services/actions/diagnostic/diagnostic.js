@@ -30,6 +30,21 @@ const loadSystemStatus = () => async (dispatch, getState) => {
         payload: { column, row: [] }
     })
     try {
+        const snapshotResponse = await DiagnosticService.diagnosticSnapshot({
+            TIME: 168,
+            LAYER_NAME: layer,
+            DB_NAME: layer,
+            COLLECTION: "notifications",
+            CATEGORY: "system_health",
+        })
+        dispatch({
+            type: SET_SYSTEM_HEALTH_DIAGNOSTIC,
+            payload: { column, row: snapshotResponse?.data?.data || [] }
+        })
+    } catch (err) {
+        console.log(err);
+    }
+    try {
         sys_health = new W3CWebSocket(
             `${wsBaseUrl}/ws/notifications/${layer}/${uuidv4()}/`
         );
@@ -70,6 +85,21 @@ const loadCommunicationsStatus = (time) => async (dispatch, getState) => {
         type: SET_COMMUNICATIONS_STATUS_DIAGNOSTIC,
         payload: { column, row: [] }
     })
+    try {
+        const snapshotResponse = await DiagnosticService.diagnosticSnapshot({
+            TIME: 168,
+            LAYER_NAME: layer,
+            DB_NAME: layer,
+            COLLECTION: "warnings",
+            CATEGORY: "connectivity_status",
+        })
+        dispatch({
+            type: SET_COMMUNICATIONS_STATUS_DIAGNOSTIC,
+            payload: { column, row: snapshotResponse?.data?.data || [] }
+        })
+    } catch (err) {
+        console.log(err);
+    }
     try {
         communications_status = new W3CWebSocket(
             `${wsBaseUrl}/ws/communications/${layer}/${uuidv4()}/`

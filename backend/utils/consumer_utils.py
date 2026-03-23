@@ -319,7 +319,7 @@ def retrive_mongo_notifications(db_name, collections, query):
     collection = db[collections]
     # İlgili veriyi bulun
     projection = {"_id": 0}
-    latest_data = collection.find(query, projection)
+    latest_data = collection.find(query or {}, projection).sort([("time", DESCENDING)]).limit(500)
     # query["is_read"] = False
     data = []
     for item in latest_data:

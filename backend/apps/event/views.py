@@ -6,6 +6,7 @@ from .helpers import mongo_update_unread_notifications
 from utils.consumer_utils import retrive_mongo_notifications
 from .models import event
 from .paginations import SimplePaginations
+import re
 
 
 class MongoUpdateUnReadNotifications(APIView):
@@ -27,16 +28,29 @@ class AlarmsNotificationsView(APIView):
 
     def post(self, request, *args, **kwargs):
         current_time = datetime.now()
-        one_hour_ago = current_time - timedelta(hours=int(request.data.get("TIME")))
+        hours = int(request.data.get("TIME", 24))
+        one_hour_ago = current_time - timedelta(hours=hours)
         timestamp = int(one_hour_ago.timestamp()) * 1000
-        layer = request.data.get("LAYER_NAME")
-        db_name = request.data.get("DB_NAME")
-        query = {
-            "layer": layer,
-            "time": {"$gt": timestamp},
-        }
+        layer = str(request.data.get("LAYER_NAME", "")).strip()
+        db_name = str(request.data.get("DB_NAME", layer)).strip().lower()
+        collection_name = str(
+            request.data.get("COLLECTION")
+            or request.data.get("COLLECTION_NAME")
+            or request.data.get("collections")
+            or "notifications"
+        ).strip()
+        category = request.data.get("CATEGORY")
+        query = {"time": {"$gt": timestamp}}
+        if layer:
+            query["layer"] = {
+                "$regex": f"^{re.escape(layer)}$",
+                "$options": "i",
+            }
+        if category:
+            query["category"] = category
         kwargs = {
             "db_name": db_name,
+            "collections": collection_name,
             "query": query,
         }
         data = retrive_mongo_notifications(**kwargs)
