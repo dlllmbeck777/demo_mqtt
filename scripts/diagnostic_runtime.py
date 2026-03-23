@@ -19,8 +19,22 @@ def resolve_layer() -> str:
     return str(
         os.environ.get("DIAGNOSTIC_LAYER_NAME")
         or os.environ.get("COMPANY_NAME")
-        or "STD"
+        or "Inkai"
     ).strip().lower()
+
+
+def resolve_layer_db_name() -> str:
+    configured_db_name = (
+        os.environ.get("LEGACY_LAYER_DB_NAME")
+        or os.environ.get("LAYER_DB_NAME")
+    )
+    if configured_db_name:
+        return str(configured_db_name).strip().lower()
+
+    resolved_layer = resolve_layer()
+    if resolved_layer == "std":
+        return str(os.environ.get("PG_DB", "demo")).strip().lower()
+    return resolved_layer
 
 
 def kafka_host() -> str:
@@ -135,7 +149,7 @@ def write_pg_event(payload: Dict[str, Any]) -> None:
     conn = psycopg2.connect(
         host=os.environ.get("PG_HOST", "postgres"),
         port=os.environ.get("PG_PORT", "5432"),
-        database="horasan" if resolve_layer() == "horasan" else os.environ.get("PG_DB", "demo"),
+        database=resolve_layer_db_name(),
         user=os.environ.get("PG_USER", "postgres"),
         password=os.environ.get("PG_PASS", "postgres"),
     )
@@ -181,7 +195,7 @@ def write_pg_log(payload: Dict[str, Any]) -> None:
     conn = psycopg2.connect(
         host=os.environ.get("PG_HOST", "postgres"),
         port=os.environ.get("PG_PORT", "5432"),
-        database="horasan" if resolve_layer() == "horasan" else os.environ.get("PG_DB", "demo"),
+        database=resolve_layer_db_name(),
         user=os.environ.get("PG_USER", "postgres"),
         password=os.environ.get("PG_PASS", "postgres"),
     )

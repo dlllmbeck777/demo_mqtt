@@ -16,7 +16,7 @@ def resolve_layer_name(layer_name=None):
         layer_name
         or os.environ.get("DIAGNOSTIC_LAYER_NAME")
         or os.environ.get("COMPANY_NAME")
-        or "STD"
+        or "Inkai"
     )
     return str(value).strip().lower()
 

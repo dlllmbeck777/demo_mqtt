@@ -59,7 +59,10 @@ TARGET_PASSWORD="${TARGET_POSTGRES_PASSWORD:-manager}"
 DEFAULT_DB_NAME="${DEFAULT_DB_NAME:-$(get_env_value DEFAULT_DB_NAME)}"
 DEFAULT_DB_NAME="${DEFAULT_DB_NAME:-demo}"
 LAYER_DB_NAME="${LAYER_DB_NAME:-$(get_env_value LAYER_DB_NAME)}"
-LAYER_DB_NAME="${LAYER_DB_NAME:-horasan}"
+LAYER_DB_NAME="${LAYER_DB_NAME:-$(get_env_value LEGACY_LAYER_DB_NAME)}"
+LAYER_DB_NAME="${LAYER_DB_NAME:-$(get_env_value DIAGNOSTIC_LAYER_NAME)}"
+LAYER_DB_NAME="${LAYER_DB_NAME:-inkai}"
+LAYER_DB_NAME="$(printf '%s' "$LAYER_DB_NAME" | tr '[:upper:]' '[:lower:]')"
 
 docker compose --env-file "$ENV_FILE" -f "$DB_FILE" up -d postgres >/dev/null
 

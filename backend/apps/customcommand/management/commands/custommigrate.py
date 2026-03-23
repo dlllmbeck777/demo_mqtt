@@ -14,5 +14,5 @@ class Command(BaseCommand):
             database = database
             to_layerDb("STD")
             to_layerDb(database)
-            if database in ["STD", "Horasan"]:
+            if database in ["STD", "Inkai", "Horasan"]:
                 call_command("migrate", database="layer_db")

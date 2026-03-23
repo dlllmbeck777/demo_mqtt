@@ -36,7 +36,7 @@ const findMenuItem = (items, selectedItem) => {
 }
 
 const getOverviewSelectedItemKey = (getState) => {
-    const layer = String(getState()?.auth?.user?.active_layer || "STD").trim() || "STD"
+    const layer = String(getState()?.auth?.user?.active_layer || "Inkai").trim() || "Inkai"
     return `selectedItem:${layer}`
 }
 export const loadCollapseMenu = (path) => async dispatch => {

@@ -11,7 +11,7 @@ const apiVersion = process.env.REACT_APP_API_VERSION || "/api/v1";
 export const layerName = (
     process.env.REACT_APP_LAYER_NAME ||
     process.env.REACT_APP_DIAGNOSTIC_LAYER_NAME ||
-    "STD"
+    "Inkai"
 ).toLowerCase();
 
 export const wsBaseUrl = process.env.REACT_APP_WS_BASE_URL || defaultWsBaseUrl;

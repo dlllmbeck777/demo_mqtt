@@ -13,7 +13,7 @@ producer = KafkaProducer(
 
 
 def resolve_layer_name(explicit_layer_name=None, layer=None):
-    value = explicit_layer_name or layer or os.environ.get("DIAGNOSTIC_LAYER_NAME") or os.environ.get("COMPANY_NAME") or "STD"
+    value = explicit_layer_name or layer or os.environ.get("DIAGNOSTIC_LAYER_NAME") or os.environ.get("COMPANY_NAME") or "Inkai"
     return str(value).strip().lower()
 
 

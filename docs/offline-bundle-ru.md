@@ -76,13 +76,13 @@ bash offline_bundle/deploy-from-bundle.sh
 Можно передать свои переменные:
 
 ```bash
-SERVER_IP=65.109.174.58 TARGET_LAYER=Horasan bash offline_bundle/deploy-from-bundle.sh
+SERVER_IP=65.109.174.58 TARGET_LAYER=Inkai bash offline_bundle/deploy-from-bundle.sh
 ```
 
 Если нужно руками переопределить набор сервисов на целевом сервере:
 
 ```bash
-SERVER_IP=65.109.174.58 TARGET_LAYER=Horasan STACK_MODE=light bash offline_bundle/deploy-from-bundle.sh
+SERVER_IP=65.109.174.58 TARGET_LAYER=Inkai STACK_MODE=light bash offline_bundle/deploy-from-bundle.sh
 ```
 
 Скрипт сам:

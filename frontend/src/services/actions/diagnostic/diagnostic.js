@@ -18,7 +18,7 @@ let sys_health;
 let communications_status;
 
 const getLayerName = (getState) =>
-    String(getState()?.auth?.user?.active_layer || "STD").toLowerCase();
+    String(getState()?.auth?.user?.active_layer || "Inkai").toLowerCase();
 
 
 const loadSystemStatus = () => async (dispatch, getState) => {

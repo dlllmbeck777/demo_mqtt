@@ -16,7 +16,7 @@ import { uuidv4 } from "../../utils/uuidGenerator";
 import { add_error } from "../error";
 
 const getOverviewScope = (getState, linkId) => {
-  const layer = String(getState()?.auth?.user?.active_layer || "STD").trim() || "STD";
+  const layer = String(getState()?.auth?.user?.active_layer || "Inkai").trim() || "Inkai";
   return {
     tabListKey: `${layer}:${linkId}:tablist`,
     selectedTabKey: `${layer}:${linkId}:selectedTab`,

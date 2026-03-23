@@ -15,7 +15,7 @@ def get_collection(data_dict):
         data_dict.get("layer")
         or os.environ.get("DIAGNOSTIC_LAYER_NAME")
         or os.environ.get("COMPANY_NAME")
-        or "STD"
+        or "Inkai"
     ).strip().lower()
     mongo_db = client[layer_name]
     return mongo_db[Mongo_Db_Name]

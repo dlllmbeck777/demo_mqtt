@@ -8,11 +8,47 @@ import DoneIcon from "@mui/icons-material/Done";
 import MenuItems from "./menuItem";
 import Auth from "../../../services/api/auth";
 import { USER_LOADED_SUCCESS } from "../../../services/actions/types";
+
+const INTERNAL_LAYER = "STD";
+const PUBLIC_DEFAULT_LAYER = "Inkai";
+
 const Layer = ({ changeMenu, handleClose, menuItem }) => {
   const dispatch = useDispatch();
   const [enableLayers, setEnableLayers] = React.useState([]);
+  const user = useSelector((state) => state.auth?.user);
   const userLayers = useSelector((state) => state.auth?.user?.layer_name || []);
   const activeLayer = useSelector((state) => state.auth?.user?.active_layer);
+  const canSeeInternalLayer =
+    user?.is_superuser || user?.is_admin || user?.role?.ROLES_NAME === "Admin";
+
+  const normalizeLayers = React.useCallback(
+    (layers = []) => {
+      const filteredLayers = [...new Set(layers || [])].filter(
+        (layerName) => canSeeInternalLayer || layerName !== INTERNAL_LAYER
+      );
+
+      return filteredLayers.sort((left, right) => {
+        if (left === right) {
+          return 0;
+        }
+        if (left === PUBLIC_DEFAULT_LAYER) {
+          return -1;
+        }
+        if (right === PUBLIC_DEFAULT_LAYER) {
+          return 1;
+        }
+        if (left === INTERNAL_LAYER) {
+          return 1;
+        }
+        if (right === INTERNAL_LAYER) {
+          return -1;
+        }
+        return left.localeCompare(right);
+      });
+    },
+    [canSeeInternalLayer]
+  );
+
   const layerSelect = async (LAYER_NAME) => {
     try {
       if (!LAYER_NAME || LAYER_NAME === activeLayer) {
@@ -41,40 +77,14 @@ const Layer = ({ changeMenu, handleClose, menuItem }) => {
   React.useEffect(() => {
     async function myFunc() {
       if (userLayers?.length > 0) {
-        setEnableLayers(
-          [...userLayers].sort((left, right) => {
-            if (left === right) {
-              return 0;
-            }
-            if (left === "STD") {
-              return -1;
-            }
-            if (right === "STD") {
-              return 1;
-            }
-            return left.localeCompare(right);
-          })
-        );
+        setEnableLayers(normalizeLayers(userLayers));
         return;
       }
       let res = await Auth.userEnableLayer();
-      setEnableLayers(
-        [...(res.data || [])].sort((left, right) => {
-          if (left === right) {
-            return 0;
-          }
-          if (left === "STD") {
-            return -1;
-          }
-          if (right === "STD") {
-            return 1;
-          }
-          return left.localeCompare(right);
-        })
-      );
+      setEnableLayers(normalizeLayers(res.data || []));
     }
     myFunc();
-  }, [userLayers]);
+  }, [normalizeLayers, userLayers]);
   return (
     <>
       <MenuItem

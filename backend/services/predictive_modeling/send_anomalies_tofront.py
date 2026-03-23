@@ -9,10 +9,13 @@ import pytz
 layer_name = str(
     os.environ.get("DIAGNOSTIC_LAYER_NAME")
     or os.environ.get("COMPANY_NAME")
-    or "STD"
+    or "Inkai"
 ).strip().lower()
-predictive_db = os.environ.get("PREDICTIVE_MODELING_DB") or (
-    "horasan" if layer_name == "horasan" else os.environ.get("PG_DB", "demo")
+predictive_db = (
+    os.environ.get("PREDICTIVE_MODELING_DB")
+    or os.environ.get("LEGACY_LAYER_DB_NAME")
+    or os.environ.get("LAYER_DB_NAME")
+    or ("demo" if layer_name == "std" else layer_name)
 )
 
 # Connection details
@@ -87,6 +90,5 @@ for line in sys.stdin:
 
 #processed_data=process_data(procdata3)
 #print('finished')
-
 
 

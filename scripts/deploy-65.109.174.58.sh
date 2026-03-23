@@ -10,7 +10,7 @@ if [[ $# -gt 0 ]]; then
   shift
 fi
 
-TARGET_LAYER="${TARGET_LAYER:-${DIAGNOSTIC_LAYER_NAME:-STD}}"
+TARGET_LAYER="${TARGET_LAYER:-${DIAGNOSTIC_LAYER_NAME:-${COMPANY_NAME:-Inkai}}}"
 export TARGET_LAYER
 
 exec "$ROOT_DIR/scripts/bootstrap-historical-stack.sh" "$TARGET_IP" "$@"

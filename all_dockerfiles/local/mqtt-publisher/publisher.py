@@ -20,7 +20,7 @@ def env_int(name: str, default: int) -> int:
 def tag_ids() -> List[str]:
     raw = os.environ.get(
         "MQTT_PUBLISHER_TAG_IDS",
-        "plant.horasan.125.THC_2_BP1_CURRENT,plant.horasan.125.THC_2_BP2_CURRENT",
+        "plant.inkai.125.THC_2_BP1_CURRENT,plant.inkai.125.THC_2_BP2_CURRENT",
     )
     tags = [item.strip() for item in raw.split(",") if item.strip()]
     if not tags:
@@ -30,7 +30,7 @@ def tag_ids() -> List[str]:
 
 HOST = os.environ.get("MQTT_PUBLISHER_HOST", "mosquitto").strip() or "mosquitto"
 PORT = env_int("MQTT_PUBLISHER_PORT", 1883)
-TOPIC = os.environ.get("MQTT_PUBLISHER_TOPIC", "iot-horasan-raw").strip() or "iot-horasan-raw"
+TOPIC = os.environ.get("MQTT_PUBLISHER_TOPIC", "iot-inkai-raw").strip() or "iot-inkai-raw"
 INTERVAL_SECONDS = env_float("MQTT_PUBLISHER_INTERVAL_SECONDS", 5.0)
 BASE_VALUE = env_float("MQTT_PUBLISHER_BASE_VALUE", 320.0)
 JITTER = env_float("MQTT_PUBLISHER_JITTER", 10.0)

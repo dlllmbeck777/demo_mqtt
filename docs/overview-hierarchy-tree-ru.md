@@ -183,7 +183,7 @@ from apps.item_link.models import item_link
 parent_id = "PARENT_ITEM_ID"
 parent_type = "PUT_PARENT_ITEM_TYPE_HERE"
 child_type = "BATTERY_ITEM"
-layer_name = "Horasan"
+layer_name = "Inkai"
 node_name = "THC 2 - BP5"
 
 now = int(time() * 1000)

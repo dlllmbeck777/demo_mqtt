@@ -6,7 +6,7 @@ base_url = os.environ.get("NIFI_API_URL")
 layer_name = str(
     os.environ.get("DIAGNOSTIC_LAYER_NAME")
     or os.environ.get("COMPANY_NAME")
-    or "STD"
+    or "Inkai"
 ).strip().lower()
 process_group_name = (
     os.environ.get("NIFI_DIAGNOSTIC_PROCESS_GROUP_NAME")

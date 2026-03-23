@@ -1,6 +1,7 @@
 from .library import *
 
 from apps.layer.helpers import get_std_db_alias, to_layerDb
+from .helpers import public_active_layer_name, visible_layer_names
 
 
 class UserCheckView(generics.GenericAPIView):
@@ -30,7 +31,9 @@ class UserLayersView(generics.ListAPIView):
         try:
             alias = get_std_db_alias()
             user = User.objects.using(alias).filter(email=str(request.user)).first()
-            layers = user.layer_name.all().values_list("LAYER_NAME", flat=True)
+            if not user:
+                return Response([], status=status.HTTP_200_OK)
+            layers = visible_layer_names(user, alias)
             return Response(layers, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
@@ -81,23 +84,18 @@ class UserDetails(generics.ListAPIView):
 
             data = serializer.data
             if std_user:
-                data["layer_name"] = list(
-                    std_user.layer_name.values_list("LAYER_NAME", flat=True)
-                )
-                data["active_layer"] = (
-                    std_user.active_layer.LAYER_NAME if std_user.active_layer else "STD"
-                )
+                data["layer_name"] = visible_layer_names(std_user, std_alias)
+                data["active_layer"] = public_active_layer_name(std_user, std_alias)
                 return Response(data, status=status.HTTP_200_OK)
             try:
-                data["layer_name"] = list(
-                    source_user.layer_name.values_list("LAYER_NAME", flat=True)
-                )
-                data["active_layer"] = source_user.active_layer.LAYER_NAME
+                data["layer_name"] = visible_layer_names(source_user, std_alias)
+                data["active_layer"] = public_active_layer_name(source_user, std_alias)
             except:
                 # print(user)
                 to_layerDb("STD")
                 user = User.objects.filter(email=request.user)[0]
-                data["active_layer"] = user.active_layer.LAYER_NAME
+                data["layer_name"] = visible_layer_names(user, std_alias)
+                data["active_layer"] = public_active_layer_name(user, std_alias)
             return Response(data, status=status.HTTP_200_OK)
         except Exception as e:
             print(str(e))

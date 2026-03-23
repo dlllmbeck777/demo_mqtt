@@ -32,7 +32,7 @@ layer_slug = str(
     os.environ.get("LEGACY_LAYER_NAME")
     or os.environ.get("DIAGNOSTIC_LAYER_NAME")
     or os.environ.get("COMPANY_NAME")
-    or "STD"
+    or "Inkai"
 ).strip().lower()
 bootstrap_servers = os.environ.get(
     "LEGACY_COUCH_KAFKA_BOOTSTRAP_SERVERS",

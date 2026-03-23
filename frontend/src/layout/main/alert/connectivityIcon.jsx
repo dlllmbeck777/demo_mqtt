@@ -31,7 +31,7 @@ const AlertIcon = () => {
     asyncGetTooltipText();
   }, [CULTURE]);
   React.useEffect(() => {
-    const currentLayer = String(layer || "STD").toLowerCase();
+    const currentLayer = String(layer || "Inkai").toLowerCase();
     const alarms = new W3CWebSocket(
       `${wsBaseUrl}/ws/last/warnings/${currentLayer}/`
     );

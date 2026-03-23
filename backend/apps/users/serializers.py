@@ -15,7 +15,7 @@ from utils.validations import CustomValidationError400, CustomValidationError404
 # from .models import User
 from utils.utils import validate_email as email_is_valid
 
-from .helpers import send_forget_password_mail
+from .helpers import PUBLIC_DEFAULT_LAYER, send_forget_password_mail
 
 User = get_user_model()
 
@@ -78,13 +78,16 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         try:
-            validated_data["role"] = roles.objects.get(
-                LAYER_NAME="Inkai", ROLES_NAME="User"
-            )
+            validated_data["role"] = roles.objects.filter(
+                LAYER_NAME=PUBLIC_DEFAULT_LAYER, ROLES_NAME="User"
+            ).first() or roles.objects.get(LAYER_NAME="STD", ROLES_NAME="User")
             user = User.objects.create(**validated_data)
-            user.layer_name.set(["STD"])
-
-            user.active_layer = layer.objects.get(LAYER_NAME="STD")
+            preferred_layer = layer.objects.filter(LAYER_NAME=PUBLIC_DEFAULT_LAYER).first()
+            layer_names = ["STD"]
+            if preferred_layer and preferred_layer.LAYER_NAME != "STD":
+                layer_names.append(preferred_layer.LAYER_NAME)
+            user.layer_name.set(layer_names)
+            user.active_layer = preferred_layer or layer.objects.get(LAYER_NAME="STD")
             user.set_password(validated_data["password"])
             user.save()
             return user
@@ -120,9 +123,12 @@ class LayerUserRegistrationSerializer(serializers.ModelSerializer):
             print(validated_data)
             validated_data["role"] = roles.objects.get(ROLES_ID=validated_data["role"])
             user = User.objects.create(**validated_data)
-            user.layer_name.set(["STD"])
-
-            user.active_layer = layer.objects.get(LAYER_NAME="")
+            preferred_layer = layer.objects.filter(LAYER_NAME=PUBLIC_DEFAULT_LAYER).first()
+            layer_names = ["STD"]
+            if preferred_layer and preferred_layer.LAYER_NAME != "STD":
+                layer_names.append(preferred_layer.LAYER_NAME)
+            user.layer_name.set(layer_names)
+            user.active_layer = preferred_layer or layer.objects.get(LAYER_NAME="STD")
             user.set_password(validated_data["password"])
             user.save()
             return user

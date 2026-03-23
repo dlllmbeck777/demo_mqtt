@@ -132,7 +132,7 @@ DEPLOY_ROOT="${DEPLOY_ROOT:-$HOME/offline_bundle_deploy}"
 PROJECT_DIR="${PROJECT_DIR:-$DEPLOY_ROOT/demo_mqtt}"
 PROJECT_ARCHIVE="$BUNDLE_DIR/demo_mqtt-project.tar.gz"
 SERVER_IP="${SERVER_IP:-$(hostname -I | awk '{print $1}')}"
-TARGET_LAYER="${TARGET_LAYER:-Horasan}"
+TARGET_LAYER="${TARGET_LAYER:-Inkai}"
 STACK_MODE="${STACK_MODE:-__DEFAULT_STACK_MODE__}"
 
 if [[ ! -f "$PROJECT_ARCHIVE" ]]; then
@@ -211,5 +211,5 @@ On the target server:
   2. run: bash $BUNDLE_DIR/deploy-from-bundle.sh
 
 Optional:
-  SERVER_IP=YOUR_SERVER_IP TARGET_LAYER=Horasan bash $BUNDLE_DIR/deploy-from-bundle.sh
+  SERVER_IP=YOUR_SERVER_IP TARGET_LAYER=Inkai bash $BUNDLE_DIR/deploy-from-bundle.sh
 EOF

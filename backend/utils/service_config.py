@@ -16,9 +16,9 @@ def _slug(value, fallback):
 DEFAULT_LAYER_NAME = _slug(
     _get_env(
         "REACT_APP_LAYER_NAME",
-        _get_env("DIAGNOSTIC_LAYER_NAME", _get_env("COMPANY_NAME", "STD")),
+        _get_env("DIAGNOSTIC_LAYER_NAME", _get_env("COMPANY_NAME", "Inkai")),
     ),
-    "std",
+    "inkai",
 )
 
 DEFAULT_BACKEND_API_BASE_URL = _get_env("DEFAULT_BACKEND_API_BASE_URL", "http://localhost:8000")

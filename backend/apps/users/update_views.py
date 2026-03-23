@@ -6,6 +6,7 @@ import json
 from apps.user_settings.models import user_settings
 from apps.layer.helpers import change_db, get_std_db_alias
 from django.db import connections
+from .helpers import public_active_layer_name, visible_layer_names
 
 
 class UserInfoUpdateView(generics.GenericAPIView):
@@ -49,20 +50,35 @@ class UserActiveLayerUpdateView(generics.GenericAPIView):
         try:
             alias = get_std_db_alias()
             user = User.objects.using(alias).filter(email=str(request.user)).first()
+            if not user:
+                return Response({"message": "User not found"}, status=404)
+
+            allowed_layers = visible_layer_names(user, alias)
+            requested_layer = request.data.get("LAYER_NAME")
+            if requested_layer not in allowed_layers:
+                return Response(
+                    {
+                        "message": (
+                            f"Layer '{requested_layer}' is not available for this user."
+                        )
+                    },
+                    status=403,
+                )
+
             find_layer = (
                 layer.objects.using(alias)
-                .filter(LAYER_NAME=request.data.get("LAYER_NAME"))
+                .filter(LAYER_NAME=requested_layer)
                 .first()
             )
+            if not find_layer:
+                return Response({"message": "Layer not found"}, status=404)
             user.active_layer = find_layer
             user.save(using=alias)
             serializer = self.serializer_class(user)
             data = serializer.data
             user = User.objects.using(alias).filter(email=str(request.user))[0]
-            data["layer_name"] = list(
-                user.layer_name.values_list("LAYER_NAME", flat=True)
-            )
-            data["active_layer"] = user.active_layer.LAYER_NAME
+            data["layer_name"] = visible_layer_names(user, alias)
+            data["active_layer"] = public_active_layer_name(user, alias)
 
             return Response(data, status=status.HTTP_200_OK)
         except Exception as e:
