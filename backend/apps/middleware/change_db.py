@@ -1,8 +1,6 @@
 from rest_framework.authentication import TokenAuthentication
 from apps.users.models import User
 from apps.layer.helpers import change_db, get_std_db_alias, to_layerDb
-from django.db import connection, connections
-from django.db import DEFAULT_DB_ALIAS
 
 
 class ChangeDBMiddleware:
@@ -10,15 +8,14 @@ class ChangeDBMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        to_layerDb("STD")
-        layers = self.getActiveLayer(request.user)
-        self.changeDbConnections(layers)
-        self.request = request
-        request.active_layers = layers
-        # print(request.path)
-        response = self.get_response(request)
-        connections[DEFAULT_DB_ALIAS] = connections["default"]
-        return response
+        try:
+            to_layerDb("STD")
+            layers = self.getActiveLayer(request.user)
+            self.changeDbConnections(layers)
+            request.active_layers = layers
+            return self.get_response(request)
+        finally:
+            change_db("default")
 
     def getActiveLayer(self, user):
         if not getattr(user, "is_authenticated", False):

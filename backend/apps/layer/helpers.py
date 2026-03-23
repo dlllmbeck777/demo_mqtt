@@ -1,3 +1,4 @@
+import copy
 import subprocess
 from django.db import connection, connections
 from django.db.utils import ProgrammingError
@@ -23,10 +24,11 @@ from utils.service_config import (
 
 env = environ.Env(DEBUG=(bool, False))
 logger = logging.getLogger(__name__)
+BASE_DEFAULT_DB_SETTINGS = copy.deepcopy(settings.DATABASES[DEFAULT_DB_ALIAS])
 
 
 def getDefaultDBSettings():
-    return settings.DATABASES["default"].copy()
+    return copy.deepcopy(BASE_DEFAULT_DB_SETTINGS)
 
 
 def get_std_db_alias():
@@ -39,9 +41,13 @@ def get_std_db_alias():
 def to_layerDb(layers):
     try:
         change_db("default")
+        if not layers or layers == "STD":
+            return change_db("default")
+
         user_db_settings = getDefaultDBSettings()
+        alias = get_std_db_alias()
         active_db_settings = (
-            layer.objects.filter(LAYER_NAME=layers).values("DB_SETTINGS").first()
+            layer.objects.using(alias).filter(LAYER_NAME=layers).values("DB_SETTINGS").first()
         )
         if not active_db_settings:
             return change_db("default")
@@ -52,27 +58,37 @@ def to_layerDb(layers):
 
         user_db_settings.update(db_settings)
 
-        user_db_settings["NAME"] = user_db_settings["NAME"].lower()
+        db_name = str(user_db_settings.get("NAME") or "").strip()
+        if not db_name:
+            return change_db("default")
+
+        user_db_settings["NAME"] = db_name.lower()
 
         settings.DATABASES["layer_db"] = user_db_settings
 
         connections["layer_db"].settings_dict = settings.DATABASES["layer_db"]
 
-        change_db("layer_db")
+        return change_db("layer_db")
 
     except Exception as e:
         logger.warning("Falling back to default DB for layer '%s': %s", layers, e)
-        change_db("default")
+        return change_db("default")
 
 
 def change_db(db_type):
-    # print(connections.all())
-  
-    for connection in connections.all():
+    if db_type == DEFAULT_DB_ALIAS:
+        target_settings = getDefaultDBSettings()
+    else:
+        if db_type not in settings.DATABASES:
+            raise KeyError(f"Unknown database alias: {db_type}")
+        target_settings = settings.DATABASES[db_type].copy()
 
-            connection.close()
-   
-    connections[DEFAULT_DB_ALIAS] = connections[db_type]
+    for connection in connections.all():
+        connection.close()
+
+    settings.DATABASES[DEFAULT_DB_ALIAS] = target_settings
+    connections[DEFAULT_DB_ALIAS].settings_dict = settings.DATABASES[DEFAULT_DB_ALIAS]
+    return DEFAULT_DB_ALIAS
 
     
 
