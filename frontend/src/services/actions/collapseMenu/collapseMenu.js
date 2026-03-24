@@ -16,20 +16,29 @@ import { persistTreeViewDocument } from "../treeview/treeview"
 const OVERVIEW_HIERARCHY_PERSIST_DELAY_MS = 300
 let overviewHierarchyPersistTimer = null
 
-const findMenuItem = (items, selectedItem) => {
+const encodeOverviewSegment = (value = "") =>
+    String(value || "").replaceAll("/", "U+002F")
+
+const findMenuItem = (items, selectedItem, currentPath = "overview") => {
     if (!selectedItem) {
         return null
     }
 
     for (const item of items || []) {
-        if (
-            item?.FROM_ITEM_ID === selectedItem?.FROM_ITEM_ID ||
-            item?.path === selectedItem?.path
-        ) {
-            return item
+        const itemPath = `${currentPath}/${encodeOverviewSegment(item?.FROM_ITEM_NAME)}`
+        const itemWithPath = {
+            ...item,
+            path: itemPath,
         }
 
-        const child = findMenuItem(item?.CHILD, selectedItem)
+        if (
+            itemWithPath?.FROM_ITEM_ID === selectedItem?.FROM_ITEM_ID ||
+            itemWithPath?.path === selectedItem?.path
+        ) {
+            return itemWithPath
+        }
+
+        const child = findMenuItem(item?.CHILD, selectedItem, itemPath)
         if (child) {
             return child
         }
@@ -254,7 +263,11 @@ export const checkLastOpenItem = () => async (dispatch, getState) => {
             })
             try {
                 await dispatch(loadTapsOverview());
-                history.push(`/${selectedItem.path}`);
+                if (selectedItem?.path?.startsWith("overview/")) {
+                    history.push(`/${selectedItem.path}`);
+                } else {
+                    history.push(`/overview`);
+                }
             } catch (err) {
                 dispatch(cleanTabs())
                 history.push(`/overview`)

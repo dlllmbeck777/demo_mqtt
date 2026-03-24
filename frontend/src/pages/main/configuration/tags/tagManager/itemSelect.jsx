@@ -10,7 +10,7 @@ export const TransactionTypeSelect = () => {
   );
   const culture = useSelector((state) => state.lang.cultur);
   const defaultValue = useSelector(
-    (state) => state.tags.saveValues.TRANSACTION_TYPE
+    (state) => state.tags.saveValues?.TRANSACTION_TYPE
   );
   const dispatch = useDispatch();
   const [values, setvalues] = React.useState([]);
@@ -45,7 +45,9 @@ export const TransactionTypeSelect = () => {
         let res = await instance.post("/tags/links/", body, config());
         if (!ignore) {
           setvalues(res.data);
-          loadItems(defaultValue);
+          if (defaultValue) {
+            loadItems(defaultValue);
+          }
         }
       } catch (err) {
         console.log(err);
@@ -73,15 +75,16 @@ export const TransactionTypeSelect = () => {
 export const TransactionPropertySelect = () => {
   const dispatch = useDispatch();
   const values = useSelector((state) => state.tags.items);
-  const defaultValue = useSelector((state) => state.tags.saveValues.ITEM_ID);
+  const defaultValue = useSelector((state) => state.tags.saveValues?.ITEM_ID);
 
   const handleChangeFunc = async (value) => {
+    const selectedValue = values.find((e) => e.ITEM_ID === value);
     dispatch(setIsActiveConfirmation(true));
     dispatch(addSaveTagValue("ITEM_ID", value));
     dispatch(
       addSaveTagValue(
         "TRANSACTION_PROPERTY",
-        values.find((e) => e.ITEM_ID === value).PROPERTY_STRING
+        selectedValue?.PROPERTY_STRING || ""
       )
     );
   };

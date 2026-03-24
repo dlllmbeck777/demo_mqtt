@@ -17,8 +17,8 @@ const Uom = () => {
   const [qt, setqt] = React.useState([]);
   const [uom, setuom] = React.useState([]);
 
-  const tagId = useSelector((state) => state.treeview.selectedItem.TAG_ID);
-  const UOM_CODE = useSelector((state) => state.tags.saveValues.UOM_CODE);
+  const tagId = useSelector((state) => state.treeview.selectedItem?.TAG_ID);
+  const UOM_CODE = useSelector((state) => state.tags.saveValues?.UOM_CODE);
 
   React.useEffect(() => {
     const myFunc = async () => {
