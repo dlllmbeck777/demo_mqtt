@@ -131,6 +131,17 @@ SET active_layer_id = '${TARGET_LAYER_NAME}'
 WHERE active_layer_id = 'Horasan'
   AND '${TARGET_LAYER_NAME}' <> 'Horasan';
 
+INSERT INTO public.users_user_layer_name (user_id, layer_id)
+SELECT u.id, u.active_layer_id
+FROM public.users_user u
+WHERE u.active_layer_id IS NOT NULL
+  AND NOT EXISTS (
+    SELECT 1
+    FROM public.users_user_layer_name existing
+    WHERE existing.user_id = u.id
+      AND existing.layer_id = u.active_layer_id
+  );
+
 COMMIT;
 SQL
 
