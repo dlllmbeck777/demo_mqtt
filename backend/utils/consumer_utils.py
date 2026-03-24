@@ -1,5 +1,3 @@
-from apps.tags.models import tags
-from apps.tags.serializers import TagsFieldsSerializer
 import threading
 from influxdb_client import InfluxDBClient
 from pymongo import MongoClient, DESCENDING
@@ -18,10 +16,22 @@ from utils.service_config import (
 INFLUX_BUCKET = INFLUX_LIVE_BUCKET
 
 
+def _get_tags_queryset(tag_id):
+    from apps.tags.models import tags
+
+    return tags.objects.filter(TAG_ID=tag_id)
+
+
+def _serialize_tag(tag_queryset):
+    from apps.tags.serializers import TagsFieldsSerializer
+
+    return TagsFieldsSerializer(tag_queryset, many=True).data[0]
+
+
 def find_tag(tag_id):
-    tag = tags.objects.filter(TAG_ID=tag_id)
+    tag = _get_tags_queryset(tag_id)
     if tag:
-        serializer = TagsFieldsSerializer(tag, many=True).data[0]
+        serializer = _serialize_tag(tag)
         # asset, tag_name = serializer.get("NAME").split(".")
         # return tag_name, asset
         return serializer.get("NAME")
