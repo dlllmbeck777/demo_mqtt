@@ -7,7 +7,7 @@ import {
 } from "../types"
 
 import { uuidv4 } from "../../utils/uuidGenerator"
-import { loadTapsOverview, updateLayouts } from "./taps"
+import { invalidateOverviewDashboardCache, loadTapsOverview, updateLayouts } from "./taps"
 import Overview from "../../api/overview"
 import { add_error } from "../error"
 import TypeService from "../../api/type"
@@ -185,6 +185,7 @@ export const saveNewChart = () => async (dispatch, getState) => {
     const selected = getState().tapsOverview.selectedIndex
     const dashboardId = getState().tapsOverview.widgets[title[selected]].ROW_ID
     const layer = getState().auth.user.active_layer
+    const selectedItemId = getState().collapseMenu.selectedItem?.FROM_ITEM_ID
     const uuid = uuidv4()
     try {
         const WIDGET = {
@@ -199,6 +200,7 @@ export const saveNewChart = () => async (dispatch, getState) => {
         console.log(JSON.stringify(body));
         await dispatch(updateLayouts())
         let res = await Overview.createWidget(body)
+        invalidateOverviewDashboardCache(getState, selectedItemId)
         dispatch(add_error(res.data?.status_message?.SHORT_LABEL, res.data?.status_code));
         dispatch(loadTapsOverview())
     }

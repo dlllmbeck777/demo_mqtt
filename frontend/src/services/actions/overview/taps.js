@@ -15,6 +15,10 @@ import axios from "axios";
 import { uuidv4 } from "../../utils/uuidGenerator";
 import { add_error } from "../error";
 
+const dashboardResponseCache = new Map();
+const dashboardResponsePromiseCache = new Map();
+let selectedTabPersistTimer = null;
+
 const getOverviewScope = (getState, linkId) => {
   const layer = String(getState()?.auth?.user?.active_layer || "Inkai").trim() || "Inkai";
   return {
@@ -25,6 +29,22 @@ const getOverviewScope = (getState, linkId) => {
     legacySelectedTabKey: `${linkId}selectedTab`,
     legacySelectedTabTitleKey: `${linkId}selectedTabTitle`,
   };
+};
+
+const getDashboardCacheKey = (getState, linkId) => {
+  const layer = String(getState()?.auth?.user?.active_layer || "Inkai").trim() || "Inkai";
+  const culture = String(getState()?.lang?.cultur || "en").trim() || "en";
+  return `${layer}:${culture}:${linkId}`;
+};
+
+export const invalidateOverviewDashboardCache = (getState, linkId) => {
+  if (!linkId) {
+    return;
+  }
+
+  const cacheKey = getDashboardCacheKey(getState, linkId);
+  dashboardResponseCache.delete(cacheKey);
+  dashboardResponsePromiseCache.delete(cacheKey);
 };
 
 const clampSelectedIndex = (value, titles) => {
@@ -70,12 +90,25 @@ export const loadTapsOverview = () => async (dispatch, getState) => {
       cancelToken.cancel()
     }
     cancelToken = axios.CancelToken.source();
+    const cacheKey = getDashboardCacheKey(getState, linkId);
     const body = JSON.stringify({ ITEM_ID: linkId })
-    let res = await Overview.getDashboards(body, cancelToken)
-    console.log(res);
+    let responseData = dashboardResponseCache.get(cacheKey);
+
+    if (!responseData) {
+      let pendingRequest = dashboardResponsePromiseCache.get(cacheKey);
+      if (!pendingRequest) {
+        pendingRequest = Overview.getDashboards(body, cancelToken).then((res) => res.data);
+        dashboardResponsePromiseCache.set(cacheKey, pendingRequest);
+      }
+
+      responseData = await pendingRequest;
+      dashboardResponseCache.set(cacheKey, responseData);
+      dashboardResponsePromiseCache.delete(cacheKey);
+    }
+
     var titles;
 
-    var widgets = res.data;
+    var widgets = responseData;
     var data = {}
     let setting = await ProfileService.getState({ "key": "overview_settings" })
     const {
@@ -92,7 +125,7 @@ export const loadTapsOverview = () => async (dispatch, getState) => {
       setting?.data?.overview_settings?.[legacyTabListKey];
 
     if (savedTabList) {
-      titles = Object.keys(res.data);
+      titles = Object.keys(responseData);
       let tempList = []
       Promise.all(
         tempList = savedTabList.filter((item) => titles.includes(item))
@@ -107,7 +140,7 @@ export const loadTapsOverview = () => async (dispatch, getState) => {
       titles = tempList
 
     } else {
-      titles = Object.keys(res.data);
+      titles = Object.keys(responseData);
     }
     const savedSelectedTitle =
       setting?.data?.overview_settings?.[selectedTabTitleKey] ??
@@ -138,6 +171,7 @@ export const loadTapsOverview = () => async (dispatch, getState) => {
     dispatch(setTapsLoaderFalse());
     return Promise.resolve(titles)
   } catch (err) {
+    invalidateOverviewDashboardCache(getState, linkId);
     console.log(err);
     dispatch(cleanTabs());
     dispatch(setTapsLoaderFalse());
@@ -158,19 +192,28 @@ export const selectTab = (payload) => async (dispatch, getState) => {
     type: SET_SELECT_TAB_ITEM_INDEX,
     payload: selectedIndex,
   });
-  try {
-    let res = await ProfileService.getState({ "key": "overview_settings" })
-    let ok = await ProfileService.updateProfileSettings({
-      overview_settings: {
-        ...res.data?.overview_settings,
-        [selectedTabKey]: selectedIndex,
-        [selectedTabTitleKey]: selectedTitle,
-      }
-    })
-    return ok
-  } catch (err) {
-    console.log(err);
+
+  if (selectedTabPersistTimer) {
+    clearTimeout(selectedTabPersistTimer)
   }
+
+  selectedTabPersistTimer = setTimeout(async () => {
+    selectedTabPersistTimer = null
+    try {
+      let res = await ProfileService.getState({ "key": "overview_settings" })
+      await ProfileService.updateProfileSettings({
+        overview_settings: {
+          ...res.data?.overview_settings,
+          [selectedTabKey]: selectedIndex,
+          [selectedTabTitleKey]: selectedTitle,
+        }
+      })
+    } catch (err) {
+      console.log(err);
+    }
+  }, 250)
+
+  return Promise.resolve(selectedIndex)
 };
 
 export const cleanTabs = () => (dispatch) => {
@@ -179,11 +222,12 @@ export const cleanTabs = () => (dispatch) => {
   });
 };
 
-export const deleteChart = (id) => async (dispatch) => {
+export const deleteChart = (id) => async (dispatch, getState) => {
   const body = JSON.stringify({ WIDGET_ID: id });
   try {
     await dispatch(updateLayouts())
     let res = await Overview.removeWidget(body)
+    invalidateOverviewDashboardCache(getState, getState().collapseMenu.selectedItem?.FROM_ITEM_ID)
     console.log(res);
     dispatch(add_error(res.data?.status_message?.SHORT_LABEL, res.data?.status_code));
     dispatch(loadTapsOverview());
@@ -223,6 +267,7 @@ export const addNewTabItem = () => async (dispatch, getState) => {
   })
   try {
     let message = await Overview.updateDashboards(body)
+    invalidateOverviewDashboardCache(getState, selectedItemID)
 
     let response = await dispatch(loadTapsOverview());
     dispatch(add_error(message.data?.status_message?.SHORT_LABEL, message.data?.status_code));
@@ -270,6 +315,7 @@ export const updateTabHeader =
       })
       try {
         let message = await Overview.updateDashboards(body)
+        invalidateOverviewDashboardCache(getState, linkId)
         var index = titles.indexOf(oldHeader);
         if (index !== -1) {
           titles[index] = newHeader;
@@ -308,6 +354,7 @@ export const deleteTapHeader = (header) => async (dispatch, getState) => {
     dispatch(updateLayouts())
     const body = JSON.stringify({ ROW_ID: dashboard.ROW_ID })
     let res = await Overview.removeDashboards(body)
+    invalidateOverviewDashboardCache(getState, selectedItem)
     console.log(res);
     dispatch(add_error(res.data?.status_message?.SHORT_LABEL, res.data?.status_code));
     let newIndex = 0;
@@ -401,6 +448,7 @@ export const dublicateDashboard = (id) => async (dispatch, getState) => {
   const dashboard = getState().tapsOverview.widgets[id]
   try {
     let res = await Overview.dublicateDashboard({ ROW_ID: dashboard.ROW_ID })
+    invalidateOverviewDashboardCache(getState, getState().collapseMenu.selectedItem?.FROM_ITEM_ID)
     dispatch(loadTapsOverview())
     dispatch(add_error(res.data?.status_message?.SHORT_LABEL, res.data?.status_code))
   } catch (err) {
@@ -469,6 +517,7 @@ export const handlePaste = () => async (dispatch, getState) => {
   const copy = getState().tapsOverview.copy
   try {
     let res = await Overview.pasteOneDash({ DATA: copy, TO_ITEM_ID })
+    invalidateOverviewDashboardCache(getState, TO_ITEM_ID)
     dispatch(loadTapsOverview())
   } catch (err) {
     console.log(err);
@@ -489,6 +538,7 @@ export const deleteAllTabs = () => async (dispatch, getState) => {
   const FROM_ITEM_ID = getState().collapseMenu?.selectedItem?.FROM_ITEM_ID
   try {
     let res = await Overview.deleteAllTab({ FROM_ITEM_ID })
+    invalidateOverviewDashboardCache(getState, FROM_ITEM_ID)
     dispatch(loadTapsOverview())
   } catch (err) {
     console.log(err);
