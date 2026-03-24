@@ -94,7 +94,7 @@ PY
 ```bash
 cd ~/mqtt_broker/demo_mqtt
 docker compose --env-file docker-compose/.env -f docker-compose/app/docker-compose.yml build django frontend
-docker compose --env-file docker-compose/.env -f docker-compose/app/docker-compose.yml run --rm django bash -lc "cd backend && python manage.py migrate"
+docker compose --env-file docker-compose/.env -f docker-compose/app/docker-compose.yml run --rm django bash -lc "cd /django/backend && python manage.py migrate"
 docker compose --env-file docker-compose/.env -f docker-compose/app/docker-compose.yml up -d
 docker compose --env-file docker-compose/.env -f docker-compose/app/docker-compose.yml up -d --build diagnostic-probes diagnostic-notifications-consumer diagnostic-warnings-consumer diagnostic-logs-consumer housekeeping
 ```

@@ -262,7 +262,7 @@ run_optional_layer_normalizers() {
   fi
 
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm --no-deps django \
-    bash -lc "cd backend && python manage.py normalize_inkai_structure --layer \"$TARGET_LAYER\""
+    bash -lc "cd /django/backend && python manage.py normalize_inkai_structure --layer \"$TARGET_LAYER\""
 }
 
 if [[ ! -f "$DEMO_DUMP" && -n "$BUNDLE_DIR" && -f "$BUNDLE_DIR/transfer/demo_dump.sql" ]]; then
@@ -402,7 +402,7 @@ if [[ -f "$DEMO_COUCH_JSON" || -f "$TREEVIEW_COUCH_JSON" ]]; then
 fi
 
 if [[ "$OFFLINE_MODE" == "1" ]]; then
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm --no-deps django bash -lc "cd backend && python manage.py migrate"
+  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm --no-deps django bash -lc "cd /django/backend && python manage.py migrate"
   run_optional_layer_normalizers
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d --no-build "${APP_CORE_SERVICES[@]}"
   if (( ${#APP_DIAGNOSTIC_SERVICES[@]} > 0 )); then
@@ -410,7 +410,7 @@ if [[ "$OFFLINE_MODE" == "1" ]]; then
   fi
 else
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" build "${APP_BUILD_SERVICES[@]}"
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm django bash -lc "cd backend && python manage.py migrate"
+  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm django bash -lc "cd /django/backend && python manage.py migrate"
   run_optional_layer_normalizers
   docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d "${APP_CORE_SERVICES[@]}"
   if (( ${#APP_DIAGNOSTIC_SERVICES[@]} > 0 )); then

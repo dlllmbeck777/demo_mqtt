@@ -21,5 +21,5 @@ docker network inspect app_net >/dev/null 2>&1 || docker network create app_net 
 docker compose --env-file "$ENV_FILE" -f "$DB_FILE" up -d
 docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" up -d
 docker compose --env-file "$ENV_FILE" -f "$APP_FILE" build django client
-docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm django bash -lc "cd backend && python manage.py migrate"
+docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm django bash -lc "cd /django/backend && python manage.py migrate"
 docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d

@@ -42,7 +42,7 @@ From the project root:
 
 ```bash
 docker compose up -d --build postgres redis redis-ts couchserver mongodb-timescale
-docker compose run --rm django bash -lc "cd backend && python manage.py migrate"
+docker compose run --rm django bash -lc "cd /django/backend && python manage.py migrate"
 docker compose up -d --build django frontend client
 ```
 

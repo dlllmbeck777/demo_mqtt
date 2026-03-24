@@ -63,7 +63,7 @@
 На сервере открой shell внутри `django` контейнера:
 
 ```bash
-docker compose --env-file docker-compose/.env -f docker-compose/app/docker-compose.yml exec django bash -lc "cd backend && python manage.py shell"
+docker compose --env-file docker-compose/.env -f docker-compose/app/docker-compose.yml exec django bash -lc "cd /django/backend && python manage.py shell"
 ```
 
 Если удобнее работать напрямую в PostgreSQL, ниже есть и SQL-примеры.

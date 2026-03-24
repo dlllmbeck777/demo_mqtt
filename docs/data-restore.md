@@ -68,7 +68,7 @@ You have two fallback options:
 Admin user example:
 
 ```bash
-docker compose run --rm django bash -lc "cd backend && python manage.py createsuperuser"
+docker compose run --rm django bash -lc "cd /django/backend && python manage.py createsuperuser"
 ```
 
 This is enough to enter the system, but it does not restore dashboards, tags, equipment mappings or users from the previous environment.
