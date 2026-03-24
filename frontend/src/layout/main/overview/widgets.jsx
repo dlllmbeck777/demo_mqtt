@@ -13,6 +13,12 @@ import UpdatePopUp from "./updatePopup";
 import Overview from "../../../services/api/overview";
 import { setConfirmation } from "../../../services/reducers/confirmation";
 import "../../../assets/styles/page/overview/widget.scss";
+
+const widgetPropsCache = new Map();
+const widgetPropsPromiseCache = new Map();
+
+const getWidgetCacheKey = (widgetId, culture) => `${culture}:${widgetId}`;
+
 const Widgets = React.forwardRef((props, ref) => {
   const { widget, style, className, children, ...rest } = props;
   const [myclass, setMyClass] = React.useState("");
@@ -24,29 +30,46 @@ const Widgets = React.forwardRef((props, ref) => {
   const [highchartProps, setHighChartProps] = React.useState(null);
   const [refres, setRefres] = React.useState(false);
   const [boxHeight, setBoxHeight] = React.useState(50);
-  async function loadChartProps() {
+  async function loadChartProps({ force = false } = {}) {
     try {
+      const cacheKey = getWidgetCacheKey(widget, CULTURE);
       const body = JSON.stringify({ WIDGET_ID: widget, CULTURE });
 
-      let res = await Overview.getWidget(body);
+      let widgetData;
+
+      if (!force && widgetPropsCache.has(cacheKey)) {
+        widgetData = widgetPropsCache.get(cacheKey);
+      } else {
+        let pendingRequest = widgetPropsPromiseCache.get(cacheKey);
+        if (!pendingRequest || force) {
+          pendingRequest = Overview.getWidget(body).then((res) => res.data);
+          widgetPropsPromiseCache.set(cacheKey, pendingRequest);
+        }
+
+        widgetData = await pendingRequest;
+        widgetPropsCache.set(cacheKey, widgetData);
+        widgetPropsPromiseCache.delete(cacheKey);
+      }
+
       setHighChartProps(() => {
-        return { ...res.data, CULTURE };
+        return { ...widgetData, CULTURE };
       });
       setBoxHeight(
-        res.data["Show Enable Name"] || !res.data["Show Name"]
-          ? res.data["Name Font Size(em)"] === ""
+        widgetData["Show Enable Name"] || !widgetData["Show Name"]
+          ? widgetData["Name Font Size(em)"] === ""
             ? 50
-            : res.data["Name Font Size(em)"] > 50 / 1.5
-            ? res.data["Name Font Size(em)"] * 1.5 + 4
+            : widgetData["Name Font Size(em)"] > 50 / 1.5
+            ? widgetData["Name Font Size(em)"] * 1.5 + 4
             : 50
           : 50
       );
     } catch (err) {
+      widgetPropsPromiseCache.delete(getWidgetCacheKey(widget, CULTURE));
       console.log(err);
     }
   }
   React.useEffect(() => {
-    loadChartProps();
+    loadChartProps({ force: refres });
   }, [refres, CULTURE]);
   const width = parseInt(style.width, 10);
   const height = parseInt(style.height, 10) - boxHeight;
@@ -228,6 +251,8 @@ const Widgets = React.forwardRef((props, ref) => {
               }
               DialogBody={UpdatePopUp}
               refresh={() => {
+                widgetPropsCache.delete(getWidgetCacheKey(widget, CULTURE));
+                widgetPropsPromiseCache.delete(getWidgetCacheKey(widget, CULTURE));
                 setRefres((prev) => !prev);
               }}
               highchartProps={highchartProps}
