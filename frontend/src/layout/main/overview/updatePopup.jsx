@@ -45,42 +45,42 @@ const DialogContent = ({ highchartProps, chartId, refresh, ...rest }) => {
       const widgetTypeKey = `${CULTURE}:${highchartProps.Type}`;
       const buttonTextKey = `${CULTURE}:BUTTON_TEXT`;
 
-      const selectedItemPromise = highchartProps?.CHAR1
-        ? Promise.resolve(highchartProps)
-        : widgetCodeDetailCache.has(widgetTypeKey)
-        ? Promise.resolve(widgetCodeDetailCache.get(widgetTypeKey))
-        : CodelistService.getCodelistDetail({
-            CODE: highchartProps.Type,
-            CULTURE,
-          }).then((res) => {
-            const value = res?.data?.[0] || null;
-            widgetCodeDetailCache.set(widgetTypeKey, value);
-            return value;
-          });
-
-      const typeValuesPromise = dispatch(fillTypeValues(highchartProps.Type));
-
-      if (buttonTextCache.has(buttonTextKey)) {
-        setBtnText(buttonTextCache.get(buttonTextKey));
-      } else {
-        resourceList
-          .getResourcelist({
-            CULTURE,
-            PARENT: "BUTTON_TEXT",
-          })
-          .then((res) => {
-            const value = res?.data || [];
-            buttonTextCache.set(buttonTextKey, value);
-            if (isActive) {
-              setBtnText(value);
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
-
       try {
+        const selectedItemPromise = highchartProps?.CHAR1
+          ? Promise.resolve(highchartProps)
+          : widgetCodeDetailCache.has(widgetTypeKey)
+          ? Promise.resolve(widgetCodeDetailCache.get(widgetTypeKey))
+          : CodelistService.getCodelistDetail({
+              CODE: highchartProps.Type,
+              CULTURE,
+            }).then((res) => {
+              const value = res?.data?.[0] || null;
+              widgetCodeDetailCache.set(widgetTypeKey, value);
+              return value;
+            });
+
+        const typeValuesPromise = dispatch(fillTypeValues(highchartProps.Type));
+
+        if (buttonTextCache.has(buttonTextKey)) {
+          setBtnText(buttonTextCache.get(buttonTextKey));
+        } else {
+          resourceList
+            .getResourcelist({
+              CULTURE,
+              PARENT: "BUTTON_TEXT",
+            })
+            .then((res) => {
+              const value = res?.data || [];
+              buttonTextCache.set(buttonTextKey, value);
+              if (isActive) {
+                setBtnText(value);
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+
         const [nextSelectedItem] = await Promise.all([
           selectedItemPromise,
           typeValuesPromise,

@@ -22,7 +22,7 @@ const buildTypeLabels = (properties, culture) => {
     return typeProp
 }
 
-export const fillTypeValues = async (WIDGET_TYPE) => async (dispatch, getState) => {
+export const fillTypeValues = (WIDGET_TYPE) => async (dispatch, getState) => {
     try {
         const culture = getState().lang.cultur
         let responseData = widgetTypeResponseCache.get(WIDGET_TYPE)
@@ -48,7 +48,7 @@ export const fillTypeValues = async (WIDGET_TYPE) => async (dispatch, getState) 
     }
 }
 
-export const fillProperties = async (WIDGET_TYPE) => async (dispatch, getState) => {
+export const fillProperties = (WIDGET_TYPE) => async (dispatch, getState) => {
     try {
         const culture = getState().lang.cultur
         let responseData = widgetTypeResponseCache.get(WIDGET_TYPE)
