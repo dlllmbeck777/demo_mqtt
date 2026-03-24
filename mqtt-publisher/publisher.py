@@ -50,7 +50,7 @@ def slugify(value: str) -> str:
 
 
 def default_tag_id(layer: str, section: str, position: str) -> str:
-    return f"plant.{slugify(layer)}.{slugify(section)}.{slugify(position)}.current"
+    return f"plant.{slugify(layer)}.{slugify(section)}.{slugify(position)}"
 
 
 def parse_pumps() -> List[Dict[str, str]]:
