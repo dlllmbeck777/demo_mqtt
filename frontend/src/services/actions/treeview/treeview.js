@@ -13,7 +13,6 @@ import axios from "axios"
 
 import { confirmationPushHistory, myHistoryPush } from "../../utils/historyPush"
 import { setGoFunctionConfirmation } from "../confirmation/historyConfirmation"
-import TreeView from "../../api/couch/treeView"
 import ProfileService from "../../api/profile"
 
 const DEFAULT_TREE_VIEW_VALUES = {
@@ -33,19 +32,28 @@ const getOverviewHierarchyKeys = (getState) => {
     const state = getStateSnapshot(getState)
     const layer = String(state?.auth?.user?.active_layer || "Inkai").trim() || "Inkai"
     return {
+        treeViewStateKey: `${layer}:treeviewState`,
+        legacyTreeViewStateKey: "treeviewState",
         overviewHierarchyKey: `${layer}:overviewHierarchy`,
         legacyOverviewHierarchyKey: "overviewHierarchy",
     }
 }
 
+const normalizeTreeViewValues = (values = {}) => ({
+    ...DEFAULT_TREE_VIEW_VALUES,
+    ...(values || {}),
+    overviewHierarchy: Array.isArray(values?.overviewHierarchy)
+        ? values.overviewHierarchy.map((item) => String(item))
+        : DEFAULT_TREE_VIEW_VALUES.overviewHierarchy,
+})
+
 const buildTreeViewDocument = (userId, baseDoc = {}, nextValues = {}) => ({
     _id: userId.toString(),
     ...(baseDoc?._rev ? { _rev: baseDoc._rev } : {}),
-    values: {
-        ...DEFAULT_TREE_VIEW_VALUES,
+    values: normalizeTreeViewValues({
         ...(baseDoc?.values || {}),
         ...nextValues,
-    },
+    }),
 })
 
 const applyOverviewHierarchy = (userId, baseDoc = {}, overviewHierarchy = []) => {
@@ -74,65 +82,57 @@ const loadOverviewHierarchyFromProfile = async (getState) => {
     }
 }
 
-const createTreeViewDocument = async (userId, nextValues = {}) => {
-    const payload = buildTreeViewDocument(userId, {}, nextValues)
+const loadTreeViewDocumentFromProfile = async (userId, getState) => {
     try {
-        const res = await TreeView.create(JSON.stringify(payload))
-        return {
-            ...payload,
-            _rev: res?.data?.rev,
-        }
+        const res = await ProfileService.getState({ key: "overview_settings" })
+        const { treeViewStateKey, legacyTreeViewStateKey } =
+            getOverviewHierarchyKeys(getState)
+        const rawState =
+            res?.data?.overview_settings?.[treeViewStateKey] ??
+            res?.data?.overview_settings?.[legacyTreeViewStateKey] ??
+            {}
+        const baseDoc = rawState?.values ? rawState : { values: rawState }
+        return buildTreeViewDocument(userId, baseDoc)
     } catch (err) {
-        if (err?.response?.status === 409) {
-            const latest = await TreeView.get(userId)
-            return latest.data
-        }
-        throw err
+        console.log(err);
+        return buildTreeViewDocument(userId)
     }
 }
 
-export const ensureTreeViewDocument = async (userId) => {
-    try {
-        const res = await TreeView.get(userId)
-        return buildTreeViewDocument(userId, res.data)
-    } catch (err) {
-        if (err?.response?.status === 404) {
-            return createTreeViewDocument(userId)
+const saveTreeViewDocumentToProfile = async (userId, payload, getState) => {
+    const res = await ProfileService.getState({ key: "overview_settings" })
+    const { treeViewStateKey, legacyTreeViewStateKey } =
+        getOverviewHierarchyKeys(getState)
+
+    await ProfileService.updateProfileSettings({
+        overview_settings: {
+            ...res.data?.overview_settings,
+            [treeViewStateKey]: payload,
+            [legacyTreeViewStateKey]: payload,
         }
-        throw err
-    }
+    })
+
+    return payload
 }
 
-export const persistTreeViewDocument = async (userId, nextValues = {}, currentDoc = {}) => {
+export const ensureTreeViewDocument = async (userId, getState) =>
+    loadTreeViewDocumentFromProfile(userId, getState)
+
+export const persistTreeViewDocument = async (
+    userId,
+    nextValues = {},
+    currentDoc = {},
+    getState,
+) => {
     const payload = buildTreeViewDocument(userId, currentDoc, nextValues)
-    try {
-        const res = await TreeView.update(userId, JSON.stringify(payload))
-        return {
-            ...payload,
-            _rev: res?.data?.rev,
-        }
-    } catch (err) {
-        if (err?.response?.status === 404) {
-            return createTreeViewDocument(userId, nextValues)
-        }
-        if (err?.response?.status === 409) {
-            const latest = await ensureTreeViewDocument(userId)
-            const retryPayload = buildTreeViewDocument(userId, latest, nextValues)
-            const res = await TreeView.update(userId, JSON.stringify(retryPayload))
-            return {
-                ...retryPayload,
-                _rev: res?.data?.rev,
-            }
-        }
-        throw err
-    }
+    return saveTreeViewDocumentToProfile(userId, payload, getState)
 }
 
 export const loadTreeViewWidth = async (path) => async (dispatch, getState) => {
     const state = getStateSnapshot(getState)
     const userId = state?.auth?.user?.id || "anonymous"
     try {
-        let res = await ensureTreeViewDocument(userId)
+        let res = await ensureTreeViewDocument(userId, getState)
         const savedOverviewHierarchy = await loadOverviewHierarchyFromProfile(getState)
         res = applyOverviewHierarchy(userId, res, savedOverviewHierarchy)
         dispatch({
@@ -268,7 +268,7 @@ export const updateTreeViewCouch = (path, value) => async (dispatch, getState) =
         [path]: value,
     }
     try {
-        const savedDoc = await persistTreeViewDocument(userId, nextValues, width)
+        const savedDoc = await persistTreeViewDocument(userId, nextValues, width, getState)
         dispatch({
             type: LOAD_TREE_VIEW_WIDTH,
             payload: savedDoc
@@ -280,7 +280,12 @@ export const updateTreeViewCouch = (path, value) => async (dispatch, getState) =
 export const createTreeViewCouch = () => async (dispatch, getState) => {
     const userId = getState().auth.user.id
     try {
-        const savedDoc = await createTreeViewDocument(userId)
+        const savedDoc = await persistTreeViewDocument(
+            userId,
+            DEFAULT_TREE_VIEW_VALUES,
+            {},
+            getState,
+        )
         dispatch({
             type: LOAD_TREE_VIEW_WIDTH,
             payload: savedDoc

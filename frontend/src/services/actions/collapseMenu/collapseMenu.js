@@ -94,7 +94,12 @@ const persistOverviewHierarchyState = async (dispatch, getState, nextExpanded) =
     }
 
     try {
-        const savedDoc = await persistTreeViewDocument(userId, nextValues, treeViewWidth)
+        const savedDoc = await persistTreeViewDocument(
+            userId,
+            nextValues,
+            treeViewWidth,
+            getState,
+        )
         dispatch({
             type: LOAD_TREE_VIEW_WIDTH,
             payload: savedDoc
@@ -256,8 +261,14 @@ export const checkLastOpenItem = () => async (dispatch, getState) => {
             }
         }
 
-
     } catch {
-
+        dispatch(cleanTabs())
+        dispatch({
+            type: SET_SELECTED_COLLAPSE_MENU_ITEM,
+            payload: null
+        })
+        if (window.location.pathname.startsWith("/overview")) {
+            history.push("/overview")
+        }
     }
 }
