@@ -9,6 +9,10 @@ ENV_FILE="$ROOT_DIR/docker-compose/.env"
 APP_FILE="${APP_FILE:-$ROOT_DIR/docker-compose/app/docker-compose.production.yml}"
 DATA_FILE="$ROOT_DIR/docker-compose/data/docker-compose.yml"
 PROJECT_ARCHIVE="$BUNDLE_DIR/demo_mqtt-project.tar.gz"
+BUNDLE_ENV_SNAPSHOT="$BUNDLE_DIR/docker-compose.env"
+IMAGE_LIST_FILE="$BUNDLE_DIR/images.txt"
+VERSION_FILE="$BUNDLE_DIR/VERSION.txt"
+MANIFEST_FILE="$BUNDLE_DIR/bundle-manifest.json"
 
 case "$MODE" in
   light|pipeline|full)
@@ -25,7 +29,7 @@ if [[ ! -f "$ENV_FILE" ]]; then
 fi
 
 mkdir -p "$BUNDLE_DIR/transfer"
-rm -f "$BUNDLE_DIR"/*.tar "$PROJECT_ARCHIVE"
+rm -f "$BUNDLE_DIR"/*.tar "$PROJECT_ARCHIVE" "$BUNDLE_ENV_SNAPSHOT" "$IMAGE_LIST_FILE" "$VERSION_FILE" "$MANIFEST_FILE"
 
 light_images=(
   "postgres:11.20-alpine"
@@ -60,6 +64,17 @@ docker_pull_if_missing() {
   if ! docker image inspect "$image" >/dev/null 2>&1; then
     echo "Pulling $image"
     docker pull "$image"
+  fi
+}
+
+git_value_or_default() {
+  local command="$1"
+  local default_value="$2"
+
+  if git -C "$ROOT_DIR" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    eval "$command" 2>/dev/null || printf '%s' "$default_value"
+  else
+    printf '%s' "$default_value"
   fi
 }
 
@@ -106,6 +121,76 @@ copy_transfer_file() {
   fi
 }
 
+copy_env_snapshot() {
+  if [[ -f "$ENV_FILE" ]]; then
+    cp -f "$ENV_FILE" "$BUNDLE_ENV_SNAPSHOT"
+    echo "Copied docker-compose/.env"
+  fi
+}
+
+write_image_list() {
+  printf '%s\n' "${images[@]}" > "$IMAGE_LIST_FILE"
+}
+
+write_bundle_metadata() {
+  local created_at
+  local git_branch
+  local git_commit
+  local git_dirty
+  local release_name
+
+  created_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  git_branch="$(git_value_or_default "git -C \"$ROOT_DIR\" branch --show-current" "unknown")"
+  git_commit="$(git_value_or_default "git -C \"$ROOT_DIR\" rev-parse HEAD" "unknown")"
+
+  if git -C "$ROOT_DIR" diff --quiet --ignore-submodules HEAD -- 2>/dev/null && \
+     git -C "$ROOT_DIR" diff --cached --quiet --ignore-submodules -- 2>/dev/null; then
+    git_dirty="false"
+  else
+    git_dirty="true"
+  fi
+
+  release_name="${RELEASE_NAME:-offline-${MODE}-$(printf '%s' "$git_commit" | cut -c1-12)-$(date -u +%Y%m%d-%H%M%S)}"
+
+  cat > "$VERSION_FILE" <<EOF
+release_name=$release_name
+mode=$MODE
+created_at_utc=$created_at
+git_branch=$git_branch
+git_commit=$git_commit
+git_dirty=$git_dirty
+project_archive=$(basename "$PROJECT_ARCHIVE")
+env_snapshot=$(basename "$BUNDLE_ENV_SNAPSHOT")
+EOF
+
+  python3 - "$MANIFEST_FILE" "$release_name" "$MODE" "$created_at" "$git_branch" "$git_commit" "$git_dirty" "$PROJECT_ARCHIVE" "$BUNDLE_ENV_SNAPSHOT" "$IMAGE_LIST_FILE" <<'PY'
+import json
+import os
+import sys
+
+manifest_path, release_name, mode, created_at, git_branch, git_commit, git_dirty, archive_path, env_snapshot, image_list_path = sys.argv[1:]
+
+with open(image_list_path, "r", encoding="utf-8") as handle:
+    images = [line.strip() for line in handle if line.strip()]
+
+payload = {
+    "release_name": release_name,
+    "mode": mode,
+    "created_at_utc": created_at,
+    "git_branch": git_branch,
+    "git_commit": git_commit,
+    "git_dirty": git_dirty.lower() == "true",
+    "project_archive": os.path.basename(archive_path),
+    "env_snapshot": os.path.basename(env_snapshot),
+    "images": images,
+}
+
+with open(manifest_path, "w", encoding="utf-8") as handle:
+    json.dump(payload, handle, indent=2)
+    handle.write("\n")
+PY
+}
+
 build_bundle_scripts() {
   cat > "$BUNDLE_DIR/load-all-images.sh" <<'EOF'
 #!/usr/bin/env bash
@@ -129,6 +214,8 @@ BUNDLE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DEPLOY_ROOT="${DEPLOY_ROOT:-$HOME/offline_bundle_deploy}"
 PROJECT_DIR="${PROJECT_DIR:-$DEPLOY_ROOT/demo_mqtt}"
 PROJECT_ARCHIVE="$BUNDLE_DIR/demo_mqtt-project.tar.gz"
+ENV_SNAPSHOT="$BUNDLE_DIR/docker-compose.env"
+VERSION_FILE="$BUNDLE_DIR/VERSION.txt"
 SERVER_IP="${SERVER_IP:-$(hostname -I | awk '{print $1}')}"
 TARGET_LAYER="${TARGET_LAYER:-Inkai}"
 STACK_MODE="${STACK_MODE:-__DEFAULT_STACK_MODE__}"
@@ -148,7 +235,18 @@ mkdir -p "$PROJECT_DIR"
 tar -xzf "$PROJECT_ARCHIVE" -C "$PROJECT_DIR"
 
 cd "$PROJECT_DIR"
+
+if [[ -f "$ENV_SNAPSHOT" ]]; then
+  mkdir -p docker-compose
+  cp -f "$ENV_SNAPSHOT" docker-compose/.env
+fi
+
 chmod +x scripts/bootstrap-historical-stack.sh scripts/restore-demo-horasan.sh
+
+if [[ -f "$VERSION_FILE" ]]; then
+  echo "Deploying bundle:"
+  cat "$VERSION_FILE"
+fi
 
 BUNDLE_DIR="$BUNDLE_DIR" TARGET_LAYER="$TARGET_LAYER" STACK_MODE="$STACK_MODE" \
   ./scripts/bootstrap-historical-stack.sh \
@@ -196,6 +294,9 @@ copy_transfer_file "$ROOT_DIR/transfer/demo_db.json"
 copy_transfer_file "$ROOT_DIR/transfer/treeviewstate_db.json"
 
 archive_project
+copy_env_snapshot
+write_image_list
+write_bundle_metadata
 build_bundle_scripts
 
 cat <<EOF
@@ -203,6 +304,8 @@ Offline bundle created.
 
 Mode: $MODE
 Bundle dir: $BUNDLE_DIR
+Version file: $VERSION_FILE
+Manifest: $MANIFEST_FILE
 
 On the target server:
   1. copy the whole bundle directory
