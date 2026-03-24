@@ -14,8 +14,16 @@ env = environ.Env(DEBUG=(bool, False))
 
 
 class WSConsumeTagsStatus(AsyncWebsocketConsumer):
+    async def _stop_task(self):
+        task = getattr(self, "task", None)
+        if task and not task.done():
+            task.cancel()
+            try:
+                await task
+            except asyncio.CancelledError:
+                pass
+
     async def send_messages(self):
-        print("burda")
         try:
             while self.is_active:
                 status = []
@@ -39,12 +47,13 @@ class WSConsumeTagsStatus(AsyncWebsocketConsumer):
         await self.accept()
         self.is_active = True
         self.tag_names = []
-        # self.task = asyncio.create_task(self.send_messages())
+        self.task = None
 
     async def receive(self, text_data):
         try:
             self.tag_names = json.loads(text_data)
 
+            await self._stop_task()
             self.task = asyncio.create_task(self.send_messages())
         except Exception as e:
             print("hata burda")
@@ -54,7 +63,7 @@ class WSConsumeTagsStatus(AsyncWebsocketConsumer):
     async def disconnect(self, close_code):
         try:
             self.is_active = False
-            self.task.cancel()
+            await self._stop_task()
             print("disconnect", close_code)
         except BaseException as e:
             print(e)

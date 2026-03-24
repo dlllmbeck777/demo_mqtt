@@ -14,6 +14,15 @@ env = environ.Env(DEBUG=(bool, False))
 
 
 class WSConsumeOnlyLastData(AsyncWebsocketConsumer):
+    async def _stop_task(self):
+        task = getattr(self, "task", None)
+        if task and not task.done():
+            task.cancel()
+            try:
+                await task
+            except asyncio.CancelledError:
+                pass
+
     async def send_messages(self):
         try:
             while self.is_active:
@@ -47,13 +56,14 @@ class WSConsumeOnlyLastData(AsyncWebsocketConsumer):
         await self.accept()
         self.is_active = True
         self.times = self.scope["url_route"]["kwargs"]["times"]
-        # self.task = asyncio.create_task(self.send_messages())
+        self.task = None
 
     async def receive(self, text_data):
         try:
             tag_names = json.loads(text_data)
 
             self.tag_name = tag_names[0]
+            await self._stop_task()
             self.task = asyncio.create_task(self.send_messages())
         except Exception as e:
             print("hata burda")
@@ -63,7 +73,7 @@ class WSConsumeOnlyLastData(AsyncWebsocketConsumer):
     async def disconnect(self, close_code):
         try:
             self.is_active = False
-            self.task.cancel()
+            await self._stop_task()
             print("disconnect", close_code)
         except BaseException as e:
             print(e)
