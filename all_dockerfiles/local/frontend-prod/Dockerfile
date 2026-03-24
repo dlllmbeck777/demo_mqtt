@@ -2,6 +2,12 @@ FROM node:18-alpine AS builder
 
 WORKDIR /frontend
 
+ARG FRONTEND_NODE_OPTIONS=--max-old-space-size=4096
+ARG FRONTEND_GENERATE_SOURCEMAP=false
+
+ENV NODE_OPTIONS=${FRONTEND_NODE_OPTIONS}
+ENV GENERATE_SOURCEMAP=${FRONTEND_GENERATE_SOURCEMAP}
+
 COPY ./frontend/package.json ./frontend/package-lock.json ./
 RUN npm config set legacy-peer-deps true
 RUN npm ci --no-audit --no-fund
