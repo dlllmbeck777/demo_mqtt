@@ -1,5 +1,6 @@
 import os
 import logging
+import importlib.util
 import environ
 from datetime import timedelta
 from rest_framework.settings import api_settings
@@ -80,7 +81,6 @@ THIRD_PARTY_APPS = [
     "health_check.db",  # stock Django health checkers
     "health_check.cache",
     "health_check.storage",
-    "rosetta",
     "modeltranslation",
     # "oauth2_provider",
     "dj_rest_auth",
@@ -92,6 +92,11 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount.providers.github",
     "celery",
 ]
+
+if importlib.util.find_spec("rosetta") is not None:
+    THIRD_PARTY_APPS.append("rosetta")
+else:
+    logger.warning("django-rosetta is not installed; skipping rosetta app")
 ELASTICSEARCH_DSL = {}
 ELASTICSEARCH_HOST = os.environ.get("Elastic_Search_Host", "").strip()
 if ELASTICSEARCH_HOST:
