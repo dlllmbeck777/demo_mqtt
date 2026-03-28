@@ -8,6 +8,7 @@ if [[ $# -lt 2 ]]; then
 fi
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+source "$ROOT_DIR/scripts/compose-compat.sh"
 DEFAULT_DUMP="$1"
 LAYER_DUMP="$2"
 ENV_FILE="${ROOT_DIR}/docker-compose/.env"
@@ -17,6 +18,8 @@ APP_FILE="${APP_FILE:-${ROOT_DIR}/docker-compose/app/docker-compose.production.y
 if [[ ! -f "$ENV_FILE" ]]; then
   ENV_FILE="${ROOT_DIR}/.env"
 fi
+
+resolve_compose_runtime
 
 if [[ ! -f "$DEFAULT_DUMP" ]]; then
   echo "Default dump not found: $DEFAULT_DUMP"
@@ -195,7 +198,7 @@ COMMIT;
 SQL
 }
 
-docker compose --env-file "$ENV_FILE" -f "$DB_FILE" up -d postgres >/dev/null
+compose_cmd -f "$DB_FILE" up -d postgres >/dev/null
 
 docker cp "$DEFAULT_DUMP" "${CONTAINER_NAME}:/tmp/default_restore.sql"
 docker cp "$LAYER_DUMP" "${CONTAINER_NAME}:/tmp/layer_restore.sql"
@@ -213,7 +216,7 @@ docker exec "$CONTAINER_NAME" rm -f /tmp/default_restore.sql /tmp/layer_restore.
 
 normalize_layer_metadata
 
-docker compose --env-file "$ENV_FILE" -f "$APP_FILE" restart django >/dev/null 2>&1 || true
+compose_cmd -f "$APP_FILE" restart django >/dev/null 2>&1 || true
 
 cat <<EOF
 Restore completed.
@@ -224,5 +227,5 @@ PG_USER=${PG_USER_NAME}
 PG_PASS=${TARGET_PASSWORD}
 
 Then restart the app stack if needed:
-docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d django client
+compose_cmd -f "$APP_FILE" up -d django client
 EOF

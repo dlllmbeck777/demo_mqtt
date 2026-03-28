@@ -3,6 +3,7 @@
 set -Eeuo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+source "$ROOT_DIR/scripts/compose-compat.sh"
 MODE="${1:-${BUNDLE_MODE:-pipeline}}"
 BUNDLE_DIR="${BUNDLE_DIR:-$ROOT_DIR/offline_bundle}"
 ENV_FILE="$ROOT_DIR/docker-compose/.env"
@@ -27,6 +28,8 @@ esac
 if [[ ! -f "$ENV_FILE" ]]; then
   cp "$ROOT_DIR/docker-compose/.env.example" "$ENV_FILE"
 fi
+
+resolve_compose_runtime
 
 mkdir -p "$BUNDLE_DIR/transfer"
 rm -f "$BUNDLE_DIR"/*.tar "$PROJECT_ARCHIVE" "$BUNDLE_ENV_SNAPSHOT" "$IMAGE_LIST_FILE" "$VERSION_FILE" "$MANIFEST_FILE"
@@ -80,16 +83,16 @@ git_value_or_default() {
 
 build_local_images() {
   echo "Building local app images"
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" build django client
+  compose_cmd -f "$APP_FILE" build django client
 
   if [[ "$MODE" == "pipeline" || "$MODE" == "full" ]]; then
     echo "Building pipeline simulation images"
-    docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" build nifi
+    compose_cmd -f "$DATA_FILE" build nifi
   fi
 
   if [[ "$MODE" == "full" ]]; then
     echo "Building full data-stack images"
-    docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" build connect
+    compose_cmd -f "$DATA_FILE" build connect
   fi
 }
 

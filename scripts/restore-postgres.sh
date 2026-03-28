@@ -7,6 +7,13 @@ if [[ $# -lt 1 ]]; then
   exit 1
 fi
 
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ENV_FILE="${ENV_FILE:-$ROOT_DIR/docker-compose/.env}"
+DB_FILE="${DB_FILE:-$ROOT_DIR/docker-compose/db/docker-compose.yml}"
+APP_FILE="${APP_FILE:-$ROOT_DIR/docker-compose/app/docker-compose.production.yml}"
+source "$ROOT_DIR/scripts/compose-compat.sh"
+resolve_compose_runtime
+
 DUMP_PATH="$1"
 CONTAINER_NAME="${POSTGRES_CONTAINER_NAME:-ligeiaai-postgres-1}"
 TEMP_PATH="/tmp/restore-input"
@@ -16,7 +23,7 @@ if [[ ! -f "$DUMP_PATH" ]]; then
   exit 1
 fi
 
-docker compose up -d postgres >/dev/null
+compose_cmd -f "$DB_FILE" up -d postgres >/dev/null
 docker cp "$DUMP_PATH" "${CONTAINER_NAME}:${TEMP_PATH}"
 
 case "$DUMP_PATH" in
@@ -31,6 +38,6 @@ case "$DUMP_PATH" in
 esac
 
 docker exec -i "$CONTAINER_NAME" rm -f "$TEMP_PATH"
-docker compose restart django >/dev/null
+compose_cmd -f "$APP_FILE" restart django >/dev/null
 
 echo "PostgreSQL restore completed."

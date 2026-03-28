@@ -10,6 +10,7 @@ if [[ $# -lt 1 ]]; then
 fi
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+source "$ROOT_DIR/scripts/compose-compat.sh"
 SERVER_IP="$1"
 DEMO_DUMP="${2:-$ROOT_DIR/transfer/demo_dump.sql}"
 HORASAN_DUMP="${3:-$ROOT_DIR/transfer/horasan_dump.sql}"
@@ -39,6 +40,8 @@ esac
 if [[ ! -f "$ENV_FILE" ]]; then
   cp "$ROOT_DIR/docker-compose/.env.example" "$ENV_FILE"
 fi
+
+resolve_compose_runtime
 
 set_env() {
   local key="$1"
@@ -147,13 +150,13 @@ recreate_couch_volume() {
   local container_id=""
   local volume_name=""
 
-  container_id="$(docker compose --env-file "$ENV_FILE" -f "$DB_FILE" ps -q couchserver 2>/dev/null || true)"
+  container_id="$(compose_cmd -f "$DB_FILE" ps -q couchserver 2>/dev/null || true)"
 
   if [[ -n "$container_id" ]]; then
     volume_name="$(docker inspect --format '{{range .Mounts}}{{if and (eq .Type "volume") (eq .Destination "/opt/couchdb/data")}}{{.Name}}{{end}}{{end}}' "$container_id" 2>/dev/null || true)"
   fi
 
-  docker compose --env-file "$ENV_FILE" -f "$DB_FILE" stop couchserver >/dev/null 2>&1 || true
+  compose_cmd -f "$DB_FILE" stop couchserver >/dev/null 2>&1 || true
 
   if [[ -n "$container_id" ]]; then
     docker rm -f "$container_id" >/dev/null 2>&1 || true
@@ -164,7 +167,7 @@ recreate_couch_volume() {
     docker volume rm -f "$volume_name" >/dev/null 2>&1 || true
   fi
 
-  docker compose --env-file "$ENV_FILE" -f "$DB_FILE" up -d couchserver >/dev/null
+  compose_cmd -f "$DB_FILE" up -d couchserver >/dev/null
 }
 
 load_offline_images() {
@@ -261,7 +264,7 @@ run_optional_layer_normalizers() {
     return 0
   fi
 
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm --no-deps django \
+  compose_cmd -f "$APP_FILE" run --rm --no-deps django \
     bash -lc "cd /django/backend && python manage.py normalize_inkai_structure --layer \"$TARGET_LAYER\""
 }
 
@@ -368,14 +371,14 @@ mapfile -t APP_DIAGNOSTIC_SERVICES < <(app_diagnostic_services || true)
 
 docker network inspect app_net >/dev/null 2>&1 || docker network create app_net >/dev/null
 
-docker compose --env-file "$ENV_FILE" -f "$DB_FILE" up -d "${DB_SERVICES[@]}"
+compose_cmd -f "$DB_FILE" up -d "${DB_SERVICES[@]}"
 if [[ "$OFFLINE_MODE" == "1" ]]; then
-  docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" up -d --no-build "${DATA_SERVICES[@]}"
+  compose_cmd -f "$DATA_FILE" up -d --no-build "${DATA_SERVICES[@]}"
 else
   if (( ${#DATA_BUILD_SERVICES[@]} > 0 )); then
-    docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" build "${DATA_BUILD_SERVICES[@]}"
+    compose_cmd -f "$DATA_FILE" build "${DATA_BUILD_SERVICES[@]}"
   fi
-  docker compose --env-file "$ENV_FILE" -f "$DATA_FILE" up -d "${DATA_SERVICES[@]}"
+  compose_cmd -f "$DATA_FILE" up -d "${DATA_SERVICES[@]}"
 fi
 
 chmod +x "$RESTORE_SCRIPT"
@@ -402,19 +405,19 @@ if [[ -f "$DEMO_COUCH_JSON" || -f "$TREEVIEW_COUCH_JSON" ]]; then
 fi
 
 if [[ "$OFFLINE_MODE" == "1" ]]; then
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm --no-deps django bash -lc "cd /django/backend && python manage.py migrate"
+  compose_cmd -f "$APP_FILE" run --rm --no-deps django bash -lc "cd /django/backend && python manage.py migrate"
   run_optional_layer_normalizers
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d --no-build "${APP_CORE_SERVICES[@]}"
+  compose_cmd -f "$APP_FILE" up -d --no-build "${APP_CORE_SERVICES[@]}"
   if (( ${#APP_DIAGNOSTIC_SERVICES[@]} > 0 )); then
-    docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d --no-build "${APP_DIAGNOSTIC_SERVICES[@]}"
+    compose_cmd -f "$APP_FILE" up -d --no-build "${APP_DIAGNOSTIC_SERVICES[@]}"
   fi
 else
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" build "${APP_BUILD_SERVICES[@]}"
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" run --rm django bash -lc "cd /django/backend && python manage.py migrate"
+  compose_cmd -f "$APP_FILE" build "${APP_BUILD_SERVICES[@]}"
+  compose_cmd -f "$APP_FILE" run --rm django bash -lc "cd /django/backend && python manage.py migrate"
   run_optional_layer_normalizers
-  docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d "${APP_CORE_SERVICES[@]}"
+  compose_cmd -f "$APP_FILE" up -d "${APP_CORE_SERVICES[@]}"
   if (( ${#APP_DIAGNOSTIC_SERVICES[@]} > 0 )); then
-    docker compose --env-file "$ENV_FILE" -f "$APP_FILE" up -d "${APP_DIAGNOSTIC_SERVICES[@]}"
+    compose_cmd -f "$APP_FILE" up -d "${APP_DIAGNOSTIC_SERVICES[@]}"
   fi
 fi
 
